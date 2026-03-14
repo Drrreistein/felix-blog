@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="The Power of Simple Code - Your Name's Thoughts and Writings" data-zh="The Power of Simple Code - 你的名字 的思考与写作">The Power of Simple Code - Your Name's Thoughts and Writings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部装饰条 -->
+    <div class="top-decoration">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="#1e40af" fill-opacity="0.8" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,0 L0,0 Z"></path>
+            <path fill="#3b82f6" fill-opacity="0.6" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1440,60 L1440,0 L0,0 Z"></path>
+            <path fill="#60a5fa" fill-opacity="0.4" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1280,85 1440,75 L1440,0 L0,0 Z"></path>
+        </svg>
+    </div>
+
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="blog-identity">
+                <div class="avatar-container">
+                    <video autoplay muted loop playsinline class="avatar avatar-video">
+                        <source src="Bark.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <h1 class="blog-title" data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</h1>
+            </div>
+            <nav class="navigation">
+                <a href="index.html#blog" data-en="blog" data-zh="博客">blog</a>
+                <a href="archive.html" data-en="archive" data-zh="归档">archive</a>
+                <a href="projects.html" data-en="projects" data-zh="项目">projects</a>
+                <a href="about.html" data-en="about" data-zh="关于">about</a>
+            </nav>
+            <button class="lang-switch" id="langSwitch">中文</button>
+        </div>
+    </header>
+
+    <!-- 文章主体区 -->
+    <main class="main-content">
+        <article class="article">
+            <h1 class="article-title article-title-full">The Power of Simple Code</h1>
+            <p class="article-date">
+                <span class="date-text" data-en="written on March 15, 2026" data-zh="写于 2026年03月15日">written on March 15, 2026</span>
+            </p>
+            
+            <div class="article-body">
+                <h1>The Power of Simple Code</h1>
+<p>In a world of complex systems and fancy frameworks, sometimes the best solution is the simplest one.</p>
+<h2>Why Simplicity Matters</h2>
+<p>Simple code is easier to understand, easier to maintain, and easier to debug. As the saying goes:</p>
+<blockquote>"Simplicity is the ultimate sophistication." — Leonardo da Vinci</blockquote>
+<h3>Benefits of Simple Code</h3>
+<p>- <strong>Faster development</strong>: Less code means less time writing it
+- <strong>Fewer bugs</strong>: Simpler logic has fewer edge cases
+- <strong>Better maintainability</strong>: New team members can understand it quickly
+- <strong>Improved performance</strong>: Less overhead and complexity</p>
+<h2>How to Write Simple Code</h2>
+<p>Writing simple code is actually harder than writing complex code. It requires discipline and practice.</p>
+<h3>Start with the Problem</h3>
+<p>Before writing any code, ask yourself:</p>
+<p>1. What problem am I trying to solve?
+2. What's the simplest solution?
+3. Can I explain this in one sentence?</p>
+<h3>Avoid Premature Optimization</h3>
+<pre><code><h1>Bad: Prematurely optimized</h1>
+def is_prime_optimized(n):
+    if n < 2: return False
+    if n == 2: return True
+    if n % 2 == 0: return False
+    for i in range(3, int(n<strong>0.5) + 1, 2):
+        if n % i == 0: return False
+    return True
+<h1>Good: Simple and readable</h1>
+def is_prime_simple(n):
+    if n < 2: return False
+    for i in range(2, int(n</strong>0.5) + 1):
+        if n % i == 0: return False
+    return True
+</code></pre>
+<p>The simple version may be slightly slower, but it's much easier to understand and verify.</p>
+<h2>Conclusion</h2>
+<p>Simple code isn't about being lazy—it's about being thoughtful. Every line of code you don't write is a line you don't have to debug, test, or maintain.</p>
+<p>Next time you're tempted to add complexity, pause and ask: "Is there a simpler way?"</p>
+            </div>
+            
+            <!-- 标签区 -->
+            <div class="article-tags">
+                <span class="tag">Programming</span>
+<span class="tag">Best Practices</span>
+<span class="tag">Code Quality</span>
+            </div>
+        </article>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright" data-en="© 2026 Your Name. All rights reserved." data-zh="© 2026 你的名字。保留所有权利。">© 2026 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
