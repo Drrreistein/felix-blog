@@ -109,7 +109,7 @@ def generate_article_html(metadata, body, slug):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-en="{title} - Your Name's Thoughts and Writings" data-zh="{title} - 你的名字 的思考与写作">{title} - Your Name's Thoughts and Writings</title>
+    <title data-en="{title} - Felix Xu's Thoughts and Writings" data-zh="{title} - 磊 的思考与写作">{title} - Felix Xu's Thoughts and Writings</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,7 +134,7 @@ def generate_article_html(metadata, body, slug):
                         <source src="Bark.mp4" type="video/mp4">
                     </video>
                 </div>
-                <h1 class="blog-title" data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</h1>
+                <h1 class="blog-title" data-en="Felix Xu's Thoughts and Writings" data-zh="磊 的思考与写作">Felix Xu's Thoughts and Writings</h1>
             </div>
             <nav class="navigation">
                 <a href="index.html#blog" data-en="blog" data-zh="博客">blog</a>
@@ -168,7 +168,7 @@ def generate_article_html(metadata, body, slug):
     <!-- 底部 -->
     <footer class="footer">
         <div class="footer-content">
-            <p class="copyright" data-en="© 2026 Your Name. All rights reserved." data-zh="© 2026 你的名字。保留所有权利。">© 2026 Your Name. All rights reserved.</p>
+            <p class="copyright" data-en="© 2026 Felix Xu. All rights reserved." data-zh="© 2026 磊。保留所有权利。">© 2026 Felix Xu. All rights reserved.</p>
         </div>
     </footer>
 
