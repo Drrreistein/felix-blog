@@ -1,0 +1,32 @@
+{
+  "articles": [
+    {
+      "id": "ai-ship-of-theseus",
+      "slug": "ai-ship-of-theseus",
+      "date": "2026-03-05",
+      "tags": ["AI", "Software Engineering", "Open Source"],
+      "title": {
+        "en": "AI And The Ship of Theseus",
+        "zh": "AI 与忒修斯之船"
+      },
+      "content": {
+        "en": "Because code gets cheaper and cheaper to write, this includes re-implementations...",
+        "zh": "因为编写代码的成本越来越低，这也包括了重新实现..."
+      }
+    },
+    {
+      "id": "future-of-programming",
+      "slug": "future-of-programming",
+      "date": "2026-02-20",
+      "tags": ["Programming", "Career", "Technology"],
+      "title": {
+        "en": "The Future of Programming in the AI Era",
+        "zh": "AI 时代编程的未来"
+      },
+      "content": {
+        "en": "As AI tools become more sophisticated...",
+        "zh": "随着 AI 工具变得越来越复杂..."
+      }
+    }
+  ]
+}

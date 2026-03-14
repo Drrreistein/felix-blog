@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Understanding Open Source Licensing - Your Name's Thoughts and Writings" data-zh="理解开源许可 - 你的名字 的思考与写作">Understanding Open Source Licensing - Your Name's Thoughts and Writings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部装饰条 -->
+    <div class="top-decoration">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="#1e40af" fill-opacity="0.8" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,0 L0,0 Z"></path>
+            <path fill="#3b82f6" fill-opacity="0.6" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1440,60 L1440,0 L0,0 Z"></path>
+            <path fill="#60a5fa" fill-opacity="0.4" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1280,85 1440,75 L1440,0 L0,0 Z"></path>
+        </svg>
+    </div>
+
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="blog-identity">
+                <div class="avatar-container"><video autoplay muted loop playsinline class="avatar avatar-video"><source src="Bark.mp4" type="video/mp4"></video></div>
+                <h1 class="blog-title" data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</h1>
+            </div>
+            <nav class="navigation">
+                <a href="index.html#blog" data-en="blog" data-zh="博客">blog</a>
+                <a href="archive.html" data-en="archive" data-zh="归档">archive</a>
+                <a href="projects.html" data-en="projects" data-zh="项目">projects</a>
+                <a href="about.html" data-en="about" data-zh="关于">about</a>
+            </nav>
+            <button class="lang-switch" id="langSwitch">中文</button>
+        </div>
+    </header>
+
+    <!-- 文章主体区 -->
+    <main class="main-content">
+        <article class="article">
+            <h1 class="article-title article-title-full" data-en="Understanding Open Source Licensing" data-zh="理解开源许可">Understanding Open Source Licensing</h1>
+            <p class="article-date">
+                <span class="date-text" data-en="written on February 10, 2026" data-zh="写于 2026年02月10日">written on February 10, 2026</span>
+            </p>
+            
+            <div class="article-body">
+                <div class="content-en">
+                    <p>Open source licensing is one of those topics that many developers know they should understand better but often put off learning. It's easy to think of licenses as legal boilerplate—text that needs to be included in a repository but doesn't really affect day-to-day development. This perspective, however, can lead to serious problems down the road, especially as projects grow and attract contributors, users, and potentially commercial interest.</p>
+                    
+                    <p>At its core, open source licensing is about permissions and obligations. When you create software, you automatically hold copyright over it. Without a license, no one else has the right to use, modify, or distribute your code. An open source license grants these permissions to others, but it can also impose certain conditions. Understanding these conditions is crucial for both creators and users of open source software.</p>
+                    
+                    <h2>The Spectrum of Open Source Licenses</h2>
+                    
+                    <p>Open source licenses exist on a spectrum from highly permissive to highly protective. On the permissive end, licenses like MIT, BSD, and Apache 2.0 impose minimal restrictions. They essentially say: "You can do whatever you want with this code, as long as you include the original license and don't hold the authors liable." This simplicity makes them popular for libraries and tools that developers want to see widely adopted.</p>
+                    
+                    <p>On the protective end, licenses like the GNU General Public License (GPL) take a different approach. They grant broad permissions but require that any derivative works also be licensed under the same terms. This "copyleft" mechanism ensures that the software and its derivatives remain free and open. It's a powerful tool for building communities around projects, but it can create complications for commercial use.</p>
+                    
+                    <pre><code>// License compatibility matters!
+
+// MIT License - Permissive
+// "Use it however you want, just keep the license"
+
+// GPL License - Copyleft
+// "Use it, but derivative works must also be GPL"
+
+// Example: You can include MIT code in a proprietary project
+// But you CANNOT include GPL code in a proprietary project
+// This is why license choice matters for adoption</code></pre>
+                    
+                    <h2>Copyleft: Strong and Weak</h2>
+                    
+                    <p>The GPL represents "strong copyleft"—it applies to the entire work when GPL-licensed code is combined with other code. This means if you include a GPL library in your application, your entire application might need to be licensed under the GPL. For companies that want to keep their source code proprietary, this is often a deal-breaker.</p>
+                    
+                    <p>"Weak copyleft" licenses like the Mozilla Public License (MPL) or GNU Lesser General Public License (LGPL) take a middle ground. They require modifications to the original licensed files to be shared, but they allow the larger work to remain under a different license. This makes them more suitable for libraries that need broader adoption while still protecting the core open source component.</p>
+                    
+                    <p>Understanding this distinction is crucial when choosing dependencies. A permissively licensed library can be used almost anywhere, but a GPL library might limit your options. This doesn't mean GPL is "worse"—it just has different goals. GPL is excellent for ensuring that software remains free, but it's not always the right choice for every situation.</p>
+                    
+                    <blockquote>
+                        "Choosing a license isn't just a legal decision—it's a statement about your values and goals for the project."
+                    </blockquote>
+                    
+                    <h2>Common Pitfalls and How to Avoid Them</h2>
+                    
+                    <p>One of the most common mistakes developers make is not including any license at all. This might seem like it leaves things open, but legally it means "all rights reserved"—the opposite of open source. If you want your code to be open source, you must explicitly choose and include a license. GitHub and other platforms now prompt you to add a license, recognizing how common this mistake is.</p>
+                    
+                    <p>Another pitfall is mixing incompatible licenses. For example, you can't combine GPL-2.0-only code with Apache 2.0 code, because the GPL-2.0's restrictions conflict with the patent grant in Apache 2.0. License compatibility is a complex topic, but tools like the SPDX License List and various compatibility matrices can help you navigate it.</p>
+                    
+                    <p>Transitive dependencies can also create issues. Your project might use a permissive MIT library, but that library might depend on a GPL-licensed one. Understanding the full dependency tree and its licensing implications is essential for any serious project.</p>
+                    
+                    <h2>Making Informed Decisions</h2>
+                    
+                    <p>When choosing a license for your own project, consider your goals. Do you want maximum adoption, even in proprietary software? A permissive license might be best. Do you want to ensure your code remains open and that improvements are shared back to the community? A copyleft license might be more appropriate. Are you building a library that needs to be usable in many contexts? Consider a weak copyleft or permissive license.</p>
+                    
+                    <p>When using open source software, always check the license before incorporating it. Understand what obligations it imposes and whether those obligations are compatible with your project's goals and licensing. Most importantly, comply with the terms—this usually means including the license text and any required attributions in your distribution.</p>
+                    
+                    <p>Finally, remember that licenses can have implications beyond the legal. They signal to the community what kind of project you're building and what kind of ecosystem you want to foster. Choose thoughtfully, and your license will be an asset rather than an afterthought.</p>
+                    
+                    <h2>The Future of Open Source Licensing</h2>
+                    
+                    <p>The landscape of open source licensing continues to evolve. New licenses like the Server Side Public License (SSPL) and the Business Source License (BSL) have emerged to address concerns about companies profiting from open source software without contributing back. These licenses aren't technically "open source" according to the OSI definition, but they represent an important part of the conversation about sustainability in open source.</p>
+                    
+                    <p>As AI-assisted development becomes more prevalent, questions about licensing are becoming even more complex. When an AI is trained on open source code and generates new code, what license applies? How do attribution requirements translate to AI-generated output? These questions don't have clear answers yet, but they're shaping the future of how we think about code ownership and sharing.</p>
+                    
+                    <p>Understanding open source licensing isn't just about avoiding legal trouble—it's about being a good citizen in the software development community. By respecting licenses and choosing them thoughtfully, we contribute to an ecosystem that benefits everyone.</p>
+                </div>
+                
+                <div class="content-zh" style="display: none;">
+                    <p>开源许可是许多开发者知道应该更好地理解但经常推迟学习的主题之一。很容易把许可证视为法律样板——需要在代码仓库中包含但不真正影响日常开发的文本。然而，这种观点可能会导致日后出现严重问题，特别是当项目发展壮大并吸引贡献者、用户和潜在的商业兴趣时。</p>
+                    
+                    <p>从本质上讲，开源许可是关于权限和义务的。当你创建软件时，你自动拥有其版权。没有许可证，其他人无权使用、修改或分发你的代码。开源许可证将这些权限授予他人，但也可能施加某些条件。理解这些条件对于开源软件的创建者和用户都至关重要。</p>
+                    
+                    <h2>开源许可证的范围</h2>
+                    
+                    <p>开源许可证存在于从高度宽松到高度保护的范围之中。在宽松的一端，MIT、BSD 和 Apache 2.0 等许可证施加最少的限制。它们基本上说："你可以用这段代码做任何你想做的事，只要你包含原始许可证并且不起诉作者。"这种简单性使它们在开发者希望广泛采用的库和工具中很受欢迎。</p>
+                    
+                    <p>在保护的一端，GNU 通用公共许可证（GPL）等采用不同的方法。它们授予广泛的权限，但要求任何衍生作品也必须在相同条款下获得许可。这种"著佐权"机制确保软件及其衍生作品保持自由和开放。这是围绕项目建立社区的强大工具，但可能会给商业使用带来复杂性。</p>
+                    
+                    <pre><code>// 许可证兼容性很重要！
+
+// MIT 许可证 - 宽松
+// "随便用，只要保留许可证"
+
+// GPL 许可证 - 著佐权
+// "可以用，但衍生作品也必须是 GPL"
+
+// 示例：你可以在专有项目中包含 MIT 代码
+// 但你不能在专有项目中包含 GPL 代码
+// 这就是为什么许可证选择对采用很重要</code></pre>
+                    
+                    <h2>著佐权：强与弱</h2>
+                    
+                    <p>GPL 代表"强著佐权"——当 GPL 许可的代码与其他代码结合时，它适用于整个作品。这意味着如果你在应用程序中包含 GPL 库，你的整个应用程序可能需要在 GPL 下获得许可。对于希望保持源代码专有的公司来说，这通常是一个障碍。</p>
+                    
+                    <p>Mozilla 公共许可证（MPL）或 GNU 宽通用公共许可证（LGPL）等"弱著佐权"许可证采取中间立场。它们要求共享对原始许可文件的修改，但允许更大的作品在不同的许可证下保持。这使得它们更适合需要更广泛采用同时仍保护核心开源组件的库。</p>
+                    
+                    <p>理解这一区别在选择依赖项时至关重要。宽松许可的库几乎可以在任何地方使用，但 GPL 库可能会限制你的选择。这并不意味着 GPL 更"差"——它只是有不同的目标。GPL 非常适合确保软件保持自由，但它并不总是每种情况下的正确选择。</p>
+                    
+                    <blockquote>
+                        "选择许可证不仅仅是一个法律决定——它是关于你对项目的价值观和目标的声明。"
+                    </blockquote>
+                    
+                    <h2>常见陷阱及如何避免</h2>
+                    
+                    <p>开发者最常见的错误之一是完全不包含许可证。这可能看起来像是让事情保持开放，但在法律上它意味着"保留所有权利"——与开源相反。如果你希望你的代码是开源的，你必须明确选择并包含一个许可证。GitHub 和其他平台现在会提示你添加许可证，认识到这个错误有多常见。</p>
+                    
+                    <p>另一个陷阱是混合不兼容的许可证。例如，你不能将 GPL-2.0-only 代码与 Apache 2.0 代码结合，因为 GPL-2.0 的限制与 Apache 2.0 中的专利授权相冲突。许可证兼容性是一个复杂的话题，但 SPDX 许可证列表和各种兼容性矩阵等工具可以帮助你导航。</p>
+                    
+                    <p>传递性依赖也可能产生问题。你的项目可能使用宽松的 MIT 库，但该库可能依赖于 GPL 许可的库。理解完整的依赖树及其许可影响对于任何严肃的项目都是必不可少的。</p>
+                    
+                    <h2>做出明智的决定</h2>
+                    
+                    <p>当你为自己的项目选择许可证时，考虑你的目标。你想要最大的采用率，即使在专有软件中？宽松许可证可能是最好的。你想确保你的代码保持开放，并且改进被分享回社区？著佐权许可证可能更合适。你正在构建一个需要在许多上下文中可用的库？考虑弱著佐权或宽松许可证。</p>
+                    
+                    <p>当使用开源软件时，在纳入之前一定要检查许可证。了解它施加什么义务，以及这些义务是否与你项目的目标和许可兼容。最重要的是，遵守条款——这通常意味着在你的分发中包含许可证文本和任何必要的署名。</p>
+                    
+                    <p>最后，记住许可证可能有法律之外的影响。它们向社区发出信号，表明你正在构建什么样的项目，以及你想要培育什么样的生态系统。深思熟虑地选择，你的许可证将成为一种资产，而不是事后诸葛亮。</p>
+                    
+                    <h2>开源许可的未来</h2>
+                    
+                    <p>开源许可的格局继续演变。服务器端公共许可证（SSPL）和商业源许可证（BSL）等新许可证已经出现，以解决公司从开源软件获利而不回馈的担忧。根据 OSI 的定义，这些许可证技术上不是"开源"的，但它们代表了关于开源可持续性对话的重要组成部分。</p>
+                    
+                    <p>随着 AI 辅助开发变得更加普遍，关于许可的问题变得更加复杂。当 AI 在开源代码上训练并生成新代码时，适用什么许可证？署名要求如何转化为 AI 生成的输出？这些问题目前还没有明确的答案，但它们正在塑造我们思考代码所有权和共享的未来。</p>
+                    
+                    <p>理解开源许可不仅仅是为了避免法律麻烦——它是关于成为软件开发社区的好公民。通过尊重许可证并深思熟虑地选择它们，我们为一个惠及所有人的生态系统做出贡献。</p>
+                </div>
+            </div>
+            
+            <!-- 标签区 -->
+            <div class="article-tags">
+                <span class="tag">Open Source</span>
+                <span class="tag">Legal</span>
+                <span class="tag">Software Engineering</span>
+            </div>
+        </article>
+
+        <!-- 文章导航 -->
+        <div class="article-nav">
+            <a href="article-future-of-programming.html" class="nav-prev" data-en="← Previous Article: The Future of Programming in the AI Era" data-zh="← 上一篇：AI 时代编程的未来">← Previous Article: The Future of Programming in the AI Era</a>
+            <a href="article-resilient-systems.html" class="nav-next" data-en="Next Article: Building Resilient Distributed Systems →" data-zh="下一篇：构建弹性分布式系统 →">Next Article: Building Resilient Distributed Systems →</a>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright" data-en="© 2026 Your Name. All rights reserved." data-zh="© 2026 你的名字。保留所有权利。">© 2026 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="AI And The Ship of Theseus - Your Name's Thoughts and Writings" data-zh="AI 与忒修斯之船 - 你的名字 的思考与写作">AI And The Ship of Theseus - Your Name's Thoughts and Writings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部装饰条 -->
+    <div class="top-decoration">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="#1e40af" fill-opacity="0.8" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,0 L0,0 Z"></path>
+            <path fill="#3b82f6" fill-opacity="0.6" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1440,60 L1440,0 L0,0 Z"></path>
+            <path fill="#60a5fa" fill-opacity="0.4" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1280,85 1440,75 L1440,0 L0,0 Z"></path>
+        </svg>
+    </div>
+
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="blog-identity">
+                <div class="avatar-container"><video autoplay muted loop playsinline class="avatar avatar-video"><source src="Bark.mp4" type="video/mp4"></video></div>
+                <h1 class="blog-title" data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</h1>
+            </div>
+            <nav class="navigation">
+                <a href="index.html#blog" data-en="blog" data-zh="博客">blog</a>
+                <a href="archive.html" data-en="archive" data-zh="归档">archive</a>
+                <a href="projects.html" data-en="projects" data-zh="项目">projects</a>
+                <a href="about.html" data-en="about" data-zh="关于">about</a>
+            </nav>
+            <button class="lang-switch" id="langSwitch">中文</button>
+        </div>
+    </header>
+
+    <!-- 文章主体区 -->
+    <main class="main-content">
+        <article class="article">
+            <h1 class="article-title article-title-full" data-en="AI And The Ship of Theseus" data-zh="AI 与忒修斯之船">AI And The Ship of Theseus</h1>
+            <p class="article-date">
+                <span class="date-text" data-en="written on March 05, 2026" data-zh="写于 2026年03月05日">written on March 05, 2026</span>
+            </p>
+            
+            <div class="article-body">
+                <div class="content-en">
+                    <p>Because code gets cheaper and cheaper to write, this includes re-implementations. I mentioned recently that I had an AI port one of my libraries to another language and it ended up choosing a different design for that implementation. In many ways, the functionality was the same, but the path it took to get there was different. The way that port worked was by going via the test suite.</p>
+                    
+                    <p>Something related, but different, <a href="https://example.com">happened with chardet</a>. The current maintainer reimplemented it from scratch by only pointing it to the API and the test suite. The motivation: enabling relicensing from LGPL to MIT.</p>
+                    
+                    <h2>The Ship of Theseus Paradox</h2>
+                    
+                    <p>This raises interesting questions about software identity. If you rewrite a piece of software piece by piece, at what point does it become a different program? This is the Ship of Theseus paradox applied to code.</p>
+                    
+                    <p>The Ship of Theseus is a thought experiment that goes back to ancient Greece. If you replace every plank in a ship one by one, is it still the same ship? At what point does it become a different vessel? And if you take all the old planks and build another ship, which one is the "real" ship?</p>
+                    
+                    <p>When an AI rewrites your code, even if it preserves the same functionality, is it still <em>your</em> code? The implementation details, the particular choices made along the way, the subtle bugs and their fixes — all of these contribute to the unique fingerprint of a codebase.</p>
+                    
+                    <pre><code>// Original implementation
+function detectEncoding(buffer) {
+    const detector = new CharsetDetector();
+    return detector.detect(buffer);
+}
+
+// AI-generated port with different design
+const detectEncoding = async (buffer) => {
+    const result = await analyzeBuffer(buffer);
+    return result.encoding;
+};</code></pre>
+                    
+                    <h2>The Role of Tests in Code Identity</h2>
+                    
+                    <p>What's fascinating about the AI-driven porting process is that it uses tests as the specification. The tests become the identity of the code — they define what the code <em>is</em>, not how it does it. This is a profound shift in how we think about software.</p>
+                    
+                    <p>When I write code, I'm making thousands of small decisions. Should this be a class or a function? Should this error be handled here or passed up the stack? Should this data structure be an array or a map? Each of these decisions is informed by my experience, my mental model of the problem, and my aesthetic preferences about code.</p>
+                    
+                    <p>An AI making these decisions based on a test suite is free from all of that baggage. It might make different choices, some of which might be better. But are these choices still "mine"? Does the code still reflect my intentions as a programmer?</p>
+                    
+                    <h2>Implications for Open Source</h2>
+                    
+                    <p>This has profound implications for open source licensing. If an AI can be pointed at a codebase and generate a clean-room implementation that passes the same tests, what happens to the original author's rights and attribution?</p>
+                    
+                    <blockquote>
+                        "The question is not whether AI can reproduce your code, but whether we consider the output to be a derivative work."
+                    </blockquote>
+                    
+                    <p>Current open source licenses assume that code is copied, modified, or extended. They don't account for the possibility that code could be "read" and then "reimplemented" by an AI. The legal framework we have wasn't designed for this scenario.</p>
+                    
+                    <p>Consider the implications:</p>
+                    <ul>
+                        <li><strong>Copyleft licenses</strong> like GPL require derivative works to be licensed under the same terms. But is AI-generated code based on GPL-licensed code a derivative work?</li>
+                        <li><strong>Permissive licenses</strong> like MIT require attribution. But if an AI "learns" from MIT-licensed code and produces similar code, does that attribution requirement transfer?</li>
+                        <li><strong>Trade secrets</strong> are protected by not sharing code. But if an AI can reverse-engineer functionality from tests or public documentation, what happens to that protection?</li>
+                    </ul>
+                    
+                    <h2>The Future of Code Ownership</h2>
+                    
+                    <p>As we navigate this new landscape, we'll need to develop new norms and possibly new legal frameworks around code ownership and attribution in the age of AI-generated software.</p>
+                    
+                    <p>Perhaps the solution lies in being more explicit about what we consider the "essence" of our code. Is it:</p>
+                    <ul>
+                        <li>The specific implementation details?</li>
+                        <li>The algorithmic approach?</li>
+                        <li>The API surface?</li>
+                        <li>The test suite?</li>
+                        <li>Or something else entirely?</li>
+                    </ul>
+                    
+                    <p>My suspicion is that we'll need to think about code on multiple levels, with different rules for each. The API surface might be one thing (with its own copyright considerations), while the implementation might be another. Tests might occupy a middle ground — functional specifications that are neither purely API nor purely implementation.</p>
+                    
+                    <p>What's clear is that the old ways of thinking about code ownership are being challenged. The Ship of Theseus isn't just a philosophical puzzle anymore — it's a practical question that we, as an industry, need to answer.</p>
+                    
+                    <p>And unlike the ancient Greeks, we can't afford to debate it indefinitely. The AI systems are already here, and they're already rewriting our code, one function at a time.</p>
+                </div>
+                
+                <div class="content-zh" style="display: none;">
+                    <p>因为编写代码的成本越来越低，这也包括了重新实现。我最近提到过，我让 AI 把我的一个库移植到另一种语言，结果它为这个实现选择了不同的设计。在很多方面，功能是一样的，但实现路径却不同。这次移植的工作方式是通过测试套件来完成的。</p>
+                    
+                    <p>一件相关但不同的事情，<a href="https://example.com">发生在 chardet 上</a>。当前维护者仅通过 API 和测试套件，就从零开始重新实现了它。其动机是：实现从 LGPL 到 MIT 的重新授权。</p>
+                    
+                    <h2>忒修斯之船悖论</h2>
+                    
+                    <p>这引发了关于软件身份的有趣问题。如果你逐个部分地重写一个软件，它在什么时候变成了一个不同的程序？这就是应用于代码的忒修斯之船悖论。</p>
+                    
+                    <p>忒修斯之船是一个可以追溯到古希腊的思想实验。如果你逐一替换船上的每一块木板，它还是同一艘船吗？在什么时候它变成了另一艘船？如果你用所有旧的木板建造另一艘船，哪一艘是"真正"的船？</p>
+                    
+                    <p>当 AI 重写你的代码时，即使它保持了相同的功能，它仍然是<em>你的</em>代码吗？实现细节、沿途做出的特定选择、微妙的错误及其修复——所有这些共同构成了代码库的独特指纹。</p>
+                    
+                    <pre><code>// 原始实现
+function detectEncoding(buffer) {
+    const detector = new CharsetDetector();
+    return detector.detect(buffer);
+}
+
+// AI 生成的移植版本，采用不同设计
+const detectEncoding = async (buffer) => {
+    const result = await analyzeBuffer(buffer);
+    return result.encoding;
+};</code></pre>
+                    
+                    <h2>测试在代码身份中的作用</h2>
+                    
+                    <p>AI 驱动的移植过程令人着迷的是，它使用测试作为规范。测试成为代码的身份——它们定义了代码<em>是什么</em>，而不是它如何做到的。这是我们对软件思维方式的一次深刻转变。</p>
+                    
+                    <p>当我编写代码时，我在做成千上万个小决定。这应该是一个类还是一个函数？这个错误应该在这里处理还是传递到上层？这个数据结构应该是数组还是映射？每一个决定都受到我的经验、我对问题的心理模型以及我对代码的美学偏好的影响。</p>
+                    
+                    <p>基于测试套件做出这些决定的 AI 摆脱了所有这些包袱。它可能会做出不同的选择，其中一些可能更好。但这些选择仍然是"我的"吗？代码仍然反映了程序员我的意图吗？</p>
+                    
+                    <h2>对开源的影响</h2>
+                    
+                    <p>这对开源许可产生了深远的影响。如果 AI 可以指向一个代码库并生成通过相同测试的干净室实现，原作者的权利和归属会发生什么？</p>
+                    
+                    <blockquote>
+                        "问题不在于 AI 是否能重现你的代码，而在于我们是否认为输出是衍生作品。"
+                    </blockquote>
+                    
+                    <p>当前的开源许可证假设代码被复制、修改或扩展。它们没有考虑到代码可以被 AI"读取"然后"重新实现"的可能性。我们现有的法律框架不是为这种情况设计的。</p>
+                    
+                    <p>考虑这些影响：</p>
+                    <ul>
+                        <li><strong>版权许可</strong>如 GPL 要求衍生作品在相同条款下获得许可。但基于 GPL 许可代码生成的 AI 代码是衍生作品吗？</li>
+                        <li><strong>宽松许可</strong>如 MIT 要求署名。但如果 AI 从 MIT 许可代码"学习"并生成类似代码，署名要求是否转移？</li>
+                        <li><strong>商业秘密</strong>通过不共享代码来保护。但如果 AI 可以从测试或公开文档逆向工程功能，这种保护会发生什么？</li>
+                    </ul>
+                    
+                    <h2>代码所有权的未来</h2>
+                    
+                    <p>当我们在这个新领域中探索时，我们需要在 AI 生成软件时代围绕代码所有权和归属制定新的规范，可能还需要新的法律框架。</p>
+                    
+                    <p>也许解决方案在于更明确地定义我们认为是代码"本质"的东西。是：</p>
+                    <ul>
+                        <li>具体的实现细节？</li>
+                        <li>算法方法？</li>
+                        <li>API 表面？</li>
+                        <li>测试套件？</li>
+                        <li>还是完全不同的其他东西？</li>
+                    </ul>
+                    
+                    <p>我的猜测是，我们需要在多个层面上思考代码，每个层面都有不同的规则。API 表面可能是一回事（有其自己的版权考虑），而实现可能是另一回事。测试可能占据中间地带——既不是纯 API 也不是纯实现的功能规范。</p>
+                    
+                    <p>很明显，旧的代码所有权思维方式正在受到挑战。忒修斯之船不再只是一个哲学难题——它是一个我们作为一个行业需要回答的实际问题。</p>
+                    
+                    <p>与古希腊人不同，我们不能无限期地争论这个问题。AI 系统已经在这里，它们已经在重写我们的代码，一次一个函数。</p>
+                </div>
+            </div>
+            
+            <!-- 标签区 -->
+            <div class="article-tags">
+                <span class="tag">AI</span>
+                <span class="tag">Software Engineering</span>
+                <span class="tag">Open Source</span>
+            </div>
+        </article>
+
+        <!-- 文章导航 -->
+        <div class="article-nav">
+            <a href="article-future-of-programming.html" class="nav-next" data-en="Next Article: The Future of Programming in the AI Era →" data-zh="下一篇：AI 时代编程的未来 →">Next Article: The Future of Programming in the AI Era →</a>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright" data-en="© 2026 Your Name. All rights reserved." data-zh="© 2026 你的名字。保留所有权利。">© 2026 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

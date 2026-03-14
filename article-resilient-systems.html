@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Building Resilient Distributed Systems - Your Name's Thoughts and Writings" data-zh="构建弹性分布式系统 - 你的名字 的思考与写作">Building Resilient Distributed Systems - Your Name's Thoughts and Writings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部装饰条 -->
+    <div class="top-decoration">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="#1e40af" fill-opacity="0.8" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,0 L0,0 Z"></path>
+            <path fill="#3b82f6" fill-opacity="0.6" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1440,60 L1440,0 L0,0 Z"></path>
+            <path fill="#60a5fa" fill-opacity="0.4" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1280,85 1440,75 L1440,0 L0,0 Z"></path>
+        </svg>
+    </div>
+
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="blog-identity">
+                <div class="avatar-container"><video autoplay muted loop playsinline class="avatar avatar-video"><source src="Bark.mp4" type="video/mp4"></video></div>
+                <h1 class="blog-title" data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</h1>
+            </div>
+            <nav class="navigation">
+                <a href="index.html#blog" data-en="blog" data-zh="博客">blog</a>
+                <a href="archive.html" data-en="archive" data-zh="归档">archive</a>
+                <a href="projects.html" data-en="projects" data-zh="项目">projects</a>
+                <a href="about.html" data-en="about" data-zh="关于">about</a>
+            </nav>
+            <button class="lang-switch" id="langSwitch">中文</button>
+        </div>
+    </header>
+
+    <!-- 文章主体区 -->
+    <main class="main-content">
+        <article class="article">
+            <h1 class="article-title article-title-full" data-en="Building Resilient Distributed Systems" data-zh="构建弹性分布式系统">Building Resilient Distributed Systems</h1>
+            <p class="article-date">
+                <span class="date-text" data-en="written on January 28, 2026" data-zh="写于 2026年01月28日">written on January 28, 2026</span>
+            </p>
+            
+            <div class="article-body">
+                <div class="content-en">
+                    <p>Distributed systems are the backbone of modern software infrastructure, powering everything from social networks to financial systems. But with their power comes complexity—complexity that, if not managed properly, leads to outages, data loss, and frustrated users. Building resilient distributed systems isn't just a nice-to-have skill; it's a fundamental requirement for any serious production system.</p>
+                    
+                    <p>The fallacies of distributed computing, first articulated by L. Peter Deutsch and others at Sun Microsystems, remind us of the assumptions we often make that turn out to be false: the network is reliable, latency is zero, bandwidth is infinite, the network is secure, topology doesn't change, and so on. Accepting that these assumptions are wrong is the first step toward building systems that can survive in the real world.</p>
+                    
+                    <h2>Embracing Failure as a Normal State</h2>
+                    
+                    <p>In distributed systems, failure is not an exception—it's the norm. Components will fail, networks will partition, and latency will spike. The question isn't whether these things will happen, but when. A resilient system is one that continues to operate, perhaps in a degraded mode, even when parts of it are failing.</p>
+                    
+                    <p>This mindset shift is crucial. Traditional software engineering often treats errors as exceptional conditions that need to be handled. In distributed systems, we need to treat failure as a first-class concern that shapes our entire architecture. This means designing for failure from the start, not adding resilience as an afterthought.</p>
+                    
+                    <pre><code>// Circuit Breaker Pattern - A key resilience pattern
+class CircuitBreaker {
+    constructor(threshold = 5, timeout = 60000) {
+        this.failures = 0;
+        this.threshold = threshold;
+        this.timeout = timeout;
+        this.state = 'CLOSED';
+        this.lastFailure = null;
+    }
+
+    async execute(operation) {
+        if (this.state === 'OPEN') {
+            if (Date.now() - this.lastFailure > this.timeout) {
+                this.state = 'HALF_OPEN';
+            } else {
+                throw new Error('Circuit breaker is OPEN');
+            }
+        }
+
+        try {
+            const result = await operation();
+            this.onSuccess();
+            return result;
+        } catch (error) {
+            this.onFailure();
+            throw error;
+        }
+    }
+
+    onSuccess() {
+        this.failures = 0;
+        this.state = 'CLOSED';
+    }
+
+    onFailure() {
+        this.failures++;
+        this.lastFailure = Date.now();
+        if (this.failures >= this.threshold) {
+            this.state = 'OPEN';
+        }
+    }
+}</code></pre>
+                    
+                    <h2>Key Patterns for Resilience</h2>
+                    
+                    <p>Several patterns have emerged as essential tools for building resilient systems. The circuit breaker pattern, shown above, prevents cascading failures by stopping requests to a failing service. When a service is struggling, continuing to send requests makes the problem worse. The circuit breaker detects this and "opens," fast-failing requests until the service has had time to recover.</p>
+                    
+                    <p>The retry pattern with exponential backoff is another fundamental tool. When a request fails due to transient issues, retrying can help—but only if done carefully. Immediate retries can overwhelm an already struggling service. Exponential backoff introduces increasing delays between retries, giving the system time to recover while still eventually succeeding.</p>
+                    
+                    <p>The bulkhead pattern isolates components so that failure in one doesn't bring down the whole system. Named after the compartmentalized sections of ships, bulkheads in software might mean separate thread pools for different services, distinct database connections for critical vs. non-critical operations, or even entirely separate clusters for different functionalities.</p>
+                    
+                    <blockquote>
+                        "In distributed systems, the goal is not to prevent failure but to contain it, survive it, and recover from it gracefully."
+                    </blockquote>
+                    
+                    <h2>Data Consistency in an Unreliable World</h2>
+                    
+                    <p>One of the hardest challenges in distributed systems is maintaining data consistency when components can fail at any moment. The CAP theorem tells us that we can have at most two of three properties: Consistency, Availability, and Partition tolerance. In practice, since network partitions are inevitable in distributed systems, we're really choosing between consistency and availability when a partition occurs.</p>
+                    
+                    <p>Different systems make different trade-offs. Traditional relational databases often prioritize consistency, rejecting writes when they can't guarantee all replicas are in sync. Systems like Cassandra prioritize availability, accepting writes even during partitions and reconciling differences later. Neither approach is "wrong"—they're appropriate for different use cases.</p>
+                    
+                    <p>Eventual consistency is a common pattern for systems that prioritize availability. The idea is that if no new updates are made, eventually all accesses will return the last updated value. This works well for many applications—your social media feed doesn't need to show the exact same content to everyone at the exact same moment—but requires careful thought about conflict resolution and user experience.</p>
+                    
+                    <h2>Observability: Seeing Into the System</h2>
+                    
+                    <p>You can't fix what you can't see. Observability—the ability to understand the internal state of a system from its external outputs—is essential for maintaining distributed systems. This goes beyond traditional monitoring to include three pillars: metrics, logs, and traces.</p>
+                    
+                    <p>Metrics give you aggregated numbers over time—request rates, error rates, latency percentiles. They're great for answering "is something wrong?" and spotting trends. Logs give you detailed records of individual events, essential for debugging specific issues. Traces follow requests across service boundaries, helping you understand where time is spent and where failures occur in complex workflows.</p>
+                    
+                    <p>But observability isn't just about collecting data—it's about making it useful. Good dashboards, intelligent alerting, and the ability to correlate information across these three pillars are what turn raw data into actionable insights. The goal is to be able to quickly answer questions like "why is this specific request failing?" or "what changed that caused latency to spike?"</p>
+                    
+                    <h2>The Human Factor</h2>
+                    
+                    <p>Finally, remember that resilient systems are built and operated by humans. Your runbooks, alerts, and fallback procedures are only as good as the people executing them. Invest in making your systems understandable, your documentation accessible, and your on-call procedures sustainable. A system that works perfectly in theory but is impossible to debug in production isn't resilient—it's a time bomb.</p>
+                    
+                    <p>Chaos engineering—the practice of deliberately injecting failures to test resilience—can help build confidence in your systems and your team's ability to respond to incidents. By breaking things in controlled ways, you learn where your weaknesses are before a real outage reveals them. This proactive approach to resilience is becoming increasingly standard in mature engineering organizations.</p>
+                    
+                    <p>Building resilient distributed systems is a journey, not a destination. The systems we build will always face new challenges as they scale and evolve. But by embracing failure as normal, applying proven patterns, making thoughtful trade-offs about consistency, investing in observability, and supporting the humans who operate these systems, we can build software that our users can depend on.</p>
+                </div>
+                
+                <div class="content-zh" style="display: none;">
+                    <p>分布式系统是现代软件基础设施的骨干，为从社交网络到金融系统的一切提供动力。但伴随其力量而来的是复杂性——如果管理不当，这种复杂性会导致停机、数据丢失和用户沮丧。构建弹性分布式系统不仅是一项锦上添花的技能，它是任何严肃的生产系统的基本要求。</p>
+                    
+                    <p>L. Peter Deutsch 和 Sun Microsystems 的其他人首先提出的分布式计算的谬误提醒我们，我们经常做出的假设实际上是错误的：网络是可靠的、延迟为零、带宽是无限的、网络是安全的、拓扑结构不会改变等等。接受这些假设是错误的是构建能够在现实世界中生存的系统的第一步。</p>
+                    
+                    <h2>接受失败作为正常状态</h2>
+                    
+                    <p>在分布式系统中，失败不是例外——它是常态。组件会失败，网络会分区，延迟会飙升。问题不是这些事情是否会发生，而是何时发生。一个弹性的系统是即使部分系统在失败，也能继续运行的系统，或许以降级模式运行。</p>
+                    
+                    <p>这种思维转变至关重要。传统软件工程通常将错误视为需要处理的异常情况。在分布式系统中，我们需要将失败视为塑造整个架构的一等公民。这意味着从一开始就为失败而设计，而不是事后添加弹性。</p>
+                    
+                    <pre><code>// 断路器模式 - 一个关键的弹性模式
+class CircuitBreaker {
+    constructor(threshold = 5, timeout = 60000) {
+        this.failures = 0;
+        this.threshold = threshold;
+        this.timeout = timeout;
+        this.state = 'CLOSED';
+        this.lastFailure = null;
+    }
+
+    async execute(operation) {
+        if (this.state === 'OPEN') {
+            if (Date.now() - this.lastFailure > this.timeout) {
+                this.state = 'HALF_OPEN';
+            } else {
+                throw new Error('断路器处于开启状态');
+            }
+        }
+
+        try {
+            const result = await operation();
+            this.onSuccess();
+            return result;
+        } catch (error) {
+            this.onFailure();
+            throw error;
+        }
+    }
+
+    onSuccess() {
+        this.failures = 0;
+        this.state = 'CLOSED';
+    }
+
+    onFailure() {
+        this.failures++;
+        this.lastFailure = Date.now();
+        if (this.failures >= this.threshold) {
+            this.state = 'OPEN';
+        }
+    }
+}</code></pre>
+                    
+                    <h2>弹性的关键模式</h2>
+                    
+                    <p>几种模式已成为构建弹性系统的重要工具。断路器模式（如上所示）通过停止对失败服务的请求来防止级联失败。当服务在挣扎时，继续发送请求会使问题变得更糟。断路器检测到这一点并"开启"，快速失败请求，直到服务有时间恢复。</p>
+                    
+                    <p>带有指数退避的重试模式是另一个基本工具。当请求由于临时问题而失败时，重试可以帮助——但前提是要谨慎进行。立即重试可能会使已经在挣扎的服务不堪重负。指数退避在重试之间引入逐渐增加的延迟，给系统时间恢复，同时最终仍然成功。</p>
+                    
+                    <p>隔板模式隔离组件，使一个组件的失败不会拖垮整个系统。以船舶的分隔舱命名，软件中的隔板可能意味着为不同服务使用独立的线程池、为关键与非关键操作使用不同的数据库连接，甚至为不同功能使用完全独立的集群。</p>
+                    
+                    <blockquote>
+                        "在分布式系统中，目标不是防止失败，而是控制它、度过它，并优雅地从中恢复。"
+                    </blockquote>
+                    
+                    <h2>不可靠世界中的数据一致性</h2>
+                    
+                    <p>分布式系统中最困难的挑战之一是在组件可能随时失败的情况下保持数据一致性。CAP 定理告诉我们，我们最多可以拥有三个属性中的两个：一致性、可用性和分区容错性。在实践中，由于网络分区在分布式系统中是不可避免的，当分区发生时，我们实际上是在一致性和可用性之间做出选择。</p>
+                    
+                    <p>不同的系统做出不同的权衡。传统关系数据库通常优先考虑一致性，当无法保证所有副本同步时拒绝写入。Cassandra 等系统优先考虑可用性，即使在分区期间也接受写入，并稍后协调差异。两种方法都不是"错误的"——它们适用于不同的用例。</p>
+                    
+                    <p>最终一致性是优先考虑可用性的系统的常见模式。其思想是如果没有进行新的更新，最终所有访问都将返回最后更新的值。这对许多应用程序很有效——你的社交媒体源不需要在完全相同的时刻向每个人显示完全相同的内容——但需要仔细考虑冲突解决和用户体验。</p>
+                    
+                    <h2>可观察性：洞察系统</h2>
+                    
+                    <p>你无法修复你看不见的东西。可观察性——从外部输出理解系统内部状态的能力——对于维护分布式系统至关重要。这超越了传统的监控，包括三个支柱：指标、日志和追踪。</p>
+                    
+                    <p>指标给你随时间聚合的数字——请求率、错误率、延迟百分位数。它们非常适合回答"有什么问题吗？"和发现趋势。日志给你个别事件的详细记录，对于调试特定问题至关重要。追踪跟随跨服务边界的请求，帮助你在复杂工作流中了解时间花在哪里以及失败发生在哪里。</p>
+                    
+                    <p>但可观察性不仅仅是收集数据——而是使它有用。好的仪表板、智能警报和跨这三个支柱关联信息的能力是将原始数据转化为可操作见解的关键。目标是能够快速回答诸如"为什么这个特定请求失败？"或"什么改变导致延迟飙升？"这样的问题。</p>
+                    
+                    <h2>人的因素</h2>
+                    
+                    <p>最后，记住弹性系统是由人构建和运营的。你的运行手册、警报和后备程序只有执行它们的人那么好。投资于使你的系统易于理解、你的文档易于访问、你的值班程序可持续。一个在理论上完美但在生产中无法调试的系统不是弹性的——它是一个定时炸弹。</p>
+                    
+                    <p>混沌工程——故意注入失败以测试弹性的实践——可以帮助建立对系统和团队响应事件能力的信心。通过以受控方式破坏事物，你在真正的停机揭示弱点之前了解你的弱点在哪里。这种主动的弹性方法正在成熟的工程组织中变得越来越标准。</p>
+                    
+                    <p>构建弹性分布式系统是一段旅程，而不是目的地。我们构建的系统将随着它们扩展和演进总是面临新的挑战。但通过接受失败为正常、应用经过验证的模式、对一致性做出深思熟虑的权衡、投资于可观察性，并支持运营这些系统的人，我们可以构建用户可以依赖的软件。</p>
+                </div>
+            </div>
+            
+            <!-- 标签区 -->
+            <div class="article-tags">
+                <span class="tag">Distributed Systems</span>
+                <span class="tag">Architecture</span>
+                <span class="tag">Reliability</span>
+            </div>
+        </article>
+
+        <!-- 文章导航 -->
+        <div class="article-nav">
+            <a href="article-open-source-licensing.html" class="nav-prev" data-en="← Previous Article: Understanding Open Source Licensing" data-zh="← 上一篇：理解开源许可">← Previous Article: Understanding Open Source Licensing</a>
+            <a href="article-learning-new-languages.html" class="nav-next" data-en="Next Article: How to Quickly Learn a New Programming Language →" data-zh="下一篇：如何快速学习一门新的编程语言 →">Next Article: How to Quickly Learn a New Programming Language →</a>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright" data-en="© 2026 Your Name. All rights reserved." data-zh="© 2026 你的名字。保留所有权利。">© 2026 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

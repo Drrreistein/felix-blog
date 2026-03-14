@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部装饰条 -->
+    <div class="top-decoration">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="#1e40af" fill-opacity="0.8" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,0 L0,0 Z"></path>
+            <path fill="#3b82f6" fill-opacity="0.6" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1440,60 L1440,0 L0,0 Z"></path>
+            <path fill="#60a5fa" fill-opacity="0.4" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1280,85 1440,75 L1440,0 L0,0 Z"></path>
+        </svg>
+    </div>
+
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="blog-identity">
+                <div class="avatar-container">
+                    <video autoplay muted loop playsinline class="avatar avatar-video">
+                        <source src="Bark.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <h1 class="blog-title" data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</h1>
+            </div>
+            <nav class="navigation">
+                <a href="index.html#blog" data-en="blog" data-zh="博客">blog</a>
+                <a href="archive.html" data-en="archive" data-zh="归档">archive</a>
+                <a href="projects.html" data-en="projects" data-zh="项目">projects</a>
+                <a href="about.html" data-en="about" data-zh="关于">about</a>
+            </nav>
+            <button class="lang-switch" id="langSwitch">中文</button>
+        </div>
+    </header>
+
+    <!-- 文章主体区 -->
+    <main class="main-content" id="blog">
+        <!-- 文章 1 -->
+        <article class="article-card">
+            <div class="article-header">
+                <h2 class="article-title">
+                    <a href="article-ai-ship-of-theseus.html" data-en="AI And The Ship of Theseus" data-zh="AI 与忒修斯之船">AI And The Ship of Theseus</a>
+                </h2>
+                <p class="article-date">
+                    <span class="date-text" data-en="written on March 05, 2026" data-zh="写于 2026年03月05日">written on March 05, 2026</span>
+                </p>
+            </div>
+            
+            <div class="article-excerpt">
+                <div class="content-en">
+                    <p>Because code gets cheaper and cheaper to write, this includes re-implementations. I mentioned recently that I had an AI port one of my libraries to another language and it ended up choosing a different design for that implementation. In many ways, the functionality was the same, but the path it took to get there was different...</p>
+                </div>
+                <div class="content-zh" style="display: none;">
+                    <p>因为编写代码的成本越来越低，这也包括了重新实现。我最近提到过，我让 AI 把我的一个库移植到另一种语言，结果它为这个实现选择了不同的设计。在很多方面，功能是一样的，但实现路径却不同...</p>
+                </div>
+            </div>
+            
+            <div class="article-footer">
+                <div class="article-tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Software Engineering</span>
+                    <span class="tag">Open Source</span>
+                </div>
+                <a href="article-ai-ship-of-theseus.html" class="read-more" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+            </div>
+        </article>
+
+        <!-- 文章 2 -->
+        <article class="article-card">
+            <div class="article-header">
+                <h2 class="article-title">
+                    <a href="article-future-of-programming.html" data-en="The Future of Programming in the AI Era" data-zh="AI 时代编程的未来">The Future of Programming in the AI Era</a>
+                </h2>
+                <p class="article-date">
+                    <span class="date-text" data-en="written on February 20, 2026" data-zh="写于 2026年02月20日">written on February 20, 2026</span>
+                </p>
+            </div>
+            
+            <div class="article-excerpt">
+                <div class="content-en">
+                    <p>As AI tools become more sophisticated, the role of programmers is evolving. We're no longer just writing code; we're becoming architects of AI-human collaboration. This shift brings both opportunities and challenges that we need to carefully consider...</p>
+                </div>
+                <div class="content-zh" style="display: none;">
+                    <p>随着 AI 工具变得越来越复杂，程序员的角色正在演变。我们不再只是编写代码；我们正在成为 AI 与人协作的建筑师。这种转变带来了我们需要仔细考虑的机遇和挑战...</p>
+                </div>
+            </div>
+            
+            <div class="article-footer">
+                <div class="article-tags">
+                    <span class="tag">Programming</span>
+                    <span class="tag">Career</span>
+                    <span class="tag">Technology</span>
+                </div>
+                <a href="article-future-of-programming.html" class="read-more" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+            </div>
+        </article>
+
+        <!-- 文章 3 -->
+        <article class="article-card">
+            <div class="article-header">
+                <h2 class="article-title">
+                    <a href="article-open-source-licensing.html" data-en="Understanding Open Source Licensing" data-zh="理解开源许可">Understanding Open Source Licensing</a>
+                </h2>
+                <p class="article-date">
+                    <span class="date-text" data-en="written on February 10, 2026" data-zh="写于 2026年02月10日">written on February 10, 2026</span>
+                </p>
+            </div>
+            
+            <div class="article-excerpt">
+                <div class="content-en">
+                    <p>Open source licensing can be confusing, especially for newcomers. In this article, I'll break down the most common licenses and explain when to use each one. From MIT to GPL, understanding these licenses is crucial for any developer...</p>
+                </div>
+                <div class="content-zh" style="display: none;">
+                    <p>开源许可可能会让人困惑，尤其是对于新手来说。在这篇文章中，我将分解最常见的许可，并解释何时使用每一个。从 MIT 到 GPL，理解这些许可对任何开发者都至关重要...</p>
+                </div>
+            </div>
+            
+            <div class="article-footer">
+                <div class="article-tags">
+                    <span class="tag">Open Source</span>
+                    <span class="tag">Legal</span>
+                </div>
+                <a href="article-open-source-licensing.html" class="read-more" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+            </div>
+        </article>
+
+        <!-- 文章 4 -->
+        <article class="article-card">
+            <div class="article-header">
+                <h2 class="article-title">
+                    <a href="article-resilient-systems.html" data-en="Building Resilient Distributed Systems" data-zh="构建弹性分布式系统">Building Resilient Distributed Systems</a>
+                </h2>
+                <p class="article-date">
+                    <span class="date-text" data-en="written on January 28, 2026" data-zh="写于 2026年01月28日">written on January 28, 2026</span>
+                </p>
+            </div>
+            
+            <div class="article-excerpt">
+                <div class="content-en">
+                    <p>Designing distributed systems that can handle failures gracefully is one of the hardest challenges in software engineering. In this post, I share patterns and practices that have helped me build systems that remain operational even when components fail...</p>
+                </div>
+                <div class="content-zh" style="display: none;">
+                    <p>设计能够优雅地处理故障的分布式系统是软件工程中最困难的挑战之一。在这篇文章中，我分享了帮助我构建即使在组件失败时仍能保持运行系统的模式和实践...</p>
+                </div>
+            </div>
+            
+            <div class="article-footer">
+                <div class="article-tags">
+                    <span class="tag">Architecture</span>
+                    <span class="tag">Distributed Systems</span>
+                    <span class="tag">Best Practices</span>
+                </div>
+                <a href="article-resilient-systems.html" class="read-more" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+            </div>
+        </article>
+
+        <!-- 文章 5 -->
+        <article class="article-card">
+            <div class="article-header">
+                <h2 class="article-title">
+                    <a href="article-learning-new-languages.html" data-en="How to Learn a New Programming Language Quickly" data-zh="如何快速学习一门新的编程语言">How to Learn a New Programming Language Quickly</a>
+                </h2>
+                <p class="article-date">
+                    <span class="date-text" data-en="written on January 15, 2026" data-zh="写于 2026年01月15日">written on January 15, 2026</span>
+                </p>
+            </div>
+            
+            <div class="article-excerpt">
+                <div class="content-en">
+                    <p>Learning a new programming language can be intimidating, but with the right approach, you can become productive in just a few weeks. Here's my proven method for quickly picking up new languages and frameworks...</p>
+                </div>
+                <div class="content-zh" style="display: none;">
+                    <p>学习一门新的编程语言可能会让人望而生畏，但如果方法得当，你可以在几周内变得富有成效。这是我快速掌握新语言和框架的行之有效的方法...</p>
+                </div>
+            </div>
+            
+            <div class="article-footer">
+                <div class="article-tags">
+                    <span class="tag">Learning</span>
+                    <span class="tag">Programming</span>
+                </div>
+                <a href="article-learning-new-languages.html" class="read-more" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+            </div>
+        </article>
+
+        <!-- 查看更多文章 -->
+        <div class="view-all">
+            <a href="archive.html" class="view-all-link" data-en="View All Articles →" data-zh="查看所有文章 →">View All Articles →</a>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright" data-en="© 2026 Your Name. All rights reserved." data-zh="© 2026 你的名字。保留所有权利。">© 2026 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

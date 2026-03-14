@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Projects - Your Name's Thoughts and Writings" data-zh="项目 - 你的名字 的思考与写作">Projects - Your Name's Thoughts and Writings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部装饰条 -->
+    <div class="top-decoration">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="#1e40af" fill-opacity="0.8" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,0 L0,0 Z"></path>
+            <path fill="#3b82f6" fill-opacity="0.6" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1440,60 L1440,0 L0,0 Z"></path>
+            <path fill="#60a5fa" fill-opacity="0.4" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1280,85 1440,75 L1440,0 L0,0 Z"></path>
+        </svg>
+    </div>
+
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="blog-identity">
+                <div class="avatar-container">
+                    <video autoplay muted loop playsinline class="avatar avatar-video">
+                        <source src="Bark.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <h1 class="blog-title" data-en="Your Name's Thoughts and Writings" data-zh="你的名字 的思考与写作">Your Name's Thoughts and Writings</h1>
+            </div>
+            <nav class="navigation">
+                <a href="index.html#blog" data-en="blog" data-zh="博客">blog</a>
+                <a href="archive.html" data-en="archive" data-zh="归档">archive</a>
+                <a href="projects.html" data-en="projects" data-zh="项目">projects</a>
+                <a href="about.html" data-en="about" data-zh="关于">about</a>
+            </nav>
+            <button class="lang-switch" id="langSwitch">中文</button>
+        </div>
+    </header>
+
+    <!-- 项目主体区 -->
+    <main class="main-content">
+        <h1 class="page-title" data-en="Projects" data-zh="项目">Projects</h1>
+        
+        <p class="page-intro" data-en="Here are some of the projects I've been working on. Most are open source and available on GitHub." data-zh="这里是我正在开发的一些项目。大部分都是开源的，可以在 GitHub 上找到。">
+            Here are some of the projects I've been working on. Most are open source and available on GitHub.
+        </p>
+
+        <!-- 项目列表 -->
+        <div class="projects-grid">
+            <!-- 项目 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">
+                        <a href="https://github.com" target="_blank">Flask-RESTful</a>
+                    </h3>
+                    <div class="project-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-star">⭐ 6.8k</span>
+                    </div>
+                </div>
+                <p class="project-description" data-en="Simple framework for creating REST APIs with Flask. Provides a coherent collection of decorators and tools to describe your API and expose its documentation properly." data-zh="使用 Flask 创建 REST API 的简单框架。提供了一致的装饰器和工具集合，用于描述 API 并正确暴露其文档。">
+                    Simple framework for creating REST APIs with Flask. Provides a coherent collection of decorators and tools to describe your API and expose its documentation properly.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">PyPI</a>
+                </div>
+            </div>
+
+            <!-- 项目 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">
+                        <a href="https://github.com" target="_blank">Click</a>
+                    </h3>
+                    <div class="project-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-star">⭐ 14.2k</span>
+                    </div>
+                </div>
+                <p class="project-description" data-en="A Python package for creating beautiful command line interfaces in a composable way with as little code as necessary. It's highly configurable but comes with sensible defaults out of the box." data-zh="一个 Python 包，用于以可组合的方式创建漂亮的命令行界面，代码量尽可能少。它高度可配置，但开箱即用。">
+                    A Python package for creating beautiful command line interfaces in a composable way with as little code as necessary. It's highly configurable but comes with sensible defaults out of the box.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">PyPI</a>
+                </div>
+            </div>
+
+            <!-- 项目 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">
+                        <a href="https://github.com" target="_blank">Werkzeug</a>
+                    </h3>
+                    <div class="project-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-star">⭐ 6.3k</span>
+                    </div>
+                </div>
+                <p class="project-description" data-en="A comprehensive WSGI web application library. It began as a simple collection of various utilities for WSGI applications and has become one of the most advanced WSGI utility libraries." data-zh="一个全面的 WSGI Web 应用程序库。它最初是 WSGI 应用程序的各种实用工具的简单集合，现已成为最先进的 WSGI 实用工具库之一。">
+                    A comprehensive WSGI web application library. It began as a simple collection of various utilities for WSGI applications and has become one of the most advanced WSGI utility libraries.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">PyPI</a>
+                </div>
+            </div>
+
+            <!-- 项目 4 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">
+                        <a href="https://github.com" target="_blank">Jinja2</a>
+                    </h3>
+                    <div class="project-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-star">⭐ 9.8k</span>
+                    </div>
+                </div>
+                <p class="project-description" data-en="A modern and designer-friendly templating language for Python, modelled after Django's templates. It is fast, widely used, and secure with the ability to sandbox execution." data-zh="一种现代且对设计师友好的 Python 模板语言，模仿 Django 的模板。它快速、广泛使用且安全，具有沙盒执行的能力。">
+                    A modern and designer-friendly templating language for Python, modelled after Django's templates. It is fast, widely used, and secure with the ability to sandbox execution.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">PyPI</a>
+                </div>
+            </div>
+
+            <!-- 项目 5 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">
+                        <a href="https://github.com" target="_blank">ItsDangerous</a>
+                    </h3>
+                    <div class="project-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-star">⭐ 2.7k</span>
+                    </div>
+                </div>
+                <p class="project-description" data-en="A Python library for passing data through untrusted environments (like cookies or URLs) while ensuring the data hasn't been tampered with. It uses HMAC to sign the data." data-zh="一个 Python 库，用于在不受信任的环境中（如 cookie 或 URL）传递数据，同时确保数据未被篡改。它使用 HMAC 对数据进行签名。">
+                    A Python library for passing data through untrusted environments (like cookies or URLs) while ensuring the data hasn't been tampered with. It uses HMAC to sign the data.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">PyPI</a>
+                </div>
+            </div>
+
+            <!-- 项目 6 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">
+                        <a href="https://github.com" target="_blank">Babel</a>
+                    </h3>
+                    <div class="project-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-star">⭐ 1.1k</span>
+                    </div>
+                </div>
+                <p class="project-description" data-en="A collection of tools for internationalizing Python applications. It includes a message extraction system, a translation system, and a locale-dependent formatting system." data-zh="一组用于国际化 Python 应用程序的工具。它包括消息提取系统、翻译系统和依赖于区域设置的格式化系统。">
+                    A collection of tools for internationalizing Python applications. It includes a message extraction system, a translation system, and a locale-dependent formatting system.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">PyPI</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright" data-en="© 2026 Your Name. All rights reserved." data-zh="© 2026 你的名字。保留所有权利。">© 2026 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
