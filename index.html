@@ -12,10 +12,21 @@
 <body>
     <!-- 顶部装饰条 -->
     <div class="top-decoration">
-        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path fill="#1e40af" fill-opacity="0.8" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,0 L0,0 Z"></path>
-            <path fill="#3b82f6" fill-opacity="0.6" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1440,60 L1440,0 L0,0 Z"></path>
-            <path fill="#60a5fa" fill-opacity="0.4" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1280,85 1440,75 L1440,0 L0,0 Z"></path>
+        <svg viewBox="0 0 2880 100" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <path id="wave1" d="M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1500,40 C1650,80 1850,0 2000,40 C2150,80 2350,0 2500,40 C2650,80 2850,0 3000,40 L3000,0 L0,0 Z"/>
+                <path id="wave2" d="M0,60 C180,20 320,80 480,60 C640,40 820,90 980,60 C1140,30 1300,80 1460,60 C1620,40 1780,90 1940,60 C2100,30 2260,80 2420,60 C2580,40 2740,90 2900,60 L2900,0 L0,0 Z"/>
+                <path id="wave3" d="M0,80 C160,50 280,90 440,80 C600,70 760,95 920,80 C1080,65 1240,85 1400,80 C1560,70 1720,95 1880,80 C2040,65 2200,85 2360,80 C2520,70 2680,95 2840,80 L2840,0 L0,0 Z"/>
+            </defs>
+            <g class="wave-path-1">
+                <use href="#wave1" fill="#1e40af" fill-opacity="0.8"/>
+            </g>
+            <g class="wave-path-2">
+                <use href="#wave2" fill="#3b82f6" fill-opacity="0.6"/>
+            </g>
+            <g class="wave-path-3">
+                <use href="#wave3" fill="#60a5fa" fill-opacity="0.4"/>
+            </g>
         </svg>
     </div>
 

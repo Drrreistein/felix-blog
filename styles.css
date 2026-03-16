@@ -36,9 +36,59 @@ body {
 }
 
 .top-decoration svg {
-    width: 100%;
+    width: 200%;
     height: 100%;
     display: block;
+    animation: wave-flow 20s linear infinite;
+}
+
+@keyframes wave-flow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 波浪路径动画 */
+.wave-path-1 {
+    animation: wave-move-1 8s ease-in-out infinite;
+}
+
+.wave-path-2 {
+    animation: wave-move-2 10s ease-in-out infinite;
+}
+
+.wave-path-3 {
+    animation: wave-move-3 12s ease-in-out infinite;
+}
+
+@keyframes wave-move-1 {
+    0%, 100% {
+        transform: translateY(0) scaleY(1);
+    }
+    50% {
+        transform: translateY(-3px) scaleY(1.02);
+    }
+}
+
+@keyframes wave-move-2 {
+    0%, 100% {
+        transform: translateY(0) scaleY(1);
+    }
+    50% {
+        transform: translateY(2px) scaleY(0.98);
+    }
+}
+
+@keyframes wave-move-3 {
+    0%, 100% {
+        transform: translateY(0) scaleY(1);
+    }
+    50% {
+        transform: translateY(-2px) scaleY(1.01);
+    }
 }
 
 /* 头部区域 */
