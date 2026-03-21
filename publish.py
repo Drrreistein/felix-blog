@@ -47,11 +47,60 @@ def parse_markdown(filepath):
     
     return metadata, body
 
+def parse_bilingual_title(title):
+    """解析双语标题，返回 (en_title, zh_title)
+    支持格式："English Title | 中文标题" 或 "中文标题 | English Title"
+
+    判断逻辑：
+    - 如果 | 前半段英文字母占多数 → 前半段是英文
+    - 如果 | 後半段中文字符占多数 → 後半段是中文
+    """
+    import re
+    if '|' in title:
+        parts = title.split('|')
+        if len(parts) >= 2:
+            p1, p2 = parts[0].strip(), parts[1].strip()
+            # 统计 ASCII 字母数量
+            count_english = lambda s: len(re.findall(r'[a-zA-Z]', s))
+            # 统计 CJK 字符数量
+            count_chinese = lambda s: len(re.findall(r'[\u4e00-\u9fff]', s))
+            e1, c1 = count_english(p1), count_chinese(p1)
+            e2, c2 = count_english(p2), count_chinese(p2)
+            # 如果前半段英文字母多、前半段中文字少；且後半段中文字多、後半段英文字少
+            if e1 > e2 and c1 < c2:
+                en, zh = p1, p2
+            elif e2 > e1 and c2 < c1:
+                en, zh = p2, p1
+            else:
+                # 无法明确判断，用后半段作为英文前提（常见格式 "中文 | English"）
+                en, zh = p2, p1
+        else:
+            en = zh = title.strip()
+    else:
+        en = zh = title.strip()
+    return en, zh
+
 def generate_slug(title):
-    """从标题生成 URL slug"""
-    # 简单处理：转小写，空格转连字符
-    slug = title.lower().replace(' ', '-').replace('?', '').replace('!', '')
-    slug = re.sub(r'[^a-z0-9-]', '', slug)
+    """从标题生成 URL slug
+
+    规则：
+    - 如果有 | 分割，取英文部分的 ASCII 字母组成 slug
+    - 如果全是非 ASCII，则用标题的 md5 前 8 位
+    """
+    import hashlib
+    if '|' in title:
+        en_part = title.split('|')[0].strip()
+        # 取英文部分的 ASCII 字母和数字
+        slug = re.sub(r'[^a-zA-Z0-9]', '-', en_part)
+        slug = re.sub(r'-+', '-', slug).strip('-').lower()
+        if len(slug) < 3:
+            slug = hashlib.md5(title.encode()).hexdigest()[:8]
+    else:
+        # 没有 |：转小写，保留 ASCII 字母数字和连字符
+        slug = re.sub(r'[^a-zA-Z0-9\-]', '-', title)
+        slug = re.sub(r'-+', '-', slug).strip('-').lower()
+        if len(slug) < 3:
+            slug = hashlib.md5(title.encode()).hexdigest()[:8]
     return slug
 
 def convert_markdown_to_html(markdown_text):
@@ -92,24 +141,31 @@ def generate_article_html(metadata, body, slug):
     title = metadata.get('title', 'Untitled')
     date = metadata.get('date', datetime.now().strftime('%Y-%m-%d'))
     tags = metadata.get('tags', '').split(',') if 'tags' in metadata else []
-    
+    lang = metadata.get('lang', 'en')
+
+    # 解析双语标题
+    en_title, zh_title = parse_bilingual_title(title)
+
     # 转换 Markdown 为 HTML
     content_html = convert_markdown_to_html(body)
-    
+
     # 格式化日期
     date_obj = datetime.strptime(date, '%Y-%m-%d')
     date_en = date_obj.strftime('%B %d, %Y')
     date_zh = date_obj.strftime('%Y年%m月%d日')
-    
+
+    # 根据 lang 决定默认显示哪个标题
+    default_title = zh_title if lang == 'zh' else en_title
+
     # 生成标签 HTML
     tags_html = '\n'.join([f'<span class="tag">{tag.strip()}</span>' for tag in tags if tag.strip()])
-    
+
     html_template = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-en="{title} - Felix Xu's Thoughts and Writings" data-zh="{title} - 磊 的思考与写作">{title} - Felix Xu's Thoughts and Writings</title>
+    <title data-en="{en_title} - Felix Xu's Thoughts and Writings" data-zh="{zh_title} - 磊 的思考与写作">{default_title} - Felix Xu's Thoughts and Writings</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,7 +205,7 @@ def generate_article_html(metadata, body, slug):
     <!-- 文章主体区 -->
     <main class="main-content">
         <article class="article">
-            <h1 class="article-title article-title-full">{title}</h1>
+            <h1 class="article-title article-title-full" data-en="{en_title}" data-zh="{zh_title}">{default_title}</h1>
             <p class="article-date">
                 <span class="date-text" data-en="written on {date_en}" data-zh="写于 {date_zh}">written on {date_en}</span>
             </p>
