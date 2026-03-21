@@ -1,6 +1,26 @@
 {
   "articles": [
     {
+      "id": "karpathy-ai",
+      "slug": "karpathy-ai",
+      "date": "2026-03-21",
+      "tags": [
+        "AI",
+        "Andrej Karpathy",
+        "Machine Learning",
+        "AutoResearch",
+        "Tech Trends"
+      ],
+      "title": {
+        "en": "Karpathy 所说的 AI「循环时代」究竟是什么？",
+        "zh": "What Karpathy's \"Loopy Era of AI\" Really Means"
+      },
+      "content": {
+        "en": "",
+        "zh": ""
+      }
+    },
+    {
       "id": "zara-zhang--2--18-",
       "slug": "zara-zhang--2--18-",
       "date": "2026-03-21",
