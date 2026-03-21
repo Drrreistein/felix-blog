@@ -7,6 +7,7 @@
 import os
 import sys
 import re
+import html
 from datetime import datetime
 from pathlib import Path
 
@@ -157,6 +158,11 @@ def generate_article_html(metadata, body, slug):
     # 根据 lang 决定默认显示哪个标题
     default_title = zh_title if lang == 'zh' else en_title
 
+    # HTML 转义（放入 data-en/data-zh 属性时需要）
+    en_title_esc = html.escape(en_title, quote=True)
+    zh_title_esc = html.escape(zh_title, quote=True)
+    default_title_esc = html.escape(default_title, quote=True)
+
     # 生成标签 HTML
     tags_html = '\n'.join([f'<span class="tag">{tag.strip()}</span>' for tag in tags if tag.strip()])
 
@@ -165,7 +171,7 @@ def generate_article_html(metadata, body, slug):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-en="{en_title} - Felix Xu's Thoughts and Writings" data-zh="{zh_title} - 磊 的思考与写作">{default_title} - Felix Xu's Thoughts and Writings</title>
+    <title data-en="{en_title_esc} - Felix Xu's Thoughts and Writings" data-zh="{zh_title_esc} - 磊 的思考与写作">{default_title_esc} - Felix Xu's Thoughts and Writings</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,7 +211,7 @@ def generate_article_html(metadata, body, slug):
     <!-- 文章主体区 -->
     <main class="main-content">
         <article class="article">
-            <h1 class="article-title article-title-full" data-en="{en_title}" data-zh="{zh_title}">{default_title}</h1>
+            <h1 class="article-title article-title-full" data-en="{en_title_esc}" data-zh="{zh_title_esc}">{default_title_esc}</h1>
             <p class="article-date">
                 <span class="date-text" data-en="written on {date_en}" data-zh="写于 {date_zh}">written on {date_en}</span>
             </p>

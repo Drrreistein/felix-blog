@@ -1,6 +1,26 @@
 {
   "articles": [
     {
+      "id": "what-karpathy-s-loopy-era-of-ai-really-means",
+      "slug": "what-karpathy-s-loopy-era-of-ai-really-means",
+      "date": "2026-03-21",
+      "tags": [
+        "AI",
+        "Andrej Karpathy",
+        "Machine Learning",
+        "AutoResearch",
+        "Tech Trends"
+      ],
+      "title": {
+        "en": "What Karpathy's \"Loopy Era of AI\" Really Means",
+        "zh": "Karpathy 所说的 AI「循环时代」究竟是什么？"
+      },
+      "content": {
+        "en": "",
+        "zh": ""
+      }
+    },
+    {
       "id": "karpathy-ai",
       "slug": "karpathy-ai",
       "date": "2026-03-21",
