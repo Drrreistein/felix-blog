@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>应对变化中的世界秩序 · 瑞·达利欧</title>
+<style>
+  :root {
+    --ink:         #1a1a18;
+    --ink-muted:   #4a4a42;
+    --ink-faint:   #8a8a7e;
+    --canvas:      #faf8f3;
+    --canvas-alt:  #f3f0e8;
+    --rule:        #dedad0;
+    --accent:      #1e3a5f;
+    --accent-warm: #6b3a1a;
+    --accent-gold: #c8960c;
+    --accent-pale: #edf2f7;
+    --serif: 'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', 'Georgia', serif;
+    --sans:  'PingFang SC', 'Helvetica Neue', system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #e8e4d8;
+    font-family: var(--serif);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .page {
+    background: var(--canvas);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3.5rem 3.5rem 3rem;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, #2c5282 40%, #4a7fb5 100%);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  .title-block { margin-bottom: 1.8rem; }
+
+  .title-block h1 {
+    font-size: 1.95rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+
+  .title-block .subtitle {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .title-block .meta {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 1.5rem 0;
+  }
+
+  .hero-quote {
+    background: var(--canvas-alt);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.8rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .hero-quote p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .hero-quote .attr {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    margin-top: 0.5rem;
+    font-style: normal;
+  }
+
+  h2 {
+    font-size: 0.65rem;
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── cycle visualization ── */
+  .cycle-viz {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .cycle-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .cycle-row:last-child { margin-bottom: 0; }
+
+  .cycle-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--ink);
+    width: 7rem;
+    flex-shrink: 0;
+  }
+
+  .cycle-bar {
+    flex: 1;
+    height: 1.1rem;
+    background: var(--accent-pale);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cycle-fill {
+    height: 100%;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .fill-rise  { background: linear-gradient(90deg, #2c7a4b, #48bb78); }
+  .fill-peak  { background: linear-gradient(90deg, #c8960c, #ecc94b); }
+  .fill-fall  { background: linear-gradient(90deg, #9b4226, #e05a3a); }
+  .fill-crisis { background: linear-gradient(90deg, #6b3a1a, #c53030); }
+
+  .cycle-years {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    color: var(--ink-faint);
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .stage-strip {
+    display: flex;
+    margin-top: 0.9rem;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    height: 2.2rem;
+  }
+
+  .stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: white;
+    padding: 0.2rem 0.15rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .stage:nth-child(1) { background: #276749; }
+  .stage:nth-child(2) { background: #2f855a; }
+  .stage:nth-child(3) { background: #b7791f; }
+  .stage:nth-child(4) { background: #9b4226; }
+  .stage:nth-child(5) { background: #822727; }
+  .stage:nth-child(6) { background: #1a365d; }
+
+  .stage.active {
+    box-shadow: inset 0 0 0 2px white;
+  }
+
+  /* ── cards ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .card {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    padding: 0.9rem 0.8rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .card .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    font-family: var(--sans);
+  }
+
+  .card .label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    line-height: 1.3;
+  }
+
+  /* ── two-col ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* ── pillars ── */
+  .pillars { list-style: none; margin-bottom: 0; }
+
+  .pillars li {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pillars li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .pillar-num {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: white;
+    background: var(--accent);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .pillar-body h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .pillar-body p { font-size: 0.78rem; margin: 0; }
+
+  /* ── indicators ── */
+  .indicators {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .ind-card {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.75rem 0.6rem;
+    text-align: center;
+  }
+
+  .ind-card .ind-num {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+
+  .ind-card .ind-name {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: var(--ink-muted);
+    line-height: 1.3;
+  }
+
+  /* ── empire table ── */
+  .empire-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.8rem;
+    font-size: 0.8rem;
+  }
+
+  .empire-table th {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1.5px solid var(--rule);
+    background: var(--canvas-alt);
+  }
+
+  .empire-table td {
+    padding: 0.6rem 0.7rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  .empire-table tr:last-child td { border-bottom: none; }
+  .empire-table td:first-child { font-weight: 700; color: var(--ink); }
+
+  .status-badge {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .status-rise  { background: #c6f6d5; color: #276749; }
+  .status-peak  { background: #fefcbf; color: #975a16; }
+  .status-fall  { background: #fed7d7; color: #822727; }
+
+  /* ── crypto box ── */
+  .crypto-box {
+    background: linear-gradient(135deg, #1a365d 0%, #2a4365 50%, #1e3a5f 100%);
+    color: white;
+    border-radius: 6px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .crypto-box h2 {
+    color: #a0c4e8;
+    border-bottom-color: rgba(255,255,255,0.15);
+    margin-bottom: 0.8rem;
+  }
+
+  .crypto-box p { color: #d0e8f8; font-size: 0.85rem; }
+
+  .crypto-metric {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .crypto-metric-item { text-align: center; }
+
+  .crypto-metric-item .num {
+    font-family: var(--sans);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f6e05e;
+    line-height: 1;
+  }
+
+  .crypto-metric-item .label {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    color: #a0c4e8;
+    margin-top: 0.2rem;
+  }
+
+  /* ── tags ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    padding: 0.25rem 0.55rem;
+  }
+
+  /* ── section ── */
+  .section { margin-bottom: 1.8rem; }
+
+  /* ── footer ── */
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer p {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+
+  .kami-mark {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    color: var(--rule);
+    letter-spacing: 0.1em;
+  }
+
+  mark {
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 2rem 1.5rem; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; gap: 1rem; }
+    .indicators { grid-template-columns: repeat(2, 1fr); }
+    .title-block h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 眉题 -->
+  <div class="eyebrow">书籍 · 宏观经济学 · 帝国兴衰周期</div>
+
+  <!-- 标题 -->
+  <div class="title-block">
+    <h1>应对变化中的世界秩序</h1>
+    <div class="subtitle">Principles for Dealing with the Changing World Order</div>
+    <div class="meta">
+      <span>📖 瑞·达利欧（Ray Dalio）著</span>
+      <span>📅 2021年出版</span>
+      <span>🏛️ Bridgewater Associates 创始人</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 核心引言 -->
+  <div class="hero-quote">
+    <p>「历史上所有国家都以相同的方式兴衰。这是帝国兴衰的<mark>公式</mark>。成功来自于知道如何应对未知。」</p>
+    <div class="attr">— 瑞·达利欧，《应对变化中的世界秩序的原则》，2021</div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="cards">
+    <div class="card">
+      <div class="num">500年</div>
+      <div class="label">历史研究跨度<br>横跨10大帝国</div>
+    </div>
+    <div class="card">
+      <div class="num">~250年</div>
+      <div class="label">一个帝国霸权的<br>完整生命周期</div>
+    </div>
+    <div class="card">
+      <div class="num">8项</div>
+      <div class="label">衡量国力<br>综合实力的指标</div>
+    </div>
+    <div class="card">
+      <div class="num">3大</div>
+      <div class="label">核心驱动周期<br>债务·内政·外交</div>
+    </div>
+  </div>
+
+  <!-- 核心引言2 -->
+  <div class="section">
+    <h2>这本书在说什么</h2>
+    <div class="two-col">
+      <div>
+        <h3>达利欧的野心</h3>
+        <p>用<mark>500年的历史数据</mark>，归纳出帝国兴衰的通用公式。不是预测未来，而是建立一套理解变化如何发生的思维框架。</p>
+        <p>他研究了荷兰帝国（荷兰盾）、英国帝国（英镑）、美国（美元）和正在崛起的中国的完整周期，寻找规律。</p>
+        <p>结论惊人地简单：<mark>所有帝国的兴衰遵循相同的因果链条</mark>，只是时间尺度不同。</p>
+      </div>
+      <div>
+        <h3>当前判断（2026年）</h3>
+        <p>达利欧明确表示：「我们已身处<mark>第五阶段</mark>。」</p>
+        <p>对应1930–1945年的历史时期——债务危机深化、内部政治极化、外部权力冲突加剧、储备货币地位动摇。</p>
+        <p>第六阶段（新世界秩序）正在开启：美国霸权终结，多极世界重组，新秩序尚未确立——这正是历史上最动荡也最多机会的时期。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 周期可视化 -->
+  <div class="section">
+    <h2>帝国兴衰的六大阶段</h2>
+    <div class="stage-strip">
+      <div class="stage">① 新秩序<br>战后重建</div>
+      <div class="stage">② 崛起期<br>繁荣上升</div>
+      <div class="stage">③ 巅峰期<br>债务泡沫</div>
+      <div class="stage">④ 衰落期<br>内部分裂</div>
+      <div class="stage active">⑤ 危机期<br>动荡再分配</div>
+      <div class="stage">⑥ 新秩序<br>霸权更替</div>
+    </div>
+    <p style="font-size:0.75rem; color: var(--ink-faint); margin-top:0.5rem; font-family: var(--sans);">美国1950年达巅峰后进入第③阶段，2026年处于第⑤阶段。中国当前处于第②→③过渡期。</p>
+
+    <!-- 三大周期 -->
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-top:1rem;">
+      <div>
+        <h3 style="font-size:0.8rem; margin-bottom:0.6rem;">三大核心驱动周期</h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="display:flex; gap:0.5rem; margin-bottom:0.5rem; font-size:0.8rem; color: var(--ink-muted); align-items:flex-start;">
+            <span style="color:var(--accent); font-weight:700; flex-shrink:0;">→</span>
+            <div><strong style="color:var(--ink);">长期债务周期</strong>（约100年）：低债务→债务积累→泡沫→违约/货币贬值</div>
+          </li>
+          <li style="display:flex; gap:0.5rem; margin-bottom:0.5rem; font-size:0.8rem; color: var(--ink-muted); align-items:flex-start;">
+            <span style="color:var(--accent); font-weight:700; flex-shrink:0;">→</span>
+            <div><strong style="color:var(--ink);">内部秩序周期</strong>：财富与价值观不平等积累→民粹→冲突/革命</div>
+          </li>
+          <li style="display:flex; gap:0.5rem; font-size:0.8rem; color: var(--ink-muted); align-items:flex-start;">
+            <span style="color:var(--accent); font-weight:700; flex-shrink:0;">→</span>
+            <div><strong style="color:var(--ink);">外部秩序周期</strong>：大国竞争→地缘冲突→霸权更替</div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:0.8rem; margin-bottom:0.6rem;">达利欧的核心洞见</h3>
+        <p style="font-size:0.78rem; line-height:1.6;">「当三大周期同时对齐——债务极高、贫富差距极大、中美实力差距极小——这是历史上最高风险的时刻，也是世界秩序<mark>最快速变化</mark>的时刻。」</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8项指标 -->
+  <div class="section">
+    <h2>帝国国力的8项衡量指标</h2>
+    <p style="margin-bottom:0.8rem;">这8项指标同步上升或下降，是判断一国处于哪个阶段的核心工具：</p>
+    <div class="indicators">
+      <div class="ind-card">
+        <div class="ind-num">01</div>
+        <div class="ind-name">教育水平</div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-num">02</div>
+        <div class="ind-name">创新与技术</div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-num">03</div>
+        <div class="ind-name">全球竞争力</div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-num">04</div>
+        <div class="ind-name">经济产出</div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-num">05</div>
+        <div class="ind-name">世界贸易份额</div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-num">06</div>
+        <div class="ind-name">军事实力</div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-num">07</div>
+        <div class="ind-name">金融中心实力</div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-num">08</div>
+        <div class="ind-name">储备货币地位</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 历史案例表 -->
+  <div class="section">
+    <h2>四大帝国的周期对照</h2>
+    <table class="empire-table">
+      <thead>
+        <tr>
+          <th>帝国</th>
+          <th>储备货币</th>
+          <th>兴衰阶段</th>
+          <th>教训</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>荷兰帝国</td>
+          <td>荷兰盾</td>
+          <td><span class="status-badge status-fall">已完成</span></td>
+          <td>17世纪最强，18世纪因金融过度扩张衰落，被英法取代</td>
+        </tr>
+        <tr>
+          <td>英国帝国</td>
+          <td>英镑</td>
+          <td><span class="status-badge status-fall">已完成</span></td>
+          <td>工业革命称霸，一战耗尽财力，1945年让位于美元</td>
+        </tr>
+        <tr>
+          <td>美国</td>
+          <td>美元</td>
+          <td><span class="status-badge status-fall">第⑤阶段</span></td>
+          <td>1950年巅峰，此后75年债务累积、贫富分化，2026年危机深化</td>
+        </tr>
+        <tr>
+          <td>中国</td>
+          <td>人民币</td>
+          <td><span class="status-badge status-rise">第②→③期</span></td>
+          <td>教育/创新/军事快速提升，储备货币地位尚在建立中</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 加密货币专题 -->
+  <div class="crypto-box">
+    <h2>加密货币与世界秩序的关联</h2>
+    <p>达利欧对加密货币的立场经历了从怀疑到正视的转变：</p>
+    <div style="margin-top:0.6rem;">
+      <p><strong style="color:#a0c4e8;">2021–2022年</strong>（原书立场）：认为比特币「不是好的财富储存工具」，缺乏内在价值，易受监管打击，技术风险过高。</p>
+      <p style="margin-top:0.5rem;"><strong style="color:#a0c4e8;">2025年最新立场</strong>（美国国债达36.7万亿美元背景下）：将比特币与黄金并列，推荐投资者配置<mark style="color:#f6e05e;">15%</mark>资产于两者之一，作为对冲美元贬值的主权级风险工具。</p>
+      <p style="margin-top:0.5rem;"><strong style="color:#a0c4e8;">核心逻辑：</strong>当储备货币（美元）因债务危机失去信任，替代品（黄金/比特币）的相对价值上升。比特币的固定2100万枚供应量，使其成为对抗政府无限印钞的稀缺性工具。</p>
+    </div>
+    <div class="crypto-metric">
+      <div class="crypto-metric-item">
+        <div class="num">15%</div>
+        <div class="label">最新推荐配置<br>BTC 或黄金</div>
+      </div>
+      <div class="crypto-metric-item">
+        <div class="num">36.7万亿</div>
+        <div class="label">美国国债规模<br>（2025年）</div>
+      </div>
+      <div class="crypto-metric-item">
+        <div class="num">1→2%→15%</div>
+        <div class="label">配置建议<br>演变路径</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 与今日的共振 -->
+  <div class="section">
+    <h2>与今日世界的共振</h2>
+    <div class="two-col">
+      <div>
+        <h3>给投资者的含义</h3>
+        <p>达利欧的研究揭示了一个反直觉的结论：<mark>财富保值</mark>不依赖于预测哪国获胜，而在于理解周期的因果链条并提前布局。</p>
+        <p>当美元储备地位动摇、债务不可持续、贫富差距推动政治极化——历史上，这一组合总是导致：(1) 实际利率压制；(2) 黄金/硬资产跑赢；(3) 加密货币作为新价值储存叙事崛起。</p>
+      </div>
+      <div>
+        <h3>给加密货币社区的含义</h3>
+        <p>达利欧的书为「加密货币可以创造更好的国家」这一命题提供了<mark>历史框架</mark>：</p>
+        <p>网络国家的兴起（Balaji的《Network State》概念）与达利欧的历史规律高度吻合——当旧有国家秩序动摇，新形式的组织将以技术为纽带建立。比特币不是货币实验，而是<mark>新世界秩序的基础设施</mark>。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 标签 -->
+  <div class="tags">
+    <span class="tag">帝国兴衰</span>
+    <span class="tag">大周期理论</span>
+    <span class="tag">储备货币</span>
+    <span class="tag">债务危机</span>
+    <span class="tag">地缘政治</span>
+    <span class="tag">美中博弈</span>
+    <span class="tag">比特币配置</span>
+    <span class="tag">Bridgewater</span>
+    <span class="tag">宏观投资</span>
+    <span class="tag">Network State 关联</span>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <p>瑞·达利欧著 · Principles for Dealing with the Changing World Order · Simon & Schuster, 2021</p>
+    <div class="kami-mark">kami · 紙</div>
+  </div>
+
+</div>
+</body>
+</html>

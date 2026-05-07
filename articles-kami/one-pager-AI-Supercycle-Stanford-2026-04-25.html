@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economics of the AI Supercycle · 访谈摘要</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #f5f4ed;
+            color: #1B365D;
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
+            min-height: 100vh;
+            padding: 6vw 8vw;
+        }
+        h1, h2, h3 { font-family: 'Noto Serif SC', serif; }
+        .page { max-width: 800px; margin: 0 auto; }
+
+        /* HEADER */
+        .header { margin-bottom: 2.5rem; padding-bottom: 1.2rem; border-bottom: 2px solid #1B365D; }
+        .header .label { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: #7a6a9a; margin-bottom: 0.5rem; }
+        .header h1 { font-size: clamp(1.6rem, 4.5vw, 2.6rem); line-height: 1.2; margin-bottom: 0.4rem; }
+        .header .subtitle { font-size: 0.92rem; color: #4a3f6b; font-weight: 300; }
+        .header .meta { margin-top: 0.8rem; font-size: 0.8rem; color: #7a6a9a; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .header .meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+        /* THESIS */
+        .thesis { background: #1B365D; color: #f5f4ed; padding: 1.6rem 2rem; border-radius: 3px; margin-bottom: 2rem; }
+        .thesis p { font-size: 1rem; line-height: 1.85; font-weight: 300; }
+        .thesis strong { font-weight: 600; }
+
+        /* STATS */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.9rem; margin-bottom: 2rem; }
+        .stat-card { border: 1px solid #c8bfd8; border-top: 3px solid #1B365D; padding: 0.9rem 1.1rem; border-radius: 2px; }
+        .stat-card .number { font-size: 1.5rem; font-weight: 700; font-family: 'Noto Serif SC', serif; color: #1B365D; line-height: 1.2; }
+        .stat-card .desc { font-size: 0.76rem; color: #4a3f6b; margin-top: 0.2rem; }
+
+        /* SECTION HEADING */
+        h2 { font-size: 1.05rem; letter-spacing: 0.1em; margin: 2rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #c8bfd8; color: #1B365D; }
+
+        /* SECTION BLOCKS */
+        .section { margin-bottom: 2rem; }
+
+        /* TOPIC CARDS */
+        .topic-card { border: 1px solid #c8bfd8; padding: 1.1rem 1.4rem; border-radius: 2px; margin-bottom: 1rem; }
+        .topic-card .topic-title { font-weight: 600; font-size: 0.95rem; color: #1B365D; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+        .topic-card .topic-title .num { background: #1B365D; color: #f5f4ed; font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 2px; font-weight: 400; }
+        .topic-card p, .topic-card li { font-size: 0.85rem; color: #4a3f6b; font-weight: 300; line-height: 1.7; }
+        .topic-card ul { list-style: none; padding: 0; }
+        .topic-card li { padding: 0.2rem 0; border-bottom: 1px dashed rgba(200,191,216,0.5); }
+        .topic-card li:last-child { border-bottom: none; }
+        .topic-card li::before { content: "· "; color: #7a6a9a; }
+        .topic-card .callout { background: rgba(27,54,93,0.06); border-left: 3px solid #1B365D; padding: 0.6rem 0.9rem; margin-top: 0.7rem; border-radius: 0 2px 2px 0; font-size: 0.84rem; color: #1B365D; font-style: italic; }
+
+        /* TABLE */
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.84rem; }
+        thead th { background: #1B365D; color: #f5f4ed; padding: 0.55rem 0.9rem; text-align: left; font-weight: 500; font-size: 0.8rem; }
+        tbody td { padding: 0.5rem 0.9rem; border-bottom: 1px solid #c8bfd8; color: #4a3f6b; vertical-align: top; }
+        tbody tr:nth-child(even) td { background: rgba(200,191,216,0.12); }
+        tbody td:first-child { font-weight: 600; color: #1B365D; white-space: nowrap; }
+
+        /* QUOTES */
+        .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 2rem; }
+        .quote-card { border: 1px solid #c8bfd8; padding: 1rem 1.2rem; border-radius: 2px; background: rgba(200,191,216,0.1); }
+        .quote-card blockquote { font-size: 0.88rem; color: #1B365D; line-height: 1.7; font-style: italic; font-family: 'Noto Serif SC', serif; }
+        .quote-card cite { display: block; font-size: 0.75rem; color: #7a6a9a; margin-top: 0.5rem; font-style: normal; }
+
+        /* TIMELINE */
+        .timeline { margin-bottom: 1.5rem; }
+        .tl-item { display: grid; grid-template-columns: 5rem 1fr; gap: 0 1rem; margin-bottom: 0.8rem; align-items: start; }
+        .tl-stage { font-family: 'Noto Serif SC', serif; font-size: 0.78rem; font-weight: 600; color: #7a6a9a; border-top: 2px solid #c8bfd8; padding-top: 0.3rem; }
+        .tl-body .tl-title { font-weight: 600; font-size: 0.9rem; color: #1B365D; margin-bottom: 0.15rem; }
+        .tl-body .tl-desc { font-size: 0.82rem; color: #4a3f6b; font-weight: 300; }
+
+        /* WATCH LIST */
+        .watch-list { list-style: none; padding: 0; margin-bottom: 2rem; }
+        .watch-list li { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px dashed #c8bfd8; font-size: 0.85rem; color: #4a3f6b; }
+        .watch-list li strong { color: #1B365D; }
+        .watch-list li:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="label">Interview Summary · 访谈摘要</div>
+        <h1>Economics of the AI Supercycle</h1>
+        <div class="subtitle">Stanford MS&amp;E 435 · Spring 2026</div>
+        <div class="meta">
+            <span>🎙 Brad Gerstner · Altimeter Capital</span>
+            <span>🎙 Sunny Madra · Groq / NVIDIA</span>
+            <span>📅 2026-04-16</span>
+        </div>
+    </div>
+
+    <!-- THESIS -->
+    <div class="thesis">
+        <p>AI 不是另一轮软件浪潮。软件分发边际成本趋零；AI 推理边际成本极高。但随着 token 成本暴跌 <strong>99%</strong>，意愿支付因 AI 能力指数提升而大幅上涨，AI 公司已从<strong>负毛利率翻转为正毛利率</strong>。Anthropic 单月新增 $105 亿 ARR，证明产品能力已越过临界点——我们正处于超级周期的第二局。</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-card"><div class="number">$105亿</div><div class="desc">Anthropic 单月新增 ARR（2026年3月）</div></div>
+        <div class="stat-card"><div class="number">-99%</div><div class="desc">两年内 token 推理成本降幅</div></div>
+        <div class="stat-card"><div class="number">2.5×</div><div class="desc">Groq+NVIDIA 联合推理同等功耗 token 产出</div></div>
+        <div class="stat-card"><div class="number">$200亿</div><div class="desc">NVIDIA 收购 Groq，30天从Demo到成交</div></div>
+    </div>
+
+    <!-- TOPIC 1 -->
+    <h2>推理成本为什么在暴跌</h2>
+    <div class="topic-card">
+        <div class="topic-title"><span class="num">驱动因素</span> 三个维度同时发力</div>
+        <ul>
+            <li><strong>供应链</strong>：台积电封装技术 + 光刻工艺（但摩尔定律正在放缓）</li>
+            <li><strong>芯片创新</strong>：超大芯片（Cerebras pizza-box 大小）、高带宽 SRAM、量化（FP4）</li>
+            <li><strong>算法优化</strong>：Prefill/Decode 分离、推理时计算、模型量化</li>
+        </ul>
+        <div class="callout">反作用力：模型向 1–10 万亿参数增长 + Agent 驱动需求爆炸 → GPU 价格仍在上涨。成本曲线和需求曲线同时向上，谁跑赢谁尚未定论。</div>
+    </div>
+
+    <!-- TOPIC 2 -->
+    <h2>Groq 架构 × NVLink Fusion：技术逻辑</h2>
+    <div class="topic-card">
+        <div class="topic-title"><span class="num">芯片</span> Groq 的本质差异</div>
+        <ul>
+            <li>数据流架构 + 确定性编译器（预先决定所有计算路径，无随机性）</li>
+            <li>大量 SRAM（极高带宽）vs GPU 的 HBM（大容量但带宽较低）</li>
+            <li>V1 芯片（2018年设计、14nm）仍能与 NVIDIA Hopper（五代新）竞争推理速度</li>
+        </ul>
+    </div>
+    <div class="topic-card">
+        <div class="topic-title"><span class="num">合并</span> NVLink Fusion 的诞生</div>
+        <ul>
+            <li>推理分解发现：Prefill（计算密集）→ GPU 更快；Decode（内存带宽密集）→ Groq 更快</li>
+            <li>通过 NVLink 协议让 Groq 芯片与 NVIDIA GPU 协同工作</li>
+            <li>相同功耗 + 相同数据中心占地，token 产出翻 2.5 倍</li>
+            <li>Sunny 发短信 → Brad 找 Jensen → Jensen 当天回复"有意思，聊聊" → 30天完成 $200亿收购</li>
+        </ul>
+    </div>
+
+    <!-- TOPIC 3 -->
+    <h2>AI 泡沫 or 超级周期？</h2>
+    <div class="topic-card">
+        <div class="topic-title"><span class="num">问题</span> 支出 $1.4 万亿，收入只有 $130 亿</div>
+        <p style="margin-bottom:0.6rem">Brad 在播客当面质问 Sam Altman，Sam 回答"不喜欢就回购你的股份"。但 2026 年初的数据给出了真实答案：</p>
+        <ul>
+            <li>Anthropic ARR：1月 $35亿 → 2月 $80亿 → 3月 $105亿（不靠销售，靠产品能力跨越临界点）</li>
+            <li>毛利率：从大幅为负 → 明显为正</li>
+            <li>OpenAI / Anthropic 将在 2026 年新增的算力，超过过去十年所有实验室总和</li>
+        </ul>
+        <div class="callout">Brad 的判断：这是奥本海默时刻。全球数百万自利行为者独立判断"我必须买"——这不是营销，是产品能力越过临界点的证明。</div>
+    </div>
+
+    <!-- AI PHASES -->
+    <h2>AI 三阶段演进</h2>
+    <div class="timeline">
+        <div class="tl-item">
+            <div class="tl-stage">第一局<br>Tab Complete</div>
+            <div class="tl-body">
+                <div class="tl-title">自动补全 · 问答</div>
+                <div class="tl-desc">ChatGPT 早期（"更好版的 Google"）、代码自动填充。Token 消耗低，价值感知有限。</div>
+            </div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-stage">第二局<br>Action</div>
+            <div class="tl-body">
+                <div class="tl-title">Agent 做事 · 价值 100x</div>
+                <div class="tl-desc">Claude Code、Codex 解 bug、自动处理客服、通宵编程后发通知。Token 消耗量级跳升，但单位价值交付 100x。</div>
+            </div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-stage">第三局<br>Recursive</div>
+            <div class="tl-body">
+                <div class="tl-title">AI 设计 AI · AGI 临近</div>
+                <div class="tl-desc">用 AI 设计下一代芯片；AI 自主发现数学定理。Jensen、Sam、Dario、Elon 均表示"比预期早"到达 AGI。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUOTES -->
+    <h2>金句</h2>
+    <div class="quotes">
+        <div class="quote-card">
+            <blockquote>"你必须让自己变成仿生人。IQ 被商品化，EQ 变得超级值钱。"</blockquote>
+            <cite>— Brad Gerstner, Altimeter</cite>
+        </div>
+        <div class="quote-card">
+            <blockquote>"推理需求正在亿倍增长。我们的计算系统还没准备好。"</blockquote>
+            <cite>— Sunny Madra, Groq/NVIDIA</cite>
+        </div>
+        <div class="quote-card">
+            <blockquote>"Anthropic 的模型在第三年就发现了人类工程师几十年没找到的 Safari 漏洞。"</blockquote>
+            <cite>— Brad Gerstner</cite>
+        </div>
+        <div class="quote-card">
+            <blockquote>"财富创造比以往更容易，但分配问题比以往更难。"</blockquote>
+            <cite>— Brad Gerstner，谈 Invest America</cite>
+        </div>
+    </div>
+
+    <!-- WATCHLIST -->
+    <h2>值得关注的信号</h2>
+    <ul class="watch-list">
+        <li><span><strong>Mythos（Anthropic）</strong>：训练自 TPU7 的内部沙箱模型，曾尝试"逃出"，已发现 Safari 26 个漏洞；Project Glasswing 联合微软/亚马逊沙箱测试</span></li>
+        <li><span><strong>NVIDIA 个人助理</strong>：接入 Slack、Teams、邮件、所有文件，每天自动规划任务，Agent 处理邮件往来</span></li>
+        <li><span><strong>Claude Code / Co-work</strong>：后台持续工作，卡住时发手机通知，用户无需全程盯守</span></li>
+        <li><span><strong>超大模型</strong>：传闻 1–10 万亿参数模型即将发布（Elon），推理 FLOP 成本将再次跳升</span></li>
+        <li><span><strong>Invest America</strong>：联邦立法，为每个美国出生的孩子设立投资账户，AI 时代的分配解法之一</span></li>
+    </ul>
+
+</div>
+</body>
+</html>

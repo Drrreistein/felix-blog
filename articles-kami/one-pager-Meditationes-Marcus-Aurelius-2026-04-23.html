@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沉思录 · Marcus Aurelius · 人物一页纸</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --parchment: #f5f4ed;
+      --ivory: #faf9f5;
+      --warm-sand: #e8e6dc;
+      --brand: #1B365D;
+      --near-black: #141413;
+      --olive: #5e5d59;
+      --stone: #87867f;
+      --border-cream: #dedad0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--parchment);
+      font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+      color: var(--near-black);
+      line-height: 1.55;
+      font-size: 10pt;
+      padding: 32pt 40pt;
+      max-width: 680pt;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20pt;
+      padding-bottom: 14pt;
+      border-bottom: 0.5pt solid var(--border-cream);
+    }
+
+    .header-left { display: flex; align-items: baseline; gap: 16pt; flex-wrap: wrap; }
+
+    .cn-title { font-size: 26pt; font-weight: 500; color: var(--brand); letter-spacing: 3pt; }
+    .en-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13pt; font-weight: 500; color: var(--olive); letter-spacing: 0.5pt;
+    }
+
+    .meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt; color: var(--stone);
+      text-align: right; line-height: 1.8;
+    }
+
+    .tags { display: flex; gap: 6pt; flex-wrap: wrap; margin-bottom: 20pt; }
+    .tag {
+      background: #EEF2F7; color: var(--brand);
+      font-family: 'Inter', sans-serif; font-size: 7.5pt; font-weight: 500;
+      padding: 2pt 6pt; border-radius: 2pt;
+    }
+
+    .section { margin-bottom: 20pt; }
+
+    .section-title {
+      font-size: 11pt; font-weight: 500; color: var(--brand);
+      margin-bottom: 8pt; padding-left: 8pt;
+      border-left: 2.5pt solid var(--brand); line-height: 1.3;
+    }
+
+    .quote-box {
+      background: var(--ivory);
+      border-left: 2.5pt solid var(--brand);
+      padding: 14pt 18pt;
+      font-size: 11pt;
+      color: var(--near-black);
+      line-height: 1.65;
+      font-style: normal;
+      margin-bottom: 10pt;
+    }
+
+    .quote-source {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt; color: var(--stone);
+      margin-top: 8pt;
+    }
+
+    .intro-text {
+      font-size: 10pt; color: var(--olive);
+      line-height: 1.6; margin-bottom: 14pt;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12pt;
+      margin-bottom: 16pt;
+    }
+
+    .info-card {
+      background: var(--ivory);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 12pt 14pt;
+    }
+
+    .info-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt; font-weight: 600;
+      color: var(--stone);
+      text-transform: uppercase; letter-spacing: 0.5pt;
+      margin-bottom: 4pt;
+    }
+
+    .info-value { font-size: 9.5pt; color: var(--near-black); line-height: 1.45; }
+
+    .highlight { color: var(--brand); font-weight: 500; }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10pt;
+    }
+
+    .principle-card {
+      background: var(--ivory);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 10pt 12pt;
+    }
+
+    .principle-title {
+      font-size: 10pt; font-weight: 500;
+      color: var(--brand); margin-bottom: 4pt;
+    }
+
+    .principle-desc { font-size: 9pt; color: var(--olive); line-height: 1.45; }
+
+    .quotes-list { list-style: none; }
+
+    .quote-item {
+      margin-bottom: 12pt;
+      padding: 10pt 14pt;
+      background: var(--ivory);
+      border-left: 2pt solid var(--brand);
+      border-radius: 0 4pt 4pt 0;
+    }
+
+    .quote-text {
+      font-size: 10pt; color: var(--near-black);
+      line-height: 1.55; font-style: normal; margin-bottom: 4pt;
+    }
+
+    .quote-attr {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; color: var(--stone);
+    }
+
+    .readers-box {
+      background: var(--warm-sand);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 12pt 16pt;
+    }
+
+    .readers-title {
+      font-size: 10pt; font-weight: 500;
+      color: var(--brand); margin-bottom: 6pt;
+    }
+
+    .readers-text { font-size: 9.5pt; color: var(--olive); line-height: 1.5; }
+
+    .footer {
+      margin-top: 24pt;
+      padding-top: 12pt;
+      border-top: 0.5pt solid var(--border-cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; color: var(--stone);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <span class="cn-title">沉思录</span>
+      <span class="en-title">Meditations</span>
+    </div>
+    <div class="meta">
+      <div>马可·奥勒留 Marcus Aurelius</div>
+      <div>斯多葛主义 · 哲学手记</div>
+    </div>
+  </header>
+
+  <div class="tags">
+    <span class="tag">斯多葛主义</span>
+    <span class="tag">帝王哲学</span>
+    <span class="tag">自我修炼</span>
+    <span class="tag">西方经典</span>
+    <span class="tag">一生必读</span>
+  </div>
+
+  <div class="section">
+    <div class="quote-box">
+      "你所拥有的对生活的控制力，取决于你拒绝抱怨那些你无法控制之事的意愿。"
+      <div class="quote-source">— 马可·奥勒留，《沉思录》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="intro-text">
+      这是西方历史上阅读量最大的哲学著作之一，由古罗马皇帝马可·奥勒留在公元 2 世纪的军事征途间隙写给自己看的私人笔记，原本从未打算出版。两千年后，它依然是每个人的床头书——不是因为它教你如何成功，而是因为它教你<strong>如何在混乱中保持内心的秩序</strong>。
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">作者</div>
+        <div class="info-value">
+          <strong>马可·奥勒留</strong>（Marcus Aurelius，121—180）<br>
+          罗马帝国"五贤帝"时代的最后一位皇帝，<strong>"哲学王"</strong>的现实化身——以帝王之躯躬行斯多葛之道。
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">成书背景</div>
+        <div class="info-value">
+          约作于 <strong>公元 170—180</strong> 年间，行军帐篷中利用夜间写成。不是系统的哲学论著，而是与自己的<span class="highlight">每日对话</span>。
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">结构</div>
+        <div class="info-value">
+          全书分 <strong>12 卷</strong>，无严格逻辑体系；每卷长短不一，像是随时写下的箴言与反思，主题随思绪流动。
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">语言</div>
+        <div class="info-value">
+          用<strong>古希腊语</strong>写成。马可·奥勒留的母语是拉丁语，但他选择用希腊语写作，表明他主动融入希腊哲学传统的自觉。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">核心思想：斯多葛主义的活法</h2>
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="principle-title">控制二分法</div>
+        <div class="principle-desc">
+          <strong>区分你能控制的和你不能控制的</strong>——外界的评价、他人的看法、自然的变迁，都不在你的掌控之中。只有你的判断、你的选择、你的回应方式，属于你自己。
+        </div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">Memento Mori · 记住你会死</div>
+        <div class="principle-desc">
+          每一天都当最后一天来过。不是悲观，而是<strong>通过直面死亡来校准什么是真正重要的</strong>。时间有限，就不要浪费在无意义的事上。
+        </div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">Amor Fati · 热爱命运</div>
+        <div class="principle-desc">
+          不是"忍受"命运，而是"热爱"它所发生的一切。<strong>发生的事情本身就是宇宙运行的一部分</strong>，抗拒它是徒劳，拥抱它才是智慧。
+        </div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-title">inner citadel · 内心堡垒</div>
+        <div class="principle-desc">
+          外部世界可以动乱，皇帝的疆土可以失守，但<strong>内心的判断力不可被夺走</strong>。这就是斯多葛主义者永不丧失的"内在领地"。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">书中名句</h2>
+    <ul class="quotes-list">
+      <li class="quote-item">
+        <div class="quote-text">"你所经历的每一刻，都是你剩余生命中的第一刻，也是最后一刻。"</div>
+        <div class="quote-attr">卷三</div>
+      </li>
+      <li class="quote-item">
+        <div class="quote-text">"外界的事物触不到灵魂。让痛苦和快乐都各在其位，让它们各自走自己的路。"</div>
+        <div class="quote-attr">卷四</div>
+      </li>
+      <li class="quote-item">
+        <div class="quote-text">"不要像被强迫那样行事，而要像出于热爱那样行事。让爱成为你一切行为的动力。"</div>
+        <div class="quote-attr">卷十一</div>
+      </li>
+      <li class="quote-item">
+        <div class="quote-text">"人的生命只存在于当下；当下无限小，其他皆空无。"</div>
+        <div class="quote-attr">卷十二</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="readers-box">
+      <div class="readers-title">历代影响者</div>
+      <div class="readers-text">
+        腓特烈大帝随身携带此书八年；歌德称其为"最深刻的自我对话"；撒切尔夫人、迈克尔·科比（美国国防部长）、NFL 教练比尔·贝利奇克均公开将此《沉思录》列为最重要的精神读物。2006 年，亚马逊排行榜上它仍是销量最高的哲学书。它不属于某个时代——它属于所有感到焦虑、失控、不知如何面对混乱的人。
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    生成于 2026-04-23 · 纸 · Kami · 书籍一页纸
+  </footer>
+
+</body>
+</html>

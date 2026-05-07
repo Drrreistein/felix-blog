@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>纳瓦尔宝典 · Naval Ravikant</title>
+<style>
+  :root {
+    --ink:        #1a1a18;
+    --ink-muted:  #4a4a42;
+    --ink-faint:  #8a8a7e;
+    --canvas:     #faf8f3;
+    --canvas-alt: #f3f0e8;
+    --rule:       #dedad0;
+    --accent:     #1e3a5f;
+    --accent-warm:#8b4513;
+    --accent-gold:#c8960c;
+    --accent-pale:#edf2f7;
+    --accent-sage:#2d5a3d;
+    --serif: 'Source Han Serif SC','Noto Serif CJK SC','Songti SC','Georgia',serif;
+    --sans:  'PingFang SC','Helvetica Neue',system-ui,sans-serif;
+  }
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #e8e4d8;
+    font-family: var(--serif);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .page {
+    background: var(--canvas);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3.5rem 3.5rem 3rem;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, #2f5a7e 50%, var(--accent-sage) 100%);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  .title-block { margin-bottom: 1.8rem; }
+
+  .title-block h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+
+  .title-block .subtitle {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .title-block .meta {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  hr { border: none; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+
+  /* hero quote */
+  .hero-quote {
+    background: var(--canvas-alt);
+    border-left: 3px solid var(--accent-sage);
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.8rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .hero-quote p { font-size: 1.05rem; line-height: 1.65; color: var(--ink); font-style: italic; }
+  .hero-quote .attr {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    margin-top: 0.5rem;
+    font-style: normal;
+  }
+
+  h2 {
+    font-size: 0.65rem;
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h3 { font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+
+  p { font-size: 0.88rem; line-height: 1.7; color: var(--ink-muted); margin-bottom: 0.8rem; }
+
+  /* cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .card {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    padding: 0.9rem 0.8rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .card .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    font-family: var(--sans);
+  }
+
+  .card .label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    line-height: 1.3;
+  }
+
+  /* two-col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-bottom: 1.8rem; }
+
+  /* pillars */
+  .pillars { list-style: none; margin-bottom: 0; }
+
+  .pillars li {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pillars li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .pillar-icon {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .pillar-body h4 { font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+  .pillar-body p { font-size: 0.78rem; margin: 0; }
+
+  /* quote blocks */
+  .quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .quote-card {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.9rem 1rem;
+    border-top: 3px solid var(--accent-gold);
+  }
+
+  .quote-card blockquote {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    border: none;
+    padding: 0;
+  }
+
+  .quote-card .q-attr {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    color: var(--ink-faint);
+  }
+
+  /* formula */
+  .formula-box {
+    background: linear-gradient(135deg, #1a365d 0%, #2d5a3d 100%);
+    color: white;
+    border-radius: 6px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.8rem;
+    text-align: center;
+  }
+
+  .formula-box .f-title {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #a0c4e8;
+    margin-bottom: 0.8rem;
+  }
+
+  .formula-box .f-main {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f6e05e;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .formula-box .f-desc {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: #c0ddf0;
+    line-height: 1.6;
+  }
+
+  /* tags */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    padding: 0.25rem 0.55rem;
+  }
+
+  /* compare box */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.8rem;
+  }
+
+  .compare-col { padding: 1rem 1.2rem; }
+
+  .compare-col:first-child { border-right: 1px solid var(--rule); background: var(--canvas-alt); }
+
+  .compare-col h4 {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  .compare-col ul { list-style: none; padding: 0; }
+
+  .compare-col ul li {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+
+  .compare-col ul li:last-child { border-bottom: none; }
+
+  .compare-col ul li::before {
+    content: '·';
+    color: var(--accent-gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* section */
+  .section { margin-bottom: 1.8rem; }
+
+  /* footer */
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer p { font-family: var(--sans); font-size: 0.65rem; color: var(--ink-faint); margin: 0; }
+  .kami-mark { font-family: var(--sans); font-size: 0.6rem; color: var(--rule); letter-spacing: 0.1em; }
+
+  mark { background: transparent; color: var(--accent); font-weight: 700; }
+
+  @media (max-width: 600px) {
+    .page { padding: 2rem 1.5rem; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; gap: 1rem; }
+    .quote-grid { grid-template-columns: 1fr; }
+    .compare { grid-template-columns: 1fr; }
+    .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .title-block h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 眉题 -->
+  <div class="eyebrow">书籍 · 财富哲学 · 幸福心法</div>
+
+  <!-- 标题 -->
+  <div class="title-block">
+    <h1>纳瓦尔宝典</h1>
+    <div class="subtitle">The Almanack of Naval Ravikant — Getting Wealth Without Getting Lucky</div>
+    <div class="meta">
+      <span>📖 Naval Ravikant（埃里克·乔根森 编）</span>
+      <span>📅 2020年出版（网络首发）</span>
+      <span>💰 AngelList 创始人</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 核心引言 -->
+  <div class="hero-quote">
+    <p>「如何致富（不靠运气）？把你自己产品化。<br>如何获得幸福？学会接受它是你默认的状态。」</p>
+    <div class="attr">— Naval Ravikant，Twitter / Podcast，2018–2020</div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="cards">
+    <div class="card">
+      <div class="num">2大</div>
+      <div class="label">核心主题<br>财富 · 幸福</div>
+    </div>
+    <div class="card">
+      <div class="num">3类</div>
+      <div class="label">财富杠杆<br>资本·劳动·代码</div>
+    </div>
+    <div class="card">
+      <div class="num">1条</div>
+      <div class="label">核心公式<br>产品化·专知</div>
+    </div>
+    <div class="card">
+      <div class="num">0</div>
+      <div class="label">所需运气类型<br>零运气可致富</div>
+    </div>
+  </div>
+
+  <!-- 本书在说什么 -->
+  <div class="section">
+    <h2>这本书在说什么</h2>
+    <div class="two-col">
+      <div>
+        <h3>背景</h3>
+        <p>纳瓦尔是印度裔美国工程师、天使投资人（Twitter、Uber、Coinbase早期投资人），也是硅谷最受欢迎的思想播客之一。</p>
+        <p>这本书并非他亲笔所写，而是由埃里克·乔根森将他十年来的推文、采访、播客内容整理成书。</p>
+        <p>两句话总结全书：<mark>财富是你睡着时还在创造价值的资产；幸福是你内在的平静，而非外在的成功。</mark></p>
+      </div>
+      <div>
+        <h3>核心结构</h3>
+        <p>全书分为<mark>财富</mark>与<mark>幸福</mark>两大主题，各自独立但底层互通。</p>
+        <p>财富部分回答：「如何在不靠运气的情况下变富？」幸福部分回答：「如何在获得一切之后还能内心平静？」</p>
+        <p>纳瓦尔最反直觉的论断：财富与幸福是可以同时追求的，且追求财富的过程本身就是修炼幸福的方式之一。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 财富公式 -->
+  <div class="section">
+    <h2>如何致富（不靠运气）— 核心公式</h2>
+    <div class="formula-box">
+      <div class="f-title">Naval 的财富公式</div>
+      <div class="f-main">专知 + 杠杆 + 长期 = 财富</div>
+      <div class="f-desc">
+        <strong>专知（Specific Knowledge）</strong>：无法被教授的知识，只能通过独特经历习得<br>
+        <strong>杠杆（Leverage）</strong>：资本、劳动力和零边际成本的代码/媒体<br>
+        <strong>长期（Accountability）</strong>：长期玩长期游戏，承担自己判断的后果
+      </div>
+    </div>
+
+    <!-- 财富四支柱 -->
+    <ul class="pillars">
+      <li>
+        <div class="pillar-icon">🏗️</div>
+        <div class="pillar-body">
+          <h4>专知是最难获得的财富杠杆</h4>
+          <p>专知不是从课堂上学的，而是你真正热爱的领域，你在没人看时就忍不住钻研的东西。它无法被规模化复制，因此稀缺，因此有价值。纳瓦尔：「法律、科学、烹饪——任何领域的深度手艺都是专知。」</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-icon">⚙️</div>
+        <div class="pillar-body">
+          <h4>新杠杆：代码与媒体</h4>
+          <p>旧时代的杠杆是资本（需要有钱）和劳动（需要管理人）。新杠杆是<mark>代码和媒体</mark>——零边际成本，天然具有规模化属性。纳瓦尔：「未来十年内，编程能力将成为最基本的技能……学会写代码。」</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-icon">⏳</div>
+        <div class="pillar-body">
+          <h4>玩长期游戏</h4>
+          <p>「与长期的人玩长期游戏。」当所有人都追求短期，复利效应只属于少数人。在线声誉的积累、个人品牌的建立、关系的深化——都需要10年以上才能看到收益，但一旦建立，护城河极深。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-icon">🎯</div>
+        <div class="pillar-body">
+          <h4>把你自己产品化</h4>
+          <p>「把自己产品化」的反面是「把自己当工具」。不是卖时间换取线性收入，而是找到你独特的能力，把它封装成可规模化复制的产品/服务。你不需要最有才华，只需要你最独特的那个维度的组合。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 幸福主题 -->
+  <div class="section">
+    <h2>如何获得幸福 — 核心洞见</h2>
+    <div class="compare">
+      <div class="compare-col">
+        <h4>纳瓦尔说的幸福</h4>
+        <ul>
+          <li>幸福是一种<mark>内在的平静</mark>，而非兴奋或快乐</li>
+          <li>幸福是对<mark>欲望本身</mark>的消解，而非满足更多欲望</li>
+          <li>幸福是默认状态，你只需不「搞砸」它</li>
+          <li>接受现实（特别是死亡）带来深刻解脱</li>
+          <li>减少「戏剧性」——减少戏剧=减少情绪波动</li>
+          <li>冥想是给大脑的定期重置</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h4>他否定的常见幻觉</h4>
+        <ul>
+          <li>「等我达到X目标，我就幸福了」——欲望是无限游戏</li>
+          <li>「成功带来幸福」——研究证明效果短暂且有限</li>
+          <li>「我需要改变自己」——幸福在于接受，而非改变</li>
+          <li>「退休是目标」——永远工作，沉浸其中</li>
+          <li>「需要外部条件满足」——内心平静与外部条件无关</li>
+          <li>「忙碌=充实」——存在（Being）优于做事（Doing）</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="pillars">
+      <li>
+        <div class="pillar-icon">🧘</div>
+        <div class="pillar-body">
+          <h4>冥想不是神秘主义，是大脑训练</h4>
+          <p>纳瓦尔每天强制冥想两小时（早期甚至更多）。他强调这不是为了"开悟"，而是为了<mark>观察自己的思维和情绪</mark>——像一个冷静的旁观者。当你能看见愤怒，而不陷入愤怒，幸福就已经开始了。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-icon">💀</div>
+        <div class="pillar-body">
+          <h4>Memento Mori：记住你会死</h4>
+          <p>纳瓦尔深受斯多葛哲学影响。他认为每天早晨<mark>默念死亡</mark>是最佳的时间管理法——它自动过滤掉所有不重要的事，让你专注真正重要的人与事。死亡不是威胁，而是最强大的聚焦工具。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-icon">🌊</div>
+        <div class="pillar-body">
+          <h4>「接受」是最被低估的能力</h4>
+          <p>接受不是认输，而是<mark>停止与现实的战争</mark>。接受你的过去、你的弱点、这个世界的不完美。一旦停止内耗，能量自然流向创造。纳瓦尔：「我学会了对一切都说是。」</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 精选语录 -->
+  <div class="section">
+    <h2>精选语录</h2>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <blockquote>「追求财富，而不是金钱或地位。财富是睡着了还在创造价值的资产。」</blockquote>
+        <div class="q-attr">— Naval · 财富篇</div>
+      </div>
+      <div class="quote-card">
+        <blockquote>「专知是通过追随真正的热情而发现的，不是通过规划。」</blockquote>
+        <div class="q-attr">— Naval · 专知篇</div>
+      </div>
+      <div class="quote-card">
+        <blockquote>「欲望是失去平静的合约，你想要的东西也在想要你。」</blockquote>
+        <div class="q-attr">— Naval · 幸福篇</div>
+      </div>
+      <div class="quote-card">
+        <blockquote>「我们唯一的竞争是与昨天的自己。」</blockquote>
+        <div class="q-attr">— Naval · 人生篇</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 与今日的共振 -->
+  <div class="section">
+    <h2>与今日世界的共振</h2>
+    <div class="two-col">
+      <div>
+        <h3>对创业者和创作者</h3>
+        <p>纳瓦尔在2012–2013年就预判了<mark>Creator Economy</mark>的兴起：代码、播客、内容——这些零边际成本的工具会让个人在全球范围内建立影响力，而不需要任何机构背书。这正是今天小红书、Substack、YouTube创作者浪潮的前身。</p>
+      </div>
+      <div>
+        <h3>对财富焦虑时代的一剂解药</h3>
+        <p>在"35岁退休"的叙事横行的年代，纳瓦尔的框架提供了一种更沉稳的路径：<mark>专知 → 产品化 → 杠杆 → 长期</mark>。不需要暴富秘方，只需要方向正确的耐心。财富是副产品，不是目标。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 标签 -->
+  <div class="tags">
+    <span class="tag">天使投资</span>
+    <span class="tag">专知</span>
+    <span class="tag">财富杠杆</span>
+    <span class="tag">幸福哲学</span>
+    <span class="tag">斯多葛主义</span>
+    <span class="tag">冥想</span>
+    <span class="tag">长期主义</span>
+    <span class="tag">Creator Economy</span>
+    <span class="tag">硅谷思想</span>
+    <span class="tag">Eric Jorgenson</span>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <p>Naval Ravikant 著，Eric Jorgenson 编 · The Almanack of Naval Ravikant · 2020（网络版免费）</p>
+    <div class="kami-mark">kami · 紙</div>
+  </div>
+
+</div>
+</body>
+</html>

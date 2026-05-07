@@ -860,3 +860,54 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
 }
+
+/* kami 卡片网格样式 */
+.kami-section {
+    margin-top: 2rem;
+}
+
+.section-title {
+    font-family: 'Georgia', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.kami-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.kami-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.875rem 1rem;
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.kami-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    transform: translateY(-1px);
+}
+
+.kami-card-date {
+    font-size: 0.75rem;
+    color: var(--light-gray);
+    margin-bottom: 0.35rem;
+}
+
+.kami-card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.4;
+}

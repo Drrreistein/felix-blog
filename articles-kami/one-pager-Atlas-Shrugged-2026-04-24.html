@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas Shrugged · 阿特拉斯耸耸肩 · 书籍一页纸</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --parchment: #f5f4ed;
+      --ivory: #faf9f5;
+      --warm-sand: #e8e6dc;
+      --brand: #1B365D;
+      --near-black: #141413;
+      --olive: #5e5d59;
+      --stone: #87867f;
+      --border-cream: #dedad0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--parchment);
+      font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+      color: var(--near-black);
+      line-height: 1.55;
+      font-size: 10pt;
+      padding: 32pt 40pt;
+      max-width: 700pt;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20pt;
+      padding-bottom: 14pt;
+      border-bottom: 0.5pt solid var(--border-cream);
+    }
+
+    .header-left { display: flex; align-items: baseline; gap: 16pt; flex-wrap: wrap; }
+    .cn-title { font-size: 26pt; font-weight: 500; color: var(--brand); letter-spacing: 2pt; }
+    .en-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 14pt; font-weight: 500; color: var(--olive); letter-spacing: 0.5pt;
+    }
+
+    .meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt; color: var(--stone);
+      text-align: right; line-height: 1.8;
+    }
+
+    .tags { display: flex; gap: 6pt; flex-wrap: wrap; margin-bottom: 20pt; }
+    .tag {
+      background: #EEF2F7; color: var(--brand);
+      font-family: 'Inter', sans-serif; font-size: 7.5pt; font-weight: 500;
+      padding: 2pt 6pt; border-radius: 2pt;
+    }
+
+    .section { margin-bottom: 20pt; }
+
+    .section-title {
+      font-size: 11pt; font-weight: 500; color: var(--brand);
+      margin-bottom: 8pt; padding-left: 8pt;
+      border-left: 2.5pt solid var(--brand); line-height: 1.3;
+    }
+
+    .opening-quote {
+      background: var(--ivory);
+      border-left: 2.5pt solid var(--brand);
+      padding: 16pt 20pt;
+      font-size: 12pt;
+      color: var(--near-black);
+      line-height: 1.7;
+      font-style: normal;
+      margin-bottom: 14pt;
+    }
+
+    .opening-quote-en {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      color: var(--olive);
+      font-size: 11pt;
+      margin-bottom: 8pt;
+    }
+
+    .intro-text {
+      font-size: 10pt; color: var(--olive);
+      line-height: 1.6; margin-bottom: 12pt;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12pt;
+      margin-bottom: 16pt;
+    }
+
+    .info-card {
+      background: var(--ivory);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 12pt 14pt;
+    }
+
+    .info-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt; font-weight: 600;
+      color: var(--stone);
+      text-transform: uppercase; letter-spacing: 0.5pt;
+      margin-bottom: 4pt;
+    }
+
+    .info-value { font-size: 9.5pt; color: var(--near-black); line-height: 1.45; }
+    .highlight { color: var(--brand); font-weight: 500; }
+
+    .character-card {
+      background: var(--ivory);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 10pt 14pt;
+      margin-bottom: 10pt;
+    }
+
+    .character-name {
+      font-size: 11pt; font-weight: 500;
+      color: var(--brand); margin-bottom: 3pt;
+    }
+
+    .character-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; color: var(--stone);
+      margin-bottom: 5pt;
+    }
+
+    .character-desc { font-size: 9.5pt; color: var(--olive); line-height: 1.45; }
+
+    .symbol-card {
+      background: var(--warm-sand);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 10pt 14pt;
+      margin-bottom: 8pt;
+    }
+
+    .symbol-title {
+      font-size: 10pt; font-weight: 500;
+      color: var(--brand); margin-bottom: 2pt;
+    }
+
+    .symbol-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; color: var(--stone);
+      font-style: italic; margin-bottom: 4pt;
+    }
+
+    .symbol-desc { font-size: 9.5pt; color: var(--olive); line-height: 1.45; }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10pt;
+    }
+
+    .philosophy-card {
+      background: var(--ivory);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 10pt 12pt;
+    }
+
+    .philosophy-title {
+      font-size: 10pt; font-weight: 500;
+      color: var(--brand); margin-bottom: 4pt;
+    }
+
+    .philosophy-desc { font-size: 9pt; color: var(--olive); line-height: 1.45; }
+
+    .impact-box {
+      background: linear-gradient(135deg, var(--ivory) 0%, var(--warm-sand) 100%);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 8pt;
+      padding: 14pt 18pt;
+    }
+
+    .impact-title {
+      font-size: 11pt; font-weight: 500;
+      color: var(--brand); margin-bottom: 8pt;
+    }
+
+    .impact-text { font-size: 9.5pt; color: var(--olive); line-height: 1.55; }
+
+    .footer {
+      margin-top: 24pt;
+      padding-top: 12pt;
+      border-top: 0.5pt solid var(--border-cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; color: var(--stone);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <span class="cn-title">阿特拉斯耸耸肩</span>
+      <span class="en-title">Atlas Shrugged</span>
+    </div>
+    <div class="meta">
+      <div>Ayn Rand · 安·兰德</div>
+      <div>1957 · 客观主义小说</div>
+    </div>
+  </header>
+
+  <div class="tags">
+    <span class="tag">客观主义</span>
+    <span class="tag">自由放任资本主义</span>
+    <span class="tag">反乌托邦</span>
+    <span class="tag">理性利己主义</span>
+    <span class="tag">美国文学经典</span>
+  </div>
+
+  <div class="opening-quote">
+    <div class="opening-quote-en">
+      "Who is John Galt?"<br>
+      "Who is John Galt? The man who is on strike against the world!"
+    </div>
+    <div>"是谁在养活这个世界？——是那些在阿特拉斯肩上的人！"<br>
+    — 小说开篇与全书灵魂之问</div>
+  </div>
+
+  <div class="section">
+    <p class="intro-text">
+      《阿特拉斯耸耸肩》是20世纪最具争议、销量最大的美国小说之一。兰德用一个关于创造者集体罢工的故事，提出了一个令人不安的问题：<strong>如果世界上所有最聪明的人都停止工作，会发生什么？</strong>答案是：文明会崩溃——而这，正是她对现代福利国家和集体主义的终极控诉。
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">作者</div>
+        <div class="info-value">
+          <strong>Ayn Rand · 安·兰德</strong>（1905—1982）<br>
+          俄裔美国哲学家兼小说家，<strong>客观主义（Objectivism）</strong>哲学体系创立者。她的人生本身就是一部激进哲学的活体实验：从不掩饰自己的观点。
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">出版</div>
+        <div class="info-value">
+          1957年，美国出版。<br>
+          全书约 <strong>1,200 页</strong>，是有史以来最长的畅销小说之一。<br>
+          出版首周即登榜，至今累计销量超 <strong>3000 万册</strong>。
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">核心主题</div>
+        <div class="info-value">
+          按兰德自己的说法：<strong>"人的意识在存在中的角色"</strong>。<br>
+          展开来看：是理性创造者驱动文明，还是集体主义最终吞噬它？
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">语言</div>
+        <div class="info-value">
+          英文写作。<br>
+          兰德故意选择清晰、直接、雄辩的19世纪现实主义风格，与她所推崇的理性古典哲学一脉相承。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">情节：文明的罢工</h2>
+    <p class="intro-text">
+      设定在近未来美国：一个被政府管控和集体主义蚕食的反乌托邦。成功的创造者被社会视为"剥削者"，遭受敌意、税收和管制的迫害。随着精英们一个接一个神秘消失——他们躲进科罗拉多州的<span class="highlight">加勒廷峡谷</span>——文明的支柱开始崩塌。最终，整个社会在创造者集体离开后陷入混乱……
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">五大核心人物</h2>
+
+    <div class="character-card">
+      <div class="character-name">John Galt · 约翰·高尔特</div>
+      <div class="character-role">工程师 / 运动领袖</div>
+      <div class="character-desc">最杰出的头脑，发明了革命性电动机。领导精英罢工，在电台发表著名的<span class="highlight">《高尔特之声》</span>演讲，阐述客观主义哲学全书核心。</div>
+    </div>
+
+    <div class="character-card">
+      <div class="character-name">Dagny Taggart · 黛妮·塔格特</div>
+      <div class="character-role">跨洲铁路执行副总裁</div>
+      <div class="character-desc">能力超群的女性领导者，贯穿全书的核心视角。证明女性可以像男性一样成就伟业——在兰德的笔下，她既是"阿特拉斯"，也是理性的化身。</div>
+    </div>
+
+    <div class="character-card">
+      <div class="character-name">Hank Rearden · 汉克·里尔登</div>
+      <div class="character-role">钢铁大亨 / 发明家</div>
+      <div class="character-desc">发明了革命性的"<span class="highlight">里尔登金属</span>"——小说中技术与工业创造力的象征。被社会索取却遭敌视的贡献者，象征被集体主义压榨的生产者。</div>
+    </div>
+
+    <div class="character-card">
+      <div class="character-name">Francisco d'Anconia · 弗朗西斯科·德安孔尼亚</div>
+      <div class="character-role">铜业巨头 / 高尔特挚友</div>
+      <div class="character-desc">伪装成浪荡公子的哲学信使。向黛妮揭示精英罢工的真相，展示了智识与美德如何在黑暗中守护价值。</div>
+    </div>
+
+    <div class="character-card">
+      <div class="character-name">Ragnar Danneskjöld · 拉格纳·丹尼斯科尔德</div>
+      <div class="character-role">"侠盗"</div>
+      <div class="character-desc">劫"掠夺者"济创造者的现代罗宾汉。兰德用他反向批判传统侠盗形象：财富属于创造者，不属于分享者。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">客观主义哲学的四大支柱</h2>
+    <div class="philosophy-grid">
+      <div class="philosophy-card">
+        <div class="philosophy-title">实在论 · Reality</div>
+        <div class="philosophy-desc">现实独立于意识而存在。否认客观现实就是逃避存在——而存在是不可否认的。</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="philosophy-title">理性 · Rationality</div>
+        <div class="philosophy-desc">理性是获取知识的唯一手段。直觉、情感或权威都不能替代逻辑思考。</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="philosophy-title">理性利己主义 · Rational Self-Interest</div>
+        <div class="philosophy-desc">追求合理的自我利益是<span class="highlight">道德的</span>。牺牲他人或自我牺牲都是非理性的。</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="philosophy-title">自由放任资本主义 · Laissez-faire</div>
+        <div class="philosophy-desc">没有政府干预的自由市场是唯一合乎道德的社会制度。利润不是罪恶——它是创造价值的证明。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">与今日的共振</h2>
+    <div class="symbol-card">
+      <div class="symbol-title">为什么今天读来依然触目惊心？</div>
+      <div class="symbol-desc">
+        当你看到政府用"公平"之名对企业加税，看到媒体把创新者描绘成"恶魔"，看到"劫富济贫"成为政治正确——<strong>阿特拉斯的故事正在重演</strong>。兰德用虚构提前70年预言了这个时代的核心矛盾：建设者 vs. 索取者，理性 vs. 情绪，生产力 vs. 公平叙事。
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="impact-box">
+      <div class="impact-title">争议与影响</div>
+      <div class="impact-text">
+        这本书的粉丝名单包括格林斯潘（美联储前主席）、克鲁格曼、乔布斯、《宋飞正传》的杰森·亚历山大——以及数百万被兰德"改变人生"的普通读者。批评者则指出：兰德对自私的美化、对利他主义的彻底否定，可能导向危险的道德虚无主义。<br><br>
+        无论你站哪一边，《阿特拉斯耸耸肩》都会迫使你回答一个无法回避的问题：<strong>你是约翰·高尔特，还是那些在等他回来的人？</strong>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    生成于 2026-04-24 · 纸 · Kami · 书籍一页纸
+  </footer>
+
+</body>
+</html>

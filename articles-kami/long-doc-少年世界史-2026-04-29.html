@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     少年世界史 · 每章总结 · kami long-doc
+     基于押沙龙《少年世界史（全五册）》95章小结整理
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>少年世界史 · 每章总结</title>
+<meta name="author" content="押沙龙">
+<meta name="description" content="从人类起源到二战结束，95章历史发展脉络全景呈现。涵盖上古时代、古典文明、中古时代、融合的世界、工业化时代五大时期。">
+<meta name="keywords" content="世界史,少年世界史,押沙龙,人类文明,历史总结">
+<meta name="generator" content="Kami">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+
+    @top-right {
+      content: string(section-title);
+      font-family: "TsangerJinKai02", "Source Han Serif SC",
+                   "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 8pt;
+      color: #6b6a64;
+    }
+
+    @bottom-center {
+      content: counter(page) "  ·  少年世界史";
+      font-family: "TsangerJinKai02", "Source Han Serif SC",
+                   "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --sans: var(--serif);
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22px 22mm 22px; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    letter-spacing: 0.3pt;
+  }
+
+  .sans { font-family: var(--sans); }
+
+  /* ========== COVER ========== */
+  .cover {
+    min-height: 240mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40mm 0 0 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 18pt;
+  }
+  .cover-title {
+    font-size: 36pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.15;
+    letter-spacing: 0.3pt;
+    margin-bottom: 16pt;
+  }
+  .cover-sub {
+    font-family: var(--sans);
+    font-size: 14pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 30pt;
+  }
+  .cover-meta {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+  .cover-meta strong { color: var(--dark-warm); font-weight: 500; }
+
+  /* ========== TOC ========== */
+  .toc { break-after: page; }
+  .toc h2 {
+    font-size: 22pt;
+    font-weight: 500;
+    margin-bottom: 14pt;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 11pt;
+  }
+  .toc-num { color: var(--brand); font-weight: 500; min-width: 30pt; }
+  .toc-title { flex: 1; color: var(--near-black); padding-left: 6pt; }
+  .toc-page { color: var(--stone); font-variant-numeric: tabular-nums; }
+
+  /* ========== HEADINGS ========== */
+  h1 {
+    font-size: 22pt; font-weight: 500; line-height: 1.2;
+    margin: 0 0 10pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt; padding-left: 8pt;
+    color: var(--near-black); break-after: avoid;
+  }
+  h2 {
+    font-size: 16pt; font-weight: 500; line-height: 1.25;
+    margin: 24pt 0 6pt 0; color: var(--near-black); break-after: avoid;
+    string-set: section-title content();
+  }
+  h3 {
+    font-size: 13pt; font-weight: 500; line-height: 1.3;
+    margin: 18pt 0 4pt 0; color: var(--dark-warm); break-after: avoid;
+  }
+
+  /* ========== CHAPTER CARD (custom for this doc) ========== */
+  .chapter-card {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 8pt;
+    padding: 12pt 16pt;
+    margin-bottom: 12pt;
+    break-inside: avoid;
+  }
+  .chapter-card:hover {
+    box-shadow: 0 2pt 12pt rgba(0,0,0,0.04);
+  }
+  .chapter-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8pt;
+    margin-bottom: 6pt;
+  }
+  .chapter-num-tag {
+    font-family: var(--sans);
+    font-size: 9pt;
+    color: var(--brand);
+    font-weight: 600;
+    letter-spacing: 0.5pt;
+    min-width: 42pt;
+  }
+  .chapter-title-text {
+    font-family: var(--serif);
+    font-size: 13pt;
+    font-weight: 500;
+    color: var(--near-black);
+    flex: 1;
+  }
+  .chapter-summary {
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: var(--dark-warm);
+    letter-spacing: 0.15pt;
+  }
+
+  /* Volume divider */
+  .volume-divider {
+    display: flex;
+    align-items: center;
+    gap: 12pt;
+    margin: 28pt 0 18pt 0;
+  }
+  .volume-line {
+    height: 0.5pt;
+    background: var(--border);
+    flex: 1;
+  }
+  .volume-label {
+    font-family: var(--serif);
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--brand);
+    white-space: nowrap;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p { margin: 0 0 10pt 0; line-height: 1.55; color: var(--near-black); }
+  .lead { font-size: 12pt; line-height: 1.55; color: var(--dark-warm); margin-bottom: 14pt; }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== LISTS ========== */
+  ul, ol { margin: 6pt 0 10pt 0; padding-left: 20pt; line-height: 1.55; }
+  ul li::marker { color: var(--brand); }
+  ol li::marker { color: var(--brand); font-weight: 500; }
+
+  /* ========== QUOTE / CALLOUT ========== */
+  blockquote, .quote {
+    border-left: 2pt solid var(--brand);
+    margin: 12pt 0;
+    padding: 4pt 0 4pt 16pt;
+    color: var(--olive);
+    line-height: 1.55;
+    break-inside: avoid;
+  }
+  .callout {
+    background: var(--ivory);
+    border-left: 2pt solid var(--brand);
+    padding: 10pt 14pt;
+    border-radius: 3pt;
+    margin: 12pt 0;
+    line-height: 1.55;
+    break-inside: avoid;
+  }
+  .takeaway {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 14pt 0;
+    break-inside: avoid;
+  }
+  .takeaway-label {
+    font-family: var(--sans);
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== FIGURE ========== */
+  figure { margin: 20pt 0; break-inside: avoid; }
+  figure img { max-width: 100%; border-radius: 4pt; }
+  figcaption {
+    font-family: var(--sans);
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 6pt;
+    text-align: center;
+  }
+
+  /* ========== EXEC SUMMARY ========== */
+  .exec-summary {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 14pt 0;
+    break-inside: avoid;
+  }
+  .exec-summary h2 { margin-top: 0; font-size: 13pt; }
+
+  /* ========== TAG ========== */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--brand);
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 500;
+    padding: 1pt 6pt;
+    border-radius: 3pt;
+    margin-right: 4pt;
+  }
+
+  /* ========== CHAPTER BREAK ========== */
+  .chapter { break-before: page; }
+
+  /* Dark section */
+  .sd-alt {
+    background: #141413 !important;
+    padding: 20pt;
+    border-radius: 8pt;
+    margin: 20pt 0;
+  }
+  .sd-alt h2,
+  .sd-alt p { color: #b0aea5; }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-eyebrow">World History for Young Readers</div>
+    <div class="cover-title">少年世界史<br><span style="font-size:26pt;">每章总结 · 全景脉络</span></div>
+    <div class="cover-sub">从二三百万年前的非洲草原到公元1945年的战后世界，<br>95个章节，一条时间线，一部写给少年的世界通史。</div>
+  </div>
+  <div class="cover-meta">
+    <strong>原著</strong> 押沙龙<br>
+    <strong>出版社</strong> 山东文艺出版社·果麦文化<br>
+    <strong>出版时间</strong> 2023年11月<br>
+    <strong>字数</strong> 317千字 · 96章 · 五册<br><br>
+    整理日期 2026年4月
+  </div>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="toc-item"><span class="toc-num">01</span><span class="toc-title">全书概览与执行摘要</span></div>
+
+  <div class="toc-item"><span class="toc-num"></span><span class="toc-title" style="color:var(--brand)">第一册 上古时代（第1—17章）</span></div>
+  <div class="toc-item"><span class="toc-num"></span><span class="toc-title" style="color:var(--brand)">第二册 古典文明时代（第18—35章）</span></div>
+  <div class="toc-item"><span class="toc-num"></span><span class="toc-title" style="color:var(--brand)">第三册 中古时代（第36—53章）</span></div>
+  <div class="toc-item"><span class="toc-num"></span><span class="toc-title" style="color:var(--brand)">第四册 融合的世界（第54—75章）</span></div>
+  <div class="toc-item"><span class="toc-num"></span><span class="toc-title" style="color:var(--brand)">第五册 工业化时代（第76—96章）</span></div>
+
+  <div class="toc-item"><span class="toc-num">02</span><span class="toc-title">附录</span></div>
+</section>
+
+<!-- ═════════════ Chapter 01：执行摘要 ═════════════ -->
+<section>
+  <h1>全书概览</h1>
+
+  <p class="lead">
+    《少年世界史》是作家<span class="hl">押沙龙</span>为青少年读者撰写的一部世界通史，共<span class="hl">96章</span>，分为五册，覆盖从人类起源到第二次世界大战后的完整历史脉络。
+  </p>
+
+  <div class="exec-summary">
+    <h2>核心数据</h2>
+    <table>
+      <tr><td>总字数</td><td>317千字</td><td>章节总数</td><td>96章</td></tr>
+      <tr><td>分册数</td><td>5册</td><td>已提取总结</td><td>95章</td></tr>
+      <tr><td>时间跨度</td><td colspan="3">二三百万年前 — 公元1945年后</td></tr>
+    </table>
+  </div>
+
+  <h2>五大分册</h2>
+
+  <div class="takeaway">
+    <div class="takeaway-label">第一册 · 上古时代</div>
+    第1—17章 · 从人类起源到波斯帝国崛起。涵盖石器时代、农业革命、四大文明古国、青铜时代崩溃、轴心时代前夜。
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">第二册 · 古典文明时代</div>
+    第18—35章 · 从古希腊城邦到罗马帝国衰亡。涵盖希波战争、雅典黄金时代、亚历山大东征、罗马兴衰、佛教诞生、中国先秦统一。
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">第三册 · 中古时代</div>
+    第36—53章 · 从西罗马灭亡到大航海前夕。涵盖伊斯兰兴起、阿拉伯帝国、维京入侵、十字军、蒙古征服、唐宋盛世、黑死病、百年战争。
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">第四册 · 融合的世界</div>
+    第54—75章 · 从大航海到拿破仑落幕。涵盖美洲殖民、文艺复兴、宗教改革、科学革命、英国革命、法国大革命、工业革命启动。
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">第五册 · 工业化时代</div>
+    第76—96章 · 从工业革命到二战结束。涵盖帝国瓜分世界、两次世界大战、核武器诞生、战后秩序开启。
+  </div>
+</section>
+
+<!-- ═════════════ 第一册：上古时代 ═════════════ -->
+<section class="chapter">
+  <h1>第一册 · 上古时代</h1>
+  <p class="lead">第1—17章 · 二三百万年前至公元前六世纪。人类走出非洲，学会用火，发明农业，建立最早的文明。</p>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">01</span>
+      <span class="chapter-title-text">藏在我们身体里的尼安德特人</span>
+    </div>
+    <p class="chapter-summary">二三百万年前，人类出现在非洲。此后，人类一次次走出非洲，但又一次次失败。这些失败者里，最著名的是尼安德特人，他们在四万年前彻底灭绝。最后一批走出非洲的是智人，只有他们成功了。而我们，就是这些智人的后裔。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">02</span>
+      <span class="chapter-title-text">石器时代的爱迪生</span>
+    </div>
+    <p class="chapter-summary">石器时代持续了三百多万年。人类学会了控制火，又制造了各种各样的石器。但是人类进步的速度非常缓慢。在七万多年前，人类世界开始加速。我们的智人祖先做出了许多发明创造，并从一种弱小的物种变成地球的主宰者。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">03</span>
+      <span class="chapter-title-text">别了，伊甸园</span>
+    </div>
+    <p class="chapter-summary">大约一万年前，人类发动了农业革命。它恶化了人类的生存状况，但是却极大地提升了人口数量。这场革命的主要发源地有三个：中东、中国和中美洲。随着农业革命的出现，人类开始有了财产的观念。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">04</span>
+      <span class="chapter-title-text">攻略游戏《苏美尔》</span>
+    </div>
+    <p class="chapter-summary">在两河流域下游的苏美尔，诞生了人类最早的文明。早期苏美尔文明以神庙为中心，建立了一系列城市，其中乌鲁克城是人类历史上前所未有的大都市。苏美文明做出了很多创造发明，还留下了大洪水的传说。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">05</span>
+      <span class="chapter-title-text">不快乐的文明人</span>
+    </div>
+    <p class="chapter-summary">随着大规模战争的出现，国王开始登上历史舞台。苏美尔出现了很多的王。他们彼此作战，争夺财富。从公元前二十四世纪开始，外族人开始进攻苏美尔。经过三次大征服，在公元前2000年左右，人类的第一个文明灭亡了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">06</span>
+      <span class="chapter-title-text">《亡灵书》和木乃伊</span>
+    </div>
+    <p class="chapter-summary">埃及文明是人类第二古老的文明。它以尼罗河为中心，很早就统一起来。埃及的统治者法老被认为是神的化身。法老为自己建立了巨大的金字塔，还留下了超级宏伟的雕像。埃及人是一个保守的民族，不喜欢战争，对死后的世界非常感兴趣。为此，他们留下了大量的木乃伊。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">07</span>
+      <span class="chapter-title-text">鄙视你，你是脚丫子变的！</span>
+    </div>
+    <p class="chapter-summary">印度河流域文明是人类历史上第三个文明。它在公元前2600年左右开始走向顶峰。这个文明最大的城市是哈拉帕和摩亨佐·达罗。后来，它神秘地衰亡了。一个被称为雅利安人的游牧民族征服了这块土地。征服者建立了种姓制度。这里还产生了一个影响深远的宗教：婆罗门教。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">08</span>
+      <span class="chapter-title-text">世界上最漂亮的锅</span>
+    </div>
+    <p class="chapter-summary">中国文明是人类史上唯一没有中断过的文明。在公元前2070年，中国建立了第一个王朝：夏朝。接着兴起的是商朝，它的青铜器制造达到了全球最高水平。但是商朝过于好战和残暴，最终在公元前1046年被周朝取代。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">09</span>
+      <span class="chapter-title-text">龟甲、莎草纸、泥板、绳子</span>
+    </div>
+    <p class="chapter-summary">文明出现以后，人类发明了文字。第一代文字都是表意文字，而不是拼音文字，这使得文字符号变得非常复杂。只有印加文明独辟蹊径，使用了结绳技术来代替文字，成了人类唯一没有文字的文明。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">10</span>
+      <span class="chapter-title-text">古代人打官司</span>
+    </div>
+    <p class="chapter-summary">苏美尔文明灭亡后，在两河流域出现了第一巴比伦王朝。它留下了一部著名的《汉谟拉比法典》。从这部法典，我们可以了解到古代社会的许多方面。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">11</span>
+      <span class="chapter-title-text">岛上迷宫</span>
+    </div>
+    <p class="chapter-summary">在地中海的克里特岛上，曾经出现了米诺斯文明。它是人类历史上第一个海洋文明。这个文明热衷于商业，富有活力，还制作出非常优雅的艺术品。公元前1450年左右，由于一场巨大的天灾，米诺斯文明逐渐走向了灭亡。它很可能是亚特兰蒂斯传说的原型。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">12</span>
+      <span class="chapter-title-text">小小的青铜世界</span>
+    </div>
+    <p class="chapter-summary">对公元前十三世纪的世界做了一个简单的回顾。当时地球上主要有两大文明区域，一个是地中海东岸的超级文明圈，一个是中国文明。此外，印度北部正处于新旧文明过渡阶段，中美洲的奥尔梅克人也即将进入文明阶段。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">13</span>
+      <span class="chapter-title-text">不明身份的凶手</span>
+    </div>
+    <p class="chapter-summary">公元前1200年左右，海上民族开始一波又一波地对东地中海文明地区发动进攻。赫梯帝国彻底灭亡，埃及王朝一蹶不振，很多小王国也消失了。东地中海的青铜时代宣告终结，继之而来的是铁器时代。历史就此掀开了新的一页。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">14</span>
+      <span class="chapter-title-text">两千多年前的希特勒</span>
+    </div>
+    <p class="chapter-summary">亚述帝国是铁器时代的第一个军国主义国家。它建立了一支强大的军队，征服了辽阔的国土。它非常残暴，并以自己的残暴为荣。最后，公元前612年，首都尼尼微被攻占，亚述帝国灭亡了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">15</span>
+      <span class="chapter-title-text">黑猩猩战役</span>
+    </div>
+    <p class="chapter-summary">腓尼基城邦是地中海的商业霸主。它的商业网络覆盖了整个地中海，极大地扩展了文明区域。腓尼基人还发起过对非洲的探险，最远可能达到了赤道附近的加蓬。但是后来，由于缺乏武力的保护，它被亚述帝国占领，最终走向衰亡。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">16</span>
+      <span class="chapter-title-text">一和多</span>
+    </div>
+    <p class="chapter-summary">犹太人是一个很小的民族，它经历了短暂的繁荣期，然后就开始了漫长的衰落。后来，犹太王国被彻底征服，很多人被流放到了巴比伦城。在那里，他们的信仰经历了一次变化，一神教出现了。它深刻地影响了后来的历史。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">17</span>
+      <span class="chapter-title-text">我乃万王之王</span>
+    </div>
+    <p class="chapter-summary">公元前六世纪，波斯人忽然在伊朗高原兴起。居鲁士开创了波斯帝国，而在大流士统治时期，帝国达到了极盛。波斯帝国跨越欧、亚、非三洲，极其辽阔。它预示着帝国时代的开始。</p>
+  </div>
+</section>
+
+<!-- ═════════════ 第二册：古典文明时代 ═════════════ -->
+<section class="chapter">
+  <h1>第二册 · 古典文明时代</h1>
+  <p class="lead">第18—35章 · 公元前六世纪至公元五世纪。希腊城邦的辉煌、罗马帝国的荣光、佛陀和孔子的思想、东西方文明的并行发展。</p>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">18</span>
+      <span class="chapter-title-text">两只小老鼠</span>
+    </div>
+    <p class="chapter-summary">希腊有几百个城邦，其中最重要的两个城邦是斯巴达和雅典。它们代表着两种完全不同的精神。但是，它们都拒绝向波斯帝国臣服。波斯和希腊之间的战争就此开始。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">19</span>
+      <span class="chapter-title-text">一个国王高高坐在山顶</span>
+    </div>
+    <p class="chapter-summary">波斯帝国向希腊发动了两次大规模入侵。雅典人在马拉松平原击败了第一次入侵。第二次入侵的规模更加庞大，希腊联军先是在温泉关组织战斗，接着又在萨拉米斯海战中摧毁了波斯舰队，最终打赢了这场战争。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">20</span>
+      <span class="chapter-title-text">雅小明和波小明</span>
+    </div>
+    <p class="chapter-summary">雅典的政治制度和波斯帝国的完全不同。它采取直接民主制，由投票和抽签来决定国家大事。这种制度存在不少问题，但是它代表了一种新的方向，对未来世界具有重大意义。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">21</span>
+      <span class="chapter-title-text">毒死一个哲学家</span>
+    </div>
+    <p class="chapter-summary">雅典人在文化方面取得了惊人的成就。他们创造了非常伟大的悲剧，其中最重要的是《俄狄浦斯王》。在哲学方面，雅典人的贡献更大。苏格拉底、柏拉图、亚里士多德这些思想家为西方哲学奠定了基础，他们的影响一直持续到了今天。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">22</span>
+      <span class="chapter-title-text">菠萝战争</span>
+    </div>
+    <p class="chapter-summary">公元前431年，伯罗奔尼撒战争爆发。战争持续了二十七年，雅典最终战败。这次战争削弱了希腊的实力，导致了希腊文明的衰败。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">23</span>
+      <span class="chapter-title-text">骄傲的帅哥大帝</span>
+    </div>
+    <p class="chapter-summary">马其顿国王亚历山大挥师东征，不但征服了波斯帝国，还一直进军到印度北部。亚历山大很快就去世了，但是他将希腊文化传播到了广大地区，开启了「希腊化时代」。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">24</span>
+      <span class="chapter-title-text">我们测量太阳，我们撬动地球</span>
+    </div>
+    <p class="chapter-summary">「希腊化时代」出现过一次科学大爆发。这次爆发以埃及的亚历山大城为中心，产生了很多超前的科学成果，可是这些成果对社会的影响很小。最终，希腊化世界还是走向了衰落。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">25</span>
+      <span class="chapter-title-text">菩提树、魔王和莲花</span>
+    </div>
+    <p class="chapter-summary">释迦牟尼是印度的一位修行者。他的教导后来发展成佛教，传播到了亚洲的很多国家。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">26</span>
+      <span class="chapter-title-text">轮子总是围着轴心转</span>
+    </div>
+    <p class="chapter-summary">周朝衰落后，中国经过了一段漫长的混乱期。这个时期出现了「百家争鸣」，产生了很多思想家，其中最重要的一位就是孔子。公元前221年，秦始皇统一六国，中国走向统一。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">27</span>
+      <span class="chapter-title-text">小口小口地啃掉一只靴子</span>
+    </div>
+    <p class="chapter-summary">开始的时候，罗马只是一个不起眼的小城邦。但是它凭借着爱国勇气和政治智慧，用了几百年的时间，基本统一了整个意大利半岛。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">28</span>
+      <span class="chapter-title-text">迦太基必须毁灭！</span>
+    </div>
+    <p class="chapter-summary">罗马和迦太基进行了三次激烈的战争，最终迦太基彻底失败。罗马共和国自此再无对手，成为整个地中海世界的霸主。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">29</span>
+      <span class="chapter-title-text">凯撒抢到了桃子</span>
+    </div>
+    <p class="chapter-summary">罗马通过征服得到了巨大的财富，但是这些财富带来了混乱。凯撒在混乱中崛起，成为罗马的主人。公元前44年，他被人刺杀，但是共和国依旧没能摆脱灭亡的命运。罗马最终成为一个帝国。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">30</span>
+      <span class="chapter-title-text">公元元年的世界</span>
+    </div>
+    <p class="chapter-summary">本章对公元元年的世界做了一个简单的回顾。当时世界上有两个最鼎盛的国家：东方的汉朝和西方的罗马帝国。印度的孔雀王朝已经崩溃，美洲的奥尔梅克文明也没落了，但是美洲出现了第一座大都市：特奥蒂瓦坎。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">31</span>
+      <span class="chapter-title-text">被钉上十字架的人</span>
+    </div>
+    <p class="chapter-summary">耶稣是犹太的一位传道者。他被罗马人钉上了十字架，但是他的教导却逐渐传播开来，演变成了后来的基督教。耶稣本人也被信徒们奉为上帝之子、人们的救世主。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">32</span>
+      <span class="chapter-title-text">坏皇帝的好国家，好皇帝的坏国家</span>
+    </div>
+    <p class="chapter-summary">罗马帝国有过很多皇帝，其中有尼禄这样的坏皇帝，也有马可·奥勒留这样的好皇帝。但是皇帝的好坏并不能决定国家的命运，罗马帝国还是渐渐走向了衰落。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">33</span>
+      <span class="chapter-title-text">就像叶子渐渐枯黄……</span>
+    </div>
+    <p class="chapter-summary">罗马帝国经历了充满动荡的「三世纪危机」。从这场危机中走出来以后，它做了两件大事。第一件，罗马帝国被分割成了东罗马帝国和西罗马帝国。第二件，罗马帝国皈依了基督教。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">34</span>
+      <span class="chapter-title-text">黑洞大喷发</span>
+    </div>
+    <p class="chapter-summary">公元四世纪，匈人冲出草原深处，向西方发动进攻。这一入侵引发连锁反应，导致了日耳曼人大量涌向罗马帝国。经过漫长而痛苦的挣扎，西罗马帝国灭亡了。东罗马帝国幸存了下来。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">35</span>
+      <span class="chapter-title-text">四个伙伴去露营</span>
+    </div>
+    <p class="chapter-summary">游牧民族在中国和印度两个方向也发动了入侵。西晋王朝被摧毁，中国进入了几百年的动荡分裂时期。印度的笈多王朝在游牧民族的打击下，也走向了崩溃。中国、罗马、印度三大文明体都遭遇巨大灾难。</p>
+  </div>
+</section>
+
+<!-- ═════════════ 第三册：中古时代 ═════════════ -->
+<section class="chapter">
+  <h1>第三册 · 中古时代</h1>
+  <p class="lead">第36—53章 · 公元五世纪至十五世纪末。欧洲黑暗时代、伊斯兰崛起、蒙古风暴、唐宋盛世、大航海前夜的躁动。</p>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">36</span>
+      <span class="chapter-title-text">鬼城与废土</span>
+    </div>
+    <p class="chapter-summary">西罗马帝国灭亡后，欧洲西部进入了黑暗时代。在帝国的废墟上，出现了很多小王国，其中最强大的是法兰克王国。与此同时，基督教会建立了很多修道院，多少保留了一些文明的火种。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">37</span>
+      <span class="chapter-title-text">大沙漠里的先知</span>
+    </div>
+    <p class="chapter-summary">公元七世纪，穆罕默德创立了伊斯兰教，信奉唯一的真主安拉。他占领麦加城，基本统一了阿拉伯半岛。伊斯兰教作为一种强大的力量，开始登上历史舞台。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">38</span>
+      <span class="chapter-title-text">哈里发和《一千零一夜》</span>
+    </div>
+    <p class="chapter-summary">穆罕默德去世后，阿拉伯人向外猛烈扩张，建立了空前辽阔的阿拉伯帝国。伊斯兰教也广泛传播开来。在公元八世纪，阿拉伯帝国达到极盛，它的首都巴格达成了《一千零一夜》里描述的梦幻之城。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">39</span>
+      <span class="chapter-title-text">一个贫穷的大帝</span>
+    </div>
+    <p class="chapter-summary">欧洲的查理曼四处征伐，建立了一个庞大的帝国。但是这个帝国的物质基础薄弱，相当贫穷。查理曼去世以后，国家很快就走向了没落。就这样，重建罗马帝国的尝试失败了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">40</span>
+      <span class="chapter-title-text">满载死亡的龙船</span>
+    </div>
+    <p class="chapter-summary">北欧的维京人是一个强悍的民族，在公元800年前后，他们开始驾驶着龙船，四处袭击和劫掠。他们甚至穿越大西洋，到达了美洲。最后，他们逐渐在欧洲各地定居下来，信奉了基督教。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">41</span>
+      <span class="chapter-title-text">皇帝和教皇谁更大</span>
+    </div>
+    <p class="chapter-summary">公元1000年左右，欧洲开始复苏。这个新欧洲实行「封建制度」，对土地进行分封，国王和贵族之间存在一种契约关系。教会也拥有相当大的权力。所以，欧洲的权力系统错综复杂，没有谁能够大权独揽。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">42</span>
+      <span class="chapter-title-text">十字军东征</span>
+    </div>
+    <p class="chapter-summary">西方基督教世界向耶路撒冷发动了十字军东征，先后共九次，持续了将近两百年。东征最后以失败告终，但是它打开了西方人的视野，让他们看到了更广阔的天地。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">43</span>
+      <span class="chapter-title-text">小红帽的世界</span>
+    </div>
+    <p class="chapter-summary">中世纪的欧洲看上去肮脏破烂，远没有东方繁荣富庶，但是它拥有一种奇特的活力。它有的地方显得很原始，有的地方又显得很现代。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">44</span>
+      <span class="chapter-title-text">另一个平行宇宙</span>
+    </div>
+    <p class="chapter-summary">中美洲的玛雅文明兴盛了好几百年。它拥有繁荣的城市，宏伟的神庙，还有极其复杂的天文历法。但是它的物质基础非常落后，停留在石器时代。公元900年左右，它走向了衰落，很多城市神秘地消失了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">45</span>
+      <span class="chapter-title-text">手托金球的国王</span>
+    </div>
+    <p class="chapter-summary">跟欧亚大陆的文明比起来，撒哈拉沙漠以南的非洲相对落后。但是它也拥有自己的帝国，马里帝国就拥有大量金矿，声名远播。它的国王甚至被称为世界上最富有的国王。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">46</span>
+      <span class="chapter-title-text">华丽的王朝，优雅的王朝</span>
+    </div>
+    <p class="chapter-summary">中国经历了恢宏灿烂的唐王朝、优雅文明的宋王朝。在好几个世纪里，它都是世界上最繁荣富庶的地方。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">47</span>
+      <span class="chapter-title-text">大风暴</span>
+    </div>
+    <p class="chapter-summary">公元十三世纪，成吉思汗统一了蒙古高原。接着，蒙古人席卷欧亚大陆，建立了巨无霸一般的超级帝国。对当时的很多国家来说，这都是一场可怕的灭顶之灾。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">48</span>
+      <span class="chapter-title-text">大地变得空空荡荡</span>
+    </div>
+    <p class="chapter-summary">公元十四世纪，黑死病肆虐欧亚大陆，其中欧洲受到的打击最为严重。四年之内，几乎有一半的欧洲人都死掉了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">49</span>
+      <span class="chapter-title-text">打了一百年</span>
+    </div>
+    <p class="chapter-summary">为了争夺王朝继承权，英国和法国打了一百多年的战争。最后，英国人被赶出了法国领土。在这场战争里，法国出现了一位民族英雄：贞德。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">50</span>
+      <span class="chapter-title-text">用最大的炮轰最坚固的墙</span>
+    </div>
+    <p class="chapter-summary">奥斯曼帝国兴起后，对东罗马帝国发起进攻。公元1453年，首都君士坦丁堡沦陷，持续一千多年的东罗马帝国彻底灭亡。很多人都认为这件事标志着欧洲中世纪的结束。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">51</span>
+      <span class="chapter-title-text">世界上最大的一只死耗子</span>
+    </div>
+    <p class="chapter-summary">欧洲开启了大航海时代。葡萄牙人发现了通往亚洲的海上航线，西班牙人的发现更加重要。哥伦布本想前往亚洲，结果却阴差阳错地发现了美洲新大陆。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">52</span>
+      <span class="chapter-title-text">公元1500年的东方</span>
+    </div>
+    <p class="chapter-summary">本章对公元1500年的东方世界做了一个简单的回顾。此时，中国的明王朝正处于平稳时期；日本的幕府政权开始衰落，走向战国时代；奥斯曼帝国正如日中天；穆斯林即将进攻印度，建立莫卧儿王朝。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">53</span>
+      <span class="chapter-title-text">公元1500年的西方</span>
+    </div>
+    <p class="chapter-summary">这一章对公元1500年的西方世界做了一个简单的回顾。北方的俄国正在兴起，即将走上扩张之路；欧洲西部躁动不安，酝酿着新的变化；美洲的阿兹特克和印加两大帝国马上就要迎来末日，但此时此刻，它们对自己的命运还一无所知。</p>
+  </div>
+</section>
+
+<!-- ═════════════ 第四册：融合的世界 ═════════════ -->
+<section class="chapter">
+  <h1>第四册 · 融合的世界</h1>
+  <p class="lead">第54—75章 · 十六世纪至十九世纪初。大航海连接全球，启蒙运动点燃理性，美国独立与法国大革命重塑政治版图。</p>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">54</span>
+      <span class="chapter-title-text">外星人第一次入侵</span>
+    </div>
+    <p class="chapter-summary">科尔特斯带领一小批西班牙殖民者，征服了阿兹特克帝国。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">55</span>
+      <span class="chapter-title-text">外星人第二次入侵</span>
+    </div>
+    <p class="chapter-summary">皮萨罗带领一小批西班牙殖民者，征服了印加帝国。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">56</span>
+      <span class="chapter-title-text">让大地动起来</span>
+    </div>
+    <p class="chapter-summary">欧洲出现了活字印刷术，引发了知识的广泛传播，也极大地促进了科学的进步。哥白尼的「日心说」就是一个典型的例子。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">57</span>
+      <span class="chapter-title-text">那个穿越回去的人</span>
+    </div>
+    <p class="chapter-summary">通过文艺复兴运动，欧洲获得了一种自由的活力。这场运动诞生于意大利。它在文学方面的主要代表是但丁和薄伽丘，在艺术方面的主要代表是米开朗琪罗和达·芬奇。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">58</span>
+      <span class="chapter-title-text">这是我的立场，我别无选择</span>
+    </div>
+    <p class="chapter-summary">公元1517年，马丁·路德发表《九十五条论纲》，谴责教会兜售赎罪券的行为。这一行动标志着宗教改革运动的开始。宗教改革波及了整个欧洲，使基督教分裂成了天主教和新教。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">59</span>
+      <span class="chapter-title-text">大侠的银子从哪儿来</span>
+    </div>
+    <p class="chapter-summary">西班牙人在美洲发现了丰富的银矿。这些白银通过东西方的贸易，大量流入中国，以交换丝绸、瓷器等商品。从此以后，中国才使用白银作为主要货币。新的全球化经济就这样开始了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">60</span>
+      <span class="chapter-title-text">无敌舰队的覆灭</span>
+    </div>
+    <p class="chapter-summary">西班牙从美洲得到了大量财富，但却把这些财富都浪费在领土扩张上，最终一无所获。公元1588年，它的无敌舰队被英国击败，这件事标志着西班牙帝国走向衰落。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">61</span>
+      <span class="chapter-title-text">郁金香狂热</span>
+    </div>
+    <p class="chapter-summary">在十七世纪，荷兰是全世界经济最发达的国家。它经历过一次关于郁金香的投资狂热，这次狂热虽然以失败告终，却反映出了新兴的资本主义精神。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">62</span>
+      <span class="chapter-title-text">小气的伟大女王</span>
+    </div>
+    <p class="chapter-summary">在伊丽莎白一世统治时期，英国开始走向富强之路。它不仅打败了无敌舰队，开始了海外扩张，还出现了像莎士比亚这样伟大的天才。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">63</span>
+      <span class="chapter-title-text">美国前传</span>
+    </div>
+    <p class="chapter-summary">英国人先后在美洲建立了十三块殖民地，这些殖民地就是后来的美国。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">64</span>
+      <span class="chapter-title-text">砍掉国王的脑袋</span>
+    </div>
+    <p class="chapter-summary">公元1640年，英国革命爆发。国王查理一世被处死，克伦威尔成为护国公。后来，英王室虽然再次复辟，但是议会渐渐掌握了最高权力。英国确立了代议制的原则，成为君主立宪国家。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">65</span>
+      <span class="chapter-title-text">小冰河时代</span>
+    </div>
+    <p class="chapter-summary">十七世纪是「小冰河期」的谷底。寒冷的气候不仅加速了明朝的灭亡，也给整个世界带来了灾难。这段时期，欧洲爆发了「三十年战争」。这是欧洲历史上最大的一次宗教战争。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">66</span>
+      <span class="chapter-title-text">白陵墓和红城堡</span>
+    </div>
+    <p class="chapter-summary">阿克巴大帝统治时期，印度的莫卧儿王朝处于鼎盛状态。他的孙子沙贾汗修建了著名的泰姬陵，而沙贾汗的儿子奥朗则布是王朝最后一位著名君主。他的穷兵黩武给国家带来了灾难。他去世后，王朝走向衰落。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">67</span>
+      <span class="chapter-title-text">大海的味道</span>
+    </div>
+    <p class="chapter-summary">彼得大帝用粗暴手段发动改革，打破了俄国的闭塞落后状态。他从瑞典手中夺取了出海口，在那里兴建彼得堡，并将它作为俄国的新首都。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">68</span>
+      <span class="chapter-title-text">太阳王的权力游戏</span>
+    </div>
+    <p class="chapter-summary">法国是欧洲「绝对主义国家」的代表。它的国王路易十四住在奢华的凡尔赛宫里，自称太阳王。路易十四野心勃勃，想成为欧洲霸主，但是英国坚持欧洲的权力平衡，挫败了他的野心。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">69</span>
+      <span class="chapter-title-text">上帝说：让他出生吧！</span>
+    </div>
+    <p class="chapter-summary">在十七世纪，科学有了突飞猛进的发展。这一时期，科学界最重要的代表人物是牛顿。牛顿出版划时代的巨著《自然哲学的数学原理》，为经典物理学搭好了框架。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">70</span>
+      <span class="chapter-title-text">张秀才和汤姆博士的鸿沟</span>
+    </div>
+    <p class="chapter-summary">欧洲思想界以英国、法国为中心，发动了启蒙运动。启蒙运动相信人类的自由、平等和进步。现代社会的很多价值观都源于这次运动。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">71</span>
+      <span class="chapter-title-text">世界颠倒过来了</span>
+    </div>
+    <p class="chapter-summary">英国在美洲的殖民地联合起来，进行了独立战争。在华盛顿的带领下，美国最终获得独立。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">72</span>
+      <span class="chapter-title-text">比养骡子更重要的事</span>
+    </div>
+    <p class="chapter-summary">公元1787年，美国召开制宪会议，制定出了美国宪法。这部宪法坚持「三权分立」，成为美国的立国根基。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">73</span>
+      <span class="chapter-title-text">不是叛乱，陛下，这是革命！</span>
+    </div>
+    <p class="chapter-summary">公元1789年，法国为了解决财政困难，召开了三级会议，结果形势很快失控。巴黎人发动起义，攻占了巴士底狱，这一事件标志着法国大革命的开始。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">74</span>
+      <span class="chapter-title-text">老猫的断头台</span>
+    </div>
+    <p class="chapter-summary">法国爆发二次革命，国王路易十六被押上断头台，雅各宾派掌握政权，革命进入了充满了暴力的阶段。最后，罗伯斯庇尔忽然垮台，雅各宾派的统治结束。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">75</span>
+      <span class="chapter-title-text">渔夫的老婆拿破仑</span>
+    </div>
+    <p class="chapter-summary">拿破仑发动政变，成为法国皇帝，法国大革命结束。拿破仑不断发动战争，建立了庞大的帝国。但是，欧洲多国联军最终击败了拿破仑。他的帝国土崩瓦解。</p>
+  </div>
+</section>
+
+<!-- ═════════════ 第五册：工业化时代 ═════════════ -->
+<section class="chapter">
+  <h1>第五册 · 工业化时代</h1>
+  <p class="lead">第76—96章 · 十八世纪末至二十世纪中叶。蒸汽机轰鸣，列强瓜分世界，两次世界大战摧毁旧秩序，原子弹照亮新时代。</p>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">76</span>
+      <span class="chapter-title-text">终于集齐了七颗龙珠</span>
+    </div>
+    <p class="chapter-summary">工业革命在英国启动。人类由此进入了一个全新的时代，经济具有了无限增长的可能。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">77</span>
+      <span class="chapter-title-text">公元1839年的世界</span>
+    </div>
+    <p class="chapter-summary">这一章对公元1839年的世界做了一个简单的回顾。工业化正在欧洲普及，美国也在快速增长。与此同时，非洲的情况非常悲惨，亚洲各国也都陷入了停滞状态。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">78</span>
+      <span class="chapter-title-text">粘上一个裂开的房子</span>
+    </div>
+    <p class="chapter-summary">由于在奴隶制问题上的矛盾，美国爆发了南北战争。林肯总统带领北方最终赢得战争，维护了美国的统一，废除了奴隶制。战争结束不久，林肯就遭到了暗杀。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">79</span>
+      <span class="chapter-title-text">一个狂热的学生</span>
+    </div>
+    <p class="chapter-summary">日本发动倒幕战争，推翻了德川幕府的统治。新政府进行「明治维新」，全面向西方学习。日本变强大了，但也变得更加凶狠了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">80</span>
+      <span class="chapter-title-text">玻璃盒子水晶宫</span>
+    </div>
+    <p class="chapter-summary">在维多利亚女王统治时期，英国成为「日不落帝国」，是世界上最发达的国家。公元1851年，英国举办了第一届世界博览会。它象征着人类正式进入工业化时代。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">81</span>
+      <span class="chapter-title-text">铁和血的力量</span>
+    </div>
+    <p class="chapter-summary">普鲁士先后击败了奥地利和法国，建立了统一的德国。这件事打破了欧洲的平衡，国际局势被彻底改变。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">82</span>
+      <span class="chapter-title-text">第二个轴心时代</span>
+    </div>
+    <p class="chapter-summary">进入工业化时代以后，人类的思想世界有了极大的变化，出现了各种各样的「主义」。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">83</span>
+      <span class="chapter-title-text">非洲大狩猎</span>
+    </div>
+    <p class="chapter-summary">发达国家和落后国家的差距进一步拉大。大约从公元1880年开始，列强的海外扩张急剧加速，整个非洲几乎被彻底瓜分。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">84</span>
+      <span class="chapter-title-text">黑暗森林里的八个动物</span>
+    </div>
+    <p class="chapter-summary">在十九世纪末期，全球出现了八大列强。其中，德国、奥匈帝国、意大利组成了三国同盟。后来，英国、法国、俄国又组成了三国协约。两大军事集团剑拔弩张，国际局势越来越危险。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">85</span>
+      <span class="chapter-title-text">悬崖前面的魔法世界</span>
+    </div>
+    <p class="chapter-summary">如果古代人穿越到公元1913年的世界，会觉得这里充满了各种各样神奇的魔法。人们在科技、文学、艺术等方面都取得了惊人的成就，进步的速度堪称奇迹。但是，这个世界也正处在灾难的边缘。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">86</span>
+      <span class="chapter-title-text">整个欧洲的灯火正在熄灭</span>
+    </div>
+    <p class="chapter-summary">公元1914年，奥匈帝国王储被刺，引发外交危机，最终导致第一次世界大战的爆发。这是一场规模空前的工业化战争。德国初期发起的攻势被挫败，第一次世界大战变成了漫长的消耗战。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">87</span>
+      <span class="chapter-title-text">11月11日11点</span>
+    </div>
+    <p class="chapter-summary">公元1917年，布尔什维克发动十月革命，俄国退出了战争。同年，美国加入战争。第二年，德国发动最后一次大攻势，也未能挽回局面。以德国为首的同盟国集团彻底失败，第一次世界大战结束。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">88</span>
+      <span class="chapter-title-text">夹在战争和战争中间</span>
+    </div>
+    <p class="chapter-summary">第一次世界大战摧毁了四个强大的帝国，产生了一系列小国家。残酷的战争给西方世界带来强烈的挫败感，很多人都感到无所适从。在一片混乱中，墨索里尼在意大利建立了法西斯政权。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">89</span>
+      <span class="chapter-title-text">圣雄在绝食中</span>
+    </div>
+    <p class="chapter-summary">甘地被人们称为「圣雄」，是一位非常奇特的人物。他发起了「非暴力不合作运动」，抵制英国在印度的殖民统治。甘地后来成了印度人的精神领袖，并带领印度获得独立。然后，他就被刺杀了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">90</span>
+      <span class="chapter-title-text">当这个世界忽然变穷</span>
+    </div>
+    <p class="chapter-summary">公元1929年，经济大萧条忽然来临，世界经济受到了前所未有的惨烈打击。美国是这次大萧条的中心，但是它总算没有出现政治上的大动荡。德国就没那么幸运了。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">91</span>
+      <span class="chapter-title-text">恶魔临凡</span>
+    </div>
+    <p class="chapter-summary">公元1933年，德国纳粹党领袖希特勒上台，建立了独裁统治。他信奉极端的种族主义，推崇暴力和战争。这是一个注定要给世界带来灾难的狂人。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">92</span>
+      <span class="chapter-title-text">大魔王吞掉老会计</span>
+    </div>
+    <p class="chapter-summary">希特勒上台后，德国开始对外扩张。英国和法国同意将苏台德地区割让给德国，但是这并没有阻止战争的来临。公元1939年，希特勒入侵波兰，英国和法国向德国宣战。第二次世界大战全面爆发。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">93</span>
+      <span class="chapter-title-text">战火燎原</span>
+    </div>
+    <p class="chapter-summary">在战争初期，德国通过「闪电战」连连获胜。希特勒打败了法国，却没能拿下英国。公元1941年，他转向东方，向苏联发动进攻。但是这一次，「闪电战」没能奏效，战争进入了僵持阶段。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">94</span>
+      <span class="chapter-title-text">朝熊鼻子上猛咬一口</span>
+    </div>
+    <p class="chapter-summary">日本在东方也走上了对外扩张的道路。公元1931年，它占领中国的东三省，几年后又向中国发动全面侵略。最后，它又偷袭了美国珍珠港。这件事导致美国正式参加第二次世界大战。</p>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-num-tag">95</span>
+      <span class="chapter-title-text">比一千个太阳还要亮</span>
+    </div>
+    <p class="chapter-summary">公元1945年，德国和日本先后宣布无条件投降，希特勒自杀身亡。第二次世界大战结束。战争期间，美国研发出威力惊人的原子弹，标志着人类进入了核武器的时代。</p>
+  </div>
+</section>
+
+<!-- ═════════════ 附录 + 时间线图 ═════════════ -->
+<section class="chapter">
+  <h1>附录</h1>
+
+  <h2>世界史发展时间线</h2>
+  <figure>
+    <svg viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="世界史发展时间线">
+      <defs>
+        <pattern id="dots2" width="22" height="22" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.9" fill="rgba(20,20,19,0.08)"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#f5f4ed"/>
+      <rect width="100%" height="100%" fill="url(#dots2)" opacity="0.55"/>
+
+      <!-- Axis -->
+      <line x1="40" y1="260" x2="920" y2="260" stroke="#b8b7b0" stroke-width="1.4"/>
+      <path d="M 914,256 L 920,260 L 914,264" fill="none" stroke="#b8b7b0" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Era labels at bottom -->
+      <text x="80" y="480" fill="#6b6a64" font-size="8" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.15em">上古时代</text>
+      <text x="280" y="480" fill="#6b6a64" font-size="8" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.15em">古典文明</text>
+      <text x="480" y="480" fill="#6b6a64" font-size="8" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.15em">中古时代</text>
+      <text x="680" y="480" fill="#6b6a64" font-size="8" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.15em">融合的世界</text>
+      <text x="850" y="480" fill="#6b6a64" font-size="8" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.15em">工业化时代</text>
+
+      <!-- Era dividers -->
+      <line x1="180" y1="245" x2="180" y2="275" stroke="#e8e6dc" stroke-width="0.8"/>
+      <line x1="380" y1="245" x2="380" y2="275" stroke="#e8e6dc" stroke-width="0.8"/>
+      <line x1="580" y1="245" x2="580" y2="275" stroke="#e8e6dc" stroke-width="0.8"/>
+      <line x1="760" y1="245" x2="760" y2="275" stroke="#e8e6dc" stroke-width="0.8"/>
+
+      <!-- E0: 人类起源 ~200万年前 ABOVE -->
+      <line x1="70" y1="252" x2="70" y2="200" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="70" cy="260" r="5" fill="#6b6a64" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="20" y="160" width="100" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="70" y="175" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">~200万年前</text>
+      <text x="70" y="192" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">人类起源</text>
+
+      <!-- E1: 农业革命 ~1万年前 BELOW -->
+      <line x1="130" y1="268" x2="130" y2="310" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="130" cy="260" r="5" fill="#6b6a64" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="78" y="310" width="104" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="130" y="325" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">~1万年前</text>
+      <text x="130" y="342" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">农业革命</text>
+
+      <!-- E2: 四大文明 ABOVE focal -->
+      <line x1="190" y1="252" x2="190" y2="180" stroke="#1B365D" stroke-width="1.2"/>
+      <circle cx="190" cy="260" r="6" fill="#1B365D" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="126" y="120" width="128" height="58" rx="4" fill="#EEF2F7" stroke="#1B365D" stroke-width="1"/>
+      <text x="190" y="138" fill="#1B365D" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">BC3000-2000 · 核心</text>
+      <text x="190" y="158" fill="#141413" font-size="12" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">四大文明</text>
+      <text x="190" y="172" fill="#504e49" font-size="8" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">苏美尔/埃及/印度/中国</text>
+
+      <!-- E3: 青铜时代崩塌 BC1200 BELOW -->
+      <line x1="250" y1="268" x2="250" y2="320" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="250" cy="260" r="5" fill="#504e49" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="196" y="320" width="108" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="250" y="335" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">~BC1200</text>
+      <text x="250" y="352" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">青铜时代崩塌</text>
+
+      <!-- E4: 波斯帝国 BC550 ABOVE -->
+      <line x1="330" y1="252" x2="330" y2="198" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="330" cy="260" r="5" fill="#6b6a64" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="278" y="158" width="104" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="330" y="173" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">BC550</text>
+      <text x="330" y="190" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">波斯帝国</text>
+
+      <!-- E5: 希腊化时代 BC330 BELOW -->
+      <line x1="400" y1="268" x2="400" y2="320" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="400" cy="260" r="5" fill="#504e49" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="340" y="320" width="120" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="400" y="335" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">BC330</text>
+      <text x="400" y="352" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">希腊化时代</text>
+
+      <!-- E6: 罗马帝国 BC27 ABOVE -->
+      <line x1="450" y1="252" x2="450" y2="198" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="450" cy="260" r="5" fill="#6b6a64" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="398" y="158" width="104" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="450" y="173" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">BC27</text>
+      <text x="450" y="190" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">罗马帝国</text>
+
+      <!-- E7: 伊斯兰兴起 AD622 BELOW focal-ish -->
+      <line x1="520" y1="268" x2="520" y2="315" stroke="#1B365D" stroke-width="1"/>
+      <circle cx="520" cy="260" r="5.5" fill="#1B365D" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="462" y="315" width="116" height="48" rx="4" fill="#EEF2F7" stroke="#1B365D" stroke-width="0.8"/>
+      <text x="520" y="332" fill="#1B365D" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">AD622</text>
+      <text x="520" y="350" fill="#141413" font-size="11" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">伊斯兰兴起</text>
+
+      <!-- E8: 成吉思汗 AD1206 ABOVE -->
+      <line x1="600" y1="252" x2="600" y2="195" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="600" cy="260" r="5" fill="#504e49" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="546" y="155" width="108" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="600" y="170" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">AD1206</text>
+      <text x="600" y="187" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">蒙古帝国</text>
+
+      <!-- E9: 君士坦丁堡陷落 AD1453 BELOW -->
+      <line x1="680" y1="268" x2="680" y2="320" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="680" cy="260" r="5" fill="#6b6a64" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="618" y="320" width="124" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="680" y="335" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">AD1453</text>
+      <text x="680" y="352" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">君士坦丁堡陷落</text>
+
+      <!-- E10: 工业革命 AD1760 ABOVE focal -->
+      <line x1="760" y1="252" x2="760" y2="175" stroke="#1B365D" stroke-width="1.2"/>
+      <circle cx="760" cy="260" r="6" fill="#1B365D" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="698" y="115" width="124" height="58" rx="4" fill="#EEF2F7" stroke="#1B365D" stroke-width="1"/>
+      <text x="760" y="133" fill="#1B365D" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">AD1760 · 关键节点</text>
+      <text x="760" y="153" fill="#141413" font-size="12" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">工业革命</text>
+      <text x="760" y="167" fill="#504e49" font-size="8" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">蒸汽机 / 工厂制</text>
+
+      <!-- E11: 一战 AD1914 BELOW -->
+      <line x1="830" y1="268" x2="830" y2="320" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="830" cy="260" r="5" fill="#504e49" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="776" y="320" width="108" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="830" y="335" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">AD1914</text>
+      <text x="830" y="352" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">第一次大战</text>
+
+      <!-- E12: 二战结束 AD1945 ABOVE -->
+      <line x1="890" y1="252" x2="890" y2="198" stroke="#6b6a64" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="890" cy="260" r="5" fill="#6b6a64" stroke="#f5f4ed" stroke-width="1.5"/>
+      <rect x="838" y="158" width="104" height="40" rx="4" fill="#f5f4ed" stroke="#e8e6dc" stroke-width="0.8"/>
+      <text x="890" y="173" fill="#6b6a64" font-size="7" font-family="'JetBrains Mono',monospace" text-anchor="middle" letter-spacing="0.1em">AD1945</text>
+      <text x="890" y="190" fill="#141413" font-size="10" font-weight="600" font-family="'TsangerJinKai02','Source Han Serif SC',Georgia,serif" text-anchor="middle">二战结束</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="430" x2="920" y2="430" stroke="rgba(20,20,19,0.10)" stroke-width="0.8"/>
+      <text x="40" y="446" fill="#504e49" font-size="8" font-family="'JetBrains Mono',monospace" letter-spacing="0.22em">LEGEND</text>
+      <circle cx="47" cy="464" r="6" fill="#1B365D" stroke="#f5f4ed" stroke-width="1.5"/>
+      <text x="60" y="468" fill="#504e49" font-size="8.5" font-family="inherit">关键里程碑</text>
+      <circle cx="170" cy="464" r="5" fill="#504e49" stroke="#f5f4ed" stroke-width="1.5"/>
+      <text x="183" y="468" fill="#504e49" font-size="8.5" font-family="inherit">重要事件</text>
+      <circle cx="286" cy="464" r="5" fill="#6b6a64" stroke="#f5f4ed" stroke-width="1.5"/>
+      <text x="299" y="468" fill="#504e49" font-size="8.5" font-family="inherit">一般事件</text>
+    </svg>
+    <figcaption>图：世界史关键事件时间线 · 横轴按年代排列，上方/下方交替展示事件</figcaption>
+  </figure>
+
+  <h2>参考资料</h2>
+  <ul>
+    <li>押沙龙，《少年世界史（全五册）》，山东文艺出版社·果麦文化，2023年11月</li>
+    <li>ISBN：9787532969364</li>
+    <li>字数：317千字</li>
+  </ul>
+
+  <h2>附注</h2>
+  <p>以下章节因原著未设「小结」段落，本总结文档未包含：</p>
+  <ul>
+    <li>第96章 最伟大的河流</li>
+  </ul>
+</section>
+
+</body>
+</html>

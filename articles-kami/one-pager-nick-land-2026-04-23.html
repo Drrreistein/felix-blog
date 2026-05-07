@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nick Land — 加速主义的鬼魂工程师</title>
+<style>
+  /* === KAMI DESIGN SYSTEM === */
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --sand:      #e8e6dc;
+    --brand:     #1B365D;
+    --near-black:#141413;
+    --olive:     #5e5d59;
+    --stone:     #87867f;
+    --border:    #dddbd2;
+    --tag-bg:    #EEF2F7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--parchment);
+    color: var(--near-black);
+    font-family: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 32px 60px;
+  }
+
+  /* === HEADER === */
+  .header {
+    background: var(--brand);
+    color: var(--ivory);
+    padding: 36px 40px 32px;
+    margin: 0 -32px 36px;
+    position: relative;
+  }
+  .header-eyebrow {
+    font-family: "Helvetica Neue", "PingFang SC", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8fabd6;
+    margin-bottom: 10px;
+  }
+  .header-title {
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--ivory);
+    margin-bottom: 8px;
+  }
+  .header-subtitle {
+    font-size: 15px;
+    color: #b8cadf;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+  .header-meta {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: #2a4a75;
+    color: #b8cadf;
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  /* === INTRO STRIP === */
+  .intro-strip {
+    border-left: 3px solid var(--brand);
+    padding: 14px 20px;
+    background: var(--ivory);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 32px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--olive);
+  }
+  .intro-strip strong { color: var(--near-black); }
+
+  /* === GRID === */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  /* === CARD === */
+  .card {
+    background: var(--ivory);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .card-label {
+    font-family: "Helvetica Neue", "PingFang SC", system-ui, sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .card-title .en {
+    font-size: 11px;
+    color: var(--stone);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+  .card-body {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--olive);
+  }
+  .card-body strong { color: var(--near-black); }
+
+  /* === TIMELINE === */
+  .timeline {
+    background: var(--ivory);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .timeline-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--near-black);
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 10px;
+  }
+  .tl-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .tl-year {
+    min-width: 52px;
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brand);
+    padding-top: 1px;
+    letter-spacing: 0.03em;
+  }
+  .tl-dot {
+    min-width: 8px;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: var(--brand);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .tl-content {
+    font-size: 12.5px;
+    color: var(--olive);
+    line-height: 1.55;
+  }
+  .tl-content strong { color: var(--near-black); }
+
+  /* === QUOTE BLOCK === */
+  .quote-block {
+    border-left: 3px solid var(--brand);
+    padding: 14px 20px;
+    background: var(--ivory);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 24px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--olive);
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 11px;
+    color: var(--stone);
+    margin-top: 8px;
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+  }
+
+  /* === WORKS TABLE === */
+  .works-table {
+    background: var(--ivory);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .works-table-header {
+    background: var(--sand);
+    padding: 10px 20px;
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr 4fr;
+    gap: 16px;
+  }
+  .works-row {
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr 4fr;
+    gap: 16px;
+    border-top: 0.5px solid var(--border);
+    font-size: 12.5px;
+    align-items: start;
+  }
+  .works-row:first-of-type { border-top: none; }
+  .work-title { font-weight: 500; color: var(--near-black); }
+  .work-year { color: var(--stone); font-family: "Helvetica Neue", system-ui, sans-serif; }
+  .work-desc { color: var(--olive); line-height: 1.5; }
+
+  /* === CONCEPTS GRID === */
+  .concept-card {
+    background: var(--ivory);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    border-top: 3px solid var(--brand);
+  }
+  .concept-en {
+    font-size: 12px;
+    color: var(--brand);
+    font-weight: 500;
+    font-family: Georgia, serif;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+  .concept-zh {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 8px;
+  }
+  .concept-body {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--olive);
+  }
+
+  /* === INFLUENCE SECTION === */
+  .influence-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .influence-box {
+    flex: 1;
+    background: var(--ivory);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .influence-box .label {
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+  .influence-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .influence-box ul li {
+    font-size: 12.5px;
+    color: var(--olive);
+    line-height: 1.55;
+    padding: 4px 0;
+    border-bottom: 0.5px dashed var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .influence-box ul li:last-child { border-bottom: none; }
+  .influence-box ul li::before {
+    content: "·";
+    color: var(--brand);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--border);
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-size: 10px;
+    color: var(--stone);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* === DIVIDER === */
+  .section-divider {
+    height: 0.5px;
+    background: var(--border);
+    margin: 8px 0 24px;
+  }
+  .section-heading {
+    font-family: "Helvetica Neue", "PingFang SC", system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 14px;
+  }
+
+  @media print {
+    body { padding: 24px; }
+    .header { margin: 0 -24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Thinker Profile · 思想者档案</div>
+  <div class="header-title">Nick Land</div>
+  <div class="header-subtitle">加速主义的鬼魂工程师 · 「黑暗启蒙」的奠基人</div>
+  <div class="header-meta">
+    <span class="tag">加速主义</span>
+    <span class="tag">黑暗启蒙</span>
+    <span class="tag">CCRU</span>
+    <span class="tag">后人类哲学</span>
+    <span class="tag">新反动主义</span>
+    <span class="tag">Hyperstition</span>
+  </div>
+</div>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <strong>Nick Land（1962年生）</strong>，英国哲学家，华威大学前大陆哲学讲师，<strong>「加速主义之父」</strong>。1990年代在华威大学共同创建了赛博朋克哲学怪胎实验室 CCRU，将德勒兹的去疆域化理论、赛博朋克科幻与金融资本主义融合，写出了一批预言式的「理论恐怖小说」。2004年出走上海，2010年代创作《黑暗启蒙》，成为 Silicon Valley 新反动主义运动（NRx）和有效加速主义（e/acc）的思想源头之一。Marc Andreessen 的《科技乐观主义宣言》中可清晰听见其回响。
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+  <div class="timeline-title">生平轨迹</div>
+
+  <div class="tl-row">
+    <div class="tl-year">1962</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content">生于英格兰，后赴大学攻读哲学，沉迷尼采、德勒兹/加塔利、洛夫克拉夫特</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-year">1987–98</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content"><strong>华威大学大陆哲学讲师</strong>，期间与 Sadie Plant 共同创建 CCRU（赛博文化研究单元）</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-year">1995</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content">发表代表作 <strong>《Meltdown》</strong>，苯丙胺驱动的意识流预言：资本主义作为自主智能正在「熔解」人类主体性</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-year">2000s初</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content">精神崩溃，从学界消失，涉及药物滥用；CCRU 解散</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-year">2004–至今</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content">旅居<strong>上海</strong>，视中国威权式资本主义为「加速主义的活标本」，写下「新中国从未来降临」</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-year">2011</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content">文集 <strong>《Fanged Noumena》</strong> 出版，成为加速主义运动的「圣经」</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-year">2012</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content">博客连载 <strong>《黑暗启蒙》</strong>，拒绝民主平等、提倡科技精英威权，引爆 NRx 圈子</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-year">2020s</div>
+    <div class="tl-dot"></div>
+    <div class="tl-content">思想被 e/acc 运动、Marc Andreessen 等硅谷人物援引；本人转向诺斯替主义与 AI 哲学探讨</div>
+  </div>
+</div>
+
+<!-- CORE CONCEPTS -->
+<div class="section-heading">核心概念</div>
+<div class="grid-3" style="margin-bottom:24px;">
+
+  <div class="concept-card">
+    <div class="concept-en">Accelerationism</div>
+    <div class="concept-zh">加速主义</div>
+    <div class="concept-body">与其抵制资本主义和技术现代性，不如将其推至极限，让它自我熔解——在废墟中诞生后人类秩序。减速是徒劳，加速是命运。</div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-en">Hyperstition</div>
+    <div class="concept-zh">超级迷信</div>
+    <div class="concept-body">一种「通过被言说而实现自身」的观念。比特币的崛起、AI 的预言叙事——这些思想病毒通过传播来制造现实，而不只是描述现实。</div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-en">Techno-Capital Machine</div>
+    <div class="concept-zh">科技资本机器</div>
+    <div class="concept-body">资本主义不是人控制的经济体系，而是一台自主进化的「机器」——它溶解人类主体性，向技术奇点螺旋式攀升，没有主人。</div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-en">The Dark Enlightenment</div>
+    <div class="concept-zh">黑暗启蒙</div>
+    <div class="concept-body">启蒙运动的「民主-平等-人权」是减速器。应以科技精英 CEO 式威权（新摄政主义）取代民主，让「补丁城邦」而非民族国家成为基本治理单元。</div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-en">The Cathedral</div>
+    <div class="concept-zh">大教堂</div>
+    <div class="concept-body">指代主流媒体、学术界与政府构成的「渐进主义意识形态」联合体，是阻止加速的集体制动力量，需要被突破或绕过。</div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-en">Meltdown / Teleoplexy</div>
+    <div class="concept-zh">熔解 / 目的复杂性</div>
+    <div class="concept-body">资本主义的复合智能在加速中不断自我优化（teleoplexy），最终熔解人类中心秩序。这不是隐喻，而是正在发生的物理过程。</div>
+  </div>
+
+</div>
+
+<!-- QUOTE -->
+<div class="quote-block">
+  "Nothing human makes it out of the near-future."<br/>
+  <span style="font-style:normal;color:var(--near-black);">——「在不远的未来，没有任何人类的东西能够幸存。」</span>
+  <div class="quote-source">Nick Land，《Meltdown》，1995</div>
+</div>
+
+<!-- WORKS TABLE -->
+<div class="section-heading">主要著作</div>
+<div class="works-table">
+  <div class="works-table-header">
+    <span>作品</span><span>年份</span><span>核心内容</span>
+  </div>
+  <div class="works-row">
+    <div class="work-title">Meltdown</div>
+    <div class="work-year">1995</div>
+    <div class="work-desc">加速主义的开山之作，赛博哥特式意识流，描绘资本作为外星智能「熔解」人类主体的末世预言</div>
+  </div>
+  <div class="works-row">
+    <div class="work-title">Fanged Noumena（有齿的本体）</div>
+    <div class="work-year">2011</div>
+    <div class="work-desc">CCRU 时期文章集，汇集 Land 最具破坏力的早期思想，被视为加速主义运动圣典</div>
+  </div>
+  <div class="works-row">
+    <div class="work-title">The Dark Enlightenment（黑暗启蒙）</div>
+    <div class="work-year">2012</div>
+    <div class="work-desc">系列博文合辑，批判民主为技术进步的减速器，提倡威权科技精英统治，引发 NRx 运动</div>
+  </div>
+  <div class="works-row">
+    <div class="work-title">A Quick-and-Dirty Introduction to Accelerationism</div>
+    <div class="work-year">2017</div>
+    <div class="work-desc">Land 本人最明确阐释加速主义的入门文章，成为 e/acc 讨论中频繁被引用的基准文本</div>
+  </div>
+  <div class="works-row">
+    <div class="work-title">CCRU Writings 1997–2003</div>
+    <div class="work-year">2015</div>
+    <div class="work-desc">CCRU 集体创作，包含 Numogram、Pandemonium、Lemurian Time War 等神秘数控神话体系</div>
+  </div>
+</div>
+
+<!-- INFLUENCE -->
+<div class="section-heading">思想来源与延伸影响</div>
+<div class="influence-row">
+  <div class="influence-box">
+    <div class="label">主要思想来源 · Influences</div>
+    <ul>
+      <li>Gilles Deleuze &amp; Félix Guattari — 去疆域化、精神分裂资本主义</li>
+      <li>Friedrich Nietzsche — 价值重估、加速欧洲「拉平」进程</li>
+      <li>William Gibson / 赛博朋克 — 后人类科幻想象力</li>
+      <li>Marx — 资本主义内在自我颠覆的辩证张力</li>
+      <li>Lovecraft — 宇宙冷漠主义，非人视角</li>
+      <li>Curtis Yarvin（Moldbug）— 新摄政主义政治框架</li>
+    </ul>
+  </div>
+  <div class="influence-box">
+    <div class="label">延伸影响 · Legacy</div>
+    <ul>
+      <li>Marc Andreessen《科技乐观主义宣言》明显吸收「科技资本机器」概念</li>
+      <li>有效加速主义（e/acc）在 Silicon Valley 广泛传播</li>
+      <li>Mark Fisher（对立者）的「资本现实主义」部分由反驳 Land 而生</li>
+      <li>NRx / 新反动主义圈（Thiel、Yarvin）</li>
+      <li>学术：思辨实在论、Object-Oriented Ontology</li>
+      <li>亚文化：breakcore、chaos magick、AI 神秘主义 Discord 圈子</li>
+    </ul>
+  </div>
+</div>
+
+<!-- LEFT vs RIGHT ACCEL -->
+<div class="section-heading">加速主义谱系速览</div>
+<div class="grid" style="margin-bottom:24px;">
+  <div class="card">
+    <div class="card-label">右翼加速主义（Land 路线）</div>
+    <div class="card-title">R/Acc</div>
+    <div class="card-body">
+      拥抱资本与技术的自主加速，直至人类中心秩序崩塌。<strong>民主是制动器，需要拆除</strong>。不在乎结果是否对人类友好——「机器才是主体」。代表：Land、NRx 圈。硅谷 e/acc 是其温和化版本。
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-label">左翼加速主义（L/Acc）</div>
+    <div class="card-title">L/Acc · #Accelerate</div>
+    <div class="card-body">
+      劫持资本主义的技术基础设施，转向后资本主义。<strong>加速自动化、争取普遍基本收入</strong>，把技术引向平等与解放。代表：Mark Fisher、Nick Srnicek、Alex Williams。Land 斥之为「自欺欺人的减速」。
+    </div>
+  </div>
+</div>
+
+<!-- CRITICISM STRIP -->
+<div class="intro-strip">
+  <strong>主要批评声音：</strong>Benjamin Noys 称其为「德勒兹式撒切尔主义」——用激进理论包装右翼市场狂热；Franco Berardi 认为资本极具韧性，加速只会产生永久危机而非变革；环保/去增长派视之为生态灾难配方；Slavoj Žižek 说加速主义「过于乐观」，混乱同样可以通往法西斯。
+</div>
+
+<!-- LAND & CHINA QUOTE -->
+<div class="quote-block">
+  "Neo-China arrives from the future."<br/>
+  <span style="font-style:normal;color:var(--near-black);">——「新中国从未来降临。」</span><br/>
+  Land 旅居上海后，将中国威权式资本主义高速发展视为加速主义在现实中的实证。
+  <div class="quote-source">Nick Land，Xenosystems Blog</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Nick Land · 思想者速览 · 2026-04-23</span>
+  <span>Kami Design System · One-Pager</span>
+</div>
+
+</body>
+</html>

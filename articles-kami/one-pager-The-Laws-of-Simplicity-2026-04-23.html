@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Laws of Simplicity · 执行摘要</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #f5f4ed;
+            color: #1B365D;
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
+            min-height: 100vh;
+            padding: 6vw 8vw;
+        }
+        h1, h2, h3 { font-family: 'Noto Serif SC', serif; }
+        .page { max-width: 760px; margin: 0 auto; }
+
+        /* HEADER */
+        .header { margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 2px solid #1B365D; }
+        .header .label { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a6a9a; margin-bottom: 0.5rem; }
+        .header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.2; margin-bottom: 0.5rem; }
+        .header .subtitle { font-size: 0.95rem; color: #4a3f6b; font-weight: 300; }
+        .header .meta { margin-top: 1rem; font-size: 0.82rem; color: #7a6a9a; }
+
+        /* THESIS */
+        .thesis { background: #1B365D; color: #f5f4ed; padding: 1.8rem 2rem; border-radius: 4px; margin-bottom: 2.5rem; }
+        .thesis p { font-size: 1.05rem; line-height: 1.8; font-weight: 300; }
+        .thesis .quote-mark { font-size: 3rem; line-height: 1; opacity: 0.3; font-family: serif; }
+
+        /* STATS */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+        .stat-card { border: 1px solid #c8bfd8; border-top: 3px solid #1B365D; padding: 1rem 1.2rem; border-radius: 2px; }
+        .stat-card .number { font-size: 1.6rem; font-weight: 700; font-family: 'Noto Serif SC', serif; color: #1B365D; }
+        .stat-card .desc { font-size: 0.78rem; color: #4a3f6b; margin-top: 0.2rem; }
+
+        /* SECTION HEADING */
+        h2 { font-size: 1.1rem; letter-spacing: 0.1em; margin-bottom: 1.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid #c8bfd8; color: #1B365D; }
+
+        /* TEN LAWS */
+        .ten-laws { margin-bottom: 2.5rem; }
+        .law-item { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 1rem; margin-bottom: 1.1rem; align-items: start; }
+        .law-num { font-family: 'Noto Serif SC', serif; font-size: 1.6rem; font-weight: 700; color: #7a6a9a; line-height: 1; padding-top: 0.1rem; }
+        .law-title { font-weight: 600; font-size: 0.95rem; color: #1B365D; margin-bottom: 0.15rem; }
+        .law-desc { font-size: 0.85rem; color: #4a3f6b; font-weight: 300; line-height: 1.65; }
+
+        /* CASES */
+        .cases-table { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; font-size: 0.85rem; }
+        .cases-table th { background: #1B365D; color: #f5f4ed; padding: 0.6rem 1rem; text-align: left; font-weight: 500; font-size: 0.82rem; }
+        .cases-table td { padding: 0.55rem 1rem; border-bottom: 1px solid #c8bfd8; color: #4a3f6b; vertical-align: top; }
+        .cases-table tr:nth-child(even) td { background: rgba(200,191,216,0.15); }
+        .cases-table .law-tag { font-weight: 600; color: #1B365D; white-space: nowrap; }
+        .cases-table .company { font-weight: 600; color: #7a6a9a; }
+
+        /* INSIGHTS */
+        .insights { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+        .insight-card { border: 1px solid #c8bfd8; padding: 1rem 1.2rem; border-radius: 2px; }
+        .insight-card .icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+        .insight-card .title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; color: #1B365D; }
+        .insight-card .body { font-size: 0.82rem; color: #4a3f6b; font-weight: 300; }
+
+        /* TWO COL */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+        .col h3 { font-size: 0.95rem; margin-bottom: 0.8rem; color: #1B365D; }
+        .col ul { list-style: none; padding: 0; }
+        .col li { font-size: 0.85rem; color: #4a3f6b; padding: 0.3rem 0; border-bottom: 1px dashed #c8bfd8; }
+        .col li:last-child { border-bottom: none; }
+        .col li::before { content: "→ "; color: #7a6a9a; }
+
+        /* AUDIENCE */
+        .audience { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed #c8bfd8; }
+        .audience h3 { font-size: 0.9rem; margin-bottom: 0.6rem; }
+        .audience-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { border: 1px solid #1B365D; padding: 0.2rem 0.75rem; border-radius: 2px; font-size: 0.78rem; color: #1B365D; }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="label">Book Summary · 执行摘要</div>
+        <h1>The Laws of Simplicity</h1>
+        <div class="subtitle">简单法则 · John Maeda, 2006</div>
+        <div class="meta">MIT Media Lab 前总监 / 设计总监 / Inkscape / Adobe 顾问</div>
+    </div>
+
+    <!-- THESIS -->
+    <div class="thesis">
+        <div class="quote-mark">"</div>
+        <p>简单不在于去除多少，而在于<strong>保留什么</strong>。复杂度是真实世界的本质属性，但人类对简洁的感知可以通过十条可习得的法则来设计达成。</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-card"><div class="number">10</div><div class="desc">条核心法则</div></div>
+        <div class="stat-card"><div class="number">10+</div><div class="desc">行业设计案例</div></div>
+        <div class="stat-card"><div class="number">3</div><div class="desc">大收益维度（时间、心智、金钱）</div></div>
+        <div class="stat-card"><div class="number">2006</div><div class="desc">首版，MIT Media Lab 研究成果</div></div>
+    </div>
+
+    <!-- TEN LAWS -->
+    <h2>十条简单法则</h2>
+    <div class="ten-laws">
+
+        <div class="law-item">
+            <div class="law-num">01</div>
+            <div class="law-body">
+                <div class="law-title">Reduce · 精简</div>
+                <div class="law-desc">最简单的达到简单的方式，是通过有意义的削减，去掉明显不必要的东西，直到无法再减为止。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">02</div>
+            <div class="law-body">
+                <div class="law-title">Add · 增加</div>
+                <div class="law-desc">简单并不总是越多越好——在某些情况下，增加一些看似"多余"的东西，反而能带来情感上的愉悦和认同感。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">03</div>
+            <div class="law-body">
+                <div class="law-title">Time · 时间</div>
+                <div class="law-desc">节省时间的感觉就是简单。把操作速度提升 10%，感知上的简单程度远超实际数字——时间感知是非线性的。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">04</div>
+            <div class="law-body">
+                <div class="law-title">Money · 金钱</div>
+                <div class="law-desc">省钱等于简单。成本越低，门槛越低，用户越容易上手。免费或低价本身就是最简单的价值主张。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">05</div>
+            <div class="law-body">
+                <div class="law-title">Boundaries · 边界</div>
+                <div class="law-desc">复杂性来自边界的模糊。清晰的边界定义了你的产品在哪里结束、用户期望在哪里开始，减少了认知摩擦。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">06</div>
+            <div class="law-body">
+                <div class="law-title">Texture · 质感</div>
+                <div class="law-desc">人们通过触感和视觉质感来感知简单。粗糙或杂乱的质感让人感到复杂，光滑一致的质感让人觉得简洁。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">07</div>
+            <div class="law-body">
+                <div class="law-title">Difference · 差异</div>
+                <div class="law-desc">简单与复杂需要对比才能被感知。适度的复杂可以作为"锚点"，让简单之处更加突出。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">08</div>
+            <div class="law-body">
+                <div class="law-title">Context · 情境</div>
+                <div class="law-desc">什么东西是简单的，取决于使用它的情境。厨房的简单与医院的简单完全不同——设计必须贴合真实使用场景。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">09</div>
+            <div class="law-body">
+                <div class="law-title">Emotion · 情感</div>
+                <div class="law-desc">在情感层面，更多可以等同于更少。丰富的情感体验（仪式感、惊喜、归属感）让用户"感觉"更少、更轻松。</div>
+            </div>
+        </div>
+
+        <div class="law-item">
+            <div class="law-num">10</div>
+            <div class="law-body">
+                <div class="law-title">Trust · 信任</div>
+                <div class="law-desc">简单也来自于信任。当你信任一个系统，你就不需要去怀疑、核查或担心——这种安心本身就是简洁。</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CASES TABLE -->
+    <h2>行业设计案例</h2>
+    <table class="cases-table">
+        <thead>
+            <tr>
+                <th>法则</th>
+                <th>公司 / 产品</th>
+                <th>案例说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="law-tag">01 Reduce</td>
+                <td class="company">Apple iPod</td>
+                <td>只保留听音乐一个核心功能，主动删除所有非必要功能（收音机、摄像等竞品功能），以减法建立护城河。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">02 Add</td>
+                <td class="company">Apple Click Wheel</td>
+                <td>看似多余，但带来指尖操作愉悦感——增加了情感价值，而非功能复杂性。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">03 Time</td>
+                <td class="company">Google 搜索</td>
+                <td>首页只有一个搜索框。0.1 秒的加载优化背后，是数十亿美元的服务器投入——速度即简洁。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">04 Money</td>
+                <td class="company">Freemium 模式</td>
+                <td>免费降低门槛本身即是价值主张。用户无需理解定价逻辑，上手即用，边际成本为零。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">05 Boundaries</td>
+                <td class="company">Apple App Store</td>
+                <td>清晰的审核边界建立了用户信任——你知道这个平台不会让你遇到恶意软件，这是认知上的简洁。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">06 Texture</td>
+                <td class="company">Apple Industrial Design</td>
+                <td>铝合金一体成型的触感、无缝玻璃面板——物理质感传递出"设计精心"的心理暗示。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">07 Difference</td>
+                <td class="company">奢侈品牌橱窗</td>
+                <td>周围陈列复杂，衬托中央单一产品的简洁——对比制造焦点，焦点制造简洁感。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">08 Context</td>
+                <td class="company">医疗器械界面</td>
+                <td>手术室需要极端简洁（一键操作），病房界面可以更丰富——同一家公司为不同情境设计不同"简洁"。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">09 Emotion</td>
+                <td class="company">Starbucks</td>
+                <td>"第三空间"体验——仪式感（咖啡师名字写在杯子上）、归属感（常客杯）让用户心理上感到轻松。</td>
+            </tr>
+            <tr>
+                <td class="law-tag">10 Trust</td>
+                <td class="company">ATM 银行界面</td>
+                <td>全球标准化界面让任何人无需思考即可操作——信任一个系统意味着你不需要重新学习它。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- INSIGHTS -->
+    <h2>两个核心洞见</h2>
+    <div class="insights">
+        <div class="insight-card">
+            <div class="icon">⚖️</div>
+            <div class="title">Less + Emotion = Simple²</div>
+            <div class="body">Maeda 最重要的反驳：极简主义不能以牺牲情感为代价。iPod 不是因为功能最少而胜出，而是因为在保留核心的同时，给了用户愉悦感（Click Wheel、白色耳机线）。</div>
+        </div>
+        <div class="insight-card">
+            <div class="icon">⚙️</div>
+            <div class="title">简单是副产品，不是目标</div>
+            <div class="body">当你真正理解用户情境、精心设计每个触点，简洁自然会浮现。把"追求简洁"当作目标反而会陷入过度简化（oversimplification）的陷阱。</div>
+        </div>
+    </div>
+
+    <!-- PRACTICE -->
+    <div class="two-col">
+        <div class="col">
+            <h3>设计者应该做什么</h3>
+            <ul>
+                <li>先做减法，列出功能清单，逐一问"拿掉它会怎样"</li>
+                <li>用时间感代替功能数：操作步骤减半 ≠ 简单感×2</li>
+                <li>为不同情境设计差异化方案，不要一套设计打天下</li>
+                <li>质感设计：按钮、图标、过渡动画都算</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>管理者应该做什么</h3>
+            <ul>
+                <li>奖励"砍功能"的勇气，而非不断堆砌功能</li>
+                <li>用"节省 X 秒 × 用户量"来量化简洁的商业价值</li>
+                <li>建立清晰的产品边界，不做超出边界的事</li>
+                <li>信任你的用户：不要用功能来掩盖你对产品的不确定</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- AUDIENCE -->
+    <div class="audience">
+        <h3>谁应该读这本书</h3>
+        <div class="audience-tags">
+            <span class="tag">产品设计师</span>
+            <span class="tag">UX / UI 设计师</span>
+            <span class="tag">技术管理者</span>
+            <span class="tag">AI 应用开发者</span>
+            <span class="tag">品牌与视觉设计师</span>
+            <span class="tag">任何做复杂系统的人</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

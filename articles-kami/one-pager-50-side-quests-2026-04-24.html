@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>50 Side Quests · 男人必完成的50项支线任务</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --parchment: #f5f4ed;
+      --ivory: #faf9f5;
+      --warm-sand: #e8e6dc;
+      --brand: #1B365D;
+      --near-black: #141413;
+      --olive: #5e5d59;
+      --stone: #87867f;
+      --border-cream: #dedad0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--parchment);
+      font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+      color: var(--near-black);
+      line-height: 1.55;
+      font-size: 10pt;
+      padding: 32pt 40pt;
+      max-width: 720pt;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 28pt;
+      padding-bottom: 16pt;
+      border-bottom: 0.5pt solid var(--border-cream);
+    }
+
+    .header-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt; font-weight: 500;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: 2pt;
+      margin-bottom: 8pt;
+    }
+
+    .header-title {
+      font-size: 28pt; font-weight: 500;
+      color: var(--near-black);
+      letter-spacing: 3pt;
+      margin-bottom: 6pt;
+    }
+
+    .header-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 10pt; color: var(--olive);
+    }
+
+    .header-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; color: var(--stone);
+      margin-top: 6pt;
+    }
+
+    /* Opening */
+    .opening {
+      background: var(--ivory);
+      border-left: 2.5pt solid var(--brand);
+      padding: 16pt 20pt;
+      margin-bottom: 28pt;
+      font-size: 10.5pt;
+      color: var(--near-black);
+      line-height: 1.7;
+    }
+
+    /* Category */
+    .category {
+      margin-bottom: 28pt;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12pt;
+      margin-bottom: 14pt;
+    }
+
+    .category-icon {
+      font-size: 16pt;
+      width: 28pt;
+      text-align: center;
+    }
+
+    .category-title-wrap { flex: 1; }
+
+    .category-title {
+      font-size: 14pt; font-weight: 500;
+      color: var(--near-black);
+      border-bottom: 1pt solid var(--border-cream);
+      padding-bottom: 6pt;
+    }
+
+    .category-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt; color: var(--stone);
+      margin-top: 2pt;
+    }
+
+    /* Quest grid */
+    .quest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8pt;
+      margin-left: 40pt;
+    }
+
+    .quest-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8pt;
+      background: var(--ivory);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 5pt;
+      padding: 8pt 10pt;
+    }
+
+    .quest-check {
+      width: 12pt;
+      height: 12pt;
+      border: 1.5pt solid var(--brand);
+      border-radius: 2pt;
+      flex-shrink: 0;
+      margin-top: 1pt;
+    }
+
+    .quest-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; font-weight: 600;
+      color: var(--brand);
+      min-width: 16pt;
+    }
+
+    .quest-text {
+      font-size: 9.5pt;
+      color: var(--near-black);
+      line-height: 1.45;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 0.5pt dashed var(--border-cream);
+      margin: 24pt 0;
+    }
+
+    /* Manifesto */
+    .manifesto {
+      background: linear-gradient(135deg, var(--ivory) 0%, var(--warm-sand) 100%);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 8pt;
+      padding: 20pt 24pt;
+      margin-top: 24pt;
+    }
+
+    .manifesto-title {
+      font-size: 13pt; font-weight: 500;
+      color: var(--brand);
+      margin-bottom: 14pt;
+      text-align: center;
+    }
+
+    .manifesto-text {
+      font-size: 10.5pt;
+      color: var(--near-black);
+      line-height: 1.75;
+      text-align: center;
+      margin-bottom: 10pt;
+    }
+
+    .manifesto-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt; font-weight: 600;
+      color: var(--brand);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.5pt;
+      margin-top: 14pt;
+      padding-top: 10pt;
+      border-top: 0.5pt solid var(--border-cream);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 24pt;
+      padding-top: 12pt;
+      border-top: 0.5pt solid var(--border-cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt; color: var(--stone);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-eyebrow">Side Quests</div>
+    <h1 class="header-title">50 项支线任务</h1>
+    <div class="header-sub">每个男人必须完成的事</div>
+    <div class="header-meta">2026-04-24 · 纸 · Kami</div>
+  </header>
+
+  <div class="opening">
+    大多数人在等生活变得有趣。<br>
+    <strong>生活在你开始把它当作一场值得全力以赴的游戏的那一刻，才开始有趣。</strong><br>
+    不只是主线任务。是支线任务。是绕路。是那些随机的星期二决定——它变成了你余生都会讲述的故事。
+  </div>
+
+  <!-- 01 Physical -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">⚡</div>
+      <div class="category-title-wrap">
+        <div class="category-title">身体挑战</div>
+        <div class="category-en">Physical Side Quests</div>
+      </div>
+    </div>
+    <div class="quest-grid">
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">01</span>
+        <div class="quest-text">不停歇地跑完 5 公里</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">02</span>
+        <div class="quest-text">一次完成 100 个俯卧撑</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">03</span>
+        <div class="quest-text">正式学会游泳</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">04</span>
+        <div class="quest-text">练习一种格斗运动满 30 天</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">05</span>
+        <div class="quest-text">徒步登顶一座山</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">06</span>
+        <div class="quest-text">连续 30 天冰浴</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">07</span>
+        <div class="quest-text">训练并完成一项体能挑战赛</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">08</span>
+        <div class="quest-text">禁食 24 小时，观察自己的内心</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">09</span>
+        <div class="quest-text">学会倒立</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">10</span>
+        <div class="quest-text">连续 90 天每天走 10,000 步</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Mental -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🧠</div>
+      <div class="category-title-wrap">
+        <div class="category-title">心智修炼</div>
+        <div class="category-en">Mental Side Quests</div>
+      </div>
+    </div>
+    <div class="quest-grid">
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">11</span>
+        <div class="quest-text">一年内读完 12 本书</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">12</span>
+        <div class="quest-text">学一门新语言到日常对话水平</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">13</span>
+        <div class="quest-text">连续 30 天冥想，一天不落</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">14</span>
+        <div class="quest-text">连续 90 天每天早晨写日记</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">15</span>
+        <div class="quest-text">用一整天完全独处，保持沉默</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">16</span>
+        <div class="quest-text">整整一周不碰任何社交媒体</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">17</span>
+        <div class="quest-text">学下象棋/国际象棋，认真学好</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">18</span>
+        <div class="quest-text">深入研究一个你完全不了解的领域</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">19</span>
+        <div class="quest-text">写下你的故事，从起点写到现在</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">20</span>
+        <div class="quest-text">背下 10 首打动你的诗或名言</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 Financial -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">💡</div>
+      <div class="category-title-wrap">
+        <div class="category-title">财务修炼</div>
+        <div class="category-en">Financial Side Quests</div>
+      </div>
+    </div>
+    <div class="quest-grid">
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">21</span>
+        <div class="quest-text">在工作之外搭建一个收入来源</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">22</span>
+        <div class="quest-text">先存下 3 个月的生活费再做别的</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">23</span>
+        <div class="quest-text">第一次真正投入一笔资金</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">24</span>
+        <div class="quest-text">搞懂钱是如何真正运转的</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">25</span>
+        <div class="quest-text">主动谈判过至少一次薪资或报价</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">26</span>
+        <div class="quest-text">卖出一件你亲手做的东西</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">27</span>
+        <div class="quest-text">连续 30 天只花必要的钱</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">28</span>
+        <div class="quest-text">记录整整一个月的每一笔支出</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">29</span>
+        <div class="quest-text">读一本认真讲财富积累的书</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">30</span>
+        <div class="quest-text">把财务计划白纸黑字写下来</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 Social -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🤝</div>
+      <div class="category-title-wrap">
+        <div class="category-title">人际修炼</div>
+        <div class="category-en">Social Side Quests</div>
+      </div>
+    </div>
+    <div class="quest-grid">
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">31</span>
+        <div class="quest-text">和陌生人进行一次真正的对话</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">32</span>
+        <div class="quest-text">重新联系上一个失去联系的人</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">33</span>
+        <div class="quest-text">亲口告诉某人他对你有多重要</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">34</span>
+        <div class="quest-text">向你亏欠道歉的人正式道歉</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">35</span>
+        <div class="quest-text">在完全不同的领域交一个真朋友</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">36</span>
+        <div class="quest-text">用一整天陪父亲或母亲</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">37</span>
+        <div class="quest-text">给影响过你的人写一封信</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">38</span>
+        <div class="quest-text">去指导一个比你年轻的人</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">39</span>
+        <div class="quest-text">为真正重要的人办一次晚宴</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">40</span>
+        <div class="quest-text">建立一段真正的兄弟情谊</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 Adventure -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🌍</div>
+      <div class="category-title-wrap">
+        <div class="category-title">冒险修炼</div>
+        <div class="category-en">Adventure Side Quests</div>
+      </div>
+    </div>
+    <div class="quest-grid">
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">41</span>
+        <div class="quest-text">独自去一个地方旅行</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">42</span>
+        <div class="quest-text">在星空下睡一觉</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">43</span>
+        <div class="quest-text">去一个没人认识你的国家</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">44</span>
+        <div class="quest-text">做一件真正让你恐惧的事</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">45</span>
+        <div class="quest-text">不定目的地，随便开车去某处</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">46</span>
+        <div class="quest-text">夜里在海里游泳</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">47</span>
+        <div class="quest-text">在一个从没去过的城市迷路</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">48</span>
+        <div class="quest-text">在某个美丽的地方看日出</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">49</span>
+        <div class="quest-text">独自在异国餐厅用餐</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">50</span>
+        <div class="quest-text">做一件让年轻时的自己不敢相信的事</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 Creative -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">✦</div>
+      <div class="category-title-wrap">
+        <div class="category-title">创造修炼</div>
+        <div class="category-en">Creative Side Quests</div>
+      </div>
+    </div>
+    <div class="quest-grid">
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">51</span>
+        <div class="quest-text">认真从头学会做 10 道菜</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">52</span>
+        <div class="quest-text">学一种乐器，弹完一首完整的曲子</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">53</span>
+        <div class="quest-text">亲手造或修一件东西</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">54</span>
+        <div class="quest-text">写一篇真诚的文字，公开分享</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">55</span>
+        <div class="quest-text">用整整一年拍下生活的照片</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">56</span>
+        <div class="quest-text">学画画，哪怕画得很烂也继续</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">57</span>
+        <div class="quest-text">启动一个没有受众、没有目标的项目</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">58</span>
+        <div class="quest-text">录下自己说话，认真听回放</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">59</span>
+        <div class="quest-text">从零设计一件东西，哪怕很小</div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-check"></div>
+        <span class="quest-num">60</span>
+        <div class="quest-text">创造一件在你之前不存在的东西</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Manifesto -->
+  <div class="manifesto">
+    <div class="manifesto-title">你不是因为生活无聊才感到无聊</div>
+    <div class="manifesto-text">
+      你无聊，是因为你停止向那些让你感觉活着的事说「是」。<br><br>
+      生活不只有主线任务。<br>
+      是支线任务、绕路、那些随机的星期二决定——<br>
+      它们变成了你余生都会讲述的故事。<br><br>
+      <strong>从这张清单里选一项。今天开始。不是星期一。今天。</strong>
+    </div>
+    <div class="manifesto-cta">Pick One Quest. Start Today.</div>
+  </div>
+
+  <footer class="footer">
+    生成于 2026-04-24 · 纸 · Kami · 整理自 @AestheticsMens
+  </footer>
+
+</body>
+</html>

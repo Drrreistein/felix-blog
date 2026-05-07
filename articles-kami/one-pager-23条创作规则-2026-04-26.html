@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>23 条高效创作者法则</title>
+<meta name="author" content="Ryan Holiday（整理：AI）">
+<meta name="description" content="Ryan Holiday 总结的 23 条创作者自律法则，涵盖阅读习惯、写作节奏、心理建设与创作哲学。">
+<meta name="keywords" content="创作规则, Ryan Holiday, 写作, 创意生产力, 自律">
+<meta name="generator" content="Kami">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --sans: var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.6;
+    letter-spacing: 0.3pt;
+  }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm; }
+  }
+
+  /* ── HEADER ── */
+  .header {
+    border-bottom: 1.5pt solid var(--brand);
+    padding-bottom: 16pt;
+    margin-bottom: 18pt;
+  }
+  .header-eyebrow {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .header-title {
+    font-size: 28pt;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--near-black);
+    margin-bottom: 8pt;
+  }
+  .header-sub {
+    font-size: 12pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 90%;
+  }
+  .header-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 10pt;
+  }
+
+  /* ── SECTION TITLE ── */
+  h2 {
+    font-size: 13pt;
+    font-weight: 500;
+    color: var(--near-black);
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    margin: 20pt 0 10pt 0;
+  }
+
+  /* ── BODY ── */
+  p { margin: 0 0 8pt 0; line-height: 1.6; }
+  .lead {
+    font-size: 11.5pt;
+    color: var(--dark-warm);
+    line-height: 1.6;
+    margin-bottom: 16pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ── COLUMNS ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16pt;
+    margin-top: 4pt;
+  }
+  .col-card {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 12pt 14pt;
+  }
+  .col-card-label {
+    font-size: 8.5pt;
+    color: var(--brand);
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+    font-weight: 500;
+  }
+
+  /* ── RULE GRID ── */
+  .rule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8pt;
+    margin-top: 6pt;
+  }
+  .rule-item {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border-soft);
+    border-radius: 3pt;
+    padding: 8pt 10pt;
+  }
+  .rule-num {
+    font-size: 8pt;
+    color: var(--brand);
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    margin-bottom: 3pt;
+  }
+  .rule-title {
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 3pt;
+    line-height: 1.3;
+  }
+  .rule-body {
+    font-size: 8.5pt;
+    color: var(--olive);
+    line-height: 1.45;
+  }
+
+  /* ── BLOCKQUOTE ── */
+  blockquote {
+    border-left: 2pt solid var(--brand);
+    margin: 12pt 0;
+    padding: 4pt 0 4pt 14pt;
+    color: var(--olive);
+    line-height: 1.55;
+  }
+  blockquote .cite {
+    display: block;
+    font-size: 8.5pt;
+    color: var(--stone);
+    margin-top: 4pt;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--ivory);
+    border-left: 2pt solid var(--brand);
+    padding: 10pt 14pt;
+    border-radius: 3pt;
+    margin: 12pt 0;
+    line-height: 1.55;
+  }
+
+  /* ── TAKEAWAY ── */
+  .takeaway {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 14pt 0;
+  }
+  .takeaway-label {
+    font-size: 8.5pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 6pt;
+  }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--brand);
+    font-size: 8.5pt;
+    font-weight: 500;
+    padding: 1pt 6pt;
+    border-radius: 3pt;
+    margin: 2pt 2pt 2pt 0;
+  }
+
+  /* ── CLUSTER ── */
+  .cluster-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .cluster-list li {
+    display: flex;
+    gap: 8pt;
+    align-items: flex-start;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .cluster-list li:last-child { border-bottom: none; }
+  .cluster-num {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 20pt;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 0.5pt solid var(--border);
+    margin-top: 20pt;
+    padding-top: 10pt;
+    font-size: 8.5pt;
+    color: var(--stone);
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="header-eyebrow">创意生产力 · 方法论精华</div>
+  <div class="header-title">23 条高效创作者法则</div>
+  <div class="header-sub">Ryan Holiday 的创作自律体系——一位年产一本畅销书的作家，如何管理输入、保护专注、让每天的创作不靠灵感靠系统。</div>
+  <div class="header-meta">来源：Ryan Holiday @RyanHoliday · 2026.04.25 &nbsp;｜&nbsp; 整理：kami</div>
+</div>
+
+<!-- ── WHO ── -->
+<p class="lead">
+  Ryan Holiday 是《障碍就是道路》《自我是敌人》等书的作者，也是斯多葛哲学的现代传播者。这 23 条规则来自他十余年高产写作实践，
+  核心命题是：<span class="hl">创作力不是天赋，而是一套可以安装的操作系统</span>。
+</p>
+
+<!-- ── 四大支柱 ── -->
+<h2>四大支柱速览</h2>
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-label">🔍 输入管理（Rule 1–3）</div>
+    <ul style="padding-left:14pt; font-size:9.5pt; color:var(--dark-warm);">
+      <li style="padding:3pt 0">海量阅读是写作的地基</li>
+      <li style="padding:3pt 0">随时随地收集素材</li>
+      <li style="padding:3pt 0">把好建议贴在视线里</li>
+    </ul>
+    <blockquote style="margin-top:8pt; font-size:9pt;">
+      "一本书是由众多书堆成的。"
+      <span class="cite">— Samuel Johnson</span>
+    </blockquote>
+  </div>
+  <div class="col-card">
+    <div class="col-card-label">🏗️ 项目管理（Rule 4–8）</div>
+    <ul style="padding-left:14pt; font-size:9.5pt; color:var(--dark-warm);">
+      <li style="padding:3pt 0">先签合同再动笔——截止日期即防线</li>
+      <li style="padding:3pt 0">为专业的事付专业的钱</li>
+      <li style="padding:3pt 0">先有话说，再谈风格</li>
+      <li style="padding:3pt 0">找一位大师级榜样临摹</li>
+      <li style="padding:3pt 0">动笔前用一句话、一段话、一页纸厘清主题</li>
+    </ul>
+  </div>
+  <div class="col-card">
+    <div class="col-card-label">🧠 心理护甲（Rule 9–12 · 17–22）</div>
+    <ul style="padding-left:14pt; font-size:9.5pt; color:var(--dark-warm);">
+      <li style="padding:3pt 0">只管控自己能控制的——结果不算</li>
+      <li style="padding:3pt 0">开始前留出"沉淀期"</li>
+      <li style="padding:3pt 0">每天两页烂稿，胜过等待完美</li>
+      <li style="padding:3pt 0">项目完成前不谈论它</li>
+      <li style="padding:3pt 0">在"湿边"停工，明天好继续</li>
+      <li style="padding:3pt 0">创作本就是痛苦——接受它</li>
+    </ul>
+  </div>
+  <div class="col-card">
+    <div class="col-card-label">⚡ 执行仪式（Rule 11 · 13–16）</div>
+    <ul style="padding-left:14pt; font-size:9.5pt; color:var(--dark-warm);">
+      <li style="padding:3pt 0">同一首歌循环播放，进入心流</li>
+      <li style="padding:3pt 0">工具不重要，动笔才重要</li>
+      <li style="padding:3pt 0">高强度运动是大脑的氧气舱</li>
+      <li style="padding:3pt 0">每天晨间日记 15 分钟定锚</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── 23条全列 ── -->
+<h2>23 条逐条速读</h2>
+<div class="rule-grid">
+  <div class="rule-item">
+    <div class="rule-num">01</div>
+    <div class="rule-title">拼命阅读</div>
+    <div class="rule-body">写一本书，要先读 300 本书。输入量决定输出质量上限。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">02</div>
+    <div class="rule-title">永远在研究</div>
+    <div class="rule-body">飞机杂志、推文、电视字幕——素材无处不在，关键是保持接收状态。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">03</div>
+    <div class="rule-title">把好建议贴在墙上</div>
+    <div class="rule-body">把能指导你的引言打印出来放在工作台，逃不开就能内化。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">04</div>
+    <div class="rule-title">先做承诺</div>
+    <div class="rule-body">上一本书出版前就签下一本的合同。截止日期是最好的抗拖延药。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">05</div>
+    <div class="rule-title">与高手合作</div>
+    <div class="rule-body">为专业帮助付钱。请业余者的代价，远比请专业人士贵。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">06</div>
+    <div class="rule-title">先有话说</div>
+    <div class="rule-body">叔本华：有东西要说，这本身就构成好风格的充分条件。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">07</div>
+    <div class="rule-title">找一位大师临摹</div>
+    <div class="rule-body">修昔底德→吉本→Shelby Foote。每个创作者都需要可以学习的前辈。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">08</div>
+    <div class="rule-title">先知道去哪里</div>
+    <div class="rule-body">动笔前，用一句话、一段话、一页纸说清楚这本书是什么。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">09</div>
+    <div class="rule-title">只管自己能控制的</div>
+    <div class="rule-body">作品质量归你管；市场反应不归你管。如果靠外部奖赏驱动，神仙难救。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">10</div>
+    <div class="rule-title">拥抱"沉淀期"</div>
+    <div class="rule-body">正式开始前留出一段只是思考、让想法沉淀的时间。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">11</div>
+    <div class="rule-title">一首歌循环播放</div>
+    <div class="rule-body">挑一首歌单曲循环——屏蔽外部噪音，也屏蔽大脑里不需要的声音。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">12</div>
+    <div class="rule-title">每天一点点进展</div>
+    <div class="rule-body">"每天写两页烂稿。"每天的小胜利累积成书。初稿必然是垃圾——海明威也这么说。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">13</div>
+    <div class="rule-title">别让工具分心</div>
+    <div class="rule-body">伟大作品用鹅毛笔写成。软件不能让你成为更好的作家。闭嘴，动笔。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">14</div>
+    <div class="rule-title">每天高强度运动</div>
+    <div class="rule-body">跑步或游泳时解决了无数写作难题。运动是唯一一种不会失败的日常胜利。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">15</div>
+    <div class="rule-title">写让你害怕的东西</div>
+    <div class="rule-body">如果你的内容没让你感到一丝恐惧，说明你还没在挑战自己。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">16</div>
+    <div class="rule-title">每天晨间日记</div>
+    <div class="rule-body">三本小笔记本，15 分钟，完成后平静、专注，为真正的写作做好准备。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">17</div>
+    <div class="rule-title">别谈论项目</div>
+    <div class="rule-body">谈论和行动争夺同一种资源。把那根胡萝卜留到完成时再吃。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">18</div>
+    <div class="rule-title">在"湿边"停工</div>
+    <div class="rule-body">状态好的时候停下来。明天可以从有动力的地方继续，而不是面对空白。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">19</div>
+    <div class="rule-title">做有功能的东西</div>
+    <div class="rule-body">不是"这本书是什么"，而是"它为读者做了什么"。音乐人用"车测试"：在高速上听好不好。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">20</div>
+    <div class="rule-title">砍掉行话</div>
+    <div class="rule-body">奥格威：用"重新概念化"这类词的人是装腔作势的蠢蛋。一个词能说清的，别用两个。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">21</div>
+    <div class="rule-title">说出来</div>
+    <div class="rule-body">卡壳时，找一个你信任的人把想法说出来。没有人会得"说话阻塞症"。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">22</div>
+    <div class="rule-title">创作本就很难</div>
+    <div class="rule-body">画家喜欢画画，作家喜欢"已经写完了"。承认这一点，就不会因为痛苦而停止。</div>
+  </div>
+  <div class="rule-item">
+    <div class="rule-num">23</div>
+    <div class="rule-title">一切都是素材</div>
+    <div class="rule-body">重要的不是发生了什么，而是作家能从中提炼出什么意义。把所有经历变成燃料。</div>
+  </div>
+</div>
+
+<!-- ── 核心洞察 ── -->
+<h2>三条最底层的洞察</h2>
+<div class="callout">
+  <strong>1. 系统 > 灵感。</strong> 没有一条规则依赖"状态好"或"灵感来了"。从阅读习惯到晨间日记，全是可重复的仪式。
+</div>
+<div class="callout">
+  <strong>2. 输入决定输出上限。</strong> Rules 1–3 全部关于输入。Ryan Holiday 在写一本书时会直接引用 300 本书——这不是偶然，是刻意的"储弹"。
+</div>
+<div class="callout">
+  <strong>3. 保护注意力是最高优先级。</strong> 不谈项目（Rule 17）、循环播放音乐（Rule 11）、不被工具分心（Rule 13）——全是在用不同方式保护同一样东西：深度专注。
+</div>
+
+<!-- ── 行动建议 ── -->
+<div class="takeaway">
+  <div class="takeaway-label">如果只做一件事</div>
+  <p>现在就打开一个新文件，写下你正在进行的创作项目的<strong>一句话、一段话、一页纸</strong>版本。不要等到"想清楚了"——这个动作本身就是想清楚的方法。</p>
+</div>
+
+<!-- ── 标签 ── -->
+<p style="margin-top:10pt;">
+  <span class="tag">写作</span>
+  <span class="tag">创作力</span>
+  <span class="tag">斯多葛哲学</span>
+  <span class="tag">Ryan Holiday</span>
+  <span class="tag">方法论</span>
+  <span class="tag">自律</span>
+</p>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <span>来源：x.com/RyanHoliday · 2026.04.25</span>
+  <span>kami · 紙 整理</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     书籍介绍 · kami design system
+     《人类简史》书籍介绍单页
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>人类简史 · 书籍介绍</title>
+<meta name="author" content="Kami">
+<meta name="description" content="尤瓦尔·赫拉利《人类简史》：从认知革命到数据主义，一部跨越138亿年的人类进化史">
+<meta name="keywords" content="人类简史,尤瓦尔·赫拉利,认知革命,农业革命,科学革命,历史">
+<meta name="generator" content="Kami">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm 18mm 15mm 18mm;
+    background: #f5f4ed;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --sand:      #e8e6dc;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --sans: var(--serif);
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 15mm 18mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10pt;
+    line-height: 1.45;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== HEADER ========== */
+  .header {
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    margin-bottom: 14pt;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20pt;
+  }
+  .title-block { flex: 1; }
+  .eyebrow {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: 24pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.15;
+    margin-bottom: 5pt;
+  }
+  .subtitle {
+    font-size: 11pt;
+    color: var(--olive);
+    line-height: 1.4;
+  }
+  .meta {
+    font-size: 9pt;
+    color: var(--stone);
+    text-align: right;
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+
+  /* ========== METRICS ========== */
+  .metrics {
+    display: flex;
+    gap: 14pt;
+    margin-bottom: 18pt;
+    padding: 4pt 0 6pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+  }
+  .metric {
+    flex: 1;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+    break-inside: avoid;
+  }
+  .metric-value {
+    font-family: var(--serif);
+    font-size: 20pt;
+    font-weight: 500;
+    color: var(--brand);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.2pt;
+  }
+  .metric-label {
+    font-size: 9pt;
+    color: var(--olive);
+    line-height: 1.3;
+  }
+
+  /* ========== SECTIONS ========== */
+  section { margin-bottom: 18pt; break-inside: avoid; }
+  section:last-of-type { margin-bottom: 0; }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 16pt;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 6pt;
+  }
+  h2 .sub {
+    font-size: 9pt;
+    color: var(--stone);
+    font-weight: 400;
+    margin-left: 6pt;
+  }
+
+  p { margin-bottom: 6pt; line-height: 1.45; }
+  p:last-child { margin-bottom: 0; }
+
+  .lead {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+
+  .hl { color: var(--brand); font-weight: 500; }
+
+  /* ========== 2-column grid ========== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18pt;
+  }
+
+  /* ========== 短横线 list ========== */
+  ul.dash {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul.dash li {
+    position: relative;
+    padding-left: 14pt;
+    margin-bottom: 4pt;
+    line-height: 1.45;
+  }
+  ul.dash li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+  }
+
+  /* ========== Timeline ========== */
+  .timeline {
+    display: flex;
+    gap: 12pt;
+    margin-top: 6pt;
+  }
+  .tl-step {
+    flex: 1;
+    break-inside: avoid;
+  }
+  .tl-year {
+    font-family: var(--serif);
+    font-size: 11pt;
+    font-weight: 500;
+    color: var(--brand);
+    margin-bottom: 2pt;
+  }
+  .tl-head {
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 2pt;
+  }
+  .tl-body {
+    font-size: 9pt;
+    color: var(--olive);
+    line-height: 1.4;
+  }
+
+  /* ========== Tag ========== */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--brand);
+    font-size: 9pt;
+    font-weight: 500;
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    letter-spacing: 0.3pt;
+    margin-right: 3pt;
+  }
+
+  /* ========== Callout ========== */
+  .callout {
+    background: transparent;
+    border-left: 1.8pt solid var(--brand);
+    padding: 4pt 0 4pt 14pt;
+    margin: 10pt 0;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: var(--olive);
+    break-inside: avoid;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    margin-top: 18pt;
+    padding-top: 6pt;
+    border-top: 0.3pt dotted var(--border);
+    font-size: 9pt;
+    color: var(--stone);
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.3pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <div class="title-block">
+    <div class="eyebrow">书籍介绍 · Book Introduction</div>
+    <h1>人类简史</h1>
+    <div class="subtitle">从动物到上帝 · A Brief History of Humankind</div>
+  </div>
+  <div class="meta">
+    尤瓦尔·赫拉利<br>
+    Yuval Noah Harari<br>
+    2014.01<br>
+  </div>
+</div>
+
+<!-- ========== METRICS ========== -->
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-value">9.1</div>
+    <div class="metric-label">豆瓣评分</div>
+  </div>
+  <div class="metric">
+    <div class="metric-value">30万+</div>
+    <div class="metric-label">中文版销量</div>
+  </div>
+  <div class="metric">
+    <div class="metric-value">3部</div>
+    <div class="metric-label">简史系列</div>
+  </div>
+  <div class="metric">
+    <div class="metric-value">30+</div>
+    <div class="metric-label">翻译语言</div>
+  </div>
+</div>
+
+<!-- ========== LEAD ========== -->
+<p class="lead">
+  《人类简史》是一部<span class="hl">宏大的人类进化史</span>，从138亿年前的宇宙大爆炸，到21世纪的数据主义，以跨学科视角审视<span class="hl">智人如何在虚构的力量下</span>成为地球的主宰。
+</p>
+
+<!-- ========== 关于作者 ========== -->
+<div class="two-col">
+  <section>
+    <h2>关于作者</h2>
+    <p>尤瓦尔·赫拉利，牛津大学历史学博士，现任耶路撒冷希伯来大学历史系教授，全球瞩目的新锐历史学家。</p>
+    <ul class="dash">
+      <li>《人类简史》2011年希伯来语版出版</li>
+      <li>《未来简史》《今日简史》组成"简史三部曲"</li>
+      <li>作品被译成30+语言，全球销量突破千万册</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>书籍概述</h2>
+    <p>全书以"虚构"为核心线索，揭示人类如何通过讲故事的能力，构建国家、宗教、公司等共同想象，一步步从动物成为"上帝"。</p>
+    <ul class="dash">
+      <li>跨越138亿年的宏观视角</li>
+      <li>生物学与历史学的完美结合</li>
+      <li>重新审视人类过去与未来的独特框架</li>
+    </ul>
+  </section>
+</div>
+
+<!-- ========== 三大革命时间线 ========== -->
+<section>
+  <h2>三大革命<span class="sub">塑造人类历史的关键节点</span></h2>
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-year">7万年前</div>
+      <div class="tl-head">认知革命</div>
+      <div class="tl-body">虚构能力的觉醒。智人通过语言获得了"讲故事"的能力，能够建立共同的想象——宗教、国家、货币、公司。</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-year">1.2万年前</div>
+      <div class="tl-head">农业革命</div>
+      <div class="tl-body">从狩猎采集到定居农耕。粮食剩余催生专业分工，诞生了城市、王国、帝国，也带来了"史上最大的骗局"。</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-year">500年前</div>
+      <div class="tl-head">科学革命</div>
+      <div class="tl-body">承认无知，加速发展。科学与帝国联姻，资本主义兴起。人类开始追求永恒的成长与快乐。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 核心洞察 ========== -->
+<div class="two-col">
+  <section>
+    <h2>核心洞察</h2>
+    <p>赫拉利在书中提出了多个颠覆认知的观点，重新定义了人类对自身历史的理解。</p>
+    <ul class="dash">
+      <li><span class="hl">想象的秩序</span>：国家、宗教、人权都存在于我们的共同想象之中</li>
+      <li><span class="hl">幸福是主观的</span>：农业革命后，人类并未更幸福</li>
+      <li><span class="hl">历史的铁则</span>：每一种由想象建构的秩序，都不会承认自己出于虚构</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>为什么读这本书</h2>
+    <p>《人类简史》不是一本普通的历史书，它提供了一面镜子，让人类重新审视自己。</p>
+    <ul class="dash">
+      <li><span class="hl">格局升级</span>：从宇宙视角看人类，理解"我们是谁"</li>
+      <li><span class="hl">思维破局</span>：打破线性历史观，看清社会构建的本质</li>
+      <li><span class="hl">预见未来</span>：为《未来简史》奠定基础，理解数据主义走向</li>
+    </ul>
+  </section>
+</div>
+
+<!-- ========== CALLOUT ========== -->
+<div class="callout">
+  "我写的是全球故事，不是关于某个特定文明或地区的故事。我想要描述的是塑造我们这个世界的最大力量，以及它们可能的未来走向。"<br>
+  <strong>—— 尤瓦尔·赫拉利</strong>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <span>书籍介绍 · Book Introduction</span>
+  <span>Created by Kami</span>
+</div>
+
+</body>
+</html>

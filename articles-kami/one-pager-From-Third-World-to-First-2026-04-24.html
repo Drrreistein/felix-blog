@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>从第三世界到第一世界 · 李光耀</title>
+<style>
+  /* ── kami design tokens ── */
+  :root {
+    --ink:        #1a1a18;
+    --ink-muted:  #4a4a42;
+    --ink-faint:  #8a8a7e;
+    --canvas:     #faf8f3;
+    --canvas-alt: #f3f0e8;
+    --rule:       #dedad0;
+    --accent:     #1e3a5f;
+    --accent-warm:#8b4513;
+    --accent-gold:#c8960c;
+    --accent-pale: #edf2f7;
+    --serif: 'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', 'Georgia', serif;
+    --sans:  'PingFang SC', 'Helvetica Neue', system-ui, sans-serif;
+    --mono:  'SF Mono', 'Courier New', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #e8e4d8;
+    font-family: var(--serif);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .page {
+    background: var(--canvas);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3.5rem 3.5rem 3rem;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  /* ── accent bar ── */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-warm) 60%, var(--accent-gold) 100%);
+  }
+
+  /* ── eyebrow / category ── */
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── title block ── */
+  .title-block { margin-bottom: 1.8rem; }
+
+  .title-block h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+
+  .title-block .subtitle {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .title-block .meta {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+  /* ── horizontal rule ── */
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 1.5rem 0;
+  }
+
+  /* ── hero quote ── */
+  .hero-quote {
+    background: var(--canvas-alt);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.8rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .hero-quote p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .hero-quote .attr {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    margin-top: 0.5rem;
+    font-style: normal;
+  }
+
+  /* ── section headers ── */
+  h2 {
+    font-size: 0.65rem;
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+
+  /* ── body copy ── */
+  p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── stat cards ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .card {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    padding: 0.9rem 0.8rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .card .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    font-family: var(--sans);
+  }
+
+  .card .label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    line-height: 1.3;
+  }
+
+  /* ── two-column layout ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* ── pillar list ── */
+  .pillars { list-style: none; margin-bottom: 0; }
+
+  .pillars li {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pillars li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .pillar-num {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-pale);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .pillar-body h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .pillar-body p { font-size: 0.78rem; margin: 0; }
+
+  /* ── strategy table ── */
+  .strategy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.8rem;
+    font-size: 0.82rem;
+  }
+
+  .strategy-table th {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1.5px solid var(--rule);
+    background: var(--canvas-alt);
+  }
+
+  .strategy-table td {
+    padding: 0.65rem 0.7rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  .strategy-table tr:last-child td { border-bottom: none; }
+
+  .strategy-table td:first-child {
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+    width: 22%;
+  }
+
+  .strategy-table td:nth-child(2) {
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    width: 16%;
+  }
+
+  /* ── tag chips ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    background: var(--canvas-alt);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    padding: 0.25rem 0.55rem;
+  }
+
+  /* ── compare box ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.8rem;
+  }
+
+  .compare-col { padding: 1rem 1.2rem; }
+
+  .compare-col:first-child {
+    border-right: 1px solid var(--rule);
+    background: var(--canvas-alt);
+  }
+
+  .compare-col h4 {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  .compare-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .compare-col ul li {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .compare-col ul li:last-child { border-bottom: none; }
+
+  .compare-col ul li::before {
+    content: '·';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── section wrapper ── */
+  .section { margin-bottom: 1.8rem; }
+
+  /* ── bottom bar ── */
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer p {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+
+  .footer .kami-mark {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    color: var(--rule);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── highlight inline ── */
+  mark {
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── responsive ── */
+  @media (max-width: 600px) {
+    .page { padding: 2rem 1.5rem; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; gap: 1rem; }
+    .compare { grid-template-columns: 1fr; }
+    .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .title-block h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── 眉题 ── -->
+  <div class="eyebrow">书籍 · 政治经济学 · 国家建构</div>
+
+  <!-- ── 标题块 ── -->
+  <div class="title-block">
+    <h1>从第三世界到第一世界</h1>
+    <div class="subtitle">From Third World to First: The Singapore Story, 1965–2000</div>
+    <div class="meta">
+      <span>📖 李光耀（Lee Kuan Yew）著</span>
+      <span>📅 2000年出版</span>
+      <span>🌏 新加坡建国总理回忆录第二卷</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 核心引言 ── -->
+  <div class="hero-quote">
+    <p>「我从不过度关注受欢迎程度。我的工作是做对新加坡生存和进步必要的事情。」</p>
+    <div class="attr">— 李光耀，《从第三世界到第一世界》，2000</div>
+  </div>
+
+  <!-- ── 关键数字 ── -->
+  <div class="cards">
+    <div class="card">
+      <div class="num">1965</div>
+      <div class="label">独立年份<br>被马来西亚逐出</div>
+    </div>
+    <div class="card">
+      <div class="num">1代人</div>
+      <div class="label">完成第三世界→<br>第一世界的跨越</div>
+    </div>
+    <div class="card">
+      <div class="num">80%</div>
+      <div class="label">人口住入<br>政府组屋</div>
+    </div>
+    <div class="card">
+      <div class="num">3800亿</div>
+      <div class="label">淡马锡控股<br>2024年总资产（美元）</div>
+    </div>
+  </div>
+
+  <!-- ── 两栏：背景 + 核心问题 ── -->
+  <div class="section">
+    <h2>这本书在说什么</h2>
+    <div class="two-col">
+      <div>
+        <h3>独立之痛</h3>
+        <p>1965年8月9日，李光耀含泪宣布新加坡独立——不是争来的，而是<mark>被迫的</mark>。没有自然资源，没有军队，200万人口，3种族裂痕，旁边是体量百倍的邻国。所有人都认为这个岛国活不过10年。</p>
+        <p>这本书是李光耀亲笔写下他如何把这道<mark>死题做活</mark>的全过程，涵盖1965–2000年，政治、经济、外交、军事、社会一网打尽。</p>
+      </div>
+      <div>
+        <h3>核心命题</h3>
+        <p>成功没有秘诀。唯一的选择是：<mark>灭绝种族、走向虚无，或者成功</mark>。</p>
+        <p>他拒绝了当时流行的"依附理论"和福利国家路线，走了一条反常识的路：英语优先、精英治理、吸引跨国公司、强制储蓄、将住房变成社会工程工具。每一步在当时都不受欢迎，但每一步都有效。</p>
+        <p>这本书是迄今为止最真实的<mark>国家建构教科书</mark>。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 三大核心策略 ── -->
+  <div class="section">
+    <h2>三大决定性策略</h2>
+    <table class="strategy-table">
+      <thead>
+        <tr>
+          <th>策略</th>
+          <th>时间</th>
+          <th>内容与影响</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>英语优先政策</td>
+          <td>1966年</td>
+          <td>将英语定为政府、教育与商业的工作语言，引发华人社区强烈抗议。但这一决策使新加坡在2000年成为全球第四大外汇交易中心，吸引无数跨国公司将亚太总部落地于此。短期政治代价，长期结构优势。</td>
+        </tr>
+        <tr>
+          <td>中央公积金（CPF）</td>
+          <td>1955年起强化</td>
+          <td>雇员+雇主合计缴纳工资37%，强制用于购房、医疗、教育和养老。同时解决三个问题：规避福利依赖、为公共住房提供资金、为淡马锡等主权财富基金积累原始资本。</td>
+        </tr>
+        <tr>
+          <td>建屋发展局（HDB）</td>
+          <td>1960年代起</td>
+          <td>80%人口住进政府组屋，但组屋配额按种族比例强制分配。这不是住房政策，而是<strong>社会工程</strong>：消灭贫民窟、强制种族融合、让大多数新加坡人以中产阶级方式与国家经济捆绑，共同分享增长红利。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 治国哲学五支柱 ── -->
+  <div class="section">
+    <h2>治国哲学五支柱</h2>
+    <ul class="pillars">
+      <li>
+        <div class="pillar-num">01</div>
+        <div class="pillar-body">
+          <h4>务实主义高于意识形态</h4>
+          <p>不是自由市场主义者，也不是社会主义者。目标函数只有一个：让新加坡具备生存竞争力。该国有化就国有化，该开放就开放，一切基于证据和效果，而非政治框架。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-num">02</div>
+        <div class="pillar-body">
+          <h4>精英治理与能力优先</h4>
+          <p>政府必须由最优秀的人才组成，公务员靠考试晋升，支付接近私营部门的薪酬，将腐败风险降到系统层面极低。李光耀故意招募与自己理念不同但能力出众的人。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-num">03</div>
+        <div class="pillar-body">
+          <h4>超长线决策思维</h4>
+          <p>经常做出20–30年后才见效、但短期内要付出政治代价的决定。"按季度承受痛苦，按十年获得回报。" 不是罕见的勇气，而是结构性地将决策与支持率剥离。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-num">04</div>
+        <div class="pillar-body">
+          <h4>秩序与纪律作为前提</h4>
+          <p>社会稳定是经济发展的先决条件，不是附加选项。他拒绝西方批评者将此与"自由"对立，坚持认为亚洲价值观允许另一种社会契约路径。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-num">05</div>
+        <div class="pillar-body">
+          <h4>建立自运转的制度机构</h4>
+          <p>不仅治理好，更建立了HDB、CPF、EDB、CPIB等独立运作的制度机构。这些机构在他1990年卸任和2015年逝世后依然高效运转。个人领袖的价值在于建立<mark>不依赖个人的系统</mark>。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── 对比：选择了什么，拒绝了什么 ── -->
+  <div class="section">
+    <h2>他选择了什么 · 他拒绝了什么</h2>
+    <div class="compare">
+      <div class="compare-col">
+        <h4>选择（反常识路径）</h4>
+        <ul>
+          <li>英语作为官方工作语言</li>
+          <li>秘密聘以色列军事顾问建军</li>
+          <li>主动吸引跨国公司投资</li>
+          <li>高薪养廉，铲除腐败土壤</li>
+          <li>强制储蓄替代福利分发</li>
+          <li>住房政策兼做种族融合工具</li>
+          <li>向日本学战后复苏经验</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h4>拒绝（当时主流路径）</h4>
+        <ul>
+          <li>依附理论（发展中国家保护主义）</li>
+          <li>英式福利国家模型</li>
+          <li>民粹主义与受欢迎度驱动决策</li>
+          <li>以意识形态代替实用效果</li>
+          <li>依赖单一领袖而非制度设计</li>
+          <li>种族优先而非种族融合</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 外交与安全的小国生存哲学 ── -->
+  <div class="section">
+    <h2>小国的生存哲学</h2>
+    <p>面对体量百倍的邻国，李光耀构建了一套冷峻的小国外交学：</p>
+    <ul class="pillars">
+      <li>
+        <div class="pillar-num">→</div>
+        <div class="pillar-body">
+          <h4>永远不要让邻国认为你无关紧要</h4>
+          <p>战略价值是保护伞。新加坡主动建立对美国、中国、日本均有价值的战略地位，使任何一方都不愿让新加坡消失。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-num">→</div>
+        <div class="pillar-body">
+          <h4>军事力量是最后的语言</h4>
+          <p>秘密引入以色列军事顾问，以"墨西哥人"身份伪装，建立征兵制度。对邻国传递清晰信号：入侵的代价极高。</p>
+        </div>
+      </li>
+      <li>
+        <div class="pillar-num">→</div>
+        <div class="pillar-body">
+          <h4>务实而非结盟</h4>
+          <p>冷战中不选边，冷静经营与所有大国的关系，将外交转化为商业机会。他将新加坡定位为"一个有价值的合作者，而非任何人的附庸"。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── 与今天的共振 ── -->
+  <div class="section">
+    <h2>与今日世界的共振</h2>
+    <div class="two-col">
+      <div>
+        <h3>给国家建构者的启示</h3>
+        <p>这本书是仅有的几本由亲历者书写、覆盖政策制定全链路的国家建构手册。加密货币社区中兴起的"网络国家（Network State）"概念，其设计思路可以直接从这本书中找到历史锚点：制度先于领土，价值观凝聚共同体，舒适是繁荣最大的威胁。</p>
+      </div>
+      <div>
+        <h3>给创业者与领导者的启示</h3>
+        <p>把国家当作 Startup 来运营——这是李光耀最常被硅谷精英引用的隐喻。他展示了真正的精英领导力：<mark>做对的事，而不是做受欢迎的事</mark>；设计不依赖个人的制度；用20年的时间维度思考决策的后果。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 标签 ── -->
+  <div class="tags">
+    <span class="tag">国家建构</span>
+    <span class="tag">治国哲学</span>
+    <span class="tag">务实主义</span>
+    <span class="tag">精英治理</span>
+    <span class="tag">亚洲价值观</span>
+    <span class="tag">发展经济学</span>
+    <span class="tag">小国外交</span>
+    <span class="tag">领导力传记</span>
+    <span class="tag">制度设计</span>
+    <span class="tag">Network State 参考书</span>
+  </div>
+
+  <!-- ── 页脚 ── -->
+  <div class="footer">
+    <p>李光耀著 · From Third World to First: The Singapore Story, 1965–2000 · Harper Business, 2000</p>
+    <div class="kami-mark">kami · 紙</div>
+  </div>
+
+</div>
+</body>
+</html>

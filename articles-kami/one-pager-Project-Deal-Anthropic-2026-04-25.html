@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Anthropic" />
+  <meta name="description" content="Anthropic Project Deal：AI 代理双边交易市场实验，69名员工、186笔交易、$4,000总额，揭示模型质量差异带来的不可见市场优势。" />
+  <meta name="keywords" content="Project Deal, Anthropic, AI代理, 谈判, 双边市场, Claude" />
+  <meta name="generator" content="Kami" />
+  <title>Project Deal · Anthropic AI 代理交易实验</title>
+  <style>
+    /* ─── KAMI DESIGN SYSTEM ─────────────────────────────────── */
+    :root {
+      --parchment:   #f5f4ed;
+      --ivory:       #faf9f5;
+      --sand:        #e8e6dc;
+      --brand:       #1B365D;
+      --near-black:  #141413;
+      --olive:       #5e5d59;
+      --stone:       #87867f;
+      --serif: 'TsangerJinKai02', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', 'STSong', Georgia, serif;
+      --sans:  'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+    }
+
+    @font-face {
+      font-family: 'TsangerJinKai02';
+      src: url('../../assets/fonts/TsangerJinKai02-W04.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'TsangerJinKai02';
+      src: url('../../assets/fonts/TsangerJinKai02-W05.ttf') format('truetype');
+      font-weight: 500;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--parchment);
+      color: var(--near-black);
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.55;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────── */
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 48px 64px;
+    }
+
+    /* ─── HEADER ─────────────────────────────────── */
+    .header {
+      border-left: 3px solid var(--brand);
+      padding-left: 18px;
+      margin-bottom: 36px;
+    }
+    .header .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 8px;
+    }
+    .header h1 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--olive);
+      line-height: 1.45;
+    }
+
+    /* ─── LEAD ─────────────────────────────────── */
+    .lead {
+      background: var(--ivory);
+      border-left: 3px solid var(--brand);
+      padding: 16px 20px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 32px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--near-black);
+    }
+    .lead strong {
+      color: var(--brand);
+    }
+
+    /* ─── METRICS ROW ─────────────────────────────────── */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .metric-card {
+      background: var(--ivory);
+      border: 1px solid var(--sand);
+      border-radius: 8px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .metric-card .number {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 30px;
+      color: var(--brand);
+      line-height: 1.1;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .metric-card .label {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--olive);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── SECTION ─────────────────────────────────── */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      border-bottom: 1px solid var(--sand);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* ─── FINDINGS ─────────────────────────────────── */
+    .findings {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .finding-card {
+      background: var(--ivory);
+      border: 1px solid var(--sand);
+      border-radius: 8px;
+      padding: 18px 16px;
+    }
+    .finding-card .finding-num {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+    .finding-card h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--near-black);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .finding-card p {
+      font-size: 13px;
+      color: var(--olive);
+      line-height: 1.5;
+    }
+    .finding-card .highlight {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--brand);
+      background: var(--sand);
+      padding: 6px 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* ─── PRICE COMPARE ─────────────────────────────────── */
+    .price-compare {
+      display: flex;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .price-bar {
+      flex: 1;
+      background: var(--sand);
+      border-radius: 6px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .price-bar .model-name {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 6px;
+    }
+    .price-bar .price {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 26px;
+      color: var(--brand);
+      line-height: 1;
+    }
+    .price-bar .price-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--olive);
+      margin-top: 4px;
+    }
+    .price-bar.haiku { opacity: 0.65; }
+
+    /* ─── QUIRKS ─────────────────────────────────── */
+    .quirks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .quirk {
+      background: var(--ivory);
+      border: 1px solid var(--sand);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .quirk .emoji {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .quirk p {
+      font-size: 13px;
+      color: var(--olive);
+      line-height: 1.5;
+    }
+    .quirk strong {
+      color: var(--near-black);
+    }
+    .quirk .quote {
+      font-style: italic;
+      color: var(--brand);
+      font-size: 12px;
+      margin-top: 8px;
+      display: block;
+      border-left: 2px solid var(--sand);
+      padding-left: 10px;
+    }
+
+    /* ─── INSIGHT BOX ─────────────────────────────────── */
+    .insight {
+      background: var(--brand);
+      color: #fff;
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin-bottom: 32px;
+    }
+    .insight .insight-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-bottom: 10px;
+    }
+    .insight p {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .insight .sub {
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.75;
+      margin-top: 10px;
+    }
+
+    /* ─── IMPLICATIONS ─────────────────────────────────── */
+    .implication-list {
+      list-style: none;
+      padding: 0;
+    }
+    .implication-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--sand);
+      font-size: 14px;
+      color: var(--olive);
+      line-height: 1.5;
+    }
+    .implication-list li:last-child { border-bottom: none; }
+    .implication-list .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    .footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid var(--sand);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer .source {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--stone);
+    }
+    .footer .tag {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--sand);
+      color: var(--olive);
+      padding: 3px 9px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 32px 24px 48px; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .findings { grid-template-columns: 1fr; }
+      .quirks { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="eyebrow">Anthropic Research · 2026</div>
+      <h1>Project Deal</h1>
+      <div class="subtitle">当 AI 代理在两侧谈判——模型质量即市场优势</div>
+    </header>
+
+    <!-- LEAD -->
+    <div class="lead">
+      <strong>一句话：</strong>AI 代理可以真实代替人类完成交易谈判，但模型质量差异会造成不可见的市场不平等——买卖双方对此几乎毫无感知。
+    </div>
+
+    <!-- METRICS -->
+    <div class="metrics">
+      <div class="metric-card">
+        <span class="number">69</span>
+        <span class="label">参与员工</span>
+      </div>
+      <div class="metric-card">
+        <span class="number">186</span>
+        <span class="label">达成交易笔数</span>
+      </div>
+      <div class="metric-card">
+        <span class="number">$4,000+</span>
+        <span class="label">总交易额</span>
+      </div>
+    </div>
+
+    <!-- SECTION: 实验设计 -->
+    <div class="section">
+      <div class="section-title">实验设计</div>
+      <div class="findings">
+        <div class="finding-card" style="grid-column: span 2;">
+          <div class="finding-num">Setup</div>
+          <p>在 Anthropic 旧金山办公室创建内部二手市场。Claude 访谈每位员工的买卖意愿，接受自定义指令，然后全程独立代理谈判。4 个并行模拟市场变换模型组合，最终在线下进行实物交割。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: 三大发现 -->
+    <div class="section">
+      <div class="section-title">三大关键发现</div>
+      <div class="findings">
+        <div class="finding-card">
+          <div class="finding-num">发现 01</div>
+          <h3>它真的跑通了</h3>
+          <p>达成 186 笔交易，总额超 $4,000。参与者普遍认为交易公平。</p>
+          <span class="highlight">近 50% 愿意为此付费</span>
+        </div>
+        <div class="finding-card">
+          <div class="finding-num">发现 02</div>
+          <h3>模型质量 = 真实优势</h3>
+          <p>Opus 谈判者比 Haiku 获得显著更好的价格，但参与者完全没有察觉这一差距。</p>
+          <div class="price-compare" style="margin-top:12px;">
+            <div class="price-bar haiku">
+              <div class="model-name">Haiku</div>
+              <div class="price">$38</div>
+              <div class="price-label">坏折叠车售价</div>
+            </div>
+            <div class="price-bar">
+              <div class="model-name">Opus</div>
+              <div class="price">$65</div>
+              <div class="price-label">同一辆车售价</div>
+            </div>
+          </div>
+        </div>
+        <div class="finding-card" style="grid-column: span 2;">
+          <div class="finding-num">发现 03</div>
+          <h3>自定义指令效果有限</h3>
+          <p>Claude 忠实执行了各种人设（包括"沮丧的过气牛仔"风格），但强硬谈判风格并不比礼貌风格取得更好结果。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: 实验趣事 -->
+    <div class="section">
+      <div class="section-title">实验中的意外时刻</div>
+      <div class="quirks">
+        <div class="quirk">
+          <span class="emoji">🏓</span>
+          <p>获得"可为自己购物"的授权后，Claude 买了 <strong>19 个乒乓球</strong>。</p>
+          <span class="quote">"19 个充满可能性的完美球体"——Claude</span>
+        </div>
+        <div class="quirk">
+          <span class="emoji">🏂</span>
+          <p>另一个 Claude 仅凭对话中对滑雪的随口一提，精准买到了主人<strong>已经拥有的那块完全相同的滑雪板</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSIGHT -->
+    <div class="insight">
+      <div class="insight-label">核心洞见</div>
+      <p>在 AI 代理双边市场中，信息不对称不再来自人类知识，而来自<strong>模型能力差异</strong>。使用更强模型即享有真实市场优势——而对手方对此毫无感知。</p>
+      <p class="sub">法律与政策框架必须追上这一现实。AI 代理市场存在大量"粗糙边缘"，规模化落地前亟需解决。</p>
+    </div>
+
+    <!-- IMPLICATIONS -->
+    <div class="section">
+      <div class="section-title">后续影响</div>
+      <ul class="implication-list">
+        <li><span class="dot"></span>访问更高质量模型构成系统性市场优势，且对交易方不透明</li>
+        <li><span class="dot"></span>参与者感知与实际结果之间存在显著偏差，监管框架须考虑</li>
+        <li><span class="dot"></span>AI 代理交易的法律主体性、责任归属等问题尚未解决</li>
+        <li><span class="dot"></span>本研究延续 Project Vend，向双边 AI 代理市场理论迈出实证一步</li>
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="source">来源：Anthropic · Project Deal · 2026</span>
+      <span class="tag">AI 代理 · 市场研究</span>
+    </footer>
+
+  </div>
+</body>
+</html>

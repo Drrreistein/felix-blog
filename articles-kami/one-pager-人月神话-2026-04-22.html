@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人月神话 · 执行摘要</title>
+<style>
+  :root {
+    --parchment: #f5f4ed;
+    --ivory: #faf9f5;
+    --warm-sand: #e8e6dc;
+    --brand: #1B365D;
+    --near-black: #141413;
+    --olive: #5e5d59;
+    --stone: #87867f;
+    --border-cream: #dedad0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap');
+
+  body {
+    background: var(--parchment);
+    font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    color: var(--near-black);
+    font-size: 10pt;
+    line-height: 1.55;
+    padding: 48pt 56pt;
+    max-width: 800pt;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32pt;
+    padding-bottom: 16pt;
+    border-bottom: 0.5pt solid var(--border-cream);
+  }
+
+  .eyebrow {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 6pt;
+  }
+
+  h1 {
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    font-size: 28pt;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--near-black);
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    font-size: 9pt;
+    color: var(--olive);
+    margin-top: 5pt;
+    line-height: 1.45;
+  }
+
+  .meta {
+    text-align: right;
+    font-size: 8pt;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  /* ── Section titles ── */
+  h2 {
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    font-size: 12pt;
+    font-weight: 500;
+    color: var(--brand);
+    margin: 28pt 0 10pt 0;
+    padding-left: 8pt;
+    border-left: 2.5pt solid var(--brand);
+    line-height: 1.25;
+  }
+
+  /* ── Lead paragraph ── */
+  .lead {
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--near-black);
+    margin-bottom: 20pt;
+    font-weight: 400;
+  }
+
+  /* ── Insight cards ── */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10pt;
+    margin: 14pt 0;
+  }
+
+  .card {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border-cream);
+    border-radius: 6pt;
+    padding: 14pt 16pt;
+  }
+
+  .card-label {
+    font-size: 7pt;
+    font-weight: 600;
+    color: var(--brand);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 5pt;
+  }
+
+  .card h3 {
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    font-size: 11pt;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 6pt;
+    line-height: 1.3;
+  }
+
+  .card p {
+    font-size: 9pt;
+    color: var(--olive);
+    line-height: 1.55;
+  }
+
+  /* ── Metrics row ── */
+  .metrics {
+    display: flex;
+    gap: 0;
+    margin: 14pt 0;
+    background: var(--ivory);
+    border: 0.5pt solid var(--border-cream);
+    border-radius: 6pt;
+    overflow: hidden;
+  }
+
+  .metric {
+    flex: 1;
+    padding: 14pt 16pt;
+    text-align: center;
+    border-right: 0.5pt solid var(--border-cream);
+  }
+  .metric:last-child { border-right: none; }
+
+  .metric-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22pt;
+    font-weight: 500;
+    color: var(--brand);
+    line-height: 1;
+    margin-bottom: 4pt;
+  }
+
+  .metric-label {
+    font-size: 7.5pt;
+    color: var(--stone);
+    line-height: 1.35;
+  }
+
+  /* ── Quote ── */
+  blockquote {
+    margin: 16pt 0;
+    padding: 12pt 16pt;
+    border-left: 2pt solid var(--brand);
+    background: var(--ivory);
+    border-radius: 0 6pt 6pt 0;
+  }
+
+  blockquote p {
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    font-size: 10.5pt;
+    font-style: normal;
+    color: var(--near-black);
+    line-height: 1.65;
+  }
+
+  blockquote footer {
+    font-size: 8pt;
+    color: var(--stone);
+    margin-top: 6pt;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  /* ── Core list ── */
+  .core-list {
+    list-style: none;
+    margin: 10pt 0;
+  }
+
+  .core-list li {
+    display: flex;
+    gap: 10pt;
+    margin-bottom: 8pt;
+    align-items: flex-start;
+  }
+
+  .bullet {
+    width: 5pt;
+    height: 5pt;
+    border-radius: 50%;
+    background: var(--brand);
+    margin-top: 5pt;
+    flex-shrink: 0;
+  }
+
+  .core-list li .content strong {
+    font-weight: 600;
+    color: var(--near-black);
+    font-size: 9.5pt;
+  }
+
+  .core-list li .content {
+    font-size: 9.5pt;
+    color: var(--olive);
+    line-height: 1.55;
+  }
+
+  /* ── Two-column text ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16pt;
+    margin: 10pt 0;
+  }
+
+  .col h3 {
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--brand);
+    margin-bottom: 6pt;
+  }
+
+  .col p {
+    font-size: 9pt;
+    color: var(--olive);
+    line-height: 1.6;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    border: none;
+    border-top: 0.5pt dashed var(--border-cream);
+    margin: 20pt 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 32pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border-cream);
+    font-size: 7.5pt;
+    color: var(--stone);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ── Tag ── */
+  .tag {
+    display: inline-block;
+    background: #EEF2F7;
+    color: var(--brand);
+    font-size: 7pt;
+    font-weight: 500;
+    padding: 1.5pt 5pt;
+    border-radius: 2pt;
+    margin-right: 3pt;
+    margin-bottom: 3pt;
+  }
+
+  .tags { margin-bottom: 14pt; }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div>
+    <div class="eyebrow">执行摘要 · 经典重读</div>
+    <h1>人月神话</h1>
+    <div class="subtitle">The Mythical Man-Month<br>Software Project Management on the Edge of Chaos</div>
+  </div>
+  <div class="meta">
+    <div>Frederick P. Brooks Jr.</div>
+    <div>IBM System/360 · 1975</div>
+    <div>IEEE Computer Society 20th Anniversary Edition · 1995</div>
+    <div style="margin-top:4pt; color: var(--brand); font-size:7pt;">经典中的经典</div>
+  </div>
+</header>
+
+<!-- ── 核心论点 ── -->
+<h2>核心论点</h2>
+
+<p class="lead">
+  《人月神话》是软件工程领域最具影响力的管理文献之一，源自作者领导 IBM OS/360 系统开发的真实经验。Brooks 在书中指出：<strong>在软件项目中，"人月"是一个危险的神话</strong>——增加人手不仅不能线性加速进度，反而会因为沟通成本爆炸式增长而延缓交付。
+</p>
+
+<div class="tags">
+  <span class="tag">软件工程</span>
+  <span class="tag">项目管理</span>
+  <span class="tag">系统架构</span>
+  <span class="tag">团队协作</span>
+  <span class="tag">设计文档</span>
+</div>
+
+<!-- ── 关键数据 ── -->
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-num">1/3</div>
+    <div class="metric-label">沟通成本<br>随人数呈二次增长</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">9×</div>
+    <div class="metric-label">8人团队 vs 3人团队<br>有效工作量的差异</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">70%</div>
+    <div class="metric-label">大型系统项目<br>延期或失败的比例</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">50%</div>
+    <div class="metric-label">项目时间花在<br>计划与架构设计</div>
+  </div>
+</div>
+
+<!-- ── 两大洞见 ── -->
+<h2>两大核心洞见</h2>
+
+<div class="insight-grid">
+  <div class="card">
+    <div class="card-label">洞见一</div>
+    <h3>没有银弹</h3>
+    <p>1995年增补章节提出：在软件工程的十年内，不会有任何单一技术或方法能将软件生产率、可靠性或简洁性提升一个数量级。软件的<strong>本质复杂度</strong>（essential complexity）来自问题本身，无法被工具消除。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">洞见二</div>
+    <h3>外科手术式团队</h3>
+    <p>最佳团队模式是"外科手术团队"：一位首席开发者主导决策，其余角色专注执行特定任务（测试、集成、文档），而非让每个工程师都做完整开发。沟通路径从 O(n²) 降到 O(n)。</p>
+  </div>
+</div>
+
+<!-- ── 引用 ── -->
+<blockquote>
+  <p>"Adding manpower to a late software project makes it later."</p>
+  <footer>— Brooks，Brooks 定律（Brooks's Law）</p>
+</footer>
+
+<!-- ── 九条经验法则 ── -->
+<h2>九条核心经验</h2>
+
+<ul class="core-list">
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>Brooks 定律</strong>：向进度已滞后的项目追加人手，只会让进度更滞后。沟通路径数量为 n(n-1)/2，人越多越慢。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>外科手术团队</strong>：小型精英团队比大型平庸团队效率高得多。OS/360 的成功很大程度上归功于此。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>第二个系统最危险</strong>：设计师的第一个系统往往克制，第二个系统会塞入所有被压抑的想法，导致过度设计和复杂度失控。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>贵族投票式设计</strong>：设计评审应由少数资深架构师主导，而非民主投票。设计质量与投票人数成反比。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>实体集成 vs 演示集成</strong>：尽早让所有模块集成运行，比等待各模块完美再演示更能暴露问题。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>舟山法则（Plan to Throw One Away）</strong>：你扔掉的第一个系统往往会变成你的产品。计划扔掉一个，才能真正学会。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>规格说明书先于实现</strong>：好的规格说明书的标志是甲乙双方在签字前激烈争论——这意味着所有分歧都在编码前解决了。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>测试永无止境</strong>：系统测试的时间永远比你预期的长。给自己留出足够的缓冲。
+    </div>
+  </li>
+  <li>
+    <div class="bullet"></div>
+    <div class="content">
+      <strong>文档是糖霜，也是救命稻草</strong>：越到后期文档越重要——它是团队记忆的延伸，没有文档的系统维护等于考古。
+    </div>
+  </li>
+</ul>
+
+<hr class="divider">
+
+<!-- ── 左侧内容 vs 右侧影响 ── -->
+<div class="two-col">
+  <div class="col">
+    <h3>对项目经理的启示</h3>
+    <p>不要迷信"人月换时间"的线性思维。进度压力下，正确做法是：削减功能而非增加人手；优先保障架构稳定；设计评审宁可慢不要错；给测试留出充足时间。</p>
+  </div>
+  <div class="col">
+    <h3>对工程师的启示</h3>
+    <p>警惕"第二个系统效应"——克制是美德；重视文档和架构决策记录；理解你所在团队的沟通结构——如果你是架构师，沟通效率就是你的杠杆。</p>
+  </div>
+</div>
+
+<!-- ── 适合阅读的人群 ── -->
+<h2>谁应该读这本书</h2>
+
+<div class="insight-grid">
+  <div class="card">
+    <h3>技术管理者 · PM · CTO</h3>
+    <p>排进度、定人力配置、做架构评审——书中的经验可以帮你避开大多数项目管理陷阱。</p>
+  </div>
+  <div class="card">
+    <h3>独立开发者 · 创业者</h3>
+    <p>一个人做决策时，Brooks 的"外科手术团队"模式恰好映射到"全栈 vs 专业化"的选择悖论。</p>
+  </div>
+  <div class="card">
+    <h3>CS 学生 · 软件工程学习者</h3>
+    <p>这是计算机科学课程大纲之外的必读——它讲的是如何在真实约束下交付复杂系统，不是算法题解。</p>
+  </div>
+  <div class="card">
+    <h3>AI / Agent 系统设计者</h3>
+    <p>"没有银弹"在 2024 年的 AI 时代依然成立：LLM 是强大的工具，但消除软件本质复杂度依然靠人。</p>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+  <div>来源：《人月神话》Frederick P. Brooks Jr. · IEEE Computer Society 1995 版</div>
+  <div> kami · 执行摘要 · 2026-04-22</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     LONG DOCUMENT · 《我们如何思维》书籍总结
+     作者：约翰·杜威（John Dewey）
+     总结版本：2026.05
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>我们如何思维 · 杜威思想精读</title>
+<meta name="author" content="约翰·杜威（John Dewey）著，总结整理">
+<meta name="description" content="约翰·杜威《我们如何思维》核心观点与论据梳理，厘清反思性思维的本质、训练价值与教育路径。">
+<meta name="keywords" content="杜威，思维，反思性思维，教育，思维训练，实用主义">
+<meta name="generator" content="Kami">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 8pt;
+      color: #6b6a64;
+    }
+    @bottom-center {
+      content: counter(page) "  ·  我们如何思维 · 杜威";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --sans: var(--serif);
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    min-height: 240mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40mm 0 0 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 18pt;
+  }
+  .cover-title {
+    font-size: 36pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.15;
+    letter-spacing: 0.3pt;
+    margin-bottom: 16pt;
+  }
+  .cover-sub {
+    font-family: var(--sans);
+    font-size: 14pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 30pt;
+  }
+  .cover-meta {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 40pt;
+    height: 2pt;
+    background: var(--brand);
+    border-radius: 1pt;
+    margin: 20pt 0;
+  }
+
+  /* ========== TOC ========== */
+  .toc { break-after: page; }
+  .toc h2 {
+    font-size: 22pt;
+    font-weight: 500;
+    margin-bottom: 14pt;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 11pt;
+  }
+  .toc-num { color: var(--brand); font-weight: 500; min-width: 30pt; }
+  .toc-title { flex: 1; color: var(--near-black); padding-left: 6pt; }
+  .toc-sub { font-size: 9pt; color: var(--stone); display: block; padding-left: 6pt; margin-top: 2pt; }
+  .toc-page { color: var(--stone); font-variant-numeric: tabular-nums; }
+
+  /* ========== HEADINGS ========== */
+  h1 {
+    font-size: 22pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 10pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 16pt;
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 24pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+    string-set: section-title content();
+  }
+  h3 {
+    font-size: 13pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+  .chapter-num {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p { margin: 0 0 10pt 0; line-height: 1.55; color: var(--near-black); }
+  .lead { font-size: 12pt; line-height: 1.55; color: var(--dark-warm); margin-bottom: 14pt; }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== LISTS ========== */
+  ul, ol { margin: 6pt 0 10pt 0; padding-left: 20pt; line-height: 1.55; }
+  ul li::marker { color: var(--brand); }
+  ol li::marker { color: var(--brand); font-weight: 500; }
+  li { margin-bottom: 4pt; }
+
+  /* ========== QUOTE ========== */
+  blockquote, .quote {
+    border-left: 2pt solid var(--brand);
+    margin: 12pt 0;
+    padding: 4pt 0 4pt 16pt;
+    color: var(--olive);
+    line-height: 1.55;
+    break-inside: avoid;
+    font-size: 10.5pt;
+  }
+  blockquote .cite, .quote .cite {
+    display: block;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 4pt;
+  }
+
+  /* ========== TABLE ========== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  table th {
+    text-align: left;
+    font-weight: 500;
+    color: var(--dark-warm);
+    padding: 6pt 8pt;
+    border-bottom: 1pt solid var(--border);
+  }
+  table td {
+    padding: 5pt 8pt;
+    border-bottom: 0.3pt solid var(--border-soft);
+    vertical-align: top;
+  }
+  table tbody tr:nth-child(even) td { background: var(--ivory); }
+
+  /* ========== CALLOUT ========== */
+  .callout {
+    background: var(--ivory);
+    border-left: 2pt solid var(--brand);
+    padding: 10pt 14pt;
+    border-radius: 3pt;
+    margin: 12pt 0;
+    line-height: 1.55;
+    break-inside: avoid;
+  }
+  .takeaway {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 14pt 0;
+    break-inside: avoid;
+  }
+  .takeaway-label {
+    font-family: var(--sans);
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+
+  /* ========== TAG ========== */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--brand);
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 500;
+    padding: 1pt 6pt;
+    border-radius: 3pt;
+    margin-right: 4pt;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== SECTION CARD ========== */
+  .point-card {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 6pt;
+    padding: 12pt 16pt;
+    margin: 10pt 0;
+    break-inside: avoid;
+  }
+  .point-card-title {
+    font-weight: 500;
+    color: var(--brand);
+    font-size: 11pt;
+    margin-bottom: 4pt;
+  }
+  .point-card p { margin-bottom: 0; }
+
+  /* ========== CHAPTER BREAK ========== */
+  .chapter { break-before: page; }
+
+  /* ========== EXEC SUMMARY ========== */
+  .exec-summary {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 14pt 0;
+    break-inside: avoid;
+  }
+
+  /* 思维五步骤可视化 */
+  .steps-row {
+    display: flex;
+    gap: 8pt;
+    margin: 14pt 0;
+    flex-wrap: wrap;
+  }
+  .step-item {
+    flex: 1;
+    min-width: 70pt;
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 6pt;
+    padding: 8pt 10pt;
+    text-align: center;
+    break-inside: avoid;
+  }
+  .step-num {
+    font-size: 18pt;
+    font-weight: 500;
+    color: var(--brand);
+    line-height: 1.2;
+  }
+  .step-label {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 3pt;
+    line-height: 1.4;
+  }
+  .step-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--border);
+    font-size: 14pt;
+    font-weight: 300;
+    padding-top: 18pt;
+  }
+
+  /* 三层好奇心 */
+  .tier-row {
+    display: flex;
+    gap: 0;
+    margin: 14pt 0;
+    border: 0.5pt solid var(--border);
+    border-radius: 6pt;
+    overflow: hidden;
+    break-inside: avoid;
+  }
+  .tier-item {
+    flex: 1;
+    padding: 10pt 12pt;
+    border-right: 0.5pt solid var(--border);
+  }
+  .tier-item:last-child { border-right: none; }
+  .tier-label {
+    font-size: 9pt;
+    font-weight: 500;
+    color: var(--brand);
+    margin-bottom: 4pt;
+  }
+  .tier-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-eyebrow">书籍精读 · 教育哲学经典</div>
+    <div class="cover-title">我们如何思维</div>
+    <div class="cover-sub">约翰·杜威论反思性思维的本质、误区与训练之道——<br>一本写于1910年、至今仍未过时的思维操作手册</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>原著</strong>：〔美〕约翰·杜威（John Dewey）著，伍中友译<br>
+    <strong>类型</strong>：教育哲学 · 认识论 · 思维方法<br>
+    版本 V1.0  ·  总结整理于 2026.05<br>
+    原作出版：1910年（修订版1933年）
+  </div>
+</section>
+
+<!-- ═══════════════ 目录 ═══════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="toc-item">
+    <span class="toc-num">01</span>
+    <span class="toc-title">
+      执行摘要
+      <span class="toc-sub">全书核心观点一览 · 读懂这一章即掌握全书精髓</span>
+    </span>
+    <span class="toc-page">03</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">02</span>
+    <span class="toc-title">
+      什么是「真正的思维」
+      <span class="toc-sub">第一部分精读：思维的定义与价值</span>
+    </span>
+    <span class="toc-page">04</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">03</span>
+    <span class="toc-title">
+      思维从哪里来：自然资源与障碍
+      <span class="toc-sub">好奇心·联想力·条理性三大资源</span>
+    </span>
+    <span class="toc-page">05</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">04</span>
+    <span class="toc-title">
+      完整的思维过程有哪五步
+      <span class="toc-sub">第二部分精读：从困惑到结论的逻辑路径</span>
+    </span>
+    <span class="toc-page">06</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">05</span>
+    <span class="toc-title">
+      如何训练思维：教育的实践路径
+      <span class="toc-sub">第三部分精读：活动、语言、观察与课堂</span>
+    </span>
+    <span class="toc-page">07</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">06</span>
+    <span class="toc-title">
+      总结：杜威思想全景与对今天的启示
+      <span class="toc-sub">核心论点汇总 · 局限反思 · 可操作建议</span>
+    </span>
+    <span class="toc-page">08</span>
+  </div>
+</section>
+
+<!-- ═══════════════ Chapter 01：执行摘要 ═══════════════ -->
+<section>
+  <div class="chapter-num">01 · Executive Summary</div>
+  <h1>执行摘要</h1>
+
+  <p class="lead">
+    杜威在本书中只回答了<span class="hl">一个问题</span>：人是如何真正地、有效地思考的？他的答案是：
+    真正的思维不是随意遐想，而是<span class="hl">由困惑出发、经过系统探索、最终在证据基础上确立信念</span>的完整过程。
+    这一过程是可以训练的，而教育的核心职责正在于此。
+  </p>
+
+  <div class="exec-summary">
+    <div class="takeaway-label">全书三部分 · 一图读懂</div>
+    <table>
+      <thead>
+        <tr>
+          <th>部分</th>
+          <th>核心问题</th>
+          <th>杜威的回答</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>第一部分</strong><br>思维训练的问题</td>
+          <td>什么是思维？为何要训练？</td>
+          <td>反思性思维是唯一有教育价值的思维；它重要，因为它让人脱离本能与偏见，但也容易出错，必须训练。</td>
+        </tr>
+        <tr>
+          <td><strong>第二部分</strong><br>逻辑的探讨</td>
+          <td>思维过程的逻辑结构是什么？</td>
+          <td>完整的思维有五步：困难→定义问题→联想→推理→验证。概念、判断、推理是思维的基本工具。</td>
+        </tr>
+        <tr>
+          <td><strong>第三部分</strong><br>思维的训练</td>
+          <td>如何在教育中培养好的思维习惯？</td>
+          <td>通过有意义的活动（手工/实验）、语言工具、观察训练和正确的课堂方法，逐步养成反思习惯。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>五条核心 Takeaways</h2>
+  <ul>
+    <li><strong>思维的本质是推断：</strong>从已知事物推出未知，并用证据检验这一推断——这才是值得教的「思维」。</li>
+    <li><strong>困惑是思维的起点：</strong>没有真实的困惑，就不会有真正的思考；强迫思考等同于「建议一个人靠自身力气把自己举起来」。</li>
+    <li><strong>思维很容易出错：</strong>偏见、盲从、情感、懒惰都是错误信念的来源；训练的目的是抵抗这些干扰。</li>
+    <li><strong>好奇心是原材料，条理性是加工：</strong>好奇心提供素材，联想提供灵活性，条理性把二者整合成有用的结论。</li>
+    <li><strong>教育的责任是建立习惯而非灌输知识：</strong>区分「经过检验的信念」和「猜测」的习惯，比知道多少事实更重要。</li>
+  </ul>
+
+  <div class="takeaway">
+    <div class="takeaway-label">本文档回答的三个问题</div>
+    <ol>
+      <li>「思维」到底是什么？随便想想算吗？</li>
+      <li>人为什么会思维出错？错误从哪里来？</li>
+      <li>好的思维是天生的还是可以培养的？怎么培养？</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════ Chapter 02：什么是真正的思维 ═══════════════ -->
+<section class="chapter">
+  <div class="chapter-num">02 · What Is Genuine Thinking</div>
+  <h1>什么是「真正的思维」</h1>
+
+  <p class="lead">
+    杜威首先厘清了一件大家默认自己知道、却其实模糊的事：「思维」这个词，到底指什么？
+    他给出了<span class="hl">四种含义的区分</span>，只有最后一种才真正值得训练。
+  </p>
+
+  <h2>思维的四种含义</h2>
+
+  <div class="point-card">
+    <div class="point-card-title">含义一：脑子里任何一闪而过的念头</div>
+    <p>白日梦、随心所欲的联想，不需要证据，也无所谓对错。杜威称之为「偶然的和随便的想法」。这种思维人人都有，连白痴也有。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">含义二：关于未直接感受之事物的想象</div>
+    <p>孩子编故事、小说家虚构情节。这类思维有一定连贯性，但目的不是获取知识，而是构建情节、强化情感。它很像思维，但「产生不出知识」。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">含义三：未经检验就接受的信念</div>
+    <p>出于习俗、权威、情感或利益而持有的看法。杜威说，这类信念是「先入之见，而不是先弄清它有无实在根据再经过判断而形成的信念」。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">含义四：反思性思维（Reflective Thinking）——本书主题</div>
+    <p>对任何一个信念或假定的知识，均以<strong>积极的、执着的和用心的态度</strong>考虑它所依据的根据是否成立，若能成立，再考虑它所导致的进一步结论。这就是杜威所说的「思考」，也是本书的研究对象。</p>
+  </div>
+
+  <blockquote>
+    对任何一个信念或假定的知识，均以积极的、执着的和用心的态度考虑它所依据的根据是否成立，若能成立，再考虑它所导致的进一步的结论，这就构成思考。
+    <span class="cite"> ——杜威，《我们如何思维》第一章</span>
+  </blockquote>
+
+  <h2>思维的三大价值——为什么非训练不可</h2>
+
+  <p>杜威从三个角度论证「反思性思维」的重要性，同时也说明为什么它非主动训练不行：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>价值维度</th>
+        <th>具体论点</th>
+        <th>举例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>①摆脱本能与习惯</strong></td>
+        <td>没有思维力的动物只会凭本能行动，无法预见结果。思维让人能根据「尚未出现的事物」来采取行动。</td>
+        <td>天要下雨时，动物本能躲洞；有思维的人提前预判、带伞出门。</td>
+      </tr>
+      <tr>
+        <td><strong>②系统性预见与规划</strong></td>
+        <td>思维让文明区别于野蛮——野蛮人凭经验认路，文明人建公路；野蛮人寻火源，文明人发明电灯。</td>
+        <td>气象预报、灯塔、道路，都是「深思熟虑」的产物。</td>
+      </tr>
+      <tr>
+        <td><strong>③赋予事物意义</strong></td>
+        <td>物体在有思维力的人看来，远比无思维力的动物感受到的更丰富。「椅子」对动物只是可咬、可爬的物；对人则代表休息、社交的机会。</td>
+        <td>一块石头，是障碍，或是地质史的见证——取决于看它的人有没有思维力。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>错误思维从哪里来——培根与洛克的分析</h2>
+
+  <p>杜威援引两位先哲的分析，说明错误信念有其系统性根源，因此单凭「自然成长」无法避免，必须靠教育干预：</p>
+
+  <h3>培根的「四大偶像」（错误思维的来源）</h3>
+  <ul>
+    <li><strong>部族偶像：</strong>人类共有的认知偏见，如「倾向于接受和自己固有信念相符的事实」。</li>
+    <li><strong>市场偶像：</strong>语言和社会交往带来的偏见，如「有名者皆有实」。</li>
+    <li><strong>巢穴偶像：</strong>个人性格、经历带来的偏见。</li>
+    <li><strong>剧院偶像：</strong>时代风气、权威体系带来的偏见。</li>
+  </ul>
+
+  <h3>洛克的「四类思维出错的人」</h3>
+  <ul>
+    <li><span class="tag">依赖型</span> 只模仿父母、邻居、权威，从不独立判断。</li>
+    <li><span class="tag">利己型</span> 以自身好恶为判断标准，不利于己者一概不考虑。</li>
+    <li><span class="tag">视野窄</span> 真心想理性，但交游不广，信息来源太局限。</li>
+    <li><span class="tag">盲从权威</span> 数量最多——跟随大众，放弃独立思考。</li>
+  </ul>
+
+  <div class="callout">
+    <strong>关键洞察：</strong>迷信和科学在「联想」这一功能上并无本质区别——观察水银柱变化预测天气，和观察动物内脏预测战争，都是联想。<br>
+    二者真正的区别在于：<span class="hl">是否有系统的观察条件和严格调节联想的习惯</span>。
+    因此，训练思维的关键，不是提高感官敏感度，而是调控观察和推理的条件。
+  </div>
+</section>
+
+<!-- ═══════════════ Chapter 03：思维的自然资源 ═══════════════ -->
+<section class="chapter">
+  <div class="chapter-num">03 · Natural Resources of Thinking</div>
+  <h1>思维从哪里来：三大自然资源</h1>
+
+  <p class="lead">
+    训练思维，必须从自然的思维倾向出发——
+    杜威说，「倘若一个人训练之前原本不会思维，那么训练也无法教会他思维」。
+    思维有<span class="hl">三大自然资源</span>：好奇心（原材料）、联想力（加工机制）、条理性（整合能力）。
+  </p>
+
+  <h2>资源一：好奇心——思维原材料的唯一可靠保障</h2>
+
+  <p>好奇心是提供「引起联想的原始材料」最重要的力量。杜威将好奇心分为三个发展层次：</p>
+
+  <div class="tier-row">
+    <div class="tier-item">
+      <div class="tier-label">第一层：身体层面</div>
+      <div class="tier-desc">婴幼儿的摸、抓、扒——通过身体接触体验世界，为智力发展提供原始材料</div>
+    </div>
+    <div class="tier-item">
+      <div class="tier-label">第二层：社会层面</div>
+      <div class="tier-desc">「这是什么？那为什么？」——向他人提问，扩充体验容量，开始蒙蒙眬眬意识到背后有更多</div>
+    </div>
+    <div class="tier-item">
+      <div class="tier-label">第三层：智力层面</div>
+      <div class="tier-desc">不满足于别人的回答，自己继续思索，将问题保留在脑中寻求答案——这才是推进思维的积极力量</div>
+    </div>
+  </div>
+
+  <blockquote>
+    好奇心的圣火很容易熄灭：有的人在满不在乎和冷漠之间失去了它；有的人在轻浮草率中失去；有的人陷入教条主义，同样不再有好奇心。
+    <br>教师能做的，主要是<strong>防止好奇心熄灭</strong>，而不是重新点燃它。
+    <span class="cite"> ——杜威，第三章</span>
+  </blockquote>
+
+  <h2>资源二：联想力——思维的灵活性来源</h2>
+
+  <p>联想是从现有事物推想到相关未知事物的能力。杜威从三个维度评估联想质量：</p>
+
+  <table>
+    <thead>
+      <tr><th>维度</th><th>不足</th><th>过度</th><th>理想状态</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>快慢</strong></td>
+        <td>反应迟钝，只能被动吸收</td>
+        <td>——（快通常被认为好）</td>
+        <td>快中见深，而非浮光掠影</td>
+      </tr>
+      <tr>
+        <td><strong>宽窄</strong></td>
+        <td>联想太少，思想贫乏枯燥</td>
+        <td>五花八门无所适从，无法得出结论</td>
+        <td>既不太少又不太多，保持平衡</td>
+      </tr>
+      <tr>
+        <td><strong>深浅</strong></td>
+        <td>停于表面，浮光掠影</td>
+        <td>——</td>
+        <td>达到事物根源，有深度思考</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>杜威警告教师：</strong>一个学生在学校表现迟钝，并不意味着他「笨」——他可能只是对这个主题没有兴趣。
+    达尔文对甲虫、蛇和蛙的兴趣，当时被视为浪费时间；反应「慢」有时意味着他在进行更深层次的思考，比别的同学想得更深。
+  </div>
+
+  <h2>资源三：条理性——把素材组织成结论</h2>
+
+  <p>光有事实和联想，还构不成认真的思维。联想必须<strong>有条理地编组</strong>——彼此相关联，并和所依据的事实相关联，才能形成连贯的结论。</p>
+
+  <p>杜威指出，条理性通常来自<strong>实际行动的需要</strong>：成年人因职业的要求，不得不把知识有序整理；孩子的条理性，则需要学校通过有意义的活动来培养。</p>
+</section>
+
+<!-- ═══════════════ Chapter 04：完整思维的五步过程 ═══════════════ -->
+<section class="chapter">
+  <div class="chapter-num">04 · The Five Steps of Reflective Thinking</div>
+  <h1>完整的思维过程：五步逻辑路径</h1>
+
+  <p class="lead">
+    杜威在第二部分给出了本书最核心的分析框架——
+    一个完整的反思性思维过程，无论简单还是复杂，都包含<span class="hl">五个逻辑步骤</span>。
+    他用三个日常案例（赶约会、船上的杆子、玻璃杯气泡）来说明这五步。
+  </p>
+
+  <div class="steps-row">
+    <div class="step-item">
+      <div class="step-num">①</div>
+      <div class="step-label">感受到<br>困难 / 困惑</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-num">②</div>
+      <div class="step-label">定位并定义<br>问题所在</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-num">③</div>
+      <div class="step-label">联想可能的<br>解决方案</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-num">④</div>
+      <div class="step-label">对联想进行<br>推理</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-item">
+      <div class="step-num">⑤</div>
+      <div class="step-label">观察 / 实验<br>验证结论</div>
+    </div>
+  </div>
+
+  <h2>五步详解</h2>
+
+  <h3>步骤①：感受到困难——思维的起点</h3>
+  <p>思维必须有一个实在的起点——<strong>困惑、疑难或不确定感</strong>。杜威说：「思维的缘由是遇到了某种困惑或怀疑。思维不是什么自发的燃烧。」没有真实问题，就没有真正的思维。</p>
+
+  <h3>步骤②：定义问题——最容易被忽略的步骤</h3>
+  <p>这是杜威最强调的一步。许多人感受到困难后马上跳向解决方案，而不是先弄清楚「问题究竟是什么」。</p>
+  <blockquote>
+    一位能干的医生很重要的一点，就是防止自己先入为主，一定要经过细致周到的检查，查明病情之后，才下结论。这就叫做诊断。
+    <span class="cite"> ——杜威，第六章</span>
+  </blockquote>
+
+  <h3>步骤③：联想——思维的跳跃</h3>
+  <p>问题出现后，联想到可能的解决方案或假说。这是思维的「跳跃」——从已知推向未知，带有推测性质。
+  杜威强调：<span class="hl">用心作出若干不同的联想</span>（而不是只想到一个），通过比较找到最佳假说，这是良好思维的重要因素。</p>
+
+  <h3>步骤④：推理——检验联想的意义</h3>
+  <p>对联想到的假说进行逻辑推演，考察其「蕴涵」（implications）——如果这个假说成立，那么会有什么后果？这些后果和已知事实吻合吗？</p>
+
+  <h3>步骤⑤：验证——从推理回到事实</h3>
+  <p>通过进一步观察或实验，来确认或否定之前的推理结论。经过这个步骤，一个「推测」才成为「经过证明的信念」。杜威特别指出：即使结论被证伪，整个过程也是有价值的，因为它是以正确方式得出的。</p>
+
+  <h2>概念、判断与推理——思维的三种工具</h2>
+
+  <p>杜威在第二部分还分析了思维的内部工具：</p>
+
+  <table>
+    <thead>
+      <tr><th>工具</th><th>是什么</th><th>关键特性</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>概念</strong><br>（意义 / 理解）</td>
+        <td>对事物意义的提炼和归纳；是从具象经验中抽象出来的工具</td>
+        <td>好的概念是「流动的思想」——它会自动寻求应用场景；死板的概念是因为脱离了实际</td>
+      </tr>
+      <tr>
+        <td><strong>判断</strong><br>（对事实的解释）</td>
+        <td>在具体情境中将数据和意义对应起来，得出对某一特定情况的断言</td>
+        <td>判断既需要分析（拆解事实），也需要综合（建立联系）——二者缺一不可</td>
+      </tr>
+      <tr>
+        <td><strong>推理</strong><br>（归纳与演绎）</td>
+        <td>从特殊案例推到一般原则（归纳），或从一般原则推到特殊案例（演绎）</td>
+        <td>二者不是对立，而是互补——科学思维同时依赖两种方向的推理</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>具象思维与抽象思维</h2>
+
+  <p>杜威对「由具象到抽象」这一教学格言作了重要的重新解释：</p>
+  <ul>
+    <li>「具象」不等于「摆出实物」——如果把木棍豆子放在学生眼前，他只是觉得好玩，却没有建立数字关系的意义，那和直接给定义一样抽象。</li>
+    <li><span class="hl">真正的「具象」是指：这个知识对学生来说已经有了清晰的意义，可以不假思索地运用。</span></li>
+    <li>「由具象到抽象」的真正含义是：让学生对木工、做饭等直接活动的兴趣，<strong>逐渐转移</strong>到对几何、化学等理论层面的兴趣——这才是教育的动态过程。</li>
+  </ul>
+</section>
+
+<!-- ═══════════════ Chapter 05：思维训练的实践路径 ═══════════════ -->
+<section class="chapter">
+  <div class="chapter-num">05 · How to Train Thinking</div>
+  <h1>如何训练思维：教育的实践路径</h1>
+
+  <p class="lead">
+    杜威的第三部分是一份给教育者的操作指南，核心逻辑是：
+    <span class="hl">思维训练不是通过「讲道理」实现的，而是通过创造合适的「活动环境」实现的。</span>
+    他分析了四种主要训练途径。
+  </p>
+
+  <h2>途径一：活动——在行动中建立条理性</h2>
+
+  <p>杜威认为，有意义的活动（如手工、实验、园艺）是儿童思维训练的最佳载体，原因在于：</p>
+  <ul>
+    <li>活动提供了<strong>真实的困难</strong>（如何拼接木板？为什么植物不长？），这是思维启动的条件。</li>
+    <li>活动的结果具有<strong>可检验性</strong>——椅子站不稳，说明推理有问题，需要重新思考。</li>
+    <li>活动中的成就感可以<strong>维持注意力</strong>，支撑持续的探索过程。</li>
+  </ul>
+
+  <div class="callout">
+    <strong>教育两极端的警告：</strong><br>
+    一个极端是完全排斥活动，认为只有书本和理论才有学术价值；<br>
+    另一个极端是「任何自发活动都好」，以为游戏和自然成长能神奇地训练思维。<br>
+    两者都错了。关键是<span class="hl">选择真正有教育意义的活动</span>：最适合儿童智力发展、最能为成年后社会责任做准备、同时能最大限度促进敏锐观察和连贯推理习惯的活动。
+  </div>
+
+  <h2>途径二：语言——思维的必要工具</h2>
+
+  <p>杜威持「语言是思维必需工具」的立场（第三种观点），并从三个功能解释：</p>
+
+  <table>
+    <thead>
+      <tr><th>语言的功能</th><th>如何发挥作用</th><th>如果缺失</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>选择与澄清</strong></td>
+        <td>给事物命名，使模糊的意义变得清晰明确</td>
+        <td>意义停留在蒙眬状态，无法精确思维</td>
+      </tr>
+      <tr>
+        <td><strong>保存与记录</strong></td>
+        <td>将获得的意义固定下来，供日后使用</td>
+        <td>每次面对新情境都要从零开始，智慧无法积累</td>
+      </tr>
+      <tr>
+        <td><strong>转移与应用</strong></td>
+        <td>把旧经验的意义「搬到」新情境，用已知判断未知</td>
+        <td>经验无法通用，每次都是独立感知</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>杜威同时警告了语言的滥用：当学生被要求背诵文字符号、而没有理解其指向的实际意义时，语言就变成了思维的障碍，而不是工具。「从文字到文字，只能意味着理智的贫乏和思维的虚假。」</p>
+
+  <h2>途径三：观察——从感知到意义</h2>
+
+  <p>观察不是被动的视觉记录，而是一种主动的、有目的的探索行为。杜威指出，有效的观察训练需要：</p>
+  <ul>
+    <li><strong>先有目的，再有观察：</strong>知道「要找什么」，观察才有方向；否则只是走马观花。</li>
+    <li><strong>用观察检验假说：</strong>观察应当用来证实或否定之前的推测，而不只是积累信息。</li>
+    <li><strong>区分「看见了什么」和「推断出什么」：</strong>这是防止轻信、防止草率下结论的基础习惯。</li>
+  </ul>
+
+  <h2>途径四：课堂教学——正确传授知识的方式</h2>
+
+  <p>杜威批评了两种错误的教学倾向，并提出了正确方向：</p>
+
+  <div class="point-card">
+    <div class="point-card-title">❌ 错误一：讲授模式（Recitation）</div>
+    <p>学生只是背诵现成答案，无法理解知识来自何处、能用到何处。知识变成了脱离意义的文字堆砌。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">❌ 错误二：过度追求学生「发现」</div>
+    <p>让每个学生都重新「发现」所有知识，既低效又不现实。已有的知识体系是人类积累的财富，传授本身没有问题——问题在于传授方式。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">✅ 正确方向：让知识成为解决真实问题的工具</div>
+    <p>
+      有效的教学模式应当是：先呈现学生真实面对的困难 → 引导学生尝试自己解决 → 在学生真正需要时提供必要的知识 → 知识被立即运用于解决问题 → 学生将知识内化为工具。
+      <br>这样学到的概念是「流动的」，会自动寻求应用，而不是死板的规则。
+    </p>
+  </div>
+
+  <h2>无意识与有意识的平衡——最后的总结原则</h2>
+
+  <p>杜威在第十六章（总结）中提出，良好的思维需要维持几对平衡：</p>
+
+  <ul>
+    <li><strong>无意识（习惯）与有意识（分析）：</strong>熟练技能应当自动化运转（无意识），遇到错误或新问题时才需要有意识地拆解和检查。过度分析熟悉事物，会让人厌烦；停于无意识习惯，则会积累错误。</li>
+    <li><strong>游戏与工作：</strong>游戏只重过程，工作只重结果，单独走向任何一端都有问题。理想状态是「既有游戏的自由探索精神，又有工作的认真严谨态度」。</li>
+    <li><strong>具象与抽象：</strong>从实际行动出发，逐渐转化出对知识本身的兴趣——不能停在具象，也不能只做抽象理论。</li>
+  </ul>
+</section>
+
+<!-- ═══════════════ Chapter 06：总结与启示 ═══════════════ -->
+<section class="chapter">
+  <div class="chapter-num">06 · Summary &amp; Implications</div>
+  <h1>总结：杜威思想全景与对今天的启示</h1>
+
+  <p class="lead">
+    《我们如何思维》写于1910年，但杜威描述的问题——
+    人们依然盲从权威、接受未经检验的信念、在错误的教育方式中浪费好奇心——
+    在今天并没有消失，只是换了新形式。
+  </p>
+
+  <h2>核心论点一览</h2>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>论点</th><th>关键依据</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>真正有价值的思维，是从困惑出发、经过系统探索、在证据基础上形成信念的反思性过程</td>
+        <td>思维四种含义的区分；哥伦布案例</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>思维能力非常重要，但极易出错——因为偏见、权威、情感等因素天然干扰推理过程</td>
+        <td>培根四偶像；洛克四种错误类型；迷信与科学的联想机制比较</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>反思性思维必须基于自然资源（好奇心、联想力、条理性）来训练，而非强行注入</td>
+        <td>好奇心三层次；教师的角色是保护而非创造好奇心</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>完整的思维过程有五步，每一步都有失败风险，尤其是「定义问题」这一步最容易被跳过</td>
+        <td>三个思维案例的五步分析</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>教育的核心任务是建立习惯——区分「经过检验的信念」和「猜测」的习惯，而不是知识的传授</td>
+        <td>第二章：教育有责任培养熟练思维力</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>语言是思维的必要工具，但也是最容易被滥用的工具——脱离意义的文字教学是训练思维最大的障碍之一</td>
+        <td>第十三章：语言和思维工具</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>对今天的三条可操作建议</h2>
+
+  <div class="point-card">
+    <div class="point-card-title">建议一：先定义问题，再想解决方案</div>
+    <p>在任何决策或思考之前，强迫自己用一两句话写下「问题是什么」——而不是直接跳向方案。
+    杜威的医生类比在这里最有用：仓促诊断的代价，往往比仔细检查的代价大得多。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">建议二：主动区分「我知道」和「我推断」</div>
+    <p>养成在表达观点时标注来源的习惯：「这是我直接观察到的」、「这是我从X推断出来的」、「这是我还没有验证的猜测」。
+    这不是繁琐，而是杜威说的：诚实地对待自己信念的「根据充足与否」。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">建议三：保护好奇心，而不是管理它</div>
+    <p>对孩子和自己都适用——当你感到「这很奇怪」「这不对」「这为什么会这样」时，不要立刻压制这个念头以维持效率。
+    这个念头正是杜威说的「困惑」，是所有真正思考的起点。</p>
+  </div>
+
+  <h2>这本书的局限</h2>
+
+  <p>杜威的框架非常强大，但有几点值得批判性看待：</p>
+  <ul>
+    <li><strong>过于理性化：</strong>书中对情感在思维中的作用论述较少。现代认知科学表明，情感不只是「干扰」，也是决策中不可或缺的信号。</li>
+    <li><strong>案例偏于个人认知：</strong>书中举例多为个人推理（赶约会、船上的杆子），对社会性思维、集体决策中的特殊问题讨论不多。</li>
+    <li><strong>对学校实践的乐观：</strong>杜威相信学校有能力系统训练思维，但现实中，制度性压力往往把教育推向他批评的「背诵知识」一端。</li>
+  </ul>
+
+  <div class="takeaway">
+    <div class="takeaway-label">最后一句话总结</div>
+    <p>杜威这本书的核心贡献，不是提供了一套思维技巧，而是改变了一种认知——他让我们意识到：<strong>「思维」不是自然会做好的事，而是需要主动训练的习惯；而这个训练，教育系统有责任承担。</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════ 附录 ═══════════════ -->
+<section class="chapter">
+  <div class="chapter-num">07 · Appendix</div>
+  <h1>附录</h1>
+
+  <h2>A. 全书章节结构</h2>
+  <table>
+    <thead>
+      <tr><th>部分</th><th>章节</th><th>核心话题</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="5"><strong>第一部分</strong><br>思维训练的问题</td>
+        <td>第一章</td><td>什么是思维（四种含义的区分）</td>
+      </tr>
+      <tr><td>第二章</td><td>思维训练的必要性（价值与偏误来源）</td></tr>
+      <tr><td>第三章</td><td>思维训练中的自然资源（好奇心·联想·条理性）</td></tr>
+      <tr><td>第四章</td><td>学校状况与思维训练</td></tr>
+      <tr><td>第五章</td><td>智力训练的手段和目的：心理与逻辑</td></tr>
+      <tr>
+        <td rowspan="6"><strong>第二部分</strong><br>逻辑的探讨</td>
+        <td>第六章</td><td>完整思维行为的分析（五步框架）</td>
+      </tr>
+      <tr><td>第七章</td><td>系统推理：归纳和演绎</td></tr>
+      <tr><td>第八章</td><td>判断：对事实的解释</td></tr>
+      <tr><td>第九章</td><td>意义：概念和理解</td></tr>
+      <tr><td>第十章</td><td>具象思维和抽象思维</td></tr>
+      <tr><td>第十一章</td><td>经验思维和科学思维</td></tr>
+      <tr>
+        <td rowspan="5"><strong>第三部分</strong><br>思维的训练</td>
+        <td>第十二章</td><td>活动和思维训练</td>
+      </tr>
+      <tr><td>第十三章</td><td>语言和思维工具</td></tr>
+      <tr><td>第十四章</td><td>观察和思维训练</td></tr>
+      <tr><td>第十五章</td><td>讲课和思维训练</td></tr>
+      <tr><td>第十六章</td><td>一般性的结论（无意识与有意识的平衡；游戏与工作）</td></tr>
+    </tbody>
+  </table>
+
+  <h2>B. 关键术语</h2>
+  <p><strong>反思性思维（Reflective Thinking）</strong>：杜威的核心概念，指对信念的根据及其导致的结论进行积极、执着、用心考察的思维过程。有别于随意联想、想象和未经检验的信念。</p>
+  <p><strong>困惑 / 难题（Perplexity / Problem）</strong>：反思性思维的起点。没有真实的困惑，思维就不会真正发生。</p>
+  <p><strong>联想（Suggestion）</strong>：从现有感知推向未知事物的心理过程，是推理的核心机制，同时也是最容易出错的环节。</p>
+  <p><strong>证明（Proof / Verification）</strong>：经过五步思维过程后，通过进一步观察或实验对结论进行检验。经过证明的推断，才成为「经过检验的信念」。</p>
+  <p><strong>具象 / 抽象（Concrete / Abstract）</strong>：杜威重新定义——具象是指对学习者已有清晰意义、可直接使用的知识；抽象是指需要间接思考才能理解的知识。具象与抽象是相对于个人和情境而言的，不是事物本身的固有属性。</p>
+
+  <h2>C. 关于作者</h2>
+  <p>约翰·杜威（John Dewey，1859—1952），20世纪美国最重要的哲学家和教育学家之一，实用主义哲学的主要代表人物。他的思想涵盖逻辑学、认识论、心理学、教育学、社会哲学，代表作包括《民主与教育》《哲学的改造》《经验与自然》等。1919年至1921年间，杜威在中国多省市进行巡回讲学，对中国现代思想和教育产生了深远影响。胡适曾评价：「自从中国与西洋文化接触以来，没有一个外国学者在中国思想界的影响有杜威这样大。」</p>
+  <p>《我们如何思维》初版于1910年，1933年修订再版。本总结基于伍中友译、新华出版社2015年第二版。</p>
+</section>
+
+</body>
+</html>
