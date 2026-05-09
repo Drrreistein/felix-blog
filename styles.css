@@ -925,7 +925,6 @@ html {
     background: var(--white);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
-    padding: 1.25rem 1.25rem 1rem;
     text-decoration: none;
     transition: all 0.3s ease;
     overflow: hidden;
@@ -934,6 +933,20 @@ html {
     min-height: 180px;
 }
 
+.podcast-card-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    display: block;
+}
+
+.podcast-card-body {
+    padding: 1.25rem 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 .podcast-card:hover {
     border-color: var(--primary-blue);
     box-shadow: 0 8px 24px rgba(37, 99, 235, 0.13);
