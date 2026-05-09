@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>声音如何成为AI的接口 · Mati Staniszewski</title>
+<meta name="author" content="Mati Staniszewski">
+<meta name="description" content="本文是ElevenLabs联合创始人Mati Staniszewski在Sequoia AI Ascent 2026上的访谈记录。他分享了从波兰的配音问题获得灵感、在2022年加密货币和元宇宙热潮中逆向选择音频赛道、构建远程研究团队、快速变现保持独立、到如今覆盖文本转语音、语音转文本、音乐生成等完整">
+<meta name="keywords" content="播客, 访谈, Mati Staniszewski, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">声音如何成为AI的接口</div>
+    <div class="cover-sub">ElevenLabs联合创始人Mati Staniszewski谈音频前沿模型的构建之路</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Mati Staniszewski</strong><br>ElevenLabs联合创始人兼CEO<br>
+    主持：Sequoia Capital AI Ascent·2026<br>
+    时长：约27分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>本文是ElevenLabs联合创始人Mati Staniszewski在Sequoia AI Ascent 2026上的访谈记录。他分享了从波兰的配音问题获得灵感、在2022年加密货币和元宇宙热潮中逆向选择音频赛道、构建远程研究团队、快速变现保持独立、到如今覆盖文本转语音、语音转文本、音乐生成等完整音频模型栈的创业历程。对于正在构建AI产品或思考语音接口未来的创始人和开发者，这篇文章提供了第一手的实战经验和思考。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">起源：从波兰的配音问题到ElevenLabs的诞生</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">为什么选择音频：2022年的逆向投资</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">远程团队与早期变现</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">早期的「哇」时刻</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">语音代理：超越客服</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">规模化运营的经验</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">语音的未来：代理对代理</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">信任、认证与音频模型的护城河</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>起源：从波兰的配音问题到ElevenLabs的诞生</h1>
+    <p class="lead">我和联合创始人P在高中时相识，一起上课、旅行、工作，十七年的友谊最终在2022年孕育出了ElevenLabs。但故事的灵感来源要追溯到我们在波兰长大的经历。</p>
+    <div class="chapter-content">
+      <p>我从小就喜欢看图表，那种用视觉呈现数据的方式总能让我着迷。但今天我想讲的不是图表，而是一个关于声音、关于语言障碍、关于如何用技术改变人机交互方式的故事。</p>
+      <p>ElevenLabs的故事从一个很人性的角度开始——我和我的联合创始人P是童年好友。说「童年好友」可能都不够准确，我们的交情可以追溯到十七年前。我们在波兰华沙的郊区长大，从高中时代就是最好的朋友。我们一起上课，一起旅行，一起工作，时间站在我们这一边，到今天我们的友谊依然牢固。</p>
+      <p>这段友谊最终在2022年孕育出了ElevenLabs。但要找到创立这家公司的灵感，你得了解波兰一个非常特殊的现象。</p>
+      <p>在波兰，如果你看任何外语电影的波兰语版本，无论原来有多少个不同的角色、多少种不同的声音，所有的配音都会由同一个人完成。是的，你没听错——一部电影里所有的男性角色、所有的女性角色，全都是那一个配音演员的声音。你可以想象，这是一种多么糟糕的体验。你面前就只有一个声音在叙述一切，而且通常还是故意保持单调的，让你自己往里面添加情感。</p>
+      <p>这种现象在今天的波兰依然普遍，绝大多数内容依然是这样处理的。我和P就是在这种环境下长大的。当我们意识到这个问题的时候，我们的眼睛一下子亮了起来——我们看到了音频领域一个清晰的未来：每个人都应该能够用任何语言说话，同时保留同样的情感、同样的语调。</p>
+      <p>我们开始深入钻研这个问题，然后意识到音频问题存在于太多的其他领域。无论是我们周围内容的朗读，还是很多书没有音频版本，无论是新闻文章我们只能阅读，还是语言障碍的问题——在所有这些场景中，音频技术都能带来巨大的改变。</p>
+      <p>更不用提我们在之前的对话中听到的那个未来：当人形机器人围绕在我们身边时，声音将成为与这些技术交互的主要接口。这是我们迫切想要解决和修正的问题。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>为什么选择音频：2022年的逆向投资</h1>
+    <p class="lead">2022年，所有人都在谈论加密货币和元宇宙，没有人关注AI。但正是这种冷门，给了我们机会。音频模型更小，不需要像其他领域那样庞大的计算资源。</p>
+    <div class="chapter-content">
+      <p>今天的人们可能很难想象，但在2022年，如果你说要构建前沿模型，大家默认的路径是：先融个几百亿或者几十亿美元，然后再想办法解决其他问题。ElevenLabs没有走这条路。</p>
+      <p>回想起来，我们的时机把握得非常好。2022年，如果你在那个领域工作，你会记得那一年是加密货币和元宇宙的年份。没有人还在研究AI侧的东西。更进一步说，人们开始研究文本模型、视觉模型，但音频作为一个领域，仍然被认为是一个巨大的利基市场。在那个空间里工作的研究人员太少了。</p>
+      <p>对我们来说，这反而成了一个优势。我们选了一个我们为之兴奋的领域，我们相信周围的人还没有意识到这个领域的价值。但更重要的是，要解决这个问题所需的条件非常不同。</p>
+      <p>音频模型更小，所以你不需要像其他姐妹领域那样多的计算资源。数据需求是大的，但虽然有很多音频数据，我们知道要让音频真正工作，你需要弄清楚如何转录大量数据、如何标注大量数据——而我们知道我们可以做到这一点。</p>
+      <p>最终，一切都归结到架构层面：我们能否以一个好的方式解决那部分问题？</p>
+      <p>在这里，我的联合创始人发挥了关键作用。他是我认识的最聪明的人之一，也是一位出色的研究员，能够召集一些音频领域最优秀的人来帮助我们。我们采取了一种略显非传统的方法。我们在伦敦起步，团队分布在伦敦和华沙之间，以一种完全远程的方式创办了这家公司。我们想要雇佣最优秀的研究员，无论他们在哪里。我们去GitHub上挖掘人才，试图根据他们的工作成果而不是他们的现身来接触他们。</p>
+      <p>我们根据那些工作成果去联系那些人。我们会一直分享我们的样本，试图让他们加入团队。这就是我们如何 assembling 了第一批我们认为在音频领域最优秀的研究员。这些年来，他们依然在帮助我们把很多模型推向生产环境。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>远程团队与早期变现</h1>
+    <p class="lead">我们采取了略显非传统的方法：完全远程办公，根据GitHub成果招募人才。更重要的是，我们很快就开始变现，让收入流回模型研发。</p>
+    <div class="chapter-content">
+      <p>我们推出产品后，采取了一个略显不同的方法：非常快速地进行变现。我们尝试让一些收入流回来，这样我们就可以为模型的大量工作提供资金。</p>
+      <p>我们尝试保持健康的利润率，这样我们就可以继续投资，我们的假设是：搞清楚这个收入流、能够在这个开发过程中保持独立，对我们来说更好。</p>
+      <p>然后，随着雄心的增长，我们知道我们需要训练模型。所以我们当然也从外部引入了大量资金。</p>
+      <p>展望今天，有一件事对我们来说很清楚：还有太多类似的利基领域是人们没有解决的，你可以从这些地方开始，然后一步步地打开它们。</p>
+      <p>很多时候，客户通过他们狭窄的需求来看待ElevenLabs。所以也许可以从一个更宏观的视角来看看：ElevenLabs研究的模型套件是什么？你们如何对它们进行优先级排序？</p>
+      <p>我们最开始做的是第一个文本转语音模型。这个模型终于能够理解所写内容的上下文，并基于这种上下文理解，从文本中获得正确的情感和正确的语调。如果是一个快乐的句子，你就能得到那种快乐的输出。如果是一段对话，它能够把对话的语调表现出来。然后我们不断地往里面添加功能。</p>
+      <p>最开始是为了解决打破语言障碍的问题。你要解决配音问题，需要的是转录。所以要理解内容，然后翻译，然后文本转语音。</p>
+      <p>所以你先看到文本转语音，然后我们知道我们需要添加另一个组件，那就是语音转文本，能够很好地转录内容。然后我们如何把这些模型组合在一起。这就是我们在最开始的一两年里的三个模型。</p>
+      <p>然后当然，这个领域里开始发生其他事情：很多推理模型开始变得足够快、足够聪明，这时候你可以想象那些交互式体验是可能的。这就是我们开始推出更实时的音频流模型，然后把它们组合成对话式体验的时候。</p>
+      <p>所以我们有效地添加了所有的堆栈、所有的轮流说话机制和编排，为语音代理创建了一个语音引擎。</p>
+      <p>另一方面，当我们意识到情感性是我们能够解决的问题时，我们添加了音频中最难的模态之一：音乐，能够生成音乐。</p>
+      <p>所以今天，我们涵盖了音频研究的整个范围：文本转语音、语音转文本、把这些模型组合在一起做本地化配音、用语音引擎做编排，然后也能够跨音乐领域做这些。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>早期的「哇」时刻</h1>
+    <p class="lead">第一次复刻出自己的声音、第一次让AI学会笑声、看到泽连斯基用母语以外的语言说话——这些时刻不断提醒我们，我们在做的事情曾经完全不可能。</p>
+    <div class="chapter-content">
+      <p>在这些发展和工作内容中，有没有什么「哇」的时刻——你们还记得这些产品能够做到什么事情的时候？</p>
+      <p>这样的时刻太多了，而且对我们所有人来说，标准一直在变化。对我们来说，第一个时刻——他们总是用我的声音作为测试声音，因为我的口音很奇怪——第一次我们能够基于一个好的样本复刻我的声音的时候。那就像是我自己的第一个「哇」时刻。你总会经历那个瞬间，觉得「这听起来不像我的声音」，然后你把自己的声音和合成的声音并排听，就会发现「这确实就是我的声音听起来样子」。</p>
+      <p>不幸的是，第二个时刻是我们第一次让它发出笑声的时候。人们说「好的，这真的是让整个体验变得更人性化的东西——那些笑声、那些停顿、那些「嗯」——那对我们来说是一个很好的时刻，因为我们带着第一个能够笑的AI模型登上了Hacker News的头条，那对我们来说是一个非常自豪的时刻。</p>
+      <p>然后当然，这些年来这种情况不断延伸。你可能记得2023、2024年有一段泽连斯基的演讲走红了，他能够说其他语言。那是从乌克兰语翻译成英文的，那是第一次我们能够听到他用自己的声音说其他语言。</p>
+      <p>所以那种持续的「哇」时刻——那是一些完全不可能的事情，我们一次又一次地看到它发生在纳伦德拉·莫迪身上、发生在泽连斯基总统身上，一直到最近，我觉得是声音表现的巅峰之一：马修·麦康纳给他通讯简报用西班牙语和葡萄牙语说的那些标志性台词——那是第一次他的家人能够听到他说那些语言。</p>
+      <p>但是最近最让我们兴奋的两个即将投入生产的功能，我觉得第一个是终于弄清楚了在交互式体验中的情感智能。在语音代理的体验中，它不仅能获得正确的语调和情感，还能理解对方。如果有人有压力，它能感知并传递那种令人安心的情感。如果有人很兴奋，也许它会匹配那种情绪。如果有人说话很慢，它会确保也慢下来。</p>
+      <p>这种情感智能是我们终于在内部看到了解决路径的东西，这将会是对可能性的一次持续的阶跃变化。</p>
+      <p>然后第二个功能——它会在那里应用，也会应用到通用音频空间——是音频通用智能，你可以把音频模型在一个流中组合在一起。所以理论上你可以有一个模型在叙述，然后暂停，然后开始用同一个连续的声音唱歌——这是今天极难组合的，而这件事情我觉得很快就可能实现。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>语音代理：超越客服</h1>
+    <p class="lead">每个人都在买语音代理，但直觉上你会想到客服。实际上，更有趣的机会在销售、公民支持、教育和医疗健康领域。</p>
+    <div class="chapter-content">
+      <p>你提到了语音代理，看起来每个人至少在客户端都在买语音代理。我想直觉上你会想到客服，那种老式的电话树替换。语音代理的世界里实际在发生什么？你认为最有趣、最被忽视的机会点在哪里，初创公司创始人应该关注哪些地方？</p>
+      <p>当然，客服可能是每个人都听过、都很了解的。我觉得我们看到的第二个趋势是：越来越多地向收入生成机会转移，语音代理可以在销售中发挥作用，无论是入站还是出站销售。它不会取代整个体验，但会采取并放大体验的一部分。</p>
+      <p>也许一个好的例子是Deliveroo。Deliveroo会有语音代理联系餐厅，获取他们的营业时间，基于他们的营业时间，他们可以更新骑手和司机，当然还有下单的人，整个过程都通过语音代理完成。一直延伸到入站销售——一个很好的例子是德国电信，人们会联系咨询服务、询问购买产品，与其通过下拉菜单、与其填写表单，你可以通过语音代理来说出那些信息。</p>
+      <p>我们自己也这样做，所以我们有很好的指标来理解那里发生了什么。用语音代理来完成这些流程，比通过表单要简单和快速得多。</p>
+      <p>但是在那个入站销售流程中开始的第二件事情是：我们获得了更多人开始留下的信息，因为他们会说到他们带来的用例，说到哪些工作、哪些其他用例他们正在评估——我们可以组合这些，然后提供更佳的体验。</p>
+      <p>在被忽视的方面，我觉得我最喜欢的例子是：公民支持、教育和医疗健康将会彻底改变。在公民支持方面，我们所有人都会从更好的政府接入中受益——无论是理解如何填写税务表格（我想你们很多人这个月早些时候都经历过了），一直到了解出国旅行的政策是什么、以及这如何影响这个空间。</p>
+      <p>我们最近看到这在乌克兰政府部署，我们认为那是这方面最先进的政府之一。我们去乌克兰旅行，与他们的团队一起工作。他们试图解决的是：他们有一个政府应用程序，每个公民都可以访问并获取正在发生的信息。</p>
+      <p>但是考虑到战争，考虑到前线，考虑到缺乏那种接入，他们想要找出一个新的渠道，让人们能够打电话进来获取那些信息。所以他们有效地创建了一个语音代理，你可以打电话进来，获取关于前线发生什么的信息。你可以获得教育帮助，一些讲座可以传递给你的孩子们，一直延伸到关于保持安全的主动互动。</p>
+      <p>也许在教育战线上的最后一个例子——那可能是我思考这种变化时最喜欢的。能够有一个令人难以置信的老师24/7可用，你可以问他们问题——无论是Karpathy，一直到达Richard Feynman——你可以戴着耳机和他们一起学物理，当你在教那个科目或者学那个科目的时候。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>规模化运营的经验</h1>
+    <p class="lead">我们有超过400人，超过4亿美元的收入，但保持团队极其精简。每个研究、产品、市场运营、人才团队都不超过10人。我们在非技术团队里也配置了工程师。</p>
+    <div class="chapter-content">
+      <p>作为参考，我们刚刚超过400人，超过4亿美元的收入。但我们保持团队极其精简。所以这有点随意，但上限是：每个研究、产品、甚至市场运营、人才团队，都少于10人。大多数人会有10个左右的直属下属。所以这保持相对扁平，让我们能够移动得稍微快一点。</p>
+      <p>我们做的一件事情——在这个模型里，非常令人惊讶的是，这与我们在乌克兰政府看到的是非常相似的模型——每个团队，甚至那些不是技术团队的团队，都会有工程师在里面。所以我们的人力资源团队、我们的市场团队、我们的法务团队，都会有一个工程师在那个团队里，帮助构建当然还有自动化，提升团队其他人的水平。</p>
+      <p>最近这真的很有帮助，因为我确信你们很多人正在经历：每个人都在vibe coding，大量非技术的人也在coding和帮助。所以现在这改变了责任——不是责任，而是改变了很多工作中需要的review质量预期。安全基础设施、隐含意义，你会想要确保输出是正确的。我觉得在工程侧，你可以提出那个预期。在非工程侧，做那件事的能力是相对困难的。</p>
+      <p>所以那些团队里的技术资源帮助我们很多，弄明白这个问题。</p>
+      <p>一般来说，通过拥有那个能力，你可以做太多令人难以置信的工作——无论是在招聘和招募方面的抓取，还是分析过去什么有效、在未来改进。</p>
+      <p>无论是提升法务团队如何使用那些工具，还是弄清楚方法——我们最近在市场侧、销售侧引入了这个评分系统。你会经常最终和你的销售团队进行这种谈判：我能否给予赔偿条款？责任上限是多少？我可以给那套条款吗？然后你有点需要画出一条线：你给出了多少东西？我最终参与了太多那样的对话——我们已经给出了很多，或者我们没有给出——所以现在我们引入了评分系统，你可以根据客户规模给出几个那些积分点。这让事情变得如此简单，当然现在通过我们在那个团队中的工作方式，这已经完全自动化了。</p>
+      <p>所以我们没有头衔，这让我们能够真正优化他们正在产生的影响，然后你可以随着你的愿望快速成长。任期不会定义这一点，还有更多。我们看看，这是一家四年的公司，所以我们看看这是否有帮助。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>语音的未来：代理对代理</h1>
+    <p class="lead">人们开始部署语音代理来代表他们进行谈判。未来，代理之间会互相交流。他们甚至可能会检测到对方也是代理，然后切换到一种更高效的传输信息的语言。</p>
+    <div class="chapter-content">
+      <p>你看到人们部署语音代理来实际代表他们进行谈判吗？然后你什么时候开始看到代理实际与代理谈判？当那个世界发生时，你认为代理们真的会像人类谈话交流并谈判那样说话吗？还是你认为那是「哔哔嘟嘟」？你认为那是瞬间完成的吗？那个世界会是什么样子？</p>
+      <p>在这方面，我们还没有看到任何真正成功的谈判前沿。更多的是那种接单：「价格是多少？我们能拿到那个吗？」然后某种程度回到团队。所以不是真正的谈判。但是有一些初创公司我们看到，特别是在任何类似组织转变的场景中——「我能组织这个活动吗？给很多地方打电话获取价格，然后用我们的预算再打电话？」所以这正在发生，我觉得这会转变。</p>
+      <p>我觉得情感智能会是——这会是很大一部分，会在很多那样的工作开始变得重要——不只是内容重要，还有你如何传递、你如何停顿。</p>
+      <p>然后也许是那个极端版本——代理们不是大多数人会做的，他们也不擅长那一点——今天你会看到很多可中断性内置在里面，人类可以中断代理，但是在谈判中你也想要相反的情况：代理会中断人类。那是那种第二个部分在代理对代理的部分的极端版本。</p>
+      <p>你们中的一些人可能看到过这个——我们在一年半前做了一个黑客松，正好有那种情况：代理正在与另一个代理说话。他们检测到他们都是代理，然后他们切换到一种不同的语言，那就像一种更高效的传输信息的方式，而不是经典的口语。</p>
+      <p>我觉得这100%会发生。大问题会是：那真的是声音吗？那会是其他信息传输吗？这真的取决于为那个构建的基础设施是什么，我觉得这会定义那个体验。</p>
+      <p>基本上，未来的用例可能是：我们所有人周围会有那么多不同的设备。然后你会有围绕我们的机器人。所以当然，声音将是这样一个重要的接口来指示和能够与那些设备交互。在很多方面，我觉得就像我们看到很多智能的发展，但未来的真正瓶颈会是：你如何与那个智能沟通？我觉得拥有声音和视觉部分将会是一个很大的解锁，能够真正获得那些设置中智能价值的最大部分——这在今天还不可能。</p>
+      <p>但另一方面，人与人互动的价值只会增加。所以无论是像这样的活动，还是与你最喜欢的艺术家的活动，有了能够让你周围都有声音的能力，这会增加价值。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>信任、认证与音频模型的护城河</h1>
+    <p class="lead">未来，所有你拥有的语音代理都需要高度的信任——那是你，那是经过认证的你。所以会有编码和解码的层级：经过编码解码的、有水印的、选择加入的人类——然后默认其他一切都是假的。这与今天的状况正好相反。</p>
+    <div class="chapter-content">
+      <p>但是信任会是如此大的一部分，我们需要优化——就像在代理和人类之间，在未来的日子里，你们所有人都会有一个语音代理，比如说打电话预订餐厅，或者给医疗预约提供信息。所有这一切都需要如此高程度的信任——那是你，那是经过认证的你。所以会有编码和解码的层级：经过编码解码的、有水印的、选择加入的人类——然后默认其他一切都是假的。这与今天的状况正好相反。</p>
+      <p>今天你检测AI，但在未来你会检测真实的、经过认证的AI，并假设它是假的。（当然，如果你能通过的话。）</p>
+      <p>Andre之前谈到了「锯齿状智能」——你在音频领域也看到类似的奇怪地方吗？模型在某些方面好，在某些方面坏，可能不是你预期的？</p>
+      <p>在「坏」的方面还有很多。我觉得，我们谈了一点关于我们看到语音代理工作的地方。所以这种模型组合在支持和早期销售设置中真的很好用，开始工作，但是一旦你开始转换到真正的情感交互，那还不行。它没有很好地获得情感，它有点太慢了。所以我觉得那依然是一个很大的阶跃变化，应该会工作。</p>
+      <p>在非常不同的领域也一样：在音乐侧。我觉得在音乐侧，你可以获得好的制作音乐。你无法获得排行榜顶部的音乐，即使有艺术家的输入。我觉得这会在接下来的一两年里改变。</p>
+      <p>从模型层面来看，我们当然做各种模型。最近我有幸见到Jensen（黄仁勋），他评论了我们的一些模型。他说我们的语音转文本是技术，文本转语音是艺术，而我们都是艺术家。呃，所以他获得了一个终身客户。</p>
+      <p>但我们当然相信，要真正修复文本转语音、修复那种情感性，你需要真正专注于那个空间。你真的需要走到用户面前，收集数据，收集偏好，用那些来微调模型。然后在如何实际把那些模型投入生产的环境中，存在领域特异性——医疗健康与金融服务非常不同，与教育或体验非常不同。</p>
+      <p>所以在模型层会有持续的优势。如果你真的关心质量，花时间在模型工作上会帮助你保持那个优势。</p>
+      <p>但正如你提到的，模型在很多用例中只是他们堆栈的一小部分。那就是我们花很多时间的地方——超越研究，在产品侧理解用户的问题、他们需要的工作流。在语音代理中，是把音频模型与知识组合在一起，把那个带入系统内部，你如何把它带到外部与电话系统，这样你可以跨渠道交互，你如何评估、测试和监督。</p>
+      <p>然后当你创建——无论是在代理空间还是创意空间——同样的理解：你构建生态系统。这就是我们希望在ElevenLabs构建的：一个地方——无论是分发和品牌，人们可以信任平台，你有预先存在的工作集可以开始——无论是创建代理的模板、在创意空间中创建工作流的模板，还是声音。我们现在有幸拥有超过20,000个声音，人们创建并贡献，你可以在跨语言、风格和声音中使用。我觉得那会是一个越来越重要的层——你如何能够满足那种多样性，让人们容易开始，真正理解那个工作流。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=ZNzYN2jyVTU" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+</body>
+</html>

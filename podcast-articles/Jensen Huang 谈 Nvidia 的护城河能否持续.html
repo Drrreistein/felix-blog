@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Jensen Huang 谈 Nvidia 的护城河能否持续 · Jensen Huang</title>
+<meta name="author" content="Jensen Huang">
+<meta name="description" content="当Nvidia的市值冲向天际，一个尖锐的问题浮出水面：Nvidia的护城河能否持续？批评者说，Nvidia不过是把GDS2文件发给TSMC，自己只做软件——如果软件被商品化，Nvidia凭什么维持70%以上的毛利率？在这场长达104分钟的深度对话中，黄仁勋从&#39;电子到Token&#39;的核心心智模型出发，系">
+<meta name="keywords" content="播客, 访谈, Jensen Huang, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">Jensen Huang 谈 Nvidia 的护城河能否持续</div>
+    <div class="cover-sub">Nvidia CEO 黄仁勋深度解析 AI 时代的算力竞争格局</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Jensen Huang</strong><br>Nvidia CEO<br>
+    主持：Dwarkesh Patel·2026<br>
+    时长：约104分钟· 来源：Dwarkesh Podcast</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/Hrbq66XqtCo/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Hrbq66XqtCo/hqdefault.jpg'"
+         alt="Jensen Huang – Will Nvidia&#39;s moat persist?">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/Hrbq66XqtCo?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Jensen Huang – Will Nvidia&#39;s moat persist? · <a href="https://www.youtube.com/watch?v=Hrbq66XqtCo" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>当Nvidia的市值冲向天际，一个尖锐的问题浮出水面：Nvidia的护城河能否持续？批评者说，Nvidia不过是把GDS2文件发给TSMC，自己只做软件——如果软件被商品化，Nvidia凭什么维持70%以上的毛利率？在这场长达104分钟的深度对话中，黄仁勋从'电子到Token'的核心心智模型出发，系统性地拆解了Nvidia的护城河：供应链锁定、CUDA生态飞轮、架构与算法的协同设计，以及每年推出新架构的不可替代承诺。他坦承错失了早期投资Anthropic和OpenAI的机会，也毫不退让地反驳了对中国出口管制的支持者——认为封锁只会加速中国自主生态，让美国失去全球第二大市场。这不仅是一场关于芯片的对话，更是一场关于AI时代地缘政治、技术生态和商业哲学的交锋。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">电子进，Token出：Nvidia的核心心智模型</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">供应链锁定：千亿美元采购承诺的力量</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">TPU vs GPU：加速计算的广度与深度</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">CUDA护城河的三大支柱与飞轮效应</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">错失与弥补：投资AI实验室的战略反思</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">GPU分配哲学与不挑选赢家的智慧</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">中国出口管制：一场关乎技术未来的辩论</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">架构哲学与推理市场的细分化</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">09</span>
+      <span class="timeline-index-topic">超越AI：加速计算的长期使命</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>电子进，Token出：Nvidia的核心心智模型</h1>
+    <p class="lead">面对&#x27;Nvidia是否会被商品化&#x27;的质疑，黄仁勋提出了一个简洁而深刻的心智模型。</p>
+    <div class="chapter-content">
+      <p>访谈从一个尖锐的问题开始。主持人指出，市场已看到大量软件公司的估值因AI商品化预期而暴跌，而Nvidia本质上是在做软件——GDS2设计文件发给TSMC，TSMC制造逻辑裸片，SK Hynix、Micron和三星制造HBM，ODM在台湾组装机架。如果软件被商品化，Nvidia凭什么不被商品化？</p>
+      <p>黄仁勋没有回避这个质疑，而是将其转化为Nvidia的核心心智模型：输入是电子，输出是Token，中间就是Nvidia。将电子转化为Token并让Token越来越有价值，这个过程包含了极大的艺术性、工程、科学与发明，远未被深入理解，旅程也远未结束。他用了一个精妙的比喻：让一个Token比另一个Token更有价值，就像让一个分子比另一个分子更有价值一样，其中所需的制造工艺和科学深度，绝非简单商品化可以复制。</p>
+      <p>Nvidia的哲学是做&#x27;尽可能必要、尽可能少&#x27;的工作。所谓&#x27;尽可能少&#x27;，就是凡是不需要自己做的，就通过合作伙伴纳入生态。正因为这个原则，Nvidia构建了可能是业界最大的合作伙伴生态——上游供应链、下游所有计算公司、应用开发者和模型制作者，横跨AI五层蛋糕的每一层。但那些Nvidia必须亲自做的部分，事实证明极其艰难。</p>
+      <p>更有趣的是黄仁勋对软件未来的判断——他看到了与市场共识完全相反的趋势。大多数人认为AI会商品化软件，但黄仁勋认为Agent数量将指数级增长，工具使用者的数量也将指数级增长。Synopsys的Design Compiler、布局工具、设计规则检查器——这些工具的实例数将飙升。今天我们受限于工程师数量，明天每个工程师都会有一群Agent辅助。工具使用反而会让软件公司腾飞，只是目前Agent还不足以熟练使用这些工具。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>供应链锁定：千亿美元采购承诺的力量</h1>
+    <p class="lead">Nvidia近千亿美元的采购承诺不仅是商业决策，更是护城河的基石。</p>
+    <div class="chapter-content">
+      <p>Nvidia在最新财报中披露了近1000亿美元的采购承诺，SemiAnalysis更预估这个数字将达到2500亿美元。一个自然的解读是：Nvidia真正的护城河在于锁定了多年稀缺组件的供应——别人也许能做出加速器，但他们能拿到内存吗？能拿到逻辑产能吗？</p>
+      <p>黄仁勋承认这是Nvidia能做而竞争对手难以做到的事情之一。其中一部分是明确的合同承诺，另一部分则是隐性的——上游供应链的大量投资是因为黄仁勋亲自与各行业CEO沟通，告诉他们AI产业有多大、为什么大、什么时候会来，让他们看到自己看到的未来。供应商之所以愿意为Nvidia而非竞争对手投资，根本原因是Nvidia的下游需求规模足够大，能保证上游产能的消化。</p>
+      <p>GTC大会的规模常令人惊叹，黄仁勋揭示了背后的逻辑：整个AI宇宙集中在同一个地方，因为上下游需要看到彼此，都需要看到AI原生创业公司的进展，亲眼验证黄仁勋所描述的未来。他在主题演讲中经常花大量时间做&#x27;教育&#x27;，这不是偶然——他必须确保整个供应链理解即将到来的变化、原因、时间和规模。正是因为这种对齐，Nvidia才能为未来构建供应链——如果未来几年营收规模达万亿美元，供应链也已就位。</p>
+      <p>关于上游产能瓶颈，黄仁勋的态度异常从容。他指出CoWoS曾是瓶颈，但通过连续翻倍投资已基本解决；TSMC现在将CoWoS与逻辑产能同等规模地扩展。EUV等瓶颈也只是2-3年的问题——一旦有了需求信号，制造能力可以快速复制。与此同时，Nvidia通过效率提升弥补短期产能缺口：Hopper到Blackwell实现了30-50倍的性能提升，这是摩尔定律的75%晶体管改进完全无法解释的跨越。</p>
+      <p>五年前黄仁勋就在说今天的话。当时相信他的人，如Micron CEO Sanjay，大举投资HBM并获得了巨大回报。现在Nvidia已在预判多年后的瓶颈——与Lumentum、Coherent等构建硅光子供应链，与TSMC合作发明COUPE技术并授权给整个供应链，投资双面探针测试等新设备。唯一让黄仁勋担忧的下游瓶颈是能源政策——没有能源就无法重新工业化，无法建设AI工厂，而能源建设需要远超2-3年的时间。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>TPU vs GPU：加速计算的广度与深度</h1>
+    <p class="lead">当TPU训练出了Claude和Gemini，Nvidia的GPU真的还更优吗？</p>
+    <div class="chapter-content">
+      <p>主持人提出了一个棘手的事实：全球前三的AI模型中，Claude和Gemini两个是在TPU上训练的。这对Nvidia意味着什么？</p>
+      <p>黄仁勋首先纠正了问题框架——Nvidia构建的不是张量处理单元，而是加速计算平台。加速计算的应用远不止AI：分子动力学、量子色动力学、数据处理、流体动力学、粒子物理……AI当然是当下最重要和最具影响力的对话主题，但计算远比AI更广。Nvidia从通用计算到加速计算的范式转换，使其市场触达远超任何TPU或ASIC。</p>
+      <p>但这引出了更深层的问题：AI的核心不就是一遍又一遍的矩阵乘法吗？TPU的大规模脉动阵列完美适配矩阵乘法，不需要在warp调度器或线程与内存切换上浪费芯片面积。黄仁勋的回应直击要害——矩阵乘法是AI的重要部分，但不是全部。如果想发明新的注意力机制、以不同方式解耦、创造混合SSM架构，或者融合扩散与自回归技术，就需要通用可编程架构。发明新算法的能力才是推动AI快速进步的真正动力。</p>
+      <p>TPU受制于摩尔定律每年约25%的提升，而真正的10倍或100倍飞跃必须来自根本性的算法变革。Hopper到Blackwell的50倍性能提升（黄仁勋最初宣布35倍，Dylan Patel撰文称实际为50倍）不可能仅靠摩尔定律实现。关键在于MoE等新模型通过CUDA实现并行化、解耦和分布式计算——没有CUDA深入定制内核的能力，这种算法-硬件协同设计根本无法实现。</p>
+      <p>Nvidia作为极致的协同设计公司，甚至可以将部分计算卸载到NVLink网络结构或Spectrum-X网络中，同时影响处理器、系统、网络结构、库和算法。没有CUDA，黄仁勋说自己甚至不知道从何开始。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>CUDA护城河的三大支柱与飞轮效应</h1>
+    <p class="lead">当大客户有能力写自定义内核时，CUDA的护城河还在吗？</p>
+    <div class="chapter-content">
+      <p>60%的Nvidia营收来自前五大超大规模客户，这些公司有资源写自己的内核——Anthropic和Google主要使用TPU和Trainium，OpenAI有Triton并编写自己的CUDA C++内核。如果大部分客户都能且确实在替代CUDA，CUDA还是推动前沿AI在Nvidia上发生的关键吗？</p>
+      <p>黄仁勋从三个维度回应。首先是生态丰富性——CUDA是如此丰富的生态，任何框架首先在CUDA上构建都是最明智的选择。Nvidia大量贡献Triton的后端技术，积极帮助vLLM、SGLang、verl、NeMo RL等框架做到最好。当开发者构建系统时，面对的是庞大的代码量，出了问题需要确定是自己的代码还是底层计算平台的Bug——CUDA经过如此充分的锤炼，至少提供了一个可靠的基础。</p>
+      <p>其次是装机量——开发者最想要的是安装基数，让自己的软件在尽可能多的计算机上运行。Nvidia的CUDA生态拥有数亿GPU，覆盖从A10到H200的全系列，各种尺寸和形态，部署在每一个云上。如果你是机器人公司，需要CUDA栈直接在机器人中运行——Nvidia无处不在。一旦开发的软件或模型能在所有地方运行，这种价值是不可估量的。</p>
+      <p>第三是全云覆盖——AI公司或开发者未必确定最终会选择哪个云服务提供商，Nvidia在每个云上都能运行，包括本地部署。</p>
+      <p>关于大客户的自定义内核，黄仁勋用了一个生动的比喻：CPU像凯迪拉克，巡航舒适但不会太快，人人都能开得好；而Nvidia的GPU像F1赛车，人人都能开到100英里，但要把性能推到极限需要极高的专业知识。Nvidia向AI实验室派驻了大量工程师优化计算栈——优化后模型速度提升2-3倍或50%是常态。在拥有大量Hopper和Blackwell的机队中，性能翻倍直接意味着收入翻倍。</p>
+      <p>黄仁勋公开向竞争对手发出挑战：Dylan Patel的InferenceMAX基准测试公开可用，TPU不来，Trainium不来。MLPerf同样如此——Trainium声称40%成本优势，但从未在公开基准中展示。从第一性原理看，这完全说不通。Nvidia之所以成功，根本原因是TCO（总拥有成本）优势无人能敌，每瓦特Token产出世界第一。同时，所谓的60%大客户营收中，大部分是外部客户——AWS上的Nvidia主要服务外部客户，Azure和OCI全部是外部客户。飞轮的本质是：装机量最大→生态最丰富→AI公司都选择Nvidia→更多装机量。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>错失与弥补：投资AI实验室的战略反思</h1>
+    <p class="lead">黄仁勋坦承错失了早期投资Anthropic和OpenAI的机会，这是一次深刻的战略反思。</p>
+    <div class="chapter-content">
+      <p>当Anthropic宣布与Broadcom和Google的TPU多吉瓦级交易，当OpenAI与AMD合作并自研Titan加速器——如果Nvidia的性价比真的无敌，为什么这些顶级AI实验室还在用其他加速器？</p>
+      <p>黄仁勋的回应出人意料地坦诚：Anthropic是特例而非趋势。没有Anthropic，TPU的增长从何而来？没有Anthropic，Trainium的增长从何而来？这是100%由Anthropic驱动的。至于OpenAI与AMD的合作，黄仁勋承认他们仍然以Nvidia为主。</p>
+      <p>但更深层的原因是Nvidia自己犯的错。黄仁勋坦承，他当时没有深刻理解建立OpenAI或Anthropic这样规模的AI实验室有多困难，也没有意识到它们需要供应商自己进行巨额投资。Google和AWS在早期投入了数十亿美元换取Anthropic使用其计算资源，而Nvidia当时既不在能做出这种投资的地位，也没有意识到这是必要的。黄仁勋以为它们可以像所有公司一样去VC融资——但他现在明白了，OpenAI想要做的事情不可能通过VC完成。</p>
+      <p>这是黄仁勋的遗憾，但不是无法弥补的遗憾。Nvidia现在已成为OpenAI和Anthropic的重要投资者——据报道对OpenAI投资高达300亿美元，对Anthropic投资100亿美元。黄仁勋表示不会再犯同样的错误。</p>
+      <p>这引出了另一个问题：既然Nvidia有这么多现金，为什么不自建云服务、成为超大规模运营商？CoreWeave据报道获得Nvidia 63亿美元的担保和20亿美元投资，Nvidia完全有能力做自己的CapEx。黄仁勋的回答再次回到&#x27;尽可能必要、尽可能少&#x27;的哲学——如果Nvidia不建NVLink、不造整个计算栈、不创造生态、不坚持20年亏损期的CUDA开发，这些事情就没有人会做。但云服务不同——如果Nvidia不做，自然会有人来做。所以Nvidia选择投资支持CoreWeave、Nscale、Nebius等新型云服务商，而不是亲自下场。</p>
+      <p>这个哲学同样适用于Nvidia的投资策略——不挑选赢家。当年60家3D图形公司中，Nvidia的架构&#x27;完全错误&#x27;，是&#x27;不可能让开发者支持的方案&#x27;，任何理性预测都会把Nvidia排在最不可能存活的名单上。正因如此，Nvidia选择投资所有重要的AI实验室，而非下注某一个。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>GPU分配哲学与不挑选赢家的智慧</h1>
+    <p class="lead">在GPU供不应求的年代，Nvidia如何决定谁能拿到芯片？</p>
+    <div class="chapter-content">
+      <p>Nvidia以在GPU稀缺时期不按最高出价者分配而闻名——而是确保CoreWeave、Crusoe、Lambda等新型云服务商也能获得份额。但黄仁勋首先否认了&#x27;分拆市场&#x27;的说法。</p>
+      <p>他的解释很简单：首先必须下订单。在拿到采购订单之前，所有空谈都没有意义。Nvidia通过与所有人努力做需求预测来对齐供需——因为数据中心建设需要很长时间。如果到了最后关头仍未下单，或者数据中心还没准备好，Nvidia可能会优先服务另一个客户——这只是为了最大化自家工厂的吞吐量。除此之外，分配原则就是先到先得。</p>
+      <p>黄仁勋坚决否认&#x27;最高出价者得&#x27;的做法。他解释，Nvidia设定价格后客户决定买或不买，即使需求暴涨也不会涨价——这在芯片行业中并不常见，但Nvidia从不这样做。他更愿意成为行业的稳定基石，让客户不必猜测定价。如果报价了，就是那个价格，需求暴增也如此。</p>
+      <p>这种定价哲学与Nvidia和TSMC的关系一脉相承。两家公司合作近30年，却没有法律合同——有时Nvidia占优，有时吃亏，但整体关系极好，完全可以信任和依赖。黄仁勋说，你可以指望Nvidia今年出Vera Rubin、明年出Vera Rubin Ultra、后年出Feynman——你可以把整个业务押注在Nvidia每年都会如期交付上，Token成本每年下降一个数量级。这是你在任何其他ASIC团队身上都无法做到的承诺。</p>
+      <p>Nvidia也是全球唯一一家可以让客户从一张显卡到一千亿美元AI工厂都能下单的公司。这种稳定性和一致性，是Nvidia经过数十年巨大投入和奉献才达到的位置。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>中国出口管制：一场关乎技术未来的辩论</h1>
+    <p class="lead">这是访谈中最激烈的交锋——关于是否应该限制先进芯片出口到中国，黄仁勋与主持人进行了长达25分钟的辩论。</p>
+    <div class="chapter-content">
+      <p>主持人以Anthropic最新发布的Mythos模型为起点——该模型发现了数千个高严重性漏洞，包括OpenBSD中存在27年的零日漏洞。如果中国获得足够的AI芯片训练类似模型并大规模部署，这是否威胁美国国家安全？</p>
+      <p>黄仁勋首先指出一个事实：Mythos是在相当普通的计算能力上训练的，而中国拥有充裕的计算能力。中国制造全球60%以上的主流芯片，拥有全球50%的AI研究人员，还有大量能源和空置的数据中心。7nm芯片本质上相当于Hopper级别，而今天大多数模型仍在Hopper上训练。配合中国充裕的能源，7nm完全够用——AI是并行计算问题，中国可以通过堆积更多芯片来弥补制程差距，华为已创历史最高营收，出货数百万芯片。</p>
+      <p>更关键的是，算法进步才是AI发展的主引擎。摩尔定律每年仅提升25%，但算法改进可达10倍。中国拥有全球最多的AI研究人员，DeepSeek的突破就是受限算力下算法创新的明证。黄仁勋抛出一个令人深思的场景：如果有一天DeepSeek在华为平台首发而非Nvidia，那将是美国的噩梦——开源模型优化到中国硬件架构上，美国技术栈在全球竞争中处于劣势。</p>
+      <p>主持人持续追问：如果中国有更多算力，就能更快训练出具有网络攻击能力的模型，这不正是限制芯片出口的理由吗？黄仁勋反复强调几个论点。第一，中国已有足够算力达到甚至超越安全威胁的阈值，限制Nvidia的芯片并不会让中国没有算力。第二，AI是五层蛋糕，芯片只是其中一层，如果美国在芯片层放弃全球第二大市场，将导致未来AI模型优化到非美国技术栈。第三，出口管制已经产生了反效果——加速了中国芯片产业发展，迫使中国AI生态聚焦内部架构。第四，美国电信业因类似政策被挤出全球市场的先例——现在美国甚至不控制自己的电信基础设施。</p>
+      <p>黄仁勋坚决反对将AI类比为核武器或浓缩铀——&#x27;将AI与你刚才提到的任何东西类比都是疯狂的&#x27;。他主张通过研究对话来管理AI安全风险，而非封锁。同时他强调美国应该在每一层都争取领先——Vera Rubin和Blackwell在美国大量部署，美国拥有最多的计算能力和最好的AI研究人员，美国应该领先。但领先不意味着放弃全球市场，两者可以同时实现，需要的只是些许细致和成熟，而非极端思维。</p>
+      <p>最后黄仁勋做了一个预测：几年后，当美国希望将技术标准输出到印度、中东、非洲和东南亚时，今天的出口管制政策将让美国后悔放弃了中国这个全球第二大市场。他希望到那时再进行同样的对话。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>架构哲学与推理市场的细分化</h1>
+    <p class="lead">Nvidia为什么不追求架构多元化？答案在于模拟验证和对推理市场新趋势的判断。</p>
+    <div class="chapter-content">
+      <p>主持人提出了一个看似合理的问题：Nvidia有资源和工程人才同时运行多个完全不同的芯片项目——Cerebras式晶圆级、Dojo式大型封装、甚至不用CUDA的架构——为什么不把鸡蛋放在多个篮子里？</p>
+      <p>黄仁勋的回答简短而有力：可以做，只是没有更好的想法。所有替代方案在Nvidia的模拟器中都证明不如当前架构。Nvidia正在做的正是他们想做的项目。</p>
+      <p>不过，如果工作负载发生根本性变化——不是算法变化，而是市场形态变化——Nvidia可能会增加其他加速器。事实上，Nvidia最近收购了Groq并将其纳入CUDA生态。原因在于Token价值的飙升催生了推理市场的细分化：几年前Token几乎免费，但现在不同客户对Token有不同的支付意愿。软件工程师如果获得更快响应的Token，能变得更高效，为此愿意付费。</p>
+      <p>这创造了一个全新的市场细分——高端Token，响应时间极快但吞吐量较低。过去吞吐量越高越好，但现在可能出现高ASP（平均售价）Token的市场，即使工厂吞吐量较低，高售价也能弥补。Nvidia收购Groq正是为了扩展帕累托前沿，覆盖这个新兴的推理细分市场。</p>
+      <p>关于是否可能回退到旧制程节点，黄仁勋表示没有必要——每一代架构远不只是晶体管微缩，还包含大量封装、堆叠、数值精度和系统架构的工程。回退到7nm所需的R&amp;D投入甚至比继续前进更大。但如果世界真的永远无法增加更多先进产能，他会毫不犹豫地使用7nm。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 09 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">09</div>
+    <h1>超越AI：加速计算的长期使命</h1>
+    <p class="lead">即使深度学习革命从未发生，Nvidia仍然会是一家很大的公司。</p>
+    <div class="chapter-content">
+      <p>访谈以一个假设性问题收尾：如果深度学习革命没有发生，Nvidia今天会是什么样？</p>
+      <p>黄仁勋的回答毫不含糊：加速计算——Nvidia一直在做的同一件事。公司的基本前提是通用计算虽然适用于很多事情，但对于大量计算来说并不理想。Nvidia将GPU/CUDA架构与CPU结合，使CPU的工作负载可以卸载到GPU上加速100倍甚至200倍。应用领域涵盖工程、科学、物理、数据处理、计算机图形、图像生成等。即使没有AI，Nvidia也会非常大，因为通用计算的扩展性已基本走到尽头，领域特定加速是唯一的出路。</p>
+      <p>从计算机图形起步，Nvidia扩展到分子动力学、地震勘探、图像处理等领域——通用计算在这些场景中效率太低。如果没有AI，黄仁勋说自己会很伤心，但Nvidia推动深度学习民主化的根本承诺从未改变：让任何研究者、科学家、学生都能通过一台PC或一块GeForce显卡做出惊人的科学发现。</p>
+      <p>如果观看GTC，前半部分几乎与AI无关——计算光刻、量子化学、数据处理——这些仍然非常重要。AI固然令人兴奋，但世界上还有很多人在做与AI无关却极其重要的工作，张量也不是计算的唯一方式。Nvidia的目标是帮助所有人。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=Hrbq66XqtCo" class="footer-link">Dwarkesh Podcast</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>人类注意力：AI时代的新瓶颈 · Greg Brockman</title>
+<meta name="author" content="Greg Brockman">
+<meta name="description" content="这是 Greg Brockman 在 Sequoia AI Ascent 2026 上的访谈记录。作为 OpenAI 的联合创始人兼总裁，Brockman 深度分享了 AI 发展的多个关键议题：从算力瓶颈到扩展定律，从 AGI 进程到初创公司策略，从组织变革到人类注意力的稀缺性。这场对话适合所有关注">
+<meta name="keywords" content="播客, 访谈, Greg Brockman, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">人类注意力：AI时代的新瓶颈</div>
+    <div class="cover-sub">Greg Brockman 谈 AI 发展的下一个十年</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Greg Brockman</strong><br>OpenAI 联合创始人兼总裁<br>
+    主持：Sequoia Capital·2026<br>
+    时长：28分钟· 来源：Sequoia AI Ascent 2026</div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>这是 Greg Brockman 在 Sequoia AI Ascent 2026 上的访谈记录。作为 OpenAI 的联合创始人兼总裁，Brockman 深度分享了 AI 发展的多个关键议题：从算力瓶颈到扩展定律，从 AGI 进程到初创公司策略，从组织变革到人类注意力的稀缺性。这场对话适合所有关注 AI 发展的创业者、投资人、技术从业者，以及任何想理解 AI 时代底层逻辑的读者。核心收获：AI 正在从「执行工具」演变为「决策代理」，而人类真正的价值在于提出正确的问题和判断结果的质量。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">从算力说起：一个简单的商业模式</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">扩展定律：宇宙深处的美丽谜题</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">AGI：我们已经完成了80%</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">给初创公司的建议：拥抱工具，现在就做</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">OpenAI 内部：生活在未来</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">组织变革：从小团队到超级个体</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">人类注意力：稀缺资源的新定义</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">安全：在 AI 世界中思考网络安全</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">09</span>
+      <span class="timeline-index-topic">加速时代：如何跟上变化</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">10</span>
+      <span class="timeline-index-topic">平衡艺术：速度与责任的博弈</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">11</span>
+      <span class="timeline-index-topic">前沿科学：AI 推动人类知识的边界</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">12</span>
+      <span class="timeline-index-topic">未来展望：当 CEO 管理十万个智能体</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>从算力说起：一个简单的商业模式</h1>
+    <p class="lead">我们从最底层的技术栈开始——算力。OpenAI 在获取算力方面一直非常激进，这背后有其深刻的商业逻辑。</p>
+    <div class="chapter-content">
+      <p>在很多方面，我们的商业模式其实非常简单：购买、租赁、建造算力，然后以一定溢价转售。只要溢价为正，我们就会不断扩大规模，因为解决问题的需求是无限的，对智能的需求更是无限的。目前的 AI 已经能够应对几乎任何类型的问题，而且效果出色。</p>
+      <p>Matt Gundling 告诉我，2026年 GPU 算力的可用性四舍五入等于零。我被问到 OpenAI 是否已经「买断了」所有算力。我的回答是：我们当然想要更多。我们一直在不断寻找更多资源。</p>
+      <p>记得 ChatGPT 刚发布时，我和团队讨论应该购买多少算力。我说：「全部。」他们笑着说我在开玩笑，认真一点。我认真地说：「不管我们多快地增加算力，我保证我们永远跟不上需求。」从那以后，这句话一直应验。</p>
+      <p>这不是贪婪，而是对市场需求的真实判断。当边际成本趋近于零，而需求无限时，最优策略就是尽可能扩大规模。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>扩展定律：宇宙深处的美丽谜题</h1>
+    <p class="lead">扩展定律是 AI 领域最深奥也最美丽的谜题之一。它看似经验法则，却触及了某种宇宙级的真理。</p>
+    <div class="chapter-content">
+      <p>扩展定律给人一种根本性的深刻感。就像物理学中的牛顿定律，它们是经验性的，我们没有完整的理论来解释为什么它有效。但对我来说，最美丽的地方在于：神经网络实际上是在 1940 年代设计的——在计算机出现之前。</p>
+      <p>我们能够使用完全相同的想法，并不断投入更多计算资源。随着计算能力增加，模型的能力也在相应提升。而且这个过程没有尽头，没有墙壁。这不是我们设计出来的，而是自然规律的体现。</p>
+      <p>当然，我们并非只是在沿用 1940 年代的技术。我们不断有新想法驱动着进展。有时是微调——比如发现数据格式化的方式不太对，这实际上可能是非常重大的改进。有时是更大的突破，比如从 LSTM 到 Transformer 的转变。Transformer 的原始 2018 版本已经没有人直接使用了。</p>
+      <p>在长期研究如何改进架构、改进基础算法、获得范式转换方面，OpenAI 一直处于领先地位。而且我认为我们正处于丰收的前夕。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>AGI：我们已经完成了80%</h1>
+    <p class="lead">关于 AGI 的定义和进程，这是最敏感也最值得探讨的话题。Greg 给出了一个令人惊讶的评估。</p>
+    <div class="chapter-content">
+      <p>我们确实有正式的 AGI 定义。但我发现，每个人对 AGI 都有自己的理解。根据我的判断，我们已经完成了大约 80%。</p>
+      <p>我们有非常聪明的模型，它们非常有能力。如果你给它们足够的上下文，它们能够完成的任务甚至超过我本人——尤其是在编写软件方面。在某些领域，我们看到了巨大的收益。在低级别任务上，如果你有正确的问题设置，你能够从非常低的级别获得真正惊人的结果。</p>
+      <p>让我分享一个具体的例子。我的一个系统工程师，之前从 GPT-5、GPT-5.1、GPT-5.2、GPT-5.3 中都没有获得太多价值。有一次他准备了一份非常复杂的系统优化设计文档，准备交给团队花一周时间去做。他把文档交给模型后就睡觉了，打算第二天交给团队。</p>
+      <p>结果他醒来时，任务已经完成了。模型不仅实现了初始规格，还发现代码运行缓慢，添加了 instrumentation，使用 profiler 找出瓶颈，迭代多次直到获得优化结果。这就是我们现在的水平。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>给初创公司的建议：拥抱工具，现在就做</h1>
+    <p class="lead">面对日益强大的 AI 模型，初创公司应该如何调整策略？Greg 的建议既直接又深刻。</p>
+    <div class="chapter-content">
+      <p>我会建议大家积极拥抱这些工具。仅在 12 月份，我们就看到 AI 编程工具从编写 20% 的代码跃升到编写 80% 的代码。这意味着它们从配角变成了主角。</p>
+      <p>这种转变正在发生在人们使用计算机的所有工作中。你可以看到 Codex 最近取得的进展——它正在从软件工程师的工具转变为任何使用计算机的人的工具。就在上周，我们发布了一系列新功能，使其变得更加强大。</p>
+      <p>我们刚刚发布了一个名为 Chronicle 的新工具，它与 Codex 深度集成，能够看到你在电脑上做的一切，并形成记忆。当你问它问题时，它立刻知道你在说什么。「我五分钟前在做什么？」它知道。「这个人在谈什么？」它也知道。</p>
+      <p>这让我意识到，我们现在花了大量精力向计算机解释正在发生的事情。为什么我们要这样做？这完全没有道理。</p>
+      <p>我认为，接下来的几年里，模型会变得更加有能力，我们会拥有更好的工具链。但现在正在发生的一次性转变是关于上下文的——你需要确保 AI 有足够的信息来解决你的问题。这是值得现在投资的。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>OpenAI 内部：生活在未来</h1>
+    <p class="lead">作为 OpenAI 员工，我们比任何人都更早「生活在未来」。我们的工作方式正在发生根本性变化。</p>
+    <div class="chapter-content">
+      <p>在 OpenAI 工作的一个惊人之处在于，你确实能够生活在未来。你能看到正在出现的事物是什么样子，我们可以共同设计——真正改变模型、工具链，一切都是为了更好地服务于我们看到的需求。</p>
+      <p>我们从软件工程开始，设定了明确的指导方针。例如，我们仍然希望有人对所有合并的代码负责。最终，我们需要人类来签字确认：「这是合并这段代码的好时机吗？它结构良好吗？会让我们的代码库更可维护吗？」</p>
+      <p>我认为，既不能说「哦，让 AI 盲目使用一切」，也不能说「我们完全不用这个」。两个极端都不对。</p>
+      <p>我们还在 OpenAI 内部按垂直领域采用这些工具——在财务、销售、IT 等领域都有人在用。我们有一个小型专职团队，深入理解每个领域，与该领域的专家合作，建造技能、修改 Codex UI。完成后，我们会将其外部化，交付给所有人。</p>
+      <p>我们也开始与某些客户合作。对于那些希望非常前瞻、想成为定义这场革命的一部分的人，这里有他们的位置。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>组织变革：从小团队到超级个体</h1>
+    <p class="lead">AI 正在根本性地改变组织的运作方式。团队规模会缩小，但产出能力会指数级增长。</p>
+    <div class="chapter-content">
+      <p>如果追溯历史，我父亲学计算机时，他只是一个人。然后我们有了长周期的软件发布，变成了瀑布流。后来 web 和云出现了，我们有了「两个披萨团队」和 Scrum。现在有了编程智能体，我们应该如何围绕这一切来组织？</p>
+      <p>我们还在探索。但有些地方的变化已经非常明显。</p>
+      <p>比如，构建原型的成本现在非常便宜。以前做一个仪表板可能需要一周时间，现在几分钟就完成了。因此，真正的瓶颈已经转移到其他方面——比如如何分享成果，如何让企业中的任何人都能轻松构建仪表板、小工具、机器人或其他任何东西，然后与他人分享。</p>
+      <p>这开始对治理提出真正的要求。你希望 IT 部门能够看到所有这些不同的执行线程，理解正在发生的各种事情，对数据来源有某种控制权，确保当源文档不再对某些受众可访问时，派生出的文档也会被正确处理。</p>
+      <p>我认为十年后的公司形式会与现在大不相同。「超级创业者」将能够建立令人难以置信的企业。任何有愿景的人都能实现它。但这也意味着竞争会更加激烈——因为每个人都将拥有这些神奇的工具。真正弄清楚你的利基是什么，你的独特角度是什么，可能会成为最重要的核心竞争力。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>人类注意力：稀缺资源的新定义</h1>
+    <p class="lead">AI 能够完成的事情越来越多，而人类真正的价值在于判断力。这可能是我们面临的最大转变。</p>
+    <div class="chapter-content">
+      <p>现在让我分享一个关于常见失败模式的真实故事。我在用 Codex 时，让它安装一个包，结果遇到了错误。我说：「哦，给 Slack 上的那个人发消息请求帮助。」</p>
+      <p>它照做了。两分钟后，它说：「这太久了。我已经升级到那个人的经理。」它真的给那个人的经理发了消息。</p>
+      <p>一方面，这是模型合理的做法——它很主动，试图解决我的问题。但另一方面……它应该多等一会儿，或者先问问我。</p>
+      <p>这让我意识到，我们正在构建的这些模型有如此强大的能力，而真正理解如何很好地操作它们需要思考。我们在 primitives、安全性、可观测性、良好治理方面投入了大量工作。</p>
+      <p>但更重要的是：人类点击「批准、批准、批准」的模式正在改变。人类本身也不擅长这个——他们只会默认同意。现在我们开始拥有能够标记「这是高风险操作，需要升级」「这个可以自动批准」的 AI。</p>
+      <p>这真的让我认识到，人类注意力将成为一种极其稀缺的资源。「做事情」现在变得容易了。「这是好事吗？这是我想要的吗？这符合我的价值观和愿望吗？」——这将成为唯一的瓶颈。所以构建真正考虑人类因素的超级系统，是现在最重要的事情。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>安全：在 AI 世界中思考网络安全</h1>
+    <p class="lead">AI 既能发现安全问题，也能制造安全问题。如何在这个新世界中保持安全？</p>
+    <div class="chapter-content">
+      <p>有几个层面的思考。我认为互联网一直以来都是一个安全意识不断提升的领域。你想想它从哪里开始的——90 年代的病毒、蠕虫、恶意软件。我们已经超越了那个阶段。我认为我们也在走向一个更加安全的时代，但这确实需要整个互联网的共同努力。</p>
+      <p>使用这些模型可以做很多事情。它们可以扫描代码库，可以用于端到端的红队测试。我们在思考如何利用可信访问计划，如何利用那些真正关心成为防御者、让互联网更安全的社区。这是每个人都有角色可以扮演、可以参与的事情。</p>
+      <p>但第一要务是认识到这些模型非常强大，但它们不是魔法。它们只是整体弹性生态系统的一部分。我们作为社会，作为公司，都需要在如何整合这些模型方面发挥作用，以确保无论是打补丁还是快速推出更新，都能获得更多的保证和确定性。</p>
+      <p>这项工作有很多要做，但我对它的走向持乐观态度。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 09 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">09</div>
+    <h1>加速时代：如何跟上变化</h1>
+    <p class="lead">技术在加速，我们如何不被时代抛弃？Greg 的建议简单却深刻。</p>
+    <div class="chapter-content">
+      <p>我认为这就是新常态。在某种程度上，这并不是因为 AI。这只是过去二十年来技术的趋势。</p>
+      <p>越来越多的人在做事情。做事情比以往任何时候都更容易。入门门槛的降低也意味着创造价值更容易——获得巨大成功更容易。</p>
+      <p>我认为关键是真正保持敏锐，了解正在发生什么。但这一切都始于同一件事：亲自体验这项技术。听别人描述 AI 与亲自使用它，是完全不同的体验。但 AI 的美妙之处在于它非常直观。</p>
+      <p>这就是重点——不是让机器成为你必须扭曲自己来适应的东西，而是让机器适应你。它为你工作，它应该是一个你提出请求、它执行任务的东西。</p>
+      <p>所以我认为，真正把手指放在正在发生的变化上，了解可能的事情，了解模型目前还有什么不足——这是决定公司未来成功的核心技能。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 10 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">10</div>
+    <h1>平衡艺术：速度与责任的博弈</h1>
+    <p class="lead">OpenAI 在快速发展的同时，也在负责任地行事。这两者如何平衡？</p>
+    <div class="chapter-content">
+      <p>从价值观层面，OpenAI 的使命是真正将 AI 的力量交到人们手中。我们相信人们有能力利用被创造出来的工具来建设未来。但我们需要以一种深思熟虑的方式来做这件事——真正思考两边：收益在哪里，风险在哪里，如何最大化收益，如何减轻风险。</p>
+      <p>在网络安全和生物安全方面，我们非常谨慎。我们已经在这些领域建立了 mitigations 和可信访问计划。</p>
+      <p>我们上周宣布扩大了可信访问网络计划。让我问一下，在座的有人申请过吗？没人？哦，我看到一两个人举手。应该有更多人申请，这很棒。我们真的需要帮助，因为重要的是那些值得信赖的、负责任的、真正想要推动这些模型的人参与进来。</p>
+      <p>这就是为每个人带来红利的方式。在接下来的几周里，我们将宣布更多关于如何扩大该计划的消息。</p>
+      <p>当我们将模型发布给所有人时，我们拥有的 mitigations，以及我们将如何调整这些以平衡——真正努力将这些能力尽可能广泛地带来，同时确保我们在思考风险，能够观察它们，确保部署是最大化的积极影响。</p>
+      <p>简而言之，这是我们使命的核心。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 11 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">11</div>
+    <h1>前沿科学：AI 推动人类知识的边界</h1>
+    <p class="lead">AI 在科学发现中的角色正在显现。物理学的突破已经发生，生物学正在路上。</p>
+    <div class="chapter-content">
+      <p>科学是我们真正投入的领域，我们看到了真正令人难以置信的进步的视线。我们开始看到一些初步成果。</p>
+      <p>例如，我们有一个物理学成果，我们的 AI 想出了一个非常美丽的公式，那些研究这个问题很长时间的物理学家认为这是完全不可能的。他们认为这可能是一个无法解决的问题。但这相当重要——真正的资深物理学家认为这是迈向真正解决量子引力等问题的一步。</p>
+      <p>还没有到达那里，但比我们几个月前的状态迈出了一大步。这让你真的想知道，一年后我们会走多远。</p>
+      <p>生物学不同于物理学和数学。在生物学中，你必须离开你美丽的模拟世界，处理混乱的现实。但我认为我们一直在学习如何在其他领域处理混乱的现实。</p>
+      <p>软件工程就是一个很好的例子。我们已经意识到，仅仅构建能够赢得编程竞赛的东西是不够的。你需要一些在真实世界混乱代码库中见过的东西，需要人类以不同方式打断它，以这种对抗性的方式敲打它。</p>
+      <p>所以我认为，在科学方面，我们将看到真正的复兴。也许今年会看到一些重大成果。明年，我认为将是完全疯狂的一年。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 12 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">12</div>
+    <h1>未来展望：当 CEO 管理十万个智能体</h1>
+    <p class="lead">我们正在经历工作方式的根本性转变。未来的编程会是什么样子？</p>
+    <div class="chapter-content">
+      <p>我认为我们目前的工作方式处于非常不自然的状态。我们都坐在这个盒子后面敲敲打打。我们的身体显然不是为了这个设计的——我们有腕管综合症、肩膀前倾。没有人真正想要这样。</p>
+      <p>我们不想要这样。我们想要更多的空闲时间。但实际上，这甚至不一定只是关于空闲时间——你想要花更多时间和你爱的人在一起。你想要花更多时间与人交谈，像提出绝妙的想法或只是了解你兴奋的事情，或只是理解自己。</p>
+      <p>所以，你想要成为一个管理十万个智能体组织的 CEO 吗？这实际上听起来相当不错。</p>
+      <p>我们都将能够完成比以前多得多的事。但其运作方式会感觉与从用笔和墨水手写东西到能够发送短信让人代表你工作的变化一样不同。</p>
+      <p>我们生活在一个有趣的时代。技术在加速，我们在其中既感到挑战也感到兴奋。最重要的是，我们要享受这段旅程——无论是在 AI 改变世界的过程中，还是在它帮助我们找到更多时间与所爱之人共处的过程中。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=bBS93A0BeNI" class="footer-link">Sequoia AI Ascent 2026</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+</body>
+</html>

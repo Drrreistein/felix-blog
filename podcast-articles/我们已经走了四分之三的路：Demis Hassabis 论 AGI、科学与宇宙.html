@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>我们已经走了四分之三的路：Demis Hassabis 论 AGI、科学与宇宙 · Demis Hassabis</title>
+<meta name="author" content="Demis Hassabis">
+<meta name="description" content="人们常常问我，为什么一个国际象棋神童会去做游戏、然后读神经科学、再然后创立一家 AI 公司？在外人看来，这些经历似乎散乱无章。但对我来说，它们始终只是同一件事的不同面——我在15、16岁的时候就决定，AI 是我这辈子最重要的事情。
+
+这次访谈发生在一个充满创始人的场合。我们聊了很多：从 Elixir">
+<meta name="keywords" content="播客, 访谈, Demis Hassabis, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">我们已经走了四分之三的路：Demis Hassabis 论 AGI、科学与宇宙</div>
+    <div class="cover-sub">DeepMind 创始人谈 AGI 2030预测、AI 如何重写生命科学，以及信息是宇宙最基本的量</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Demis Hassabis</strong><br>Google DeepMind 首席执行官兼联合创始人、Isomorphic Labs CEO<br>
+    主持：Sequoia Capital·2026-05-08<br>
+    时长：约27分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>人们常常问我，为什么一个国际象棋神童会去做游戏、然后读神经科学、再然后创立一家 AI 公司？在外人看来，这些经历似乎散乱无章。但对我来说，它们始终只是同一件事的不同面——我在15、16岁的时候就决定，AI 是我这辈子最重要的事情。
+
+这次访谈发生在一个充满创始人的场合。我们聊了很多：从 Elixir Studios 时期的失败教训，到2009年 DeepMind 创立时面对的怀疑目光；从 AlphaFold 解决50年蛋白质折叠难题，到我对「AI 将催生全新科学」的设想；从图灵机的能力边界，到意识的本质以及我为何相信信息是宇宙最基本的量。
+
+我一直说 AGI 会在2030年到来，而且我们基本在轨。但比这个预测更重要的，是 AGI 到来之后我们打算用它做什么。DeepMind 从第一天起的使命就是：第一步，解决智能；第二步，用它解决一切其他问题。这不是口号——这是我三十年工作的路线图。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">从棋盘到代码：一个少年的 AI 野心</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">2009年的秘密：当世界不相信 AGI 可能</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">AlphaFold 之后：AI 如何重写生命科学</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">用模拟器造出新科学：AI 将改写经济学与社会科学</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">信息即宇宙：从图灵机到意识的哲学沉思</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>从棋盘到代码：一个少年的 AI 野心</h1>
+    <p class="lead">我的人生经历表面上看起来毫无章法——棋手、游戏开发者、神经科学家、AI 创业者。但这条路其实是我在15、16岁时就刻意规划好的。</p>
+    <div class="chapter-content">
+      <p>我大约在十五六岁的时候就决定了，AI 是我这辈子最重要的事情，也是最有趣的事情。那时候我就开始刻意选择每一段经历，把它们当作通往 DeepMind 的垫脚石。</p>
+      <p>先是游戏。很多人觉得游戏开发是一段「弯路」，但其实在90年代，游戏行业才是最前沿技术的集散地。不只是 AI，图形技术也好，硬件也好——我们今天所用的 GPU，最早就是为游戏图形引擎设计的。我在90年代末就开始使用最早一批 GPU 了。游戏给了我一个在实际产品中锻炼 AI 想法的场所，某种程度上，我是在通过游戏开发为 AI 研究募资。</p>
+      <p>我在 Bullfrog Productions 工作了一段时间，那是英国乃至整个欧洲早期游戏产业最传奇的工作室之一。17岁时我参与制作了 Theme Park——一个模拟游乐园的游戏，里面有成千上万个小人会走进你的主题公园，在游乐设施上玩耍，从商店里做购买决策。这背后有一套完整的经济学 AI 模型。游戏最终卖出了超过<span class="hl">一千万份</span>，当我看到人们和 AI 互动时脸上那种喜悦，我就更加确定要把整个职业生涯花在这上面。</p>
+      <p>后来我创立了自己的公司 Elixir Studios，也在那里学到了最重要的一课。我们想做一款叫 Republic 的游戏，模拟一整个国家——有独裁者、有城市、有一百万个活着的 AI 市民——而这一切要跑在当时家用的 Pentium 电脑上。这个项目太超前了，最终遭遇了不少困难。</p>
+      <p>这段经历让我总结出一条原则：<span class="hl">你想比时代领先5年，而不是50年</span>。太超前就意味着你所需要的基础设施、算力、用户认知全都还不存在；但如果等到所有人都明白这是个好主意，那就又太晚了。这个法则我一直带到了 DeepMind，也体现在我们今天做蓝天研究时选择的每一个方向。</p>
+      <p>然后是神经科学。我读 PhD 和博士后，不是因为我对学术生涯有执念，而是因为我需要从大脑的工作方式中获取算法灵感。强化学习的很多核心想法来自神经科学——比如多巴胺奖励机制——而理解大脑如何学习，是通往通用人工智能的重要线索之一。神经科学还为我提供了一种独特的视角：AI 不只是一个工具，它也是理解我们自身意识、创造力和梦境本质的一面镜子。</p>
+      <p>这三条路——游戏、神经科学、深度学习——不是随机的。它们是我在少年时代就开始筹备的，为了在我认为时机成熟的时候，把所有这些东西汇聚在一起，建立 DeepMind。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>2009年的秘密：当世界不相信 AGI 可能</h1>
+    <p class="lead">2009年创立 DeepMind 时，我们感觉自己掌握了一个没有人知道的秘密。学术界对 AGI 普遍悲观，MIT 和剑桥还在做专家系统，而我们看到的是三条即将交汇的技术路径。</p>
+    <div class="chapter-content">
+      <p>2009年我们决定创立 DeepMind 的时候，我以为我们比时代领先了5年。现在回头来看，可能领先了10年。但在当时，那种感觉是非常孤独的——我们几乎感觉像是掌握了一个没有人知道的秘密。</p>
+      <p>那时候，Geoffrey Hinton 和他的同事们刚刚在学术界发明了深度学习，但几乎没有人意识到这是一件大事。与此同时，强化学习这个领域有了相当多的积累。我们清楚地看到，<span class="hl">把这两种技术结合在一起</span>将有巨大的潜力——而这件事此前几乎没有人做过，这两个子领域完全是各自独立发展的，彼此之间几乎没有交集，除了一些玩具问题。</p>
+      <p>第二条线索是算力。GPU 从图形引擎起步，但我们判断加速计算行业将会对 AI 大有帮助（后来我们又转向了 TPU）。这是一个很早期的硬件判断，但时机已经越来越近了。</p>
+      <p>第三条线索来自神经科学。我的 PhD 和博士后研究给了我和共同创始人们一套从大脑中提炼出来的算法思路——包括强化学习最终可以 scale 到 AGI 的核心信念。</p>
+      <p>但这些判断在当时几乎得不到任何呼应。学术界对 AGI 的主流态度是翻白眼。我在 MIT 做博士后，那里是专家系统和逻辑语言系统的中心；剑桥的情况也差不多——这些大型传统 AI 中心仍然在用那套从90年代就开始用的方法，而我已经觉得那是古董了。每当我们提到要做 AGI，人们的反应是：「这个我们都试过了，在90年代行不通的。」</p>
+      <p>奇怪的是，这反而坚定了我。至少我们如果失败，会以一种全新的方式失败，而不是重蹈覆辙。这本身就值得做。</p>
+      <p>DeepMind 的使命从第一天起就很清晰：<span class="hl">第一步，解决智能，即造出 AGI；第二步，用它解决一切其他问题。</span>我们在2010年预计这将是一个<span class="hl">20年的使命</span>，而现在来看，整个领域基本上还在那个预测的轨道上。</p>
+      <p>即便 AI 此后一直是小众领域，我也会继续做下去。这是我认为人类历史上最重要的技术，也是最有趣的一项——既是科学工具，本身也是极其有趣的研究对象，还是理解我们自身心智的最佳途径之一。作为一个神经科学家，关于意识、梦境、创造力，我有太多想用 AI 来探索的问题。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>AlphaFold 之后：AI 如何重写生命科学</h1>
+    <p class="lead">AlphaGo 攻克围棋那一天，我知道算法已经强大到可以应对真实世界的科学问题了。从那一刻开始，AI for Science 从一个愿景变成了一个正式的战略重心。</p>
+    <div class="chapter-content">
+      <p>大约10年前，在首尔的那场 AlphaGo 比赛之后，我们几乎在回来的第二天就正式启动了 AI for Science 部门。那不是巧合——我一直在等一个信号，等待算法强大到足以应对生物学、材料科学这种级别的真实问题。围棋胜利就是那个信号。</p>
+      <p>我的个人使命一直是通过 AI 推动科学和医学的进步，但我选择了一条「元路线」——先造出终极工具，再回头用它来做科学突破。而 AI for Science 部门（由 Pushmeet Kohli 领导，已经存在了将近十年）就是这一战略的执行臂。</p>
+      <p>其中最大的成就是 AlphaFold。蛋白质折叠是一个<span class="hl">50年的科学难题</span>——蛋白质的三维结构对于理解生命和设计药物至关重要，但从氨基酸序列预测三维结构的问题困扰了整个领域半个世纪。AlphaFold 解决了这个问题，而且是以一种令人震惊的精度。我认为这已经是生物学领域的「ChatGPT 时刻」。</p>
+      <p>但 AlphaFold 只是药物发现过程中的一个关键环节，尽管很重要。我们现在知道了蛋白质的形状——它的表面是什么样的，我们需要攻击哪个位点。但我们还需要设计出正确的化合物，让它恰好与目标蛋白质结合，同时又不与其他蛋白质结合（否则就会产生毒副作用）。</p>
+      <p>这就是我同时在运营的 Isomorphic Labs 在做的事情。它的目标是在硅基环境中自动完成<span class="hl">药物发现过程中99%的探索工作</span>，只把最后的湿实验室步骤留给验证。</p>
+      <p>如果这个目标能够实现——我认为在未来几年内可以做到——那么药物研发的周期将从目前的<span class="hl">平均10年</span>缩短到<span class="hl">数月，甚至数天</span>。这意味着几乎所有疾病都将在可攻克的范围内，个性化医疗将真正成为可能：针对每个人的基因特征，对基础药物进行个性化调整。</p>
+      <p>这不只是生物学。AI for Science 的下一波浪潮还包括材料科学、能源、环境——这些领域同样面临着复杂系统的理解难题，而 AI 的方法论在那里将同样强大。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>用模拟器造出新科学：AI 将改写经济学与社会科学</h1>
+    <p class="lead">物理学有数学，生物学有机器学习——我一直相信这句话。但更大的愿景是：AI 模拟器将使经济学、社会科学这些今天无法重复实验的领域，升级为真正意义上的严格科学。</p>
+    <div class="chapter-content">
+      <p>我认为 AI 会催生出两类全新的科学。第一类是关于 AI 系统本身的理解——Mechanistic Interpretability 只是开端，随着 AI 系统变得与人类大脑一样复杂，对它们的系统性研究将成为一门独立的工程科学。</p>
+      <p>第二类，也是让我最兴奋的，是<span class="hl">AI for Simulations</span>——用 AI 来学习模拟器，进而把经济学、生态学、社会科学等领域升级为真正的「硬科学」。</p>
+      <p>为什么经济学今天还不是像物理学那样的科学？根本原因在于它是一个涌现系统，你无法做重复的控制实验。你想研究提高利率半个百分点的影响？你得在真实世界里做，然后等着看结果，根本无法「重复运行」一千次来验证你的假设。这不是经济学家不够聪明，而是方法论的根本限制。</p>
+      <p>但如果你有一个足够精确的模拟器，这个限制就消失了。你可以随意采样，在严格控制的条件下重复实验，逐步提炼出可验证的规律。这就是 AI 模拟器将带来的革命。</p>
+      <p>我们在 DeepMind 已经做了很多这方面的工作。比如 WeatherNext，这是<span class="hl">目前世界上最精确的天气模拟器</span>，比气象学家使用的传统方法快得多。我们还在开发一个我称之为「<span class="hl">虚拟细胞</span>」的项目——试图对生物细胞这个极端复杂的动态涌现系统进行准确的 AI 建模。</p>
+      <p>关于机器学习与生物学的关系，我有一个坚定的信念：<span class="hl">机器学习是描述生物学的完美语言，就像数学是物理学的语言。</span>物理学可以被优雅的方程式描述，是因为它的规律相对简洁且可以被人类数学所捕捉。但生物学充满了弱信号、弱相关性和海量数据——远远超过人类大脑直接处理的上限，但其中确实存在着真实的因果关系和结构。机器学习天生擅长从这种类型的数据中提取模式，这让它成为生物学天然的数学替代语言。</p>
+      <p>还有一个更激进的可能性：一旦你学到了精确的模拟器，你也许可以从中反推出显式的方程——就像麦克斯韦方程之于电磁学。这类涌现系统是否存在这样的基础方程，目前还是未知数；但如果存在，我不认为有什么道理阻止我们用这种方法找到它。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>信息即宇宙：从图灵机到意识的哲学沉思</h1>
+    <p class="lead">在我的世界观里，信息比能量和物质更基本；大脑是近似图灵机；而 AGI 的终极目标是先造出最强大的工具，再用它来回答关于意识和现实的深层问题。</p>
+    <div class="chapter-content">
+      <p>我有一个关于宇宙基本结构的想法，也许有些出格，但我认为证据支持它：<span class="hl">信息比能量和物质更基本</span>。</p>
+      <p>爱因斯坦的 E=mc² 告诉我们能量和物质是等价的，可以相互转换。我认为信息也有同样的地位——它可以和能量、物质相互转换，而且是最基础的那个。当你看待生物体，它们本质上是在对抗熵的信息处理系统；当你看待物理世界的组织结构，它背后都是信息编码。</p>
+      <p>这和20世纪初的物理学主流思想恰好相反——那时候人们认为能量和物质是第一性的，信息是派生的。我认为顺序应该倒过来：以信息为第一性去理解宇宙，反而更能解释很多现象。如果这个框架是对的，那 AI 的深刻程度远比我们通常认为的还要高——因为 AI 本质上就是对信息的组织、理解和构造，而信息恰好是宇宙最基础的要素。</p>
+      <p>我是图灵的崇拜者。他的图灵机结论是有史以来最深刻的科学成果之一：所有可计算的东西都可以被一台相对简单的机器计算。我认为人类大脑是<span class="hl">近似图灵机</span>，而 AlphaFold 的成功已经给了我们一个震撼的证据：一台经典图灵机（以现代神经网络的形式），可以建模蛋白质折叠这样一个量子系统——很多人本以为这至少需要量子计算机。这说明很多我们认为需要量子系统才能处理的问题，也许在用经典系统思考时，同样可以得到近似最优的解。</p>
+      <p>关于 AI 从工具到主体的边界，我的判断很清晰：我们应该先把工具做到极致，然后再讨论意识和主体性问题。Agent 时代已经到来，AI 系统越来越自主，这已经是非常深刻的一步。但「它是否有意识？它是否有自我？」这些更深层的问题，应该作为第二步来处理，最好是用 AGI 工具本身来辅助我们研究。</p>
+      <p>意识是什么？我和很多顶级哲学家讨论过这个问题。已故的丹尼尔·丹尼特是其中之一——我们有过一次深入的长谈。我的理解是，意识的必要条件包括：自我意识，自他区分，以及某种时间上的连续感。这些是必要但可能不充分的条件。对于 AI 系统，我们也许可以从行为上判断它是否「表现得像一个有意识的系统」，但永远面临一个根本困难：我们假设其他人类有意识，部分是因为我们共享同一种底层基底（都是大脑）。与人工系统永远不会有这种基底等价性，这个鸿沟可能永远难以完全弥合。</p>
+      <p>在哲学上，我最喜欢两位思想家。康德让我思考「心灵创造现实」这个命题——在做神经科学 PhD 的时候，这个想法深深触动了我，让我更加确信理解大脑是理解现实的前提。斯宾诺莎则给了我一种更接近精神的维度：当你用科学探索宇宙时，你其实是在<span class="hl">阅读宇宙的语言</span>。这种感觉一直陪伴着我——每次我在做 AI 研究、在为 DeepMind 指定方向的时候，我都感觉我们在做的，是试图读懂那个语言背后更深层的意义。</p>
+      <p>最后，关于 AGI 的时间节点：<span class="hl">2030年</span>，我一贯如此预测。我们大概走了四分之三的路程。AGI 到来之后，我想做的第一件事，是用它去回答 David Deutsch 在《现实的结构》中提出的那些深层问题——关于知识、现实和计算的本质。那将是我的「后 AGI 工作」。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=AFpeWo1GTeg" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026-05-08</div>
+</section>
+
+</body>
+</html>

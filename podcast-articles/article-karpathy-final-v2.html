@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>从 Vibe Coding 到 Agentic Engineering · Andrej Karpathy</title>
+<meta name="author" content="Andrej Karpathy">
+<meta name="description" content="「我从未如此落后于编程」——当OpenAI的联合创始人说出这句话时，所有人都屏住了呼吸。这不是谦虚，而是真实的觉醒。
+
+我是Andrej Karpathy。我曾在斯坦福讲授深度学习课程、领导特斯拉Autopilot研发、发明了「vibe coding」这个词汇。但今天，我发现自己站在了一个全新的编程">
+<meta name="keywords" content="播客, 访谈, Andrej Karpathy, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">从 Vibe Coding 到 Agentic Engineering</div>
+    <div class="cover-sub">Andrej Karpathy 谈 AI 编程范式的根本转变</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Andrej Karpathy</strong><br>OpenAI 联合创始人、前特斯拉 Autopilot 总监<br>
+    主持：Sequoia Capital·2026<br>
+    时长：约30分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>「我从未如此落后于编程」——当OpenAI的联合创始人说出这句话时，所有人都屏住了呼吸。这不是谦虚，而是真实的觉醒。
+
+我是Andrej Karpathy。我曾在斯坦福讲授深度学习课程、领导特斯拉Autopilot研发、发明了「vibe coding」这个词汇。但今天，我发现自己站在了一个全新的编程时代的门槛上。
+
+在Sequoia Capital的AI Ascent 2026大会上，我与主持人Stephanie Zhan进行了一场深度对话。我们聊了软件3.0的计算哲学、AI能力的边界、如何正确使用Agentic Engineering，以及人类在AI时代应该如何重新定义自己的价值。这是一段让我自己也在不断思考的对话。
+
+如果你正在使用AI编程工具，或者在考虑如何利用AI重塑你的工作方式，这篇文章值得你认真读完。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">从「落后」说起：Vibe Coding 的觉醒时刻</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">软件 3.0：一种全新的计算范式</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">可验证性：AI 能力的边界在哪里</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">Agentic Engineering：保持水准的加速之道</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">人类的终极价值：理解不可外包</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>从「落后」说起：Vibe Coding 的觉醒时刻</h1>
+    <p class="lead">去年12月，我意识到自己不再需要纠正AI生成的代码。这是一个极其明显的转变——从「审查」到「信任」，从辅助工具到真正的协作伙伴。</p>
+    <div class="chapter-content">
+      <p>去年12月，我正在休假，有了更多的时间去探索。我像很多人一样，已经使用Claude Code等AI编程工具一年多了，但之前的体验是：AI能写出不错的代码片段，但经常出错，我需要不断纠正它。</p>
+      <p>但12月的那段时间，情况发生了变化。最新的模型生成的代码块越来越完善，我不断要求更多，它就不断输出，而且几乎不需要修改。我已经想不起来上一次纠正AI代码是什么时候了。我开始越来越信任这个系统，直到有一天，我意识到：我已经不是在「辅助编程」，而是在「Vibe Coding」。</p>
+      <p>这个转变是极其明显的。我试图在Twitter上强调这一点，因为很多人去年对AI的认知还是「ChatGPT式的辅助工具」，但你必须重新审视它——尤其是这些Agentic的、连贯的工作流程，它们在12月开始真正起作用了。</p>
+      <p>从那以后，我的side projects文件夹变得异常充实。我一直在用Vibe Coding构建各种有趣的东西。这种体验很难用语言形容，但如果你也在用这些工具，你应该懂我在说什么——那种「放手让AI去做」的奇妙感觉。</p>
+      <p>一方面这让人兴奋：你突然能够以之前十倍的速度构建任何你想做的东西。但另一方面，当你意识到自己已经如此依赖AI时，「落后感」也会油然而生。这不是坏事，而是一种清醒的认知：你必须重新调整自己的定位。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>软件 3.0：一种全新的计算范式</h1>
+    <p class="lead">不是让现有工作更快，而是很多工作根本不应该存在。神经网络正在成为新的计算平台，而我们的编程方式需要彻底重构。</p>
+    <div class="chapter-content">
+      <p>我一直在思考LLM作为一种全新计算范式的意义。传统软件1.0是我们写代码，软件2.0是创建数据集和训练神经网络——编程变成了「安排数据」。但如果你在一个足够大的任务集合上训练GPT或LLM，因为训练数据来自互联网，这些模型实际上变成了某种意义上的可编程计算机。</p>
+      <p>这就是Software 3.0的本质：编程变成了「写提示词」，而上下文窗口就是你操控解释器（LLM）的杠杆。LLM解释你的上下文，在数字信息空间执行计算。这种转变彻底改变了「编程」的含义。</p>
+      <p>让我用两个具体的例子来说明。</p>
+      <p>第一个例子是OpenClaw的安装。传统方式下，这应该是一个bash脚本——运行它来完成安装。但为了适配不同的平台和计算机类型，这个shell脚本往往变得极其复杂。你仍然被困在Software 1.0的范式中，想要精确写出所有步骤。</p>
+      <p>但实际上，OpenClaw的安装变成了：复制粘贴一段文字给你的AI代理，然后它会完成安装。这强大得多——你工作在Software 3.0范式中，不再需要精确写出所有细节。代理有自己的智能，它查看你的环境，执行智能操作，调试问题。这才是更强大的方式。</p>
+      <p>第二个例子更极端：Menu Genen。这是一个我想了很久的项目——去餐厅时，菜单上通常没有图片，我根本不知道那些菜是什么样子。我想要拍照然后获得这些菜的样子。</p>
+      <p>我花了大量时间用传统方式构建了Menu Genen应用：上传照片，OCR识别标题，用图像生成器生成图片，最后展示。但后来我看到Software 3.0版本的做法：直接把照片给Gemini，说「用Nanobanana把菜品覆盖到菜单上」，它就直接返回了一张完美渲染的菜单图片。</p>
+      <p>这让我意识到：我之前的所有代码都是「冗余」的。这个应用不应该存在。真正的Software 3.0范式中，神经网络做大部分工作，提示词/上下文是输入，输出也是直接的——不需要中间层。</p>
+      <p>我们必须重新思考：不是现有工作的加速，而是很多工作根本不应该存在。这是新范式带来的新可能性。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>可验证性：AI 能力的边界在哪里</h1>
+    <p class="lead">LLM为什么在某些领域极其强大，在另一些领域却犯低级错误？可验证性（Verifiability）框架揭示了AI能力「参差不齐」的深层原因。</p>
+    <div class="chapter-content">
+      <p>我花了很多时间思考「可验证性」这个概念，因为它解释了为什么LLM的能力如此「参差不齐」（jagged）。</p>
+      <p>传统计算机能轻松自动化「能用代码指定」的工作，而最新的LLM能轻松自动化「能用验证函数检查」的工作。原因是：前沿实验室训练LLM时使用的是巨大的强化学习环境，模型被给予验证奖励，然后通过训练逐步提升。</p>
+      <p>这就解释了为什么模型在可验证领域（数学、代码）特别强大，而在这些领域之外就停滞不前、粗糙不平。我写关于可验证性的文章，就是试图理解为什么这些东西如此参差不齐。</p>
+      <p>一方面，这与实验室如何训练模型有关。但另一方面，也与实验室关注什么、往数据分布中加入什么有关。因为有些东西在经济上更有价值，实验室更愿意在这些领域创建RL环境。代码就是一个好例子。</p>
+      <p>但有些同样可验证的环境可能没有被加入，因为它们「不够有用」。这种状况让我们多少受制于实验室的决定——他们在数据中加入什么，我们的能力边界就在哪里。</p>
+      <p>最典型的例子是「Strawberry」问题：LLM长期在「strawberry中有几个r」这种简单问题上出错。但更有趣的新例子是：我想去50米外的洗车场洗车，应该开车还是走路？最先进的Opus 4.7会告诉你走路，因为「太近了」。</p>
+      <p>这怎么可能？最先进的AI能同时重构10万行代码库、发现零日漏洞，却告诉你去洗车场应该走路？这就是「jagged intelligence」的表现。</p>
+      <p>从GPT 3.5到GPT 4，人们注意到国际象棋能力大幅提升。多数人以为这只是能力进步，但实际上是因为大量象棋数据被加入了预训练集——不是默认的泛化能力提升，而是数据分布的影响。</p>
+      <p>所以，当模型仍然参差不齐时，第一，可能有什么地方出了问题；第二，你需要保持在循环中，把它们当作工具，同时关注它们在做什么。如果你的应用不在RL circuits中，你就需要做fine-tuning，让模型真正适应你的场景。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>Agentic Engineering：保持水准的加速之道</h1>
+    <p class="lead">Vibe Coding 提高下限，Agentic Engineering 保持专业水准。协调AI代理而不牺牲质量，是一门值得掌握的工程学科。</p>
+    <div class="chapter-content">
+      <p>我想区分两个概念：Vibe Coding 和 Agentic Engineering。</p>
+      <p>Vibe Coding 是关于提高每个人能做软件的下限。门槛上升，每个人都能 vibe coding 任何东西，这很棒。但 Agentic Engineering 是关于保持专业软件的质量标准——你不允许因为 vibe coding 而引入漏洞。你仍然对软件负责，只是速度更快了。</p>
+      <p>所以我把现在的状态称为 Agentic Engineering，因为它是一门工程学科。代理是「有点 stochastic」的，有点随机，但极其强大。如何协调它们在提速的同时不牺牲质量，正确地完成工作——这是 Agentic Engineering 的领域。</p>
+      <p>我认为这两种方式不同：一个是提高下限，一个是向上延伸。我看到的情况是，Agentic Engineer 的能力上限非常高。人们以前谈论「10倍工程师」，但我认为现在的加速远超10倍。真正擅长这个的人，产出远不止10倍。</p>
+      <p>那么，如何招聘 Agentic Engineer？</p>
+      <p>我看到的情况是，大多数人还没有重构他们的招聘流程。如果你还在给候选人出编程题，这仍然是旧范式。招聘 Agentic Engineer 应该这样做：给我构建一个真正的大项目，比如一个 Twitter 克隆。</p>
+      <p>然后让这个项目真正好、真正安全。让一些代理模拟一些活动。然后用 10 个 Claude Code 5.4x 来攻击这个网站——看看它们能不能破解它。如果它们能破解，说明你的代理还不够好。</p>
+      <p>这就是真正的能力检验。</p>
+      <p>在实际工作中，AI Agent 仍然像实习生——它们记忆力出众，但没有审美判断。当我看生成的代码时，有时会心跳加速，因为代码不一定超级棒。它往往臃肿，有很多复制粘贴，有脆弱的抽象。它能工作，但就是很糟糕。</p>
+      <p>这也是为什么我正在做一个「Micro GPT」项目，试图把 LLM 训练简化到尽可能简单。但模型讨厌这样做。我不断尝试提示 LLM 简化再简化，它就是做不到。你感觉自己在 RL circuits 之外。这说明即使是最先进的模型，也有它的能力边界。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>人类的终极价值：理解不可外包</h1>
+    <p class="lead">AI Agent 可以外包思考，但不能外包理解。人类仍然需要把控规格、设计、计划——这是我们在 AI 时代独特价值所在。</p>
+    <div class="chapter-content">
+      <p>我们正在走向一个代理代表人类和组织的世界。我的 AI 代理应该能与你的 AI 代理沟通，协调会议细节。但前提是：我们需要「Agent 原生」的基础设施。</p>
+      <p>今天的一切仍然是为人类写的，需要被「翻译」给代理。每次我被告知「访问这个URL」时，我的反应就是：啊？为什么还在告诉我该做什么？我什么都不想做。给我一段能复制粘贴给代理的指令不行吗？</p>
+      <p>这就是为什么我期待未来有大量「Agent First」的基础设施。文档应该首先为 AI 写，然后人类也能阅读。数据格式应该对 LLM 高度可读。我的 AI 代理应该能与你的 AI 代理直接沟通。</p>
+      <p>当被问到「AI 时代人类什么技能更重要」时，我的答案是：审美、判断力、品味，以及某种程度的监督。</p>
+      <p>AI Agent 仍然像实习生——它们记忆力出众，但没有intrinsic motivation，没有对美的追求。它们不会因为被批评而工作得更好或更差。一切都只是预训练的统计模拟加上RL强化。</p>
+      <p>我最喜欢的例子是 Menu Genen 的账户关联问题：你用 Google 账户注册，但用 Stripe 购买积分。两者都有邮箱地址。我的代理试图用 Stripe 的邮箱地址关联 Google 邮箱地址的账户——但你可以用不同的邮箱！这就是代理仍然会犯的奇怪错误。</p>
+      <p>所以人类必须负责规格、计划、顶层设计。</p>
+      <p>但有一个推文让我印象深刻：「你可以外包你的思考，但不能外包你的理解。」</p>
+      <p>我认为这说得很对。我仍然是系统的一部分。信息必须进入我的大脑，我感觉自己成了瓶颈——知道我想要构建什么，知道什么值得做，知道如何指导我的代理。所以我仍然认为，最终必须有东西来引导思考和处理，而理解仍然是我们独特负责的领域。</p>
+      <p>这也是为什么我对 LLM 知识库如此兴奋——它们是增强理解的好工具。当我阅读文章时，我有不断积累的 wiki。任何时候看到信息的新投影，我都会有新的洞见。这本质上是大量 prompts 用于对我持有的固定数据进行综合数据生成。</p>
+      <p>工具可以帮助我们处理信息、重组信息、创造新的洞见。但理解本身——判断什么值得追求、什么方向是正确的——这仍然是人类的专属领域。</p>
+      <p>几年后再回来，看看我们是否真的被自动化到了理解之外，这将很有趣。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=96jN2OCOfLs" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+</body>
+</html>

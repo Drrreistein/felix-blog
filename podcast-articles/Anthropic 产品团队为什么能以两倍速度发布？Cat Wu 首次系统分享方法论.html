@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Anthropic 产品团队为什么能以两倍速度发布？Cat Wu 首次系统分享方法论 · Cat Wu</title>
+<meta name="author" content="Cat Wu">
+<meta name="description" content="Anthropic的产品发布速度让整个行业侧目。特征时间线从6个月压缩到1个月，有时甚至只需1天。这背后不是某种神秘的「基因」，而是一套可以被学习的方法论。
+
+Cat Wu是Anthropic Cloud Code和Co-work的产品负责人，与Boris（Bert Chan）搭档领导这支团队。在L">
+<meta name="keywords" content="播客, 访谈, Cat Wu, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">Anthropic 产品团队为什么能以两倍速度发布？Cat Wu 首次系统分享方法论</div>
+    <div class="cover-sub">从6个月到1天：Anthropic的产品发布方法论 × PM角色在AI时代的演变</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Cat Wu</strong><br>Head of Product, Claude Code &amp; Co-work @ Anthropic<br>
+    主持：Lenny Rachitsky·2026<br>
+    时长：约85分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/PplmzlgE0kg/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/PplmzlgE0kg/hqdefault.jpg'"
+         alt="How Anthropic&#39;s product team moves faster than anyone else | Cat Wu (Head of Product, Claude Code)">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/PplmzlgE0kg?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ How Anthropic&#39;s product team moves faster than anyone else | Cat Wu (Head of Product, Claude Code) · <a href="https://www.youtube.com/watch?v=PplmzlgE0kg" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>Anthropic的产品发布速度让整个行业侧目。特征时间线从6个月压缩到1个月，有时甚至只需1天。这背后不是某种神秘的「基因」，而是一套可以被学习的方法论。
+
+Cat Wu是Anthropic Cloud Code和Co-work的产品负责人，与Boris（Bert Chan）搭档领导这支团队。在Lenny的播客中，她首次系统地分享了Anthropic的产品哲学、PM角色的演变、以及她对AI时代个人生产力的思考。
+
+这次访谈最让我印象深刻的是她的坦诚。她没有包装出一套高大上的框架，而是用最朴实的语言描述了一个「使命驱动、快速行动、不受角色边界限制」的团队文化。这恰恰是AI时代最稀缺的东西——不是工具，不是技术，而是一套清晰的价值排序和行动准则。
+
+以下是这次访谈的完整整理，enjoy。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">与Boris搭档：产品愿景与执行路径的分工艺术</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">极速发布：Anthropic如何消除一切发布障碍</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">AI时代PM的核心能力：产品品味</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">Claude Code × Desktop × Co-work：产品矩阵的使用场景</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">用Co-work做PM：自动化工作流的实战</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">内部工具革命：Claude Code降低了一切门槛</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">模型会吃掉你的Harness：产品随AI能力进化</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">使命驱动：「职位是假的」与快速决策文化</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">09</span>
+      <span class="timeline-index-topic">面向未来：多Agent协作与PM的进化</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">10</span>
+      <span class="timeline-index-topic">给所有人的建议：找到你的100%自动化</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>与Boris搭档：产品愿景与执行路径的分工艺术</h1>
+    <p class="lead">Cat的角色不是一个传统意义上的PM。她与Boris的分工定义了Anthropic Cloud Code团队的核心协作模式。</p>
+    <div class="chapter-content">
+      <p>人们往往把Claude Code的成功归功于Boris——他创建了这个产品，每天从手机上发布无数个PR。Cat觉得人们没有给予她足够的认可。</p>
+      <p>她分享了自己与Boris的分工。Boris是我们的技术负责人，也是产品愿景的设定者。他非常擅长描绘3到6个月后产品应该达到的状态——那个「AGI版本」的产品应该是什么样的。而Cat的工作是把当前状态和那个愿景连接起来，找到一条清晰可执行的路径。</p>
+      <p>她把更多时间花在跨职能协调上。确保营销团队、销售团队、财务团队、容量团队都对计划买账，确保所有人朝着同一个方向划船。一旦功能开发完成，确保没有任何障碍阻止它发布出去。</p>
+      <p>这种分工运转良好的原因是他们几乎可以「心灵感应」——但Cat也承认，界限其实相当模糊。大约80%的事情他们会自动同步。然后有20%的事情其中一方更在意，那就由那一方主导。</p>
+      <p>Anthropic大约有30到40名PM，分为几个团队：研究PM团队（由Diane领导，负责理解客户对模型的反馈并传递给研究团队）、云开发者平台PM团队（维护Cloud Code所基于的API，并发布托管Agent等）、Cloud Code PM团队（同时负责Cloud Code和Co-work核心产品）、企业PM团队（帮助Cloud Code和Co-work更容易被企业客户采用）、以及增长PM团队（负责整个产品线的增长）。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>极速发布：Anthropic如何消除一切发布障碍</h1>
+    <p class="lead">把发布周期从6个月压缩到1天，不靠魔法，靠的是一套精心设计的快速迭代机制。</p>
+    <div class="chapter-content">
+      <p>Cat观察到一个现象：她在不断面试PM候选人，而这些人几乎都在用错误的方式做AI产品。他们仍然过度依赖PRD，过度依赖多季度路线图和与其他团队的对齐。</p>
+      <p>AI时代之前，技术变革速度慢得多，产品规划可以以6到12个月为周期。由于发布速度较慢，团队需要花大量时间与合作伙伴团队协调，确保他们的功能能支持你的功能——因为那时候写代码的成本很高。</p>
+      <p>但现在一切都变了。Cat说，Anthropic产品功能的发布时间线已经从6个月缩短到1个月，有时甚至1周或1天。这要求PM思维方式彻底转变：减少对路线图对齐的依赖，更多关注如何把东西最快地送到用户手里。</p>
+      <p>Research Preview是他们的核心武器。每次发布功能时，他们会清楚地向用户标明这是早期产品。这只是一个想法，一个收集反馈的尝试，不一定会长期支持。这样做的好处是：它降低了发布承诺，可以在一两周内把东西放出去。</p>
+      <p>跨职能协作也被压缩到极致。工程师完成功能并内部测试后，会发布到「常青发布室」。负责文档的Sarah、负责PMM的Alex、负责DevRel的Tar和Lydia就会立刻加入，通常第二天就能完成营销公告的发布。这种紧密的流程降低了任何人发布任何东西的摩擦——PM的职责就是建立这套流程。</p>
+      <p>Anthropic还有严格的每周指标review。团队全员参与，确保每个人深入理解业务的各个维度，理解关键目标是什么、趋势如何、以及什么在驱动这些数字。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>AI时代PM的核心能力：产品品味</h1>
+    <p class="lead">代码变便宜了，决定做什么变得前所未有的重要。产品品味，是AI时代最稀缺的能力。</p>
+    <div class="chapter-content">
+      <p>播客中有一个经典问题：PM还需要存在吗？毕竟现在工程师可以直接和AI对话并发布功能。</p>
+      <p>Cat的答案很直接：产品品味是最稀缺的技能。她观察到，代码变便宜后，决定做什么变得更有价值。什么才是这个功能的正确UX？用户最能感受到乐趣的方式是什么？GitHub上会有成千上万的issue在请求各种功能，需要大量的品味和判断力来决定哪些值得做、以及正确的实现方式。</p>
+      <p>她的团队优先招聘有产品品味的工程师。这些工程师能够端到端地完成工作——从Twitter上的用户反馈，到一周后发布一个几乎不需要PM参与的产品。这种模式大幅减少了发布的开销。</p>
+      <p>那么，工程背景对PM有什么特殊价值？Cat认为，至少在短期内，答案是「对开发难度的直觉」。如果知道某件事很容易做，就不用争论，直接花一个小时搞定。如果知道某件事很难，你就会理解为什么它需要团队付出更多资源。这帮助进行更好的优先排序。</p>
+      <p>她承认技能组合的价值会随时间变化，每隔几个月就会出现编码能力的巨大跃升，从而改变其他角色的价值。所以关键是保持第一性原理思维，理解技术格局如何变化、团队真正需要什么，然后跳进去填补那个缺口。在当前环境下，最被看重的是能够身兼多职、灵活切换、而且对做什么工作没有ego的人。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>Claude Code × Desktop × Co-work：产品矩阵的使用场景</h1>
+    <p class="lead">三个产品，三种场景。理解它们的差异，才能用好Anthropic的产品矩阵。</p>
+    <div class="chapter-content">
+      <p>很多用户分不清Claude Code、Claude Code Desktop和Co-work的使用场景。Cat给出了清晰的区分。</p>
+      <p>Cloud Code在终端使用时，适合启动一次性的编码任务，而且能获得所有最新功能。CLI是他们的初始产品形态，特性也往往最先落地。所以这是她最常用的入口。</p>
+      <p>Desktop真正发光的时候是涉及前端工作。她喜欢同时使用Cloud Code和Desktop，在右侧打开预览窗格，可以实时看到正在构建的Web应用。另外，Desktop对于想要更图形化界面的人非常友好。终端对非技术人员可能很陌生——那些在机器上弹出的命令行窗口，不像其他产品那样可以点击操作。很多人因此不适应终端环境。</p>
+      <p>Web和移动端的好处是随时随地都能启动任务。CLI和Desktop都需要在笔记本电脑上操作，但有时候你在外面、在散步，不想打开电脑。移动端让你可以在路上启动这些任务，不用随身带着笔记本到处走。</p>
+      <p>Co-work填补的空白是：有很多工作产出不是代码。比如Slack收件箱为零、写客户会议的演示文稿、撰写功能目标的文档——这些任务产出的是非代码内容。</p>
+      <p>她的心智模型很简单：如果产出的东西是代码，就用Cloud Code或Desktop或移动版。如果产出的是任何非代码内容，就用Co-work。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>用Co-work做PM：自动化工作流的实战</h1>
+    <p class="lead">Cat展示了她作为PM如何使用Co-work：从连接所有数据源开始，到自动生成20页演示文稿。</p>
+    <div class="chapter-content">
+      <p>使用Co-work的第一步是连接所有相关的数据源。Co-work只有获得足够的上下文才能做好工作。对Cat来说，这意味着连接Google日历、Slack、Gmail、Google Drive——让Co-work能够灵活找到相关背景，提问、拉取线程。</p>
+      <p>她分享了最近的一个实战案例。Anthropic要举办Cloud Code Conference，她有几场演讲，其中一场关于Cloud Code从助手进化到完整Agent的过程。她想让演讲涵盖所有最近发布的产品、展示团队内部的成功案例作为demo。</p>
+      <p>她把PMM同事起草的要点、自己手动写的草稿（她不满意的版本）、以及所有相关链接都输入Co-work，告诉它她想讲的叙事线。然后Claude工作了一个小时，浏览Twitter看团队发布了什么、翻找常青发布室、阅读Cloud Code公告频道——那个团队发布demo的地方。最终合成为一份20页的演示文稿，她醒来时发现草稿已经生成好了。</p>
+      <p>当然需要一轮反馈修改。她希望幻灯片文字极少，而Co-work的初稿有点太冗长。但它远比自己制作要快，她可以把精力集中在确保demo精彩上。</p>
+      <p>最让她惊讶的是Co-work能直接使用公司的设计系统。幻灯片的颜色、字体、各种格式都和Anthropic设计师出品的一样——看起来完全像内部设计师做的。</p>
+      <p>Cat特别强调：这展示了PM在AI时代的核心角色。Claude是出色的头脑风暴伙伴，能够快速综合大量信息并展示所有可能性。但最终决策仍然是PM的职责——决定哪些内容应该进入最终产品。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>内部工具革命：Claude Code降低了一切门槛</h1>
+    <p class="lead">Cloud Code降低了构建内部工具的门槛，团队涌现出大量个性化工作软件——这可能是企业软件的下一个形态。</p>
+    <div class="chapter-content">
+      <p>Cat认为Cloud Code为企业内部解锁的最大的事情之一，是大幅降低了制作任何定制化应用的可能性。团队中出现了大量针对定制化用例构建的个性化工作软件——而不是使用那些不太完美契合场景的工具。</p>
+      <p>她分享了一个销售团队的案例。团队里有人意识到他要一遍遍地制作类似的演示文稿。他用Cloud Code构建了一个Web应用，内置了Claude Code最好用的几张演示文稿——101、201、以及Mastering Claude Code。然后有一个功能可以输入特定客户背景，自动从Salesforce、Gong、以及其他笔记系统拉取数据，从而为特定客户定制PPT。</p>
+      <p>系统会自动处理：客户使用Bedrock还是Cloud Code企业版或Console，影响可用的功能；客户关心代码审查阶段的SLC，会自动在那里添加相关幻灯片；客户需要HIPAA合规或特定安全控制，就会加上相应的幻灯片。反之，如果客户用Vertex或Bedrock且不想用Cloud企业版，就会去掉企业版专属的幻灯片。</p>
+      <p>通常这类工作是手动操作，需要20到30分钟，人们要么花时间做，要么直接用通用PPT。现在只需要几秒钟就能得到一份定制化的演示文稿。</p>
+      <p>这个故事揭示了一个更大的趋势：当每个人都能用AI构建工具时，企业软件的形态可能从「买一套SaaS」变成「用AI拼装个性化工具链」。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>模型会吃掉你的Harness：产品随AI能力进化</h1>
+    <p class="lead">每次模型能力提升，产品中那些「弥补不足」的部分就可以被移除。这不是技术债务清理，这是产品进化。</p>
+    <div class="chapter-content">
+      <p>播客中Cat提到了一个她非常喜欢的洞察：「模型会吃掉你的harness」。</p>
+      <p>她分享了一个具体的例子——待办事项列表的演变。Claude Code刚发布时，用户会要求它做大型重构，比如需要修改20个调用点。Claude会开始做，说「好的，我需要改这20个」，然后改了5个就停了。</p>
+      <p>团队成员Sid想到了一个方案：让Claude像人类一样行动。如果一个人要做这件事，会先列出所有需要改的地方——就像VS Code会显示所有调用点列表，然后逐一替换。团队给Claude加了待办事项工具，发现它能通过这个机制完成所有20个调用点的修改。</p>
+      <p>但后来有了Opus 4和更新的模型，团队发现根本不再需要强制它使用待办事项列表。它会自己主动用。早期模型时，你需要一直提醒它「待办清单上的事情做完了吗？没做完不能结束」。但更新的模型，无需提示就会记得做待办清单上的所有事情。</p>
+      <p>所以团队每次发布新模型都会做一件事：通读整个系统提示词，思考每个部分——模型真的还需要这个提醒吗？如果不需要，就删掉。</p>
+      <p>她认为更有趣的是新模型解锁的全新功能。代码审查功能之前尝试过几次，发布过更简单的版本。但只有在最新的模型出来之后，团队才觉得代码审查足够好——Anthropic的工程团队现在依赖这个代码审查来通过PR合并。团队发现终于可以运行多个代码审查Agent，同时遍历整个代码库，综合出一组真正需要工程师在合并前解决的问题。这是新模型解锁的新能力。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>使命驱动：「职位是假的」与快速决策文化</h1>
+    <p class="lead">「职位是假的」——Anthropic用统一使命简化决策，用行动导向文化消除边界。</p>
+    <div class="chapter-content">
+      <p>Cat在访谈中多次强调Anthropic独特的企业文化，其中最让她兴奋的一点是统一使命的重要性。</p>
+      <p>Anthropic招聘的人最在乎的是把安全的AGI带给全人类。这是他们做每个产品决策时都会参考的北极星。正因为把使命放在任何单一产品线之上，他们才能做出跨越整个组织、快速统一执行的决策。这种决策速度是她从未在同规模公司见过的。</p>
+      <p>Cat区分了两个概念：使命和优先级。使命意味着团队愿意为了Anthropic的目标牺牲个人目标和KR。人们非常乐意做那些符合Anthropic整体利益的权衡。一个极端例子：如果Cloud Code失败了，但Anthropic成功了，她会非常高兴。</p>
+      <p>所以当两个事情有冲突时，团队会讨论哪个对Anthropic的使命更重要，这使得决策变得容易得多。当决定了之后，每个人都会支持这个决定。有时候团队想做Cloud Code上的某个功能，但另一个事情更重要，所以会延后发布这个功能。</p>
+      <p>关于「职位是假的」，Cat说：如果理解约束条件，你可以做任何需要做的事，快速行动，从错误中学习并道歉或修复。这让她和团队成员在只有20个人时就能做大事——那时候没有流程，有真正的大问题需要解决，而她很感激团队能够赋能每个人不受边界限制地找到解决方案。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 09 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">09</div>
+    <h1>面向未来：多Agent协作与PM的进化</h1>
+    <p class="lead">从单任务到多任务并行，展望未来可能同时运行50到100个Claude实例——基础设施需要演进，而PM的角色持续存在。</p>
+    <div class="chapter-content">
+      <p>Cat透露了Anthropic对未来产品的思考。他们把Cloud Code和Co-work的发展都理解为一个「构建块」的进化过程。</p>
+      <p>两个产品的核心构建块都是让单个任务成功。你想产出某个结果，给它一个清晰的prompt，它能持续地产出你能合并或分享给同事的内容——这是核心。当模型变聪明，任务成功率会大幅提升。</p>
+      <p>接下来团队看到的是人们开始同时做多个任务。2025年底多coding成为大趋势，而且之后还在增加。团队把这理解为：好，一个任务成功了，现在可以同时做6个任务。</p>
+      <p>当模型更进一步，她的推测是：也许下一步你可以同时运行50个或100个Claude实例。到了那个规模，你大概不会再在本地机器上运行所有东西了——内存根本不够。他们在思考如何让你更容易管理所有这些任务。这些可能都需要远程运行。他们在构建相关的基础设施。</p>
+      <p>还需要考虑的是：到了那个规模，作为人类如何知道该关注哪些任务？如何确保Agent完全验证工作，让你看到某任务标记为完成时，真的可以很快验证并完全信任它符合你的规格？如何让这个流程自我改进——当你看到一个任务没达到你的预期，给它反馈，模型就能知道在所有未来运行中融入那个反馈，再也不会犯那个错误？</p>
+      <p>关于PM技能的未来，Cat认为最难定义的技能是能够定义产品一个月后应该长什么样。存在很大的模糊性——模型那时候能做什么？用户行为会如何变化？但最优秀的PM能够从用户如何滥用现有产品极限的模式中看到方向，能够设定一个方向，稳步执行，并根据模型能力比预期更好或更差来调整路径。</p>
+      <p>她还强调evals被严重低估。不需要写几百个evals才能有用，只需要10个好的evals就能帮助团队量化目标是什么、进展如何、以及缺少什么。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 10 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">10</div>
+    <h1>给所有人的建议：找到你的100%自动化</h1>
+    <p class="lead">95%的自动化没有价值。把重复性工作交给AI，迭代到100%准确率，然后把精力放在你真正热爱的事情上。</p>
+    <div class="chapter-content">
+      <p>Cat给出了非常务实的建议。</p>
+      <p>AI给了每个人比以往更多的杠杆。她的直接建议是：当你意识到自己在多次做某件手工事情时，想想如何用Cloud Code、Co-work或其他AI工具来自动化它。大多数人的工作都有创造性的部分是他们非常喜欢的，以及繁琐的部分是他们讨厌做的。</p>
+      <p>AI的美妙之处在于它可以为你做那些繁琐的部分。它可以从你每次做的手工任务中学习，然后泛化，自动运行它——从而让你专注于创造性的部分。这意味着你能够比以前做得更多。</p>
+      <p>她的推动方向是：找到重复性的工作，把它交给Claude。然后在这些自动化上迭代，直到成功率高得不能再高。然后专注于你能为团队、产品、公司做更多的事情——那些人们到目前为止没有带宽去做的事情，或者是那个你一直觉得公司应该做但没有时间做的个人项目。</p>
+      <p>她还提到了一个被忽视的点：把自动化从「这个概念很酷」推进到「这东西100%有效」。她看到很多用户尝试自动化某件事，达到90%到95%的准确率就放弃了。如果自动化不是100%有效，它其实不是真正的自动化。最后那5%到10%确实需要更多时间。构建自动化往往比你手动做它要慢得多。</p>
+      <p>她鼓励听众投入时间打磨你真正想要达到100%的自动化。花精力教Claude你的偏好，给它反馈让它改进它的技能，这样它就能达到100%。然后你就可以真正依赖它。95%的自动化真的没有太大价值。</p>
+      <p>对于那些沉迷于工具定制的现象，她也有话说。简单设置往往效果更好。她观察到很多人在Twitter上炫耀「看我的设置」，但如果你问他们「你在构建什么」，他们的回答是「哦不，我的设置太牛了。它能做这么多事情」。这种平衡——定制确实有趣，但也有个度——是值得思考的。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=PplmzlgE0kg" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>编程已解决，接下来是什么？ · Boris Cherny</title>
+<meta name="author" content="Boris Cherny">
+<meta name="description" content="我从未想过自己会创造出改变软件开发方式的产品。从Anthropic Labs的意外诞生，到Claude Code的指数级增长，这条路充满了未知与惊喜。在这次访谈中，我回顾了Claude Code从概念到现实的历程，分享了我如何用手机管理数百个AI代理，以及为什么我相信编程在不久的将来会像识字一样普及">
+<meta name="keywords" content="播客, 访谈, Boris Cherny, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">编程已解决，接下来是什么？</div>
+    <div class="cover-sub">Anthropic的Boris Cherny谈Claude Code的诞生、现状与未来</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Boris Cherny</strong><br>Anthropic工程师，Claude Code创始人<br>
+    主持：Lauren Reader·2026<br>
+    时长：约25分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>我从未想过自己会创造出改变软件开发方式的产品。从Anthropic Labs的意外诞生，到Claude Code的指数级增长，这条路充满了未知与惊喜。在这次访谈中，我回顾了Claude Code从概念到现实的历程，分享了我如何用手机管理数百个AI代理，以及为什么我相信编程在不久的将来会像识字一样普及。如果你对AI辅助编程、多代理协作，或者软件开发的未来感兴趣，这篇文章会给你一个内部视角。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">意外诞生的Claude Code</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">从失败到指数增长</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">「编程已解决」的真正含义</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">我的手机编程工作流</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">团队的未来：跨学科技师</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">SaaS末日与创业公司的黄金时代</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">编程的民主化：下一个印刷术</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">我们领先世界多少？</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>意外诞生的Claude Code</h1>
+    <p class="lead">Claude Code并非精心策划的产品，而是我们在Anthropic Labs中自然演化的结果。当团队完成使命解散后，这个项目却意外地改变了整个行业。</p>
+    <div class="chapter-content">
+      <p>很多人问我Claude Code的起源，实际上它始于2024年底的一个内部孵化器项目——Anthropic Labs。当时我们是一个小团队，志在创新。我们创造了三样东西：Claude Code、MCP，以及桌面应用。</p>
+      <p>这个过程很自然。我们建造了自己想要的工具，然后解散了团队。有趣的是，团队现在又重新聚合进行第二轮迭代。Mike Krieger——Anthropic的首席产品官，也是Instagram的联合创始人——目前正在领导这项工作。</p>
+      <p>启动这个项目的核心原因是我们感受到了所谓的「产品过剩」。这个词在Anthropic内部使用得很频繁。它的含义是：模型已经能够做所有的事情，只是还没有产品能够完全捕捉到这些能力。</p>
+      <p>2024年底，当我们审视编程领域时，当时的技术水准还是「类型提前」——你在IDE中打开文件，按Tab键，然后一次完成一行代码。这是Sonnet 3.5首次实现的功能。但我们感觉到可以走得更远。模型已经准备好迎接下一个大飞跃了。我们不需要再做类型提前，我们可以让代理来编写所有的代码。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>从失败到指数增长</h1>
+    <p class="lead">前六个月，Claude Code几乎不可用。即便在最初发布时，它也没有引起轰动。真正的转折点出现在Opus 4发布的那一刻。</p>
+    <div class="chapter-content">
+      <p>我必须诚实地说，最开始的那六个月，这个产品真的很难用。它并不好，勉强能用而已。我当时可能只用它来完成10%的编码工作。</p>
+      <p>即便在最初发布Claude Code时，它也不是一个爆款。有很多人使用它，但它并没有今天这样的指数级增长。转折点在今年五月，随着Opus 4的发布而到来。我很清楚地记得那个时刻——指数级增长就是从那里开始的。</p>
+      <p>此后，每一次模型发布都带来一个新的增长拐点。从Opus 4开始，然后是4.5，接着是4.6，现在是4.7。它不断地在拐点处跃升。</p>
+      <p>本质上，我们试图建造的是一个预PMF（产品市场契合）的产品。我们知道它在六个月内不会有PMF，因为我们是为下一代模型而建的。这始终是我们整个过程中的核心理念。</p>
+      <p>对于Anthropic来说，我们始终非常专注。我们一直关注企业、企业和安全性以及编程。这一直是我们想要构建的方向。所以在某个时刻，我们知道我们想构建一个产品。我们不知道具体要做什么，但这个产品赌注最终就这样形成了。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>「编程已解决」的真正含义</h1>
+    <p class="lead">当我说编程已解决时，我指的是我个人的体验——模型现在为我编写100%的代码。但这并不代表所有场景都已经完美。</p>
+    <div class="chapter-content">
+      <p>我在记录中说过「编程已解决」。这到底意味着什么？还有什么可能没有被解决？</p>
+      <p>让我用房间里的大家来做一下调查。谁用手写100%的代码？谁使用像Claude Code这样的代理来编写100%的代码？谁介于两者之间？</p>
+      <p>对我来说，是100%。Claude Code的代码库其实很简单，就是TypeScript和React，没有什么大秘密。我们选择TypeScript和React的原因是，这对模型来说分布非常广泛。</p>
+      <p>正因为如此，我认为我们很早就达到了模型编写100%代码的程度。对我来说今天，模型为我编写100%的代码。我通常每天要写几十个PR。上周有一天，我一天之内做了150个PR。那是一个纪录——我只是想看看自己能把这件事推到什么程度。</p>
+      <p>但是的，对我来说，这已经解决了。当然，并非所有地方都是如此。有些非常庞大复杂的代码库，还有一些模型还不擅长的奇怪语言。但正如大家所知，它正在不断进步。通常答案就是等待下一个模型。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>我的手机编程工作流</h1>
+    <p class="lead">现在我用手机完成大部分工作。我有5到10个会话，每个会话又有许多代理。我使用「loop」功能让代理自动执行重复任务。</p>
+    <div class="chapter-content">
+      <p>你们可能想了解我的个人设置。其实我六个月前在Twitter上分享过，当时我没意识到这会让任何人感到惊讶。那只是我编码的方式。</p>
+      <p>事实上，现在我大部分工作都是通过手机完成的。我打开Claude应用，左侧有一个小代码标签，我有一堆会话正在进行。通常有5到10个会话，每个会话又有一堆代理，所以目前可能有几百个代理在运行。</p>
+      <p>我发现自己越来越频繁使用的是「loop」功能。这是/loop命令，它是最酷的东西。它的全部功能就是让Claude使用cron来安排未来某个时刻的作业，而且它是一个重复作业。它可以每分钟运行一次，每5分钟运行一次，每天运行一次。</p>
+      <p>目前，我有几十个loop在运行各种任务。我有一个在照看我的PR，比如修复CI、自动重新基准化。我还有另一个保持CI健康。我还有另一个每30分钟从Twitter抓取反馈并为我聚类。</p>
+      <p>在这一点上，我觉得loop就是未来。如果你还没有尝试过，我强烈推荐。我们 also just launched routines，这是同样的事情，但是在服务器上。所以即使你关闭笔记本电脑，它也会继续运行。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>团队的未来：跨学科技师</h1>
+    <p class="lead">我认为未来会有更多的通才。不仅是工程领域的通才，而且是跨学科的通才——既擅长产品工程又精通设计。</p>
+    <div class="chapter-content">
+      <p>你们想知道我认为团队未来会是什么样子。我感觉事情发展的方向是，通常会有比今天多得多的通才。</p>
+      <p>今天当我们谈论通才时，我认为在很大程度上我们谈论的仍然是工程师。所以他们仍然在写代码，但也许他们是那种产品工程师。但我认为我们将开始看到更多的是跨学科的通才。</p>
+      <p>所以是那些非常擅长产品工程，但也非常擅长设计的工程师。或者非常擅长产品、数据科学和工程。这是我们开始在我们团队中看到的东西。</p>
+      <p>我们团队中的每个人都写代码。所以我们的工程经理、我们的产品经理、我们的设计师、我们的数据科学家、我们的财务负责人、我们的用户研究员，我们团队中的每一个人都在写代码。所以他们都是某个领域的专家，但现在大家也都在编码。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>SaaS末日与创业公司的黄金时代</h1>
+    <p class="lead">随着AI让编写代码变得10到100倍便宜，一些商业模式的重要性会降低，同时未来十年初创公司的数量会增长10倍。</p>
+    <div class="chapter-content">
+      <p>作为我们看到的AI让编写代码变得10倍或100倍便宜的结果，用软件生产的产品价值会发生什么变化？我们会面临SaaS末日吗？</p>
+      <p>我认为会有两件事情发生。我认为一件事是，由于AI，一些商业模式会变得不那么重要。例如，转换成本会变得不那么重要，因为你可以使用模型，基本上可以从一个东西移植到另一个东西。</p>
+      <p>流程力量也变得不那么重要，因为Claude非常擅长弄清楚流程。特别是随着4.7，它可以just hill climb anything。所以如果你给它一个目标，你告诉它迭代直到完成，它就会去做。</p>
+      <p>我认为第二件事是，如果你看看今天或者过去十年的初创公司数量，我认为未来十年的初创公司数量——那些将要颠覆一切的东西——将会增加10倍。</p>
+      <p>因为现在你可以是一个小型初创公司，你可以构建一个和大型公司一样有价值的东西，而且你可以正面竞争。这是构建的最佳时机。这是成为初创公司的最佳时机。会有如此多的颠覆到来。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>编程的民主化：下一个印刷术</h1>
+    <p class="lead">我认为正在发生的事情最清晰的类比是15世纪欧洲的印刷术。编程将会以更快的速度经历同样的事情，最终像识字一样普及。</p>
+    <div class="chapter-content">
+      <p>我认为Claude Code几个月前做了一个文化改变，它让构建软件变得民主化。你可以看到店主为自己构建软件。</p>
+      <p>你认为在未来，构建软件会成为一种技能吗？就像我知道Microsoft Office一样？所以，这是每个人都能做的事情，不仅仅是科技行业的人？</p>
+      <p>天啊，是的。我认为它会比那更多。我认为它会成为一种技能，像是——你知道如何发送短信。</p>
+      <p>我读的两类书基本上是科幻和技术历史。这是我很喜欢的两类。我认为在技术历史中，有一件事情对我来说是正在发生的事情最清晰的类比。这是在1400年代，欧洲的印刷术。</p>
+      <p>发生的事情是，在印刷术之前，基本上10%的欧洲人口是识字的。他们知道如何读和写。他们通常被国王和领主雇佣，而那些人是不识字的。他们的工作就是读和写，这不是每个人都会做的事情。</p>
+      <p>印刷术发明了，然后出现了两个更多的印刷术，在第一个印刷术之后的50年内，欧洲出版的文献比之前一千年都要多。</p>
+      <p>在同样的时期，文学的成本，一本书的成本下降了100倍。然后，这需要几百年的时间，因为你知道，学习读和写是困难的。你需要教育系统，需要政府，每个人都不能在农场工作等等。但在接下来的几百年里，全球识字率上升到了70%左右。</p>
+      <p>所以，你知道，现在我们都能够读和写，你不需要读写学位就知道如何读和写。尽管仍有专业作家，这是你可以做的事情。</p>
+      <p>所以我认为即将发生的事情——而且它会比50年快得多——软件将成为一个完全民主化的东西，任何人都可以做。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>我们领先世界多少？</h1>
+    <p class="lead">在模型层面，我们和外界没有差距——我们使用的是同样的模型。但在产品和组织结构层面，我们可能领先很多。</p>
+    <div class="chapter-content">
+      <p>有人说你们生活在未来，因为你们能够使用模型和代理。Claude Code在发布之前就是一个内部工具。你和外界的差距是一个月？三个月？六个月？这个差距是变大还是变小？</p>
+      <p>是的，所以在内部，我们使用的是和所有人一样的模型。对我们来说，吃自己的狗粮非常重要。所以我们使用和大家一样的东西。</p>
+      <p>在模型层面，其实没有真正的差距。我的意思是，它基本上就是mythos，你知道，那个的某个版本会在某个时刻对所有人可用。</p>
+      <p>我认为在产品层面，可能有更大的差距。而这只是与我们改变所有流程有关。如果你和Anthropic的人交谈，我们使用Claude做所有事情。</p>
+      <p>我们的Claude整天都在交谈，就像当我的Claude在循环中编码时，它们会通过Slack与其他也在循环中运行的人的Claude交谈，以弄清楚未知的事情。</p>
+      <p>我们在公司里没有手动编写的代码。所有的SQL都是由模型编写的。一切都是由模型构建的。</p>
+      <p>所以我认为我们实际上领先的地方不是技术，因为同样的技术对我们可用，对这里的每个人也可用，因为从根本上说，我们正在构建一个平台。所以对我们来说，非常重要的一点是，开发者可以使用我们正在使用的同样的东西，我们吃我们自己推出的所有东西的狗粮。</p>
+      <p>但我认为在组织结构和组织流程方面，实际上有更大的差距。这是一个我们希望在这样的地方可以谈论它，每个人都可以从它学习并演化的地方。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=SlGRN8jh2RI" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+</body>
+</html>
