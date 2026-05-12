@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>为什么一半的产品经理正处于危机之中 | Nikhyl Singhal · Nikhyl Singhal</title>
+<meta name="author" content="Nikhyl Singhal">
+<meta name="description" content="产品管理行业正在经历一场前所未有的变革。这不是温和的调整，不是渐进式的优化，而是彻底的范式转移。在这场变革中，有一群人正在经历前所未有的快乐——那些真正热爱建造的产品人；而另一群人却发现自己正处于职业生涯的十字路口。Nikhyl Singhal在与Lenny Rachitsky的深度对话中，毫不留情">
+<meta name="keywords" content="播客, 访谈, Nikhyl Singhal, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">为什么一半的产品经理正处于危机之中 | Nikhyl Singhal</div>
+    <div class="cover-sub">AI时代产品经理的生存指南：建造者崛起，信息搬运工淘汰</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Nikhyl Singhal</strong><br>Meta、Google前高管，CPO at Credit Karma，Skip社区创始人<br>
+    主持：Lenny Rachitsky·2026-05-08<br>
+    时长：约94分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/yUohoaC8_Hs/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/yUohoaC8_Hs/hqdefault.jpg'"
+         alt="Why half of product managers are in trouble | Nikhyl Singhal (Meta, Google)">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/yUohoaC8_Hs?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Why half of product managers are in trouble | Nikhyl Singhal (Meta, Google) · <a href="https://www.youtube.com/watch?v=yUohoaC8_Hs" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>产品管理行业正在经历一场前所未有的变革。这不是温和的调整，不是渐进式的优化，而是彻底的范式转移。在这场变革中，有一群人正在经历前所未有的快乐——那些真正热爱建造的产品人；而另一群人却发现自己正处于职业生涯的十字路口。Nikhyl Singhal在与Lenny Rachitsky的深度对话中，毫不留情地揭示了这个行业的真相：为什么一半的产品经理正处于危机之中，而另一半正在迎来属于他们的黄金时代。如果你正在产品领域工作，无论是刚入行的新人、中级产品经理还是资深产品负责人，这期节目都是你必须认真聆听的。因为这不仅仅是关于行业趋势的分析，更是一份关于如何在AI时代生存并繁荣发展的实战指南。Nikhyl用他30年打造消费级产品的经验，以及他运营的拥有125位顶级产品负责人组成的Skip社区的第一手观察，为我们呈现了一幅既令人警醒又充满希望的行业图景。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">产品管理的黄金时代与至暗时刻</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">判断力为王：AI时代产品决策的核心</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">建造者狂欢，信息搬运工出局</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">行业变革的深层逻辑与未来图景</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">重新发明自己：跨越恐惧与喜悅的鸿沟</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">AI堆栈与建造者的工具箱</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">生存策略：在变革中繁荣发展</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">闪电回合：书籍、节目与人生信条</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">09</span>
+      <span class="timeline-index-topic">关于Skip社区：产品人的互助家园</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>产品管理的黄金时代与至暗时刻</h1>
+    <p class="lead">为什么现在既是最好的时代，也是最坏的时代？</p>
+    <div class="chapter-content">
+      <p>我在上一次和Lenny对话的时候，大约是疫情结束的时候，那还是零利率时代，大家都在谈论IC（个人贡献者）的需求增加，首轮裁员如何影响公司增长。但真正的问题在于，如果你和产品负责人聊一聊，他们的日子其实并不好过。他们的日常工作很大程度上就是在搬运信息——把团队展示给我的信息重新包装，让我能够向老板的老板汇报。这种&quot;负责任却没有权力&quot;的状态，是职场压力最大的形式。现在我们不谈那些了，我们谈的是AI要取代我们的职能，但老实说，如果你回顾一下，如果你已经在产品领域工作了好几年，那段日子确实很艰难。那时候人们薪水不错，裁员刚开始，整个行业空前庞大——产品经理和首席产品官的数量比历史上任何时候都多。</p>
+      <p>但现在发生了变化，人们又开始享受工作了，尤其是产品人，因为他们能够真正开始建造了。他们不再需要依赖那么多人才能产生影响。他们的想法和测试产品直觉与客户的连接变得更加直接。所以从这个角度来看，产品行业正在经历一场彻底的复兴。对于那些最优秀的建造者来说，薪酬达到了历史最高水平，他们收到的offer比以往任何时候都多。他们的下一份工作可能是成为创始人，可能是成为CEO，可能是去做其他职能的工作。他们感觉机会比以往任何时候都多。</p>
+      <p>但说实话，这一切都有很多附带条件。我觉得这一切都始于疲惫。我从来没有见过哪个行业比现在更累。疫情期间我们也累，但原因不同。现在我觉得一切都处于变化之中。一旦你搞清楚了怎么做你的工作，在过去你可以安枕无忧十年，直到你成为经理，然后继续安稳直到成为高管。现在，如果你三个月不跟上最新动态，大家就会说：&quot;哦，你还在做那个三个月前我们就不做了的事情。我们不那样做了。哦，PRD？那都不是产品经理的工作了。&quot;一切都在变化，每个人都处于警戒状态。</p>
+      <p>再加上现在你听到的，大公司正在裁员数万人，同时又在招聘，支付三倍的薪水。这听起来很矛盾，但取决于你站在哪一边。特别是对于很多中层员工来说，那些大约三十多岁的人，生活的残酷之处在于：你正处于职业生涯中精力最充沛的黄金时期，因为你终于搞清楚了自己在做什么。但与此同时，你可能正在安顿下来，可能有了孩子。你的父母正在衰老，你第一次要面对身体的各种疼痛。你得注意饮食，得锻炼身体。你每天只有六到八个小时的精力，但有二十个小时的需求在等着你。你的目标是什么？是让你的生活平衡，让你能够同样地让所有人失望——不是让任何一个群体更失望，而是让所有人都适度失望。父母不会比孩子更失望，健康不会比家庭更失望，工作不会比退休账户更失望。</p>
+      <p>现在你告诉我，我最需要做的是重新塑造自己？但我连这个失望平衡算法都勉强应付得来。这是很黑暗的认知。而且最糟糕的是还有两个心理因素在起作用。第一，好吧，就算我花一周时间休息，去了解人们在做什么，什么是最新的，然后三个月后那一周学的东西就过时了。你必须不断重复，因为目标在不断移动。这不像是我从一个没工作的状态到找到新工作，然后咬咬牙熬过去就回到正轨了——我永远无法进入心流状态，因为我必须一遍又一遍地重复这个过程。</p>
+      <p>我观察到的最令人惊讶的现象是，那些在过去工作做得最好的人，那些掌握了旧游戏规则的人，反而最难度过这个重新塑造的阶段。我把它叫做&quot;影子超能力&quot;悖论——你越擅长掌握一个系统，就越不可能认识到新系统的价值，因为你的整个世界都在告诉你：&quot;这套方法对我很有效。&quot;而你越不行，你反而越兴奋于改变。嘿，我做的事情不起作用，不如换个方向。</p>
+      <p>但如果你真的很出色，你就没有改变的动力。也许你的雇主看到你做得很好，而公司本身也正处于这个时刻。所有这些因素，无论是影子超能力、疲惫、时间压力，还是目标不断移动，都在造成这种重新塑造的抗拒。但我想说的第一条建议是，你必须有勇气，你必须相信，你必须有力量说：看，我知道工作方式正在改变，我需要保持适度，我需要跟上时代。我要跨越那个心理门槛，我要把这件事放在所有事情之上。跨越门槛是关键。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>判断力为王：AI时代产品决策的核心</h1>
+    <p class="lead">什么能力在AI时代变得至关重要？</p>
+    <div class="chapter-content">
+      <p>我觉得未来产品负责人的工作会越来越集中在判断力上，他们将成为使用软件、AI和智能体来取代其他一切的先锋。这解释了为什么现在有这么多兴奋点，因为——说实话——你和我都当过产品经理，我们都不喜欢做的那些事情，AI正在真正地攻克它们。所以我认为这非常有趣，这种变化会大量发生。有些公司已经在做了，有些公司会做，但在两年内，我认为大多数公司都会淘汰所有产品构建中的机械性工作。我认为由于所有这些变化，产品经理将面临比以往多10到100倍的变化提案，因为现在测试某件事的成本、改变某件事的成本都会低很多。当事情变化得那么快时，判断力就变得几乎至关重要了。</p>
+      <p>你问我判断力是什么意思？我觉得基本上就是评估我们正在做的改变是好还是坏。我觉得这也涉及到评估我们要不要以某种方式改变产品。你不能为同一款产品构建一百个定制版本，这会影响你的品牌形象，影响可维护性。所以当客户要求某些东西时，当你想清楚如何构建可持续的、有差异化的东西时，这些都是判断力——评估它是否值得构建，是否值得发布。</p>
+      <p>这几乎就像从互联网诞生之初就存在的一种核心技能。你知道，关键的不是某个功能，而是我们正在组合的那个系统，那个平台，它在赋能各种能力。那就是判断力的本质。顺便说一下，正因为所有这些变化，我认为两年后不会再有糟糕的软件了。这可能更多是一个愿望而不是预测，但如果你计算一下你在给定的一周内遇到多少糟糕的软件，你会发现数量惊人。我有一所房子，里面有大约15个不同的应用来控制从百叶窗到空调到车库门的各种东西。几乎每一个应用都很糟糕。它们不能很好地工作，从来没有人维护，东西坏了没人管。所有那些都会被修复，因为有人会坐下来告诉Claude去修复它，它就会修复，而且会更安全。所以我认为那正在改变，人们对糟糕软件的容忍度会大大降低。</p>
+      <p>沿着这个思路，我发现自己经常用Codex和Claude的提示语就是：&quot;我们怎样才能让产品体验更好？怎样才能让它更好？&quot;你只要问这个问题，它就会给你列出十种改进方法。然后你说：&quot;好的，做前七种。&quot;没错。很快就会有某种超级技能，它会检查应用商店里的每一款软件，然后进去修复它们。修复完成后，它们会发布，它们会更一致、更好、更少bug、更易维护。这就是为什么有很多乐观情绪，因为这些变化可以相当自动地完成。</p>
+      <p>就像这么多应用都是由不是最优秀的工程师建造的。他们是那些公司雇用来建造这个侧边应用的工程师，他们不太关心他们的软件。他们就是觉得：嘿，我们需要构建一个应用，找个人来构建就行了。他们不是以产品为先的公司。而现在所有这些公司都能接触到最熟练的软件工程师——Codex、Claude，以及所有其他工具。所以我完全理解你的意思，每个人现在都有最好的工程师可用，只需要用英语告诉他们去构建一个更好的东西或更好的应用就行了。</p>
+      <p>更有趣的是，我最近才意识到，工程师这个职业也正在经历剧变。而且我觉得，工程师要持续繁荣，只需要基本上变得更像产品经理。编码这部分现在将被解决，现在问题变成：我们应该构建什么？这是好的方向吗？这是我们想要的方向吗？成功的标准是什么？所以如果说你的工作正在改变，想想看当工程师现在有多疯狂。工程师的一个优势是他们是系统思考者，他们更有效地思考淘汰问题。所以当你做出改变时，你必须决定这个改变在你提供的产品中是否可持续。我觉得工程师在这方面有优势。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>建造者狂欢，信息搬运工出局</h1>
+    <p class="lead">为什么一半的产品经理将被淘汰？</p>
+    <div class="chapter-content">
+      <p>最近我刚做了一份关于就业市场的报告，有趣的是，截至今天，我们在全球科技公司拥有的PM空缺职位数量是三年多来最多的。上一次这么高的时候大约是在疫情时期。所以至少对PM世界来说有一些好消息。这让我很惊讶，因为总是有这种说法：为什么我们需要PM？AI直接构建东西就行了。但我的感觉是，我一直觉得PM技能是所有技能中最重要、最有价值的，我知道每个角色的人都觉得自己的角色最重要。设计说我们比什么都重要。但我觉得你说的——决定构建什么、决定这是否是好东西、是否准备好、优先级是什么——这些才是不变的。</p>
+      <p>所以对我来说这很有意义。我的报告在恰好的时机发布，因为就在我准备上这个节目之前，我准备的三个要点是：建造者将迎来他们最快乐的时光；薪酬实际上在上涨；旧金山湾区重新受到青睐。我觉得这三个要点在你的报告中非常清晰地传达出来了。</p>
+      <p>你问为什么产品经理做得这么好？为什么有这么多工作，而实际上我们认识的很多产品人都在努力找工作，或者我们听到这些裁员？我的看法是，这取决于你如何定义什么是产品经理。我认为第一次，我们确实在定义上发生了戏剧性的转变。三年前我们讨论过产品经理有很多不同类型，有些类型实际上更受欢迎。这是IC对话、建造者对话。但现在我们基本上说的是：信息搬运工基本上将成为恐龙。</p>
+      <p>我想大约一半在行业中成长起来的产品人都拥有那种技能和超能力。然后还有一群人进入产品领域是因为他们喜欢建造东西。你知道，像你自己这样的创始人，那可能是他们进入这个行业的动力，然后他们发现自己在做这个叫做产品管理的事情。那些人是建造者，他们是被你的调查所雇用的人。我认为每个公司都想要建造者。有趣的是，很多工程师是建造者，很多设计师是建造者，很多营销人员也是建造者。&quot;需要建造者&quot;将是未来几年的重大标签。这真的很开心。</p>
+      <p>我打赌，如果你必须在准备播客和坐在Codex或Claude前工作之间选择，你会更喜欢后者。这太有趣了。就像看着进步。你看到东西在运作，它在变好，在变好。当我是一名PM时，我曾经休息一下去换房子里的灯泡。原因是灯泡坏了，我换上新灯泡，灯亮了，这太令人满足了，因为在产品工作中很少有这种满足的日子，因为你真的没有能力看到某个坏掉的东西被修好。</p>
+      <p>这只是&quot;负责任却没有权力&quot;的挑战的一部分，直到现在。你现在可以参与这种快乐了。你可以创建一个设计。你不必等待设计师，不必说服设计师去做这个，不必将你的东西放进积压工作中。你不必那样做了。所以我认为建造者将迎来他们最快乐的时光，而且我认为他们会侵入其他职能。</p>
+      <p>当五年前我创办这个社区时，前两三年我们大约有六七十人，只有一个创始人。在过去的12个月里，我们已经增长到大约125人，有14个创始人。14个人基本上决定他们的下一份工作不是接受另一个产品高管职位，而是成为创始人CEO。现在这向我们敞开了。我社区里有一个非常资深的人，他面试了一个CHRO职位——首席人力资源官——因为他想要那个职位的产品经理背景。你永远不会认为HR会是前产品经理，但现在前瞻性的公司开始说：&quot;嘿，我们需要一个有淘汰技能、判断技能、建造技能的人来负责这个职能。&quot;实际上，那个职能可能比工作的其他部分更容易学习。</p>
+      <p>而且我们看到这个趋势，产品建造者将有更广泛的机会，从栈的上游到下游。产品经理和工程师都可以成为产品领导者和产品建造者，所有这些界限都会模糊。但不幸的是，我必须提到硬币的反面。我认为非建造者——那些不喜欢坐下来建造东西的人——他们可能出于某些原因，也许他们没有时间找到那种快乐——如果你不是建造者，如果你觉得我的技能从来不是建造东西，我不太喜欢科技，那些人正处于麻烦之中。我提到大约一半的人属于那一类。</p>
+      <p>我们将面临这样的挑战：他们可能不得不离开科技行业。他们可能想用这些AI工具在科技之外建立新业务，或者他们可能想找一份完全与科技无关的工作。但我认为非建造者的故事是建造者增长故事的镜像。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>行业变革的深层逻辑与未来图景</h1>
+    <p class="lead">为什么现在必须保持现代？</p>
+    <div class="chapter-content">
+      <p>我们正在谈论的事情正在每天发生。我想说的关键点是，过去在产品经理身上真正被重视的技能正在相当实质性地改变。事实上，也许几乎在重要性上完全颠倒了。从某种意义上说，我们很多人以建造者开始我们的职业生涯，然后我们被教导要杠杆化、规模化、组织化、简化、赋能。不要自己做构建工作，让别人去做。不要造车，要造工厂。对吧？那就是我们行业的成熟方式。</p>
+      <p>然后你发现，如果规模可以以非常不同的方式完成，而我们只关心你的观点和你构建的东西呢？这非常令人震惊，这就是我们目前正在经历的。</p>
+      <p>在公司的角度来看，我认为产品负责人会越来越多地被要求推动判断力，然后成为通过软件、智能体来淘汰其他一切的先锋。部分原因是这解释了为什么现在有这么多兴奋点。但我认为在两年内，我认为大多数公司都会淘汰所有产品构建中的机械性工作。我认为将有10到100倍的变化提案被提交给产品经理，因为现在测试某件事的成本，改变某件事的成本将会低得多。</p>
+      <p>当你问AI实验室负责人，如果每个人都同意放慢脚步停止这些东西，他们会放慢吗？他们都说会的。这说明了很多关于事情进展的速度和变化程度。但现实是这不会发生，因为博弈论不允许。任何人都不能放慢脚步，谁不慢谁就拥有巨大优势。所以我想说的大部分是，这就是正在发生的事情，你无法做任何事情来放慢它或阻止它。你可以假装这不是什么大事，一切都会好起来。或者你可以说，好吧，我需要全身心投入，看看我能做什么。</p>
+      <p>我观察到的是，那些过去工作做得最好的人，那些掌握了旧游戏的人，发现最难度过这个重新塑造阶段。这就是我所说的&quot;影子超能力&quot;。你越擅长掌握一个系统，就越不可能认识到新系统，因为你的整个世界都在说：&quot;这对我很有效。&quot;而你越不行，你反而越兴奋于改变。嘿，我做的事情不起作用，不如换个方向。</p>
+      <p>但如果你真的很出色，你就没有改变的动力。也许你的雇主看到你做得很好，而公司本身也正处于这个时刻。所以所有这些因素，无论是影子超能力、疲惫、时间压力，还是目标不断移动，都造成了这种重新塑造的抗拒。但第一条建议是，你必须有勇气，你必须有力量说：看，我知道工作方式正在改变，我需要保持适度，我需要跟上时代。</p>
+      <p>这种变化对人类来说真的很难。我觉得作为人类，我们真的不太善于改变。就像如果你想一想，我们被告知随着年龄增长要少改变。你知道，当你是个孩子时，你会摔倒很多次。但Lenny，你上次摔倒是什么时候？不太经常，除了我儿子喜欢假装我们要摔倒。有很多假装的情况。</p>
+      <p>当你假装摔倒时，可能相当令人震惊，相当新鲜。但对他来说太有趣了。但对我来说，就像很远的一段路。但我觉得很有趣，因为你看孩子们，就像他们每天都重新发明自己做的一切是正常的。哦，我正在学习爬行。哦，现在走路了，爬行不适合我了。孩子们学习语言很快的原因是他们不怕犯错，他们以更快的速度经历事情。这就是为什么你早点教孩子滑雪的原因，因为你知道，我刚做了一个决定，嘿，我从来不是滑雪者，我就是太老了做不了。</p>
+      <p>我认为我们被训练找到一种满意的方式，然后尽可能少地改变。找个伴侣，安顿下来。找工作，尽量留下来。换工作是一种失败，如果你能避免的话。那是我们整个模式的一部分。所以我们也在某种程度上创造了围绕重新发明自己这个想法的心理障碍。当被告知要重新发明时，你想到的第一件事是，真的必要吗？看起来很累。我这么努力才到这里。为什么我需要这样做？</p>
+      <p>我想在最内心的认知中，对我们中的一些人来说，这就是：这个交易不是这样的。交易是我做了我应该做的。去上学，努力工作，找到工作，建立品牌，成为经理。我拿到了收入。我有了，不管是什么，伴侣，家庭，所有这些东西。你告诉我经过所有这些时间后，我必须从头开始？</p>
+      <p>这听起来很有趣。你看Twitter，看到所有这些人都在做各种疯狂的事情，但在你脑海深处就像，我不知道为什么。我们只是不想做。我们想回到我们能够继续做事情的世界。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>重新发明自己：跨越恐惧与喜悅的鸿沟</h1>
+    <p class="lead">如何在变革中找到你的快乐时刻？</p>
+    <div class="chapter-content">
+      <p>我觉得在内心深处，这种改变困难的原因是因为重新塑造需要时间。但在你精力充沛的岁月里，时间真的很难找到——因为我们提到的那么多原因，你必须同样地让所有人失望。当你被告知重新塑造时，你的第一个想法是，真的必要吗？看起来很累。我这么努力才到这里。为什么我需要这样做？我想这在某种程度上是交易不是这样的感觉。我做了我应该做的，现在你告诉我我必须重新开始？</p>
+      <p>所以我认为这种障碍实际上是今天问题的核心。这需要技能重新塑造，而且需要时间。但在你精力充沛的岁月里，时间真的很难找到。我之前描述过，当你被告知重新塑造时，你的第一个想法是，真的必要吗？看起来很累。这不是我应该做的吗？看起来让人筋疲力尽。</p>
+      <p>我在社区中观察到的是，每个人都在经历一个时刻，当他们第一次体验到使用新工具的喜悦时。每个人都有一个故事，而且总是不同的，但都非常个人化。通常会是这样的：哦，我一直是那样做的，然后突然我构建了这个东西。通常伴随着这样的故事：我和我的伴侣使用我构建的这个应用，或者我构建了一个首席助理应用来管理我的收件箱，或者我现在用这个东西控制我家的灯。这通常是一些愚蠢的事情，伴随着的故事是我整晚没睡，或者我花了很多时间和朋友聊天，或者我在用Claude聊天。</p>
+      <p>我妻子也有一个故事，她有一个正在考虑的业务，她从使用AI做商业计划到实际上做测试市场，每个人都有这个喜悦的时刻。然后他们就上瘾了。就像他们感染了一种病毒。在那个时刻，他们跨越了从恐惧到喜悦的门槛。喜悦是倦怠的最大解药。而且当喜悦出现时，当它不感觉像工作时，我的心态完全不同了。</p>
+      <p>而且我认为大多数产品管理工作，如果不是建造，就是工作。我们正在进入一个产品管理将成为建造和喜悦，而不是工作的世界。所以你只需要找到到达那里的路径。一旦你做到了，你剩余的人类本能就会创造时间，不感觉你在让别人失望，并创造能量，因为人们拥有的能量比他们意识到的要多。他们只是被产品管理的单调乏味所累坏了。</p>
+      <p>这是第一条建议：你找到了喜悦吗？</p>
+      <p>现在有一类人说这些都不令人愉快。我觉得整个事情都相当无聊，令人作呕。我真的不太喜欢它。如果是这样的人，那么好吧，你可能不适合我们行业的下一个版本，你应该尊重这一点，你应该对自己诚实。但有很多产品人现在非常焦虑，他们实际上一旦跨越鸿沟就会更快乐，他们需要做的就是找到创造那个喜悦时刻的方法。</p>
+      <p>无论是在你工作之外的副业项目还是工作内的项目。如果你是一个领导者，你应该找到你员工的那种喜悦时刻，因为那是有感染力的，它让人们兴奋。这就是我喜欢我所做的事情的原因。</p>
+      <p>就像我喜欢建造东西，我感染了那种病毒，我总是在那里。与此同时，我想找到我能在 vibe coding 的同时观看的电视节目，因为我想看电视，但我也想同时 vibe coding。我最喜欢看的节目是亚马逊Prime的一些节目。那些是基于书籍的，所以你大致知道结构。像Alex Cross或者Jack Ryan。真正搞笑的是当你变老时，你会记得你喜欢的节目，但不记得情节。所以有一次我补完了一季24小时。那是我以前喜欢的节目。但说实话，我看的时候，我大致知道发生了什么，但我整个时间都在 vibe coding，因为就像是，嘿，我在这里注意着，但我在保持参与。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>AI堆栈与建造者的工具箱</h1>
+    <p class="lead">顶级产品人用什么工具建造？</p>
+    <div class="chapter-content">
+      <p>在工具方面，我最近三个月基本上都在用Claude。之前一个月我相当激进地在用Codex，因为我发现他们的一些新东西，特别是最高级别的推理能力，相当先进。但我发现很难在工具之间切换，我尽量标准化。对于我构建的东西，我尽量专注。</p>
+      <p>我构建了很多网络资产用于我的社区。所以任何时候我看到我能在代码中淘汰的东西，我都会尝试围绕它构建代码。如果你有100个人，你想让他们互相见面，一件自然的事情是确保他们见到最好的那个人。100个人不能和其他99个人都见面。所以你需要仔细考虑谁是最好的见面对象，你如何匹配人们？你如何确保你匹配他们与之前没见过的人？你知道，他们想要什么？</p>
+      <p>那整个事情以前是我坐下来想的：哦，你知道，Jay-Z会很乐意见到Annie，但我不确定他们之前是否见过面。现在，我写软件来做这件事。我写一个智能体去实际做匹配。我写一个智能体去搞清楚我们产品负责人正在招聘的所有工作是什么。然后我们如何确保我们让那些可用的东西可用，但然后为那些感兴趣的人建立一份邮件列表，当他们感兴趣时可以自动匹配。所以这是下一代招聘。</p>
+      <p>我经常思考用AI做内容。当我坐下来，我有AI接收人们的问题，然后它在我的内容上训练，比如Lenny的内容，然后给出答案。但然后我读那些问题，评估答案，然后我说，嘿，这是一个我听到的主题，然后我坐下来写下我什么时候不同意LLM。我去浏览并不同意。所以所有这些事情，任何我想到可以复制的，我都在尝试淘汰自己。</p>
+      <p>当我开始我的第一份工作时，我问我共事过的最好的工程师，他仍然是我见过的最好的工程师之一：伟大的工程师的定义是什么？</p>
+      <p>我以为会是，比如拥有这个学位或精通这个技术栈。但他说是这样的：我认识的最伟大的工程师是我的父亲。当然那是在科技之前的情况下。他说，我父亲的定义仍然是我的最爱，那就是：工程师是能够从他们所做的每一件事中淘汰自己的人。</p>
+      <p>我把这个定义带到了我工作过的每一份工作。这很搞笑，因为你会遇到有人说，不，不，我不想淘汰我自己，那是我的工作。我就像，啊，如果你被淘汰了，会有更好的工作在等着你。AI做了什么，它基本上给那个想法加上了一个前缀。这就像如果你能通过简单地问AI来做这件事来淘汰自己，你就可以淘汰。所以我说的是，我的堆栈是我能做些什么来淘汰我每天做的任何事情。</p>
+      <p>我发现最好的策略是解决你自己的问题。想想你日常生活中不太好或者想改进的东西，然后只要去找——我不知道——Lovable或者安装Codex，下载Claude，然后告诉它我想构建一个控制我 Sonos 的仪表板。然后它会告诉你你需要探索的一切。就像用英语一样。听起来好像我不知道怎么做这个。就像你只是告诉它这是我想要做的，就像告诉一个人一样，它会帮助你搞清楚。</p>
+      <p>我同意你的观点。然后我觉得问题是，你需要什么技能？一段时间以来，我一直认为这是一个系统工程技能，因为你需要能够训练AI去做事情。但看着我妻子和她的工作方式，她绝对不是工程师，但她获得了巨大价值。你甚至不需要是工程师。你只需要对你想看到的东西有观点，知道什么是好的。知道什么是好的。</p>
+      <p>然后当你得到它的那一刻，就是灯泡亮起的时刻，当它以前不工作时。然后你坐下来，就像，嘿，我以前必须去做这件事，但现在我的代理在做这件事。然后下一个我可以做的代理是什么来让我的生活更好一点？那就是你上瘾的时候。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>生存策略：在变革中繁荣发展</h1>
+    <p class="lead">如何在未来几年保持竞争力？</p>
+    <div class="chapter-content">
+      <p>你找到了喜悦的时刻，你有了工程思维——嘿，我想淘汰我今天做的某件事。再次，减少我工作中不那么快乐的部分是一个好的起点。你需要找到提高节奏的能力。你知道，这不仅仅是一份工作。未来两年需要很多内心的火焰，需要很多能动性。我知道的每个人都在谈论这个。</p>
+      <p>例如，如果你要离开一份工作开始一份新工作，你可能不会以你看待第五年的速度来看待那份新工作的第一年，就像你看待上一份工作的第五年一样。你需要发挥你的最佳状态。这就是我在要求的。你得找到那个储备。你得创造时间。你可能得在某种程度上比以前更让其他人失望，以便为你自己创造时间，让你保持当前，找到那个喜悦，淘汰那些不值得做的事情。</p>
+      <p>你必须吞下你的自负。我不希望任何一个人说，嘿，我是XYZ负责人。我只会考虑同级别的职位。我希望人们，这是我们上次谈话的延伸，不仅仅是以身作则是很流行的，而且我看到这实际上是一种必要性。我需要每个人都能够说，看，如果一切都在改变，过去我们做了什么并不重要，那个品牌不重要。正如我们讨论的，你必须有一种不自负的观点来保持当前，不仅要愿意，而且实际上要寻找方法来接受更小的东西，以确保你正确地度过这个隧道。</p>
+      <p>最终，我们吞下那种自负的一部分是你保持长期专注。你说，看，如果产品构建方式变化如此剧烈，我的工作是在未来几年里在离开港口登上新世界的船上。一旦我到达新世界，精英会脱颖而出。我会带上我的技能，我的领导力，然后继续。但在未来几年，如果一切都在变化，我绝对想保持当前。这意味着你必须有长期思维。</p>
+      <p>我的这个社区叫Skip。一切都归结为这个词。最好的职业建议永远不是考虑下一步行动，而是下一步之后的那一步。什么是跳级工作？什么是跳级机会？在现在的世界里，不是关于现在的机会和旅程是什么。这是关于确保你的跳级机会是有保障的，你能够获得那份高薪。你能够获得那些顶级建造者的一席之地，那就是你必须拥有的心态。</p>
+      <p>产品经理将去到每个行业，成为我所说的变革推动者。因为PM是那些能够沟通的人。他们是那些有最广泛组织视角的人，但通过技术视角来看待它。我的希望是，我们大多数PM是第一批使用这些工具的人，因此他们是各自公司的变革推动者。让我们这样推演。在未来一年，我们开始看到所有这些产品组织改变他们构建产品的方式。突然间，我们构建产品的方式被识别出来，非常有思想，非常超前。然后12个月后，营销、销售组织，被私募股权公司收购的HVAC公司，街角的学校，一切都在说：男孩，我们是落后的。我们要落后了。我们过时了。</p>
+      <p>我们请谁来负责这种变革？好吧，你知道，这个人在未来工作。我们需要到达未来。所以我真的非常看好产品领导者会像蒲公英种子一样，一旦你吹散它们，它们就四处飘散。</p>
+      <p>同时，我认为进入产品的人可能来自设计，可能来自数据科学，可能来自工程。因为那些有判断力的人，那些能沟通的人，那些想保持当前的人，他们可能会说，嘿，我不一定想留在我的车道上。我想我有观点来说明这应该是什么样子。从设计师的角度来看，设计师可能有很多这些技能和意见关于它应该是什么样子。也许他们的平台不会是像素或视觉。他们将是产品本身，他们可以相邻地进入产品。</p>
+      <p>所以我认为你会看到这种疯狂的涌入，然后这种惊人的流出，然后你也会看到那些说，我不知道我能不能进去。我知道这是一个令人困惑的转变集，这就是为什么这么多人焦虑的原因——所有这三件事同时发生。有一条线，他们以为他们埋葬了我们。他们不知道我们是种子。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>闪电回合：书籍、节目与人生信条</h1>
+    <p class="lead">Nikhyl的私人推荐与生活哲学</p>
+    <div class="chapter-content">
+      <p>我最喜欢的最近发现的产品可能对很多人来说很明显，但我不怎么懂车。所以我就直说了，虽然我一直喜欢新的电动汽车，我就是不太懂，就是有很大数量的人热爱汽车。他们喜欢开车、聊车、修车。那完全与我相反。我只希望我的车超级可靠。我有一辆特斯拉很久了，一款S很久了，自从它们出来以来我一直有它。但我女儿最近通过了驾驶考试。因为她通过了考试，有一天我妻子说，嘿，我们得给她买辆车。我说，我们得？我从来没想过她需要开车。我说，呃，她什么时候要走？</p>
+      <p>最终我想，呃，也许我们应该给她买辆车，既然她不会开太多，也许我应该用这个机会升级我的车。所以我试驾了最新的特斯拉，那些有自动驾驶的。自动驾驶效果相当好，这是真的。我已经用了一个月左右，大约95%的时间是自动驾驶。但最有趣的是，我不知道自己开车时其实有轻微的焦虑。当自动驾驶时就消失了。</p>
+      <p>我不知道这一点。然后我妻子注意到当我们开车上山时，那天下大雪，我说，我们要这样做。她说，你开车时太焦虑了。我说，我是吗？因为Lenny，我从14岁就开始开车了，因为我在堪萨斯长大。所以当我14岁通过考试时，我已经开了近40年的车，我不知道随着年龄增长，踩下按钮去某个地方，心理学，是这么棒。</p>
+      <p>所以，这个体验有趣的原因是，是的，有技术等等。就像我寻找方法来减少我的焦虑。任何引起焦虑的事情，我都试图在人生的这个阶段消除，这就是其中之一。所以这对我来说是一个很酷的产品。</p>
+      <p>你的人生信条是什么？</p>
+      <p>我的高中毕业纪念册上的名言仍然是今天我的信条，那是爱因斯坦说的：天才就是1%的灵感加上99%的汗水。这不是什么关于天才大写G的新年评论，而是更多关于努力工作真的在生活中重要的事情。有趣的是，如果你通过AI的镜头读那句话，它绝对引人入胜，因为事实证明AI将做那份汗水，无限的。所以我认为我们正在走向一个我们都将被激励的世界，只有有灵感的人，我们都会继续繁衍，不要担心汗水，但认识到汗水是使事情发生的必要条件。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 09 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">09</div>
+    <h1>关于Skip社区：产品人的互助家园</h1>
+    <p class="lead">为什么这个社区比以往任何时候都重要？</p>
+    <div class="chapter-content">
+      <p>我创办这个社区是因为我真的觉得，在运营商与新兴运营商分享最佳实践方面，内容非常匮乏。我的想法是，看，我以前是创始人。我以前是高管。我想能够说，嘿，这是我经历过的，这可能适用于你。我注意到大多数播客和那里的内容都来自那些没有花那么多时间运营而是花更多时间做内容的人。我恰恰相反。然后我开始建立这个社区，我上次谈到的，当时大约是2030年。现在它已经有超过125位产品负责人，他们都是顶尖的建造者，重新发明产品管理的样子。我们的目标是通过运营商分享我们的智慧，帮助人们在职业生涯中进步。</p>
+      <p>而且那个呼唤现在可能比以往任何时候都重要，因为一切都在变化。</p>
+      <p>我们下个月推出的其中一件事是叫做skip.help的东西，我们有智能体，这些智能体已经在大约50位社区领导者身上训练过。所以你可以去问一个问题。可能是准备面试，可能是关于在你当前环境中导航的问题，可能甚至是，我如何构建一个首席助理应用？我们50个人，不只是我，会回复。这是由我们在Superme的朋友们支持的，这是一个很棒的创业公司，实际上通过这些智能体，你获得了大众的智慧。所以我喜欢这些东西。</p>
+      <p>社区本身是一个非常精心策划的群体，有无限的候选名单。很多人想加入，我只是在慢慢增长，因为我想要保持信任。但我确实有这个邮件列表叫做skip.coach，我们在那里向更广泛的受众分享我们的智慧。所以，呃，我知道我已经拿到了所有以Skip开头的域名，Skip社区，Skip节目，我的播客，Skip教练，Skip帮助，但无论如何，去任何一个，你都能找到所有其他的。</p>
+      <p>当我第一次来的时候，我想我还没有做过我的播客。现在我准备达到第50集了，你是很大的灵感。你已经超过300集了。所以看到事情如何变化，然后不知怎么的事情发生了，这很有趣。所以这很棒。</p>
+      <p>我真的想说，有很多理由保持乐观，但你必须在你自己内心找到认识到有一小段变化和疲惫需要找到那个喜悦的时刻。而且我希望每个人都找到那些储备来达到那里，因为一旦你做到了，它是会传染的。你等待的时间越长，跨越那个鸿沟就越难。所以我真的希望人们感到乐观，找到那个喜悦的时刻。但我也认识到，有大量的激活能量需要到达那里。所以我的希望是，有很多人正在经历它。所以，你知道，有安全在数字中，但绝对地，我强烈要求每个人尝试他们的手在重新思考他们的手艺。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=yUohoaC8_Hs" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026-05-08</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

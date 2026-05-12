@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     全马训练计划 · 3个月12周 · kami parchment design system
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>3个月全马训练计划</title>
+<meta name="author" content="瑞思">
+<meta name="description" content="82kg跑者8月全马完赛，目标3:40～3:45，12周无间歇系统训练方案">
+<meta name="keywords" content="全马,马拉松,训练计划,跑步,3:40">
+<meta name="generator" content="Kami">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 8pt;
+      color: #6b6a64;
+    }
+    @bottom-center {
+      content: counter(page) "  ·  3个月全马训练计划";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:  #f5f4ed;
+    --ivory:      #faf9f5;
+    --near-black: #141413;
+    --dark-warm:  #3d3d3a;
+    --olive:      #504e49;
+    --stone:      #6b6a64;
+    --brand:      #1B365D;
+    --border:     #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:     #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+    --sans: var(--serif);
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 240mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40mm 0 0 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 18pt;
+  }
+  .cover-title {
+    font-size: 36pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.15;
+    letter-spacing: 0.3pt;
+    margin-bottom: 16pt;
+  }
+  .cover-sub {
+    font-family: var(--sans);
+    font-size: 14pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 30pt;
+  }
+  .cover-meta {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong { color: var(--dark-warm); font-weight: 500; }
+
+  /* ── TOC ── */
+  .toc { break-after: page; }
+  .toc h2 {
+    font-size: 22pt; font-weight: 500; margin-bottom: 14pt;
+    border-left: 2.5pt solid var(--brand); border-radius: 1.5pt; padding-left: 8pt;
+  }
+  .toc-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 6pt 0; border-bottom: 0.3pt dotted var(--border); font-size: 11pt;
+  }
+  .toc-num { color: var(--brand); font-weight: 500; min-width: 30pt; }
+  .toc-title { flex: 1; color: var(--near-black); padding-left: 6pt; }
+  .toc-page { color: var(--stone); font-variant-numeric: tabular-nums; }
+
+  /* ── HEADINGS ── */
+  h1 {
+    font-size: 22pt; font-weight: 500; line-height: 1.2; margin: 0 0 10pt 0;
+    border-left: 2.5pt solid var(--brand); border-radius: 1.5pt; padding-left: 8pt;
+    color: var(--near-black); break-after: avoid;
+  }
+  h2 {
+    font-size: 16pt; font-weight: 500; line-height: 1.25; margin: 24pt 0 6pt 0;
+    color: var(--near-black); break-after: avoid;
+    string-set: section-title content();
+  }
+  h3 {
+    font-size: 13pt; font-weight: 500; line-height: 1.3; margin: 18pt 0 4pt 0;
+    color: var(--dark-warm); break-after: avoid;
+  }
+  .chapter-num {
+    font-family: var(--sans); font-size: 10pt; color: var(--brand);
+    letter-spacing: 1pt; text-transform: uppercase; margin-bottom: 6pt;
+  }
+
+  /* ── TEXT ── */
+  p { margin: 0 0 10pt 0; line-height: 1.55; color: var(--near-black); }
+  .lead { font-size: 12pt; line-height: 1.55; color: var(--dark-warm); margin-bottom: 14pt; }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ── LISTS ── */
+  ul, ol { margin: 6pt 0 10pt 0; padding-left: 20pt; line-height: 1.55; }
+  ul li::marker { color: var(--brand); }
+  ol li::marker { color: var(--brand); font-weight: 500; }
+
+  /* ── QUOTE / CALLOUT ── */
+  blockquote, .quote {
+    border-left: 2pt solid var(--brand); margin: 12pt 0; padding: 4pt 0 4pt 16pt;
+    color: var(--olive); line-height: 1.55; break-inside: avoid;
+  }
+  .callout {
+    background: var(--ivory); border-left: 2pt solid var(--brand);
+    padding: 10pt 14pt; border-radius: 3pt; margin: 12pt 0;
+    line-height: 1.55; break-inside: avoid;
+  }
+  .takeaway {
+    background: var(--ivory); border: 0.5pt solid var(--border);
+    border-radius: 4pt; padding: 10pt 14pt; margin: 14pt 0; break-inside: avoid;
+  }
+  .takeaway-label {
+    font-family: var(--sans); font-size: 9pt; color: var(--brand);
+    letter-spacing: 0.5pt; text-transform: uppercase; margin-bottom: 4pt;
+  }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block; background: var(--tag-bg); color: var(--brand);
+    font-family: var(--sans); font-size: 9pt; font-weight: 500;
+    padding: 1pt 6pt; border-radius: 3pt; margin-right: 4pt;
+  }
+  .tag-green {
+    background: #e8f4ea; color: #2d6a35;
+  }
+  .tag-amber {
+    background: #fdf3e3; color: #865c1a;
+  }
+  .tag-red {
+    background: #fbeaea; color: #8c2020;
+  }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 9.5pt; margin: 12pt 0; break-inside: avoid;
+  }
+  table th {
+    text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 1pt solid var(--border); background: transparent;
+  }
+  table td { padding: 5pt 8pt; border-bottom: 0.3pt solid var(--border-soft); vertical-align: top; }
+  table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td { padding: 2pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.striped tbody tr:nth-child(even) td { background: var(--ivory); }
+  table .total td { font-weight: 500; border-top: 1pt solid var(--brand); border-bottom: none; }
+
+  /* ── PACE ROW ── */
+  .pace-bar {
+    display: flex; gap: 0; border-radius: 4pt; overflow: hidden;
+    margin: 12pt 0; break-inside: avoid; border: 0.5pt solid var(--border);
+  }
+  .pace-seg {
+    flex: 1; padding: 8pt 6pt; text-align: center;
+    font-family: var(--sans); font-size: 8pt; line-height: 1.4;
+  }
+  .pace-seg .seg-km { color: var(--stone); font-size: 7.5pt; }
+  .pace-seg .seg-pace { color: var(--brand); font-weight: 500; font-size: 10pt; }
+  .pace-seg:nth-child(1) { background: #EEF2F7; }
+  .pace-seg:nth-child(2) { background: #E4ECF5; }
+  .pace-seg:nth-child(3) { background: #D0DCE9; }
+  .pace-seg:nth-child(4) { background: #c2d4e8; }
+
+  /* ── WEEK CARD ── */
+  .week-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10pt; margin: 12pt 0; break-inside: avoid;
+  }
+  .week-card {
+    background: var(--ivory); border: 0.5pt solid var(--border);
+    border-radius: 6pt; padding: 10pt 14pt; break-inside: avoid;
+  }
+  .week-card-label {
+    font-family: var(--sans); font-size: 8pt; color: var(--brand);
+    letter-spacing: 0.5pt; text-transform: uppercase; margin-bottom: 4pt;
+  }
+  .week-card-title { font-size: 12pt; font-weight: 500; margin-bottom: 6pt; color: var(--near-black); }
+  .day-row { font-size: 9pt; padding: 2pt 0; border-bottom: 0.3pt solid var(--border-soft); display: flex; gap: 8pt; }
+  .day-label { min-width: 24pt; color: var(--stone); }
+  .day-content { color: var(--dark-warm); flex: 1; }
+  .day-pace { color: var(--olive); font-size: 8pt; }
+
+  /* ── SUPPLY BADGE ── */
+  .supply-row { display: flex; gap: 8pt; flex-wrap: wrap; margin: 10pt 0; }
+  .supply-badge {
+    display: flex; align-items: center; gap: 5pt;
+    background: var(--ivory); border: 0.5pt solid var(--border);
+    border-radius: 20pt; padding: 4pt 10pt; font-size: 9pt;
+    break-inside: avoid;
+  }
+  .supply-km { color: var(--brand); font-weight: 500; }
+
+  /* ── CHAPTER BREAK ── */
+  .chapter { break-before: page; }
+</style>
+</head>
+<body>
+
+<!-- ═════════════════════════════════════
+     COVER
+     ═════════════════════════════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-eyebrow">训练计划 · 2026</div>
+    <div class="cover-title">3个月<br>全马训练计划</div>
+    <div class="cover-sub">82kg 跑者 · 每周4跑 · 无间歇原则<br>目标 8 月完赛，配速 <span class="hl">5:10</span>，完赛 <span class="hl">3:40～3:45</span></div>
+  </div>
+  <div class="cover-meta">
+    <strong>12 周 · 4 阶段</strong><br>
+    V1.0  ·  2026.05<br>
+    纯慢跑堆量 → 加入节奏 → 全马专项 → 赛前减量
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════
+     TOC
+     ═════════════════════════════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="toc-item">
+    <span class="toc-num">01</span>
+    <span class="toc-title">训练总览与核心原则</span>
+    <span class="toc-page">03</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">02</span>
+    <span class="toc-title">第 1～4 周｜纯慢跑堆量</span>
+    <span class="toc-page">04</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">03</span>
+    <span class="toc-title">第 5～8 周｜加入节奏跑</span>
+    <span class="toc-page">05</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">04</span>
+    <span class="toc-title">第 9～10 周｜全马专项</span>
+    <span class="toc-page">06</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">05</span>
+    <span class="toc-title">第 11～12 周｜赛前减量</span>
+    <span class="toc-page">07</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">06</span>
+    <span class="toc-title">比赛日：配速策略与补给</span>
+    <span class="toc-page">08</span>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════
+     CHAPTER 01 · 总览
+     ═════════════════════════════════════ -->
+<section>
+  <div class="chapter-num">01 · Overview</div>
+  <h1>训练总览与核心原则</h1>
+
+  <p class="lead">
+    这是一份为 <span class="hl">82kg 跑者</span> 定制的 12 周全马计划，目标 8 月以
+    <span class="hl">3:40～3:45</span> 完赛（对应配速约 5:10/km）。
+    全程不上间歇跑，以有氧基础 + 护膝为第一优先。
+  </p>
+
+  <h2>4 个核心执行原则</h2>
+  <ol>
+    <li><strong>每周只跑 4 次</strong>，周日固定休息，不强行补跑</li>
+    <li><strong>前 4 周零强度</strong>，全部慢跑，打有氧基础再谈速度</li>
+    <li><strong>体重 82kg，长距离必慢</strong>——LSD 配速比目标慢 50～80s，关节优先</li>
+    <li><strong>全程不上间歇跑</strong>，节奏跑是唯一的「快」，且只在第 5 周后出现</li>
+  </ol>
+
+  <div class="callout">
+    慢跑不是偷懒，是在让身体适应长时间有氧负荷。
+    前 4 周的配速越稳，后 8 周的质量越高。
+  </div>
+
+  <h2>12 周周量总览</h2>
+  <table class="striped compact">
+    <thead>
+      <tr>
+        <th>阶段</th>
+        <th>周次</th>
+        <th>周一/三</th>
+        <th>LSD（周六）</th>
+        <th>强度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-green">堆量期</span></td>
+        <td>W01～W04</td>
+        <td>慢跑 8～10km</td>
+        <td>16 → 20 → 22 → 26km</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-amber">节奏期</span></td>
+        <td>W05～W08</td>
+        <td>节奏 6～8km / 慢跑 10km</td>
+        <td>26 → 28 → 30 → 30km</td>
+        <td>低（节奏 1次/周）</td>
+      </tr>
+      <tr>
+        <td><span class="tag">专项期</span></td>
+        <td>W09～W10</td>
+        <td>节奏 8km / 慢跑 10km</td>
+        <td>32km</td>
+        <td>低</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-red">减量期</span></td>
+        <td>W11～W12</td>
+        <td>慢跑 6km</td>
+        <td>10km 轻松跑</td>
+        <td>无（保状态）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="takeaway">
+    <div class="takeaway-label">本计划回答的三个问题</div>
+    1. 每周应该跑多少、跑多慢？<br>
+    2. 什么时候加速度，加多少？<br>
+    3. 比赛当天如何分配体力，避免撞墙？
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════
+     CHAPTER 02 · 第1-4周
+     ═════════════════════════════════════ -->
+<section class="chapter">
+  <div class="chapter-num">02 · Phase 1</div>
+  <h1>第 1～4 周｜纯慢跑堆量</h1>
+
+  <p class="lead">
+    这 4 周只做一件事：<span class="hl">用最低强度，最高耐心</span>，把有氧基础垫厚。
+    不跑快，不跑累，每次结束都应该觉得「还能再跑 2km」。
+  </p>
+
+  <h2>每周执行模板</h2>
+
+  <table>
+    <thead>
+      <tr><th>训练日</th><th>内容</th><th>配速区间</th><th>说明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>周二</strong></td>
+        <td>慢跑 8km</td>
+        <td>5:40～6:20</td>
+        <td>对话配速，能说完整句子</td>
+      </tr>
+      <tr>
+        <td><strong>周四</strong></td>
+        <td>慢跑 8～10km</td>
+        <td>5:40～6:20</td>
+        <td>逐周可加 1km</td>
+      </tr>
+      <tr>
+        <td><strong>周六</strong></td>
+        <td>LSD 长距离</td>
+        <td>6:00～6:30</td>
+        <td>见下表，每周递增</td>
+      </tr>
+      <tr>
+        <td><strong>周日</strong></td>
+        <td>休息</td>
+        <td>—</td>
+        <td>不补跑，积极恢复</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>LSD 四周递增</h2>
+  <table class="compact striped">
+    <thead>
+      <tr><th>周次</th><th>LSD 距离</th><th>配速目标</th><th>本周关键词</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>第 1 周</td><td>16 km</td><td>6:00～6:30</td><td>感受节奏，不在乎时间</td></tr>
+      <tr><td>第 2 周</td><td>20 km</td><td>6:00～6:30</td><td>突破 2h 大关，学会补水节奏</td></tr>
+      <tr><td>第 3 周</td><td>22 km</td><td>6:00～6:30</td><td>感受半马后的疲劳信号</td></tr>
+      <tr><td>第 4 周</td><td>26 km</td><td>6:00～6:30</td><td>第一次触摸「撞墙前区间」</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    LSD 配速比比赛目标慢 50～80s/km，不是在偷懒，是在保护膝关节、练脂肪供能。
+    82kg 身体在 26km 上承受的冲击力远超 65kg 跑者，慢就是对身体的投资。
+  </blockquote>
+</section>
+
+<!-- ═════════════════════════════════════
+     CHAPTER 03 · 第5-8周
+     ═════════════════════════════════════ -->
+<section class="chapter">
+  <div class="chapter-num">03 · Phase 2</div>
+  <h1>第 5～8 周｜加入节奏跑</h1>
+
+  <p class="lead">
+    有氧基础到位后，每周加入 <span class="hl">1 次节奏跑</span>，
+    用接近比赛配速的强度刺激心肺，同时 LSD 继续推量至 30km。
+  </p>
+
+  <h2>每周执行模板</h2>
+
+  <table>
+    <thead>
+      <tr><th>训练日</th><th>内容</th><th>配速区间</th><th>说明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>周二</strong></td>
+        <td>节奏跑 6～8km</td>
+        <td><span class="hl">5:00～5:10</span></td>
+        <td>接近比赛配速，可以说短句，不舒适但可维持</td>
+      </tr>
+      <tr>
+        <td><strong>周四</strong></td>
+        <td>慢跑 10km</td>
+        <td>5:40～6:20</td>
+        <td>节奏跑后 48h 恢复跑，不加量</td>
+      </tr>
+      <tr>
+        <td><strong>周六</strong></td>
+        <td>LSD 长距离</td>
+        <td>5:50～6:20</td>
+        <td>见下表，LSD 可稍微收紧 10s</td>
+      </tr>
+      <tr>
+        <td><strong>周日</strong></td>
+        <td>休息</td>
+        <td>—</td>
+        <td>雷打不动</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>节奏跑执行要点</h2>
+  <ul>
+    <li>前 1km 热身慢跑，后 1km 冷却慢跑，中间 <span class="hl">6～8km 维持节奏</span></li>
+    <li>节奏跑不用 GPS 看圈速，心率控制在最大心率的 <span class="hl">80%～85%</span></li>
+    <li>节奏跑感觉：「可以说话，但不想说话」——比慢跑紧绷，比间歇轻松</li>
+    <li>如果跑完腿酸 2 天以上，说明强度过高或跑量过大，下周缩减 10%</li>
+  </ul>
+
+  <h2>LSD 四周递增</h2>
+  <table class="compact striped">
+    <thead>
+      <tr><th>周次</th><th>LSD 距离</th><th>配速目标</th><th>本周关键词</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>第 5 周</td><td>26 km（维持）</td><td>5:50～6:20</td><td>适应节奏跑后的 LSD</td></tr>
+      <tr><td>第 6 周</td><td>28 km</td><td>5:50～6:20</td><td>进入高量区，注意补给节奏</td></tr>
+      <tr><td>第 7 周</td><td>30 km</td><td>5:50～6:20</td><td>首次 30km，感受全马前段体感</td></tr>
+      <tr><td>第 8 周</td><td>30 km（巩固）</td><td>5:50～6:20</td><td>稳住 30km，不追距离追质量</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    30km 是全马训练的心理分水岭。
+    能舒服地跑完 30km，比赛日的最后 12km 就不再是未知数，而只是「再多跑一段」。
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════
+     CHAPTER 04 · 第9-10周
+     ═════════════════════════════════════ -->
+<section class="chapter">
+  <div class="chapter-num">04 · Phase 3</div>
+  <h1>第 9～10 周｜全马专项</h1>
+
+  <p class="lead">
+    这是整个计划的顶峰负荷：<span class="hl">LSD 推至 32km</span>，节奏跑从 6km 增至 8km。
+    这两周完成后，体能储备即告完成，随后进入减量保状态。
+  </p>
+
+  <h2>每周执行模板</h2>
+
+  <table>
+    <thead>
+      <tr><th>训练日</th><th>内容</th><th>配速区间</th><th>说明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>周二</strong></td>
+        <td>节奏跑 8km</td>
+        <td><span class="hl">5:00 左右</span></td>
+        <td>稳住节奏跑距离，不再增加</td>
+      </tr>
+      <tr>
+        <td><strong>周四</strong></td>
+        <td>慢跑 10km</td>
+        <td>5:40～6:20</td>
+        <td>照常恢复，不加量</td>
+      </tr>
+      <tr>
+        <td><strong>周六</strong></td>
+        <td>LSD <span class="hl">32km</span></td>
+        <td>5:45～6:10</td>
+        <td>全程最长距离，以「能跑完」为标准</td>
+      </tr>
+      <tr>
+        <td><strong>周日</strong></td>
+        <td>休息</td>
+        <td>—</td>
+        <td>32km 后第二天必须全休</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="takeaway">
+    <div class="takeaway-label">32km LSD 注意事项</div>
+    1. 全程每 5km 补水 1 次，每 10km 摄入 1 包能量胶<br>
+    2. 不追配速，感觉累就放慢，不停下来走路<br>
+    3. 跑完当天：补充碳水 + 蛋白质，泡脚或冰浴，早睡<br>
+    4. 跑完 48h 内腿部酸痛正常，若关节疼痛立刻暂停并就医
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════
+     CHAPTER 05 · 第11-12周
+     ═════════════════════════════════════ -->
+<section class="chapter">
+  <div class="chapter-num">05 · Phase 4</div>
+  <h1>第 11～12 周｜赛前减量</h1>
+
+  <p class="lead">
+    减量不是偷懒，是让疲劳消退、肌肉超量恢复。
+    这两周的每一跑都轻松，<span class="hl">到比赛日时感觉压抑、蓄势待发</span>，就是对的状态。
+  </p>
+
+  <h2>每周执行模板</h2>
+
+  <table>
+    <thead>
+      <tr><th>训练日</th><th>内容</th><th>配速区间</th><th>核心提示</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>周二</strong></td>
+        <td>轻松跑 6km</td>
+        <td>5:50～6:30</td>
+        <td>保持腿感，不追速度</td>
+      </tr>
+      <tr>
+        <td><strong>周四</strong></td>
+        <td>轻松跑 6km</td>
+        <td>5:50～6:30</td>
+        <td>可以中途插入 3×200m 提腿，但非必须</td>
+      </tr>
+      <tr>
+        <td><strong>周六</strong></td>
+        <td>轻松跑 10km</td>
+        <td>5:50～6:30</td>
+        <td>最后一次量感测试，不做 LSD</td>
+      </tr>
+      <tr>
+        <td><strong>周日</strong></td>
+        <td>休息</td>
+        <td>—</td>
+        <td>睡眠 ≥ 8h，不「想着动一动」</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>比赛前 3 天倒计时</h2>
+  <table class="compact">
+    <thead>
+      <tr><th>时间节点</th><th>训练</th><th>饮食 / 恢复</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>赛前 3 天（T-3）</td>
+        <td>4km 轻松慢跑</td>
+        <td>开始碳水加载（米饭、面食为主）</td>
+      </tr>
+      <tr>
+        <td>赛前 2 天（T-2）</td>
+        <td>彻底休息</td>
+        <td>继续碳水加载，早睡，装备检查</td>
+      </tr>
+      <tr>
+        <td>赛前 1 天（T-1）</td>
+        <td>彻底休息</td>
+        <td>熟悉路线，早睡，准备补给包</td>
+      </tr>
+      <tr>
+        <td>比赛日早上</td>
+        <td>出发前 2h 早餐</td>
+        <td>面包 + 香蕉 + 水，不吃陌生食物</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    减量期最常见的心理误区：「感觉太轻松了，是不是没练够？」
+    这种感觉是对的。身体在充能，不是在退步。
+    信任计划，不要在最后两周加跑。
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════
+     CHAPTER 06 · 比赛日
+     ═════════════════════════════════════ -->
+<section class="chapter">
+  <div class="chapter-num">06 · Race Day</div>
+  <h1>比赛日：配速策略与补给</h1>
+
+  <p class="lead">
+    全马的比赛本质是一道能量管理题。
+    <span class="hl">前半程留力</span>，
+    <span class="hl">中段维持</span>，
+    <span class="hl">后段凭意志推出去</span>——
+    能做到这三点，3:40 就是终点。
+  </p>
+
+  <h2>四段配速策略</h2>
+
+  <div class="pace-bar">
+    <div class="pace-seg">
+      <div class="seg-km">0 → 10 km</div>
+      <div class="seg-pace">5:10～5:15</div>
+    </div>
+    <div class="pace-seg">
+      <div class="seg-km">10 → 25 km</div>
+      <div class="seg-pace">5:05～5:10</div>
+    </div>
+    <div class="pace-seg">
+      <div class="seg-km">25 → 35 km</div>
+      <div class="seg-pace">≤ 5:15</div>
+    </div>
+    <div class="pace-seg">
+      <div class="seg-km">35 → 42 km</div>
+      <div class="seg-pace">≤ 5:20</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>阶段</th><th>策略重点</th><th>常见错误</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>0～10km</strong></td>
+        <td>跟大部队，感觉「跑慢了」是正确的</td>
+        <td>起跑兴奋，前 5km 就跑到 4:50</td>
+      </tr>
+      <tr>
+        <td><strong>10～25km</strong></td>
+        <td>进入巡航，稳住心率，不要「追人」</td>
+        <td>看着旁边人跑快就跟上去</td>
+      </tr>
+      <tr>
+        <td><strong>25～35km</strong></td>
+        <td>这段最难，体力开始下降，靠节奏和意志</td>
+        <td>30km 后停下来走路，再起来更难</td>
+      </tr>
+      <tr>
+        <td><strong>35～42km</strong></td>
+        <td>「只剩 7km」——用训练里最长的记忆撑过去</td>
+        <td>35km 后过度冲刺，最后 1km 没力</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>固定补给计划</h2>
+
+  <div class="supply-row">
+    <div class="supply-badge"><span class="supply-km">10km</span> 能量胶</div>
+    <div class="supply-badge"><span class="supply-km">20km</span> 盐丸</div>
+    <div class="supply-badge"><span class="supply-km">25km</span> 能量胶</div>
+    <div class="supply-badge"><span class="supply-km">30km</span> 盐丸</div>
+    <div class="supply-badge"><span class="supply-km">35km</span> 能量胶</div>
+    <div class="supply-badge">逢站补水</div>
+  </div>
+
+  <table class="compact">
+    <thead>
+      <tr><th>补给品</th><th>时机</th><th>作用</th><th>注意</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>能量胶</td>
+        <td>10 / 25 / 35 km</td>
+        <td>补充肌糖原，推迟「撞墙」</td>
+        <td>配水服用，不要干咽</td>
+      </tr>
+      <tr>
+        <td>盐丸</td>
+        <td>20 / 30 km</td>
+        <td>补充电解质，防抽筋</td>
+        <td>出汗多时可提前 5km 服用</td>
+      </tr>
+      <tr>
+        <td>水站补水</td>
+        <td>逢站必喝</td>
+        <td>维持水分，不等渴了再喝</td>
+        <td>小口慢喝，不要大口猛灌</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="takeaway">
+    <div class="takeaway-label">比赛日终极提示</div>
+    能量胶和盐丸必须在训练中测试过，不能比赛日第一次用。
+    推荐在 W06 的 28km LSD 完整模拟一次比赛补给节奏。
+  </div>
+
+  <blockquote>
+    马拉松不是跑完 42km，而是让 42km 的每一步都在计划之内。
+    跑过的 30km LSD 是比赛日最大的底气。
+  </blockquote>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>没有计划的职业生涯：从文学到AI · Daniela Amodei</title>
+<meta name="author" content="Daniela Amodei">
+<meta name="description" content="Stanford 的 auditorium 坐满了人。主持人问：「用过 Claude 的请举手。」几乎每个人都举了手。然后她开玩笑地说：「如果 Sam Altman 在这里，问大家用不用 ChatGPT，你们也会都举手吧？老实说。」我笑着回答：「你们当然会。」这就是我今天想聊的话题的起点。
+
+我是 ">
+<meta name="keywords" content="播客, 访谈, Daniela Amodei, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">没有计划的职业生涯：从文学到AI</div>
+    <div class="cover-sub">Anthropic 联合创始人兼总裁 Daniela Amodei 在 Stanford 的分享：职业路径、AI 安全、与创办使命驱动型公司的思考</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Daniela Amodei</strong><br>Anthropic 联合创始人兼总裁<br>
+    主持：Stanford View from the Top 主持人·<br>
+    时长：约48分钟· 来源：YouTube / Stanford Graduate School of Business</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/FDjrDeIZAk4/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/FDjrDeIZAk4/hqdefault.jpg'"
+         alt="Daniela Amodei, Co-Founder and President of Anthropic: Building AI the Right Way">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/FDjrDeIZAk4?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Daniela Amodei, Co-Founder and President of Anthropic: Building AI the Right Way · <a href="https://www.youtube.com/watch?v=FDjrDeIZAk4" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>Stanford 的 auditorium 坐满了人。主持人问：「用过 Claude 的请举手。」几乎每个人都举了手。然后她开玩笑地说：「如果 Sam Altman 在这里，问大家用不用 ChatGPT，你们也会都举手吧？老实说。」我笑着回答：「你们当然会。」这就是我今天想聊的话题的起点。
+
+我是 Daniela Amodei，Anthropic 的联合创始人兼总裁。我学的是英语文学，<span class="hl">2009年</span>金融危机时毕业，完全没想到自己会走上 AI 这条道路。这次在 Stanford View from the Top 的访谈中，我想分享这段非传统的职业路径，以及我们为什么要创立 Anthropic，还有我对 AI 如何塑造我们未来的思考。
+
+我经常听到那些创办了公司、或者做了一些出乎意料、非传统事情的人说类似的故事。我的路径不是规划出来的，而是跟随当时最有趣的事情，以及我擅长什么、我对什么感兴趣、和什么能对世界产生最大影响这三者的交集。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">没有计划的职业生涯：从文学到AI</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">为什么离开 OpenAI：安全与责任必须成为核心</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">联合创始人的秘密：长期关系比你想的更重要</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">AI 安全不是口号，是极端责任</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">AI 不会改变一切，但会改变很多：就业、教育与普及</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">AI 让我成为更好的管理者，也帮我搞定了如厕训练</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">给下一代的建议：追随热情，行善与经商不矛盾</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>没有计划的职业生涯：从文学到AI</h1>
+    <p class="lead">我毕业于2009年——可能不是毕业的最好年份。学的是英语文学，完全没想到自己会走上 AI 这条道路。我的职业路径不是规划出来的，而是跟随兴趣和影响力的交集。</p>
+    <div class="chapter-content">
+      <p>我经常被问到职业规划这个问题。说实话，我甚至不确定我这一生中的任何时刻会用「规划」这个词来描述我的生活。</p>
+      <p>我真的觉得，我听到的很多故事都来自那些最终创办了公司、或者做了一些出乎意料、非传统事情的人。我的路径不是规划出来的，而是跟随当时最有趣的事情，以及我擅长什么、我对什么感兴趣、和什么能对世界产生最大影响这三者的交集。</p>
+      <p>我<span class="hl">2009年</span>从大学毕业——这不是毕业的最好年份。你可能会看着我说：「天哪，你有个文学学位，你没技能，谁会雇我？」但当时，我有一种非常强烈的冲动，想要让世界变得更好。我想，这从年轻时起就是我和 Dario 的定义性特征。</p>
+      <p>这种冲动最初把我带向了国际发展领域，在全球健康领域工作。我当时的愿望是：如何才能构建一个更公平的世界，让每个人都能获得食物、水和药物这些基本的东西？虽然我现在不直接做这个工作了，但那种早期的扎根感给了我一种基础，让我思考如何在这个世界上做好事。如何构建一些有意义、有后果的事情，让你每周花在那上面的<span class="hl">50到60个小时</span>是值得的。</p>
+      <p>从那里开始，我的旅程就变得蜿蜒曲折了。之后我在国会山工作，也参与过竞选活动。最终我回到了硅谷——我原本来自旧金山——开始在 Stripe 工作，当时这家公司还很小，没人听说过。我在国会山的朋友们问：「你要离开去做什么？支付？」现在看来那是个伟大的决定，但当时 Stripe 大约只有<span class="hl">40个人</span>。</p>
+      <p>从那里开始，事情就像滚雪球一样，最终让我进入了 OpenAI，然后共同创立了 Anthropic。</p>
+      <p>我经常被人说，我的背景没有定义我的下一步行动。这种心态从何而来？我觉得某种程度上，我真的把自己看作一个通才。如果你看看我的背景，你会想：「这个人到底擅长什么？」她没有法学学位，她不是计算机科学家。但我认为，好奇心、跨学科技能学习的能力、以及无论在什么领域都想产生影响的强烈基础，是被低估的品质。</p>
+      <p>我在 Anthropic 招聘的人身上也看到这一点。在科技行业更广泛范围内，我合作过的真正有才华的人，都是好奇、聪明、想要学习、想要帮忙的人。这基本上是每个角色的描述——当然，创业公司的工程师除外。你会发现，人们说「我有这个学位、我有那个学位」，但这些才是你要寻找的品质。</p>
+      <p>对我来说，这始终是非常兴趣驱动和影响力驱动的。我会想：「我对这个世界上的某些事情感觉不对。我出生在美国，我获得了我们生活中认为理所当然的所有基本东西。世界上有些人就没有这些。这不是他们出生的地方，这不是他们与生俱来的东西。我如何让它更公平？作为世界更广泛的社区，我们如何让它更好？」</p>
+      <p>然后我会想：「我产生的影响没有达到我想要的水平。我需要一些技能。」于是我去参与竞选活动，然后我想：「哇，一小群年轻有为、努力工作的人真的可以改变世界。」这或许并不令人惊讶，最终把我带到了硅谷。你会想：「你可以在那里做到这一点，而且在创业公司，你有更多的钱，比在竞选中每周工作80小时要容易得多。」</p>
+      <p>但我觉得那些核心品质——真正跟随你的热情，因为你只是想在某种程度上做更多，当你在乎你正在做的事情时，无论是智力上还是意义上的内在感受——这些是最重要的。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>为什么离开 OpenAI：安全与责任必须成为核心</h1>
+    <p class="lead">七位创始人离开 OpenAI 不是逃避什么，而是追逐一个愿景：让安全、责任、价值观成为组织的核心，而非事后考虑。我们选择注册为公益公司，这表明我们要在创造商业价值的同时承担社会责任。</p>
+    <div class="chapter-content">
+      <p>我的 AI 职业生涯始于<span class="hl">2018年</span>加入 OpenAI，当时它还只是一个相对较小的研究实验室。突然之间，我身处这样的房间：人们在谈论神经网络、Transformer 和缩放定律。我如何学会说那种语言？</p>
+      <p>我觉得我在两个维度上受过良好训练。第一，我已经在 Stripe 工作了将近六年，所以我和很多工程师合作过。显然，研究和工程是不同的，但我认为有一些重叠和一些基础。第二，我从小就和一个非常有才华的、以技术为导向的物理学家一起长大，他是我的兄弟姐妹，显然也是我在 Anthropic 的联合创始人，还有其他五位也都是工程师或研究人员。</p>
+      <p>但我认为最重要的一件事是，这两种经历都给我灌输了一种不要害怕技术的感觉。归根结底，这是一套非常受重视的技能，但我认为这是任何人都能够学习的。其中的基础知识和术语，一开始可能会让人感到不知所措。但如果你问足够多的问题，并且有善良、耐心对待你的人——我的生活中有这样的人，我非常幸运——我只是一直问问题，直到我觉得我能够理解它。</p>
+      <p>我认为，第二部分也在于知道我的车道和他们的车道。有很多事情，研究人员会告诉我：「我可能没法训练 GPT，我当然没法训练 GPT-2 或 GPT-3。」但就像——我带来了他们不太擅长做的事情。所以我真的认为，理解你的比较优势是什么，以及你如何融入更广泛的生态系统，这需要很多属于人际关系的技能。好奇心是一种非常内在的技能，但也是你可以学习和训练的。所有这些放在一起，真的让我处于能够在那个角色中取得成功的位置。</p>
+      <p><span class="hl">2020年12月</span>，我和 Dario 以及其他几位同事离开了 OpenAI。我经常被人问这个问题，我总是先喝一大口水再回答。有七个人最初离开，我和 Dario 以及我们的五位联合创始人，然后还有不少人在那之后不久也过来了。</p>
+      <p>对我们来说，这真的归结为只是专注于我们真正希望技术的最终影响是什么。我想，以我们自己非常不同的方式，我们七个人都是有——非常正直的人。我们是非常关心我们所构建的东西的影响的人。最终，感觉在我们当时所在的公司之外、在一家新公司中创建我们想要看到的那种愿景，会更容易一些。</p>
+      <p>我经常说——因为我知道这会让你震惊——我实际上被问到这个问题并不频繁。我们真的，我认为我们是在追逐什么，而不是逃离什么。我们脑海中有一个愿景，想要创建一个组织，让对我们重要的价值观——围绕安全、围绕责任——成为我们所做事情的前沿和中心。</p>
+      <p>这就是为什么我们选择注册为公益公司。我们花了一段时间才弄清楚什么是正确的形式来表达：看，我们将成为一家商业实体。我们认为，人工智能将创造大量的经济价值，但对我们来说，以正确的方式来做这件事真的很重要。我认为这就是团结我们七个人的东西。我们都在 OpenAI 时同时从事能力和安全以及政策工作，感觉在一种新的形式中创建这种结构会更容易一些。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>联合创始人的秘密：长期关系比你想的更重要</h1>
+    <p class="lead">Anthropic 七位联合创始人之间有长期的关系网络——兄妹、15年好友、前上下级。让联合创始人关系成功的关键：预先存在的关系、冲突解决能力、共同的愿景。建议：先一起度假，再决定是否共事。</p>
+    <div class="chapter-content">
+      <p>你不仅在和你的兄弟一起建设 Anthropic，还和其他五位联合创始人一起。我们很多人在这里即将第一次选择联合创始人，我们都知道这通常以多糟糕的方式结束。让它成功需要什么？</p>
+      <p>我觉得自己极其幸运。我们七个人，我认为，是一个非常特殊的群体，在几个维度上都是。我认为我要说的第一件事是，人际关系——我知道这听起来可能不那么令人惊讶——比你想的更重要。你们如何一起经历冲突？</p>
+      <p>举个例子，Dario 和我已经争吵和克服争吵快<span class="hl">40年</span>了。因为他是我的兄弟，我以前会偷他的玩具，对吧？所以我们知道如何一起解决冲突，无论发生什么，我们最终都会彼此相爱，毫无疑问。</p>
+      <p>with our co-founders，这就像——我认识 Jared 大概<span class="hl">15年</span>了。我认识 Chris <span class="hl">15年</span>了。Tom 和 Sam 曾是室友。Jared 和 Sam 在斯坦福读博士时一起工作。所以有这种长期的历史。</p>
+      <p>Dario 和我实际上管理过——所有其他联合创始人，我认为他们要么向我们都汇报过，要么向我们中的一个人汇报过。我认为大多数人都曾在 OpenAI 向我们都汇报过。所以我们已经有这种现有的结构和框架，我们知道如何给彼此反馈。我们知道如何一起工作。我们理解了我们是怎样的人。</p>
+      <p>我认为另一个非常重要的事情是，确保你对你试图做的事情有非常强烈的感觉，而且那个画面是相同的。如果你把自己和你的联合创始人锁在另一个房间里，写下或画出你想要构建的东西，你不会走出去，一个人画了独角兽，另一个人画了鸭嘴兽，对吧？这种情况是你以为你在做同样的事情，但我认为这不会有好结果。</p>
+      <p>对我们来说，我们想要构建的东西的愿景，在某些方面我们很幸运，因为我们已经在一个环境中，我们想：「哦，这不quite是这个。」我们想要做另一个事情。但我们已经在同一个区域了。所以我们预先被选中对那个水平的兴趣。</p>
+      <p>但我真的能够尽可能多地进行压力测试。与其一起创办公司，不如一起去度假。看看情况如何。和他们合住一个房间。然后想想：「那怎么样？」如果你们想「伙计，我只想和你花更多时间」，那太好了。如果你觉得「真的，我将需要一个假期才能从我的假期中恢复过来」，你可能就……那可能是错误的选择。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>AI 安全不是口号，是极端责任</h1>
+    <p class="lead">AI 安全的定义是对技术承担极端责任。我们从社交媒体的错误中学习——他们没想造成青少年饮食障碍流行病，但优化的是增长指标。我们这一代 AI 建设者有幸站在前人肩膀上。Anthropic 的安全工作涵盖防止生化武器、网络安全、用户健康、儿童安全、选举诚信。</p>
+    <div class="chapter-content">
+      <p>Anthropic 与 AI 安全深度关联，但我想确保每个人都理解这实际上意味着什么。所以当你说 AI 安全时，你指的是什么？</p>
+      <p>这是个很好的问题。我认为这个词在过去几年里变得有点被过度使用了，因为它是一种包罗万象的术语，我认为在很多语境中都被提到了。但对我来说，最高级别的框架只是对我们正在开发的技术承担一种极端责任。</p>
+      <p>我们经常使用或者指向的类比是——社交媒体公司，现在公开抨击它们很流行，所以我要这么做。基本上，你知道，就像如果你能回到过去，想象一下，「哇，你正在创办 Facebook 或 Instagram 或 Snapchat 或 Twitter」，然后你会想，「如果我真的试着思考所有这些可能出错的方式会怎样？」</p>
+      <p>就像，什么？如果我能思考所有意外的外部性是什么，并真正提前尝试防止其中一些发生？这有点不公平，因为在 AI 领域，我们有了整代之前的技术，他们有机会搞砸，我们有机会说：「哈哈，我们这次不会犯那个错误了。」但这是一种巨大的特权。</p>
+      <p>我们能够说：「好的，你们犯了那个错误。我们不会犯那个错误。」我们要小心，我们要说，我们如何确保思考其他可能出错的事情，因为我们更好地理解了这项技术？我们如何能够？我们如何能够想象一个一切顺利的世界，但也想象一个一切出错的世界？</p>
+      <p>对我来说，安全意味着所有大事，所以防止化学和生化武器使用我们的技术开发，顺便说一句，它们有潜力做到这一点。还有网络安全，对吧？网络战。我们最近因为网络战的可能性而登上新闻，因为我们决定不发布我们的 Mythos 级模型。</p>
+      <p>还有很多工作围绕诸如用户健康、儿童安全、大量错误信息和选举诚信工作展开。这不是我们发明的新东西。我们能够站在以前在一些历史上最有影响力的科技公司从事安全和安保团队工作的人的肩膀上，说：「我们如何向你学习？我们如何做得更好？」</p>
+      <p>Anthropic 是一家 AI 安全公司，同时也必须产生收入。你如何管理两者之间的张力？</p>
+      <p>我们也经常被问到这个问题。一般来说，这两件事不像你预期的那样经常发生冲突。大部分企业，顺便说一句，我们的收入大部分来自企业，并不想要不安全的模型，对吧？他们不会说：「哇，我们希望 Claude 产生更多幻觉，」或者——「如果 Claude 在你问它问题时只是产生有害输出，那就太好了。」</p>
+      <p>所以我认为直到不久前，这些事情都是<span class="hl">100%</span>一致的，对吧？是的。你会想：「安全对商业确实有好处，因为企业是正确的，他们是风险厌恶的，对吧？他们想要不可预测或不可靠的 AI 技术。」</p>
+      <p>也就是说，我认为我们现在正在进入一个模型能力发展如此迅速的时代，以至于张力是关于时间的。模型不是不能做惊人的事情。只是我们在这个阶段还不完全理解——我认为未来会更是这样——风险有多严重？所有的风险是什么，我们如何帮助缓解它们？</p>
+      <p>这有时意味着我们采取稍微不寻常的行动，就像我们对 Project Glasswing 所做的那样，说：「这个新级别的模型，如果我们能把它发布给我们所有的客户就太好了。他们都想使用它，但我们还不够自信。我们需要多一点时间来做一些工作，让模型使用起来更安全。」但这很不舒服。</p>
+      <p>是的。对吧？告诉你的客户这很不舒服，对吧？他们想：「看，我们都相信网络防御，但我真的想访问那个模型。」我认为这是我们回到使命的地方，对吧？我们说：「好的，我们理解那个愿望。我们想尽快把这项技术交给你，但在我们确信所有需要完成的安全补丁都已经完成之前，发布它对我们来说是不负责任的。」</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>AI 不会改变一切，但会改变很多：就业、教育与普及</h1>
+    <p class="lead">AI 对就业的影响是改变而非简单替代。根据 Anthropic 经济指数，目前 AI 主要是补充性技能，而非替代——除了极少数情况，主要是客服。软件开发者不会消失，但他们写代码的比例会下降。AI 普及存在明显的 demographic 差异，全球南方更乐观，发达国家更焦虑。</p>
+    <div class="chapter-content">
+      <p>我们不能否认，谈到 AI 时，有很多恐惧。担心 AI 意味着更少的工作，因为对人类判断的需求减少。这种恐惧有根据吗？</p>
+      <p>我认为这实际上是一个非常复杂的问题。我的感觉是，这可能不会让人们感到惊讶。AI 将改变可用的工作类型，以及人们做什么类型的工作。所以今天，我认为有一些工作在五年前不存在，因为 AI 而存在。我也认为未来会有一些工作不再存在，因为 AI。</p>
+      <p>但根据我们迄今为止所看到的——根据我们的经济指数，我们研究人们现在如何实际使用人工智能技术——它主要看起来像补充性技能，对吧？所以你有人工智能作为工作的赋能者。你不让它作为工作的替代者，除了极少数情况，这主要是客户服务。</p>
+      <p>抱歉，如果你不得不给 Comcast 发邮件。它可能永远不会再是人类了，很可能。但我不认为这在五年前有什么不同。所以我认为在现实中，我所期望的是，会有很多类型的工作感觉很像它们在韵律上与今天存在的工作相同，但它们不一定与今天存在的工作相同。</p>
+      <p>我认为我们只是不知道所有这些的形状，对吧？今天，我认为谈论最多的是编码，对吧？软件开发者。我总是在商务会议中，对吧，人们会凑过来对我说，就像我们还在聊 Claude，然后大概三分之二的对话过程中，就像 CEO 会有些共谋地倾身穿过桌子说：「你知道，我女儿是斯坦福大学的大二学生。她本来要主修计算机科学。她还应该学 CS 吗？』</p>
+      <p>我认为真相是我们不知道。但我的猜测是，软件开发者还会存在，但他们不会写那么多代码。对吧？就像软件开发者做的很多事情比只是手放在键盘上要大得多。他们在和产品经理交谈。他们和客户紧密合作。我认为这部分工作将扩大。</p>
+      <p>我认为那些可以更容易被 AI 完成的事情会收缩，但我的感觉是，这将创造一种可能性的非常不同的范围。</p>
+      <p>但需要在教育、领导力、社会中发生什么，让人们感到准备充分、兴奋，而不仅仅是焦虑？</p>
+      <p>我认为这里有几件事。我认为第一件是，我们需要从一个谦逊和不知道答案的地方开始领导，但要做研究。在 Anthropic，我们一直旨在做到的是，尽可能对我们所有这些都保持极度透明，对吧？我们总是说：「看，我们没有所有答案。我们确实需要研究这个，这样我们才能够告诉人们我们看到了什么 coming。」</p>
+      <p>我认为，你知道，有时人们可能会相当公平地说：「哇，你们只是——这就像很多 negativity，」对吧？你就像：「这里是我们认为未来可能发生的事情。」但我认为更重要的是我们更早开始对话，因为我们不希望人们措手不及，对吧？</p>
+      <p>我们发布经济指数是为了说：「这里是人们今天如何使用人工智能，」因为我们希望人们对「我们认为这将走向何方」有一种理解。所以我认为第一步是，我们实际上必须就现实是什么达成一致，在可能的范围内。</p>
+      <p>我认为第二步是，我们必须在许多不同的层面上具有创造性和实验性。那么我们如何让人工智能真正成为让人们感到接地气和平等的力量，而不仅仅是「哦，我在我的工作中使用它，」对吧？这真的很重要，但我认为在某些方面，我们需要重新思考工作和意义之间的范式，以及社交生活。</p>
+      <p>所有这些东西我认为在未来会看起来非常不同，我们需要练习。是的。然后我认为第三件事，这真的超出了科技公司单独能做的范围，这将成为社会和政治议题。如果人们觉得他们的工作被 AI 取代，他们会关心。人们已经关心这个了，对吧？它出现在民意调查中。人们说：「我对人工智能对我的未来、对我孩子的未来意味着什么感到焦虑，」对吧？</p>
+      <p>那个从我身上倾身过来的 CEO，不仅仅是他们。所以我认为有一个更广泛的讨论需要在许多不同级别的政府、公民社会、顺便说一句，大学进行，说：「这意味着什么？当我们处于人工智能有能力做人类今天做的许多事情的世界上时，我们想要构建的世界是什么类型？」</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>AI 让我成为更好的管理者，也帮我搞定了如厕训练</h1>
+    <p class="lead">我个人最受鼓舞的 AI 使用场景：1) 管理教练——用 Claude 分析下属多年绩效数据，发现模式；也用来分析上级给自己的反馈。2) 育儿——Claude 帮助我度过如厕训练，提供了有同理心、可操作的支持。未来更重要的人类技能是人际互动能力。</p>
+    <div class="chapter-content">
+      <p>核心是，这一切都是关于采用。在 Stanford，我们生活和呼吸 AI，但 Stanford 和硅谷不是整个世界。目前在气泡之外是什么阻碍了 AI 的采用？</p>
+      <p>你知道，我认为这是一个真的很棒的呼唤。这很有趣，因为感觉就像，当然对我们在 Anthropic 来说，我敢肯定在 Stanford 也是，人们唯一想谈的就是 AI。当然，人们唯一想和我谈的就是 AI，但那可能是我的问题。但我认为那种感觉，你说得完全对，即使在美洲的其他部分，人们也还不习惯它。</p>
+      <p>总的来说，甚至不是人们必然知道如何以非常高的流畅度使用它，对吧？所以你读到这些非常惊人的、超级令人印象深刻的关于有多少人正在使用 AI 工具的数字。但这有一个人口统计成分，对吧？所以它通常是受过大学教育的人，不一定是独一无二的。男性比女性多。有种族人口统计涉及。有财富人口统计涉及，如果你看看世界各地，它真的不是平等分布的。</p>
+      <p>所以我认为有趣的是，你把它与我们已经收集的一些其他数据配对，我们对<span class="hl">81,000人</span>做了这个非常大的定性调查——我认为这是有史以来最大的定性研究——我们与人们谈论他们对人工智能的使用。他们中的一些人使用 Claude，一些人使用其他 AI 工具。</p>
+      <p>有趣的是，人们对 AI 有很多不同的感觉，对吧？再一次，你知道，根据你的所在地和你的工作，情况不同。但有些人说：「我永远无法……」你知道，「它让我能够做我以前认为我做不到的事情，」对吧？对我来说作为一个例子，就像我不会认为我能建一个网站，对吧？现在使用 Claude，我就像：「天哪，这太容易了。」我只点击几个按钮，Claude 就为我建了一个网站。什么？如果我试图自己去做，那可能要花我一年时间，而且不会是一个非常好的网站。</p>
+      <p>有些人表达一种感觉：「没有像这样的特定术语，但我认为可能有一天会有，或者另一种语言中有一天会有。」就像，「我不使用我的大脑，因为我不需要。」所以这不是和在你的手机上滚动相同的感觉，但它就像我本可以伸手去拿这个想法，我本可以思考它，但这太容易了，不去做它，只是相信 AI 工具给我的东西。</p>
+      <p>我认为这是那里焦虑的根源，我实际上相信，围绕着人工智能的很多焦虑。作为人类，我认为有一种固有的渴望去学习、去好奇、想去扩展他们知道的事情的范围。而 AI，在某些方面，使这一点成为可能，但如果使用不正确，可以在某些方面禁用这一点，对吧？</p>
+      <p>就像，我认为我有时这样做，对吧？我会想：「哦，我可以查找并自己弄清楚，但我会问一个 AI 工具，然后我会盲目地相信它说的是正确的。」它不总是正确的，顺便说一句。有时 Claude 是错的。这是异端邪说，但是个事实。</p>
+      <p>我认为那里的焦虑是关于我们如何实际设置一些护栏，以便它只是，它不是不可能做到这一点，但你实际上必须真正尝试去做，对吧？就像，我认为我们与大学做的一些工作可能是这方面的一个有趣缩影。我们有这种「学习模式」的概念。</p>
+      <p>也许你们中的一些人甚至使用它。我不知道我们是否在 GSB 了。但是，嗯……教职员工、教授和学生——一个版本的这个是就像你把你的作业放在 ChatGPT 里，我要改用那个，然后你会像：「哈哈，它只是给了我答案。」有一个词来形容这个。它叫做作弊，对吧？你就像：「那太棒了。」还有另一个版本——是的，你使用学习模式下的 Claude，然后你会像：「我不……我……我卡住了，』对吧？『我试图写这篇文章，就像，关于格式有一些我感觉不对的地方。』</p>
+      <p>Claude 是这种——耐心的导师。它几乎就像你有一个个性化的教授，就像，了解你，理解，就像，你最想学什么，以及为什么这门课对你很重要。它就像：『让我帮你摆脱困境，』对吧？『我们要一起重读这部分吗？我们能谈谈这个吗？』</p>
+      <p>我认为那个版本，就像，这些工具可以让你更聪明。它们可以让你，嗯，扩展你认为你可以学习的东西的集合。然后我认为有一个版本只是关闭你的大脑，我希望作为一个行业，我们要选择做第二个而不是第一个。</p>
+      <p>所以如果你必须优先考虑，在 AI 驱动的世界中，哪些人类技能最可能变得更重要？</p>
+      <p>我有我自己的观点，我认为，就像我们谈到的，很多特定的，就像任务导向的事情，对吧？就像我是财务分析师，或者我是开发者，或者我是文案编辑。那些工作将会改变很多。我认为其中的很多工作将能够由 AI 工具完成。</p>
+      <p>但我认为最终有一种非常——真实的现象，那就是人类喜欢和其他人类在一起。我们喜欢一起度过时间。我们喜欢互相学习。我们喜欢有创造力。我们喜欢花时间理解另一个人，我们是社会生物，对吧？</p>
+      <p>我认为我可以想象，在一个 AI 能够做我们做的很多生产性日常工作的世界里，那些技能将变得更加重要，更受重视。因为最终，如果你在一个工作环境中，你会想：「好吧，我可以只是问 Claude 来为我写一堆代码，」你将要选择去和那个会向你解释为什么某些东西坏了、或者为什么我们选择以我们做的方式构建某个工具的开发者交谈。</p>
+      <p>把这个扩展到不仅仅是科技行业的领域，我经常使用的例子是在医学中，对吧？今天，我们雇用那些真的是好诊断师的医生。我们就像：『嘿，你能告诉我我怎么了吗？我感觉不舒服。』你基本上是在付钱给这个医生，让他告诉你：『这里是一组你可能出了什么问题的事情。这是最有可能的那个。让我运行一些测试。』你猜怎么着？AI 将非常擅长做那件事。</p>
+      <p>但 AI 工具不能做的实际上是看着你、检查你、也帮助理解你的感受、帮助你觉得更好的事情，对吧？有相当多的医学文献表明，人们与他们的医生有良好的关系，他们只是喜欢他们的医生，比那些不喜欢他们的医生的人有更好的临床结果。这真的很难解释，但就像，可能发生什么？可能医生，就像——稍微努力一点去理解你出了什么毛病。也许他们运行了一组未预期的测试。</p>
+      <p>我认为那些技能，对吧，那种 bedside manner，在一个 AI 可以做更多生产性日常工作的世界里，将变得重要五倍，因为你不会试图把那个塞进你寻找的、使医生有资格治疗你的七件事之一。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>给下一代的建议：追随热情，行善与经商不矛盾</h1>
+    <p class="lead">给下一代 AI 领导者的核心建议：1) 追随你真正在乎的事情，内心的火焰能让你在艰难时刻坚持下去；2) 行善与经商不矛盾，这是这一代创始人的特殊机会。回答学生提问：AI 泡沫的担忧、政府监管、医疗隐私。</p>
+    <div class="chapter-content">
+      <p>当我思考未来，AI 被广泛采用时，如果我们开始把太多事情委托给 AI，我们冒着失去什么的风险？</p>
+      <p>是的。我们在 Anthropic 做了这个非常大的定性调查。我认为这是有史以来最大的定性研究——我们知道的。我们与<span class="hl">81,000人</span>谈论了他们对人工智能的使用。他们中的一些人使用 Claude，一些人使用其他 AI 工具。有趣的是，你知道，人们对 AI 有很多不同的感觉。</p>
+      <p>有些人体验过「我以前无法做到的事情，现在 AI 让我能够做到」。但也有些人表达了一种感觉——没有特定的词来形容它，但我认为可能有，或者另一种语言中有一天会有——「我不使用我的大脑，因为我不需要。」就像，我可以去思考，但相信 AI 工具更容易。</p>
+      <p>我认为我们与大学做的一些工作可能是这方面的一个有趣缩影。我们有这种「学习模式」的概念。一个版本是学生把作业放进 AI，它直接给答案——这叫做作弊。另一个版本是使用学习模式下的 Claude，它像耐心的导师，帮你思考，而不是直接给答案。</p>
+      <p>那个版本，这些工具可以让你更聪明。它们可以扩展你认为你可以学习的东西。然后我认为有一个版本只是关闭你的大脑，我希望作为一个行业，我们要选择做前者而非后者。</p>
+      <p>所以如果你不得不优先考虑，在 AI 驱动的世界中，哪些人类技能最可能变得更重要？</p>
+      <p>我用自己的观点，我认为就像我们谈到的，很多特定的任务导向的事情会改变很多。那些工作将能够由 AI 工具完成。但最终，人类喜欢和其他人类在一起。我们喜欢一起度过时间。我们喜欢互相学习。我们喜欢有创造力。</p>
+      <p>我想象，在一个 AI 能够做我们做的很多生产性日常工作的世界里，人际互动的技能将变得更加重要。以医学为例：今天，我们雇用医生主要是因为他们是好诊断师。但 AI 将非常擅长诊断。AI 不能做的是看着你、检查你、理解你的感受、帮助你感觉更好。有医学文献表明，人们与医生关系好的，临床结果更好。</p>
+      <p>当我思考下一代 AI 领导者和建设者，他们今天和我们一起在这个房间里，我希望他们从我的旅程中带走的一件事是什么？</p>
+      <p>我会说，我能说两个吗？</p>
+      <p>我认为第一点是，追随你真正在乎的事情，你对某事充满热情，是你能做的最重要的事情。有很多伟大的想法，如果你没有那种「这需要存在于世界上，我会为了能够做到它而穿墙而过」的燃烧感觉，那它就很重要。这很重要，因为在那些不好玩的 times 里。</p>
+      <p>当它是 sucks 的时候。就像，你只需要能够说：「我记得为什么这对我很重要。我记得为什么它重要。」无论是对我个人而言，还是因为我想要看到发生的一种变化类型。在 Anthropic，肯定有 times，我们在想：「这不是最有趣的部分，」对吧？有些部分是艰难的，所以能够把它与为什么你最初决定做这件事以及为什么它在乎你联系起来，我认为非常重要。</p>
+      <p>然后第二点，我认为特别是对这一代人来说，我认为真的在过去，你知道，<span class="hl">5到10年</span>里，这种「经商不必与行善产生张力」的概念。我认为这是一个非常新的想法。我认为这真的很特别。我一直对那种创始人的一代以及只是喜欢思考那种方式的创造者印象如此深刻，对吧？就像，有一种创新和社交影响的婚姻。</p>
+      <p>我认为 Stanford 一直在这方面例外。但我认为这是一个非常新的概念。我认为今天有更多的胃口，对吧？可能有这种感觉，只有刻薄的人才能经商。我只是不认为那是真的。而且我越来越觉得，行善的愿望与实际上做得好是强烈的关联。</p>
+      <p>转向学生们的问题。Brandon 问：关于我们是否处于 AI 泡沫中有辩论，人们通常意味着三件不同的事情：公司估值、公司在基础设施上的支出，或者 AI 进步的步伐是否真的可持续。这三件事中你最担心的是哪个，你认为人们在哪方面最错？</p>
+      <p>这是个很好的问题。是的，我们需要不同的……我们需要空气泡泡和玻璃泡泡。它们非常不同。我明白你的意思。我认为那个可能……我不知道我是否会说我最担心的是，但我认为作为对整个行业的担忧是有效的，这是高资本支出业务。而这本身就带来了一些风险。</p>
+      <p>这可能是你们都已经知道的东西，但训练这些模型真的非常昂贵。它需要大量的计算，而那个计算是稀缺供应。当你把那些东西放在一起，有很多需求，没有很多供应。我不是经济学教授，但我认为那意味着价格上升。</p>
+      <p>所以，这些公司的命脉的计算，你必须提前很久购买，所以你本质上是在对未来下注。你就像：「我们认为我们将需要在那个时间段的计算，」这是一个非常大的支出，在任何一个这些公司工作实际上都有点毛骨悚然。我认为如果有人不告诉你那个，也许除了 Google 因为他们是上市公司，他们有这么多钱。</p>
+      <p>但我认为当然对于 Anthropic、对于 OpenAI，你有点在计算你是否将能够在一段时间内收回那些钱。我们显然对此非常看涨。我认为两家公司的收入就像……令人难以置信。这是我们一直听说的东西，就像风险资本家，以前从未发生过这种事情，对吧？不可能想象一个企业在如此短的时间范围内达到正在谈论的收入数字。</p>
+      <p>如果那曾经发生改变，就会有问题，对吧？这两家公司都为未来购买了很多计算。这非常昂贵。所以我认为那可能是值得担忧的风险……它不是疯狂的。我们显然认为我们处于非常好的位置。我认为整个行业都是。但这可以随时改变。我认为重要的是要记住，就像，那最终是一个赌注，对吧？</p>
+      <p>Yash 问：Anthropic 认为政府监管和 AI 创新之间的正确平衡是什么？你希望世界各地的政府做什么不同的事情？</p>
+      <p>很好的问题。我认为这是一个领域，我认为关于它的对话一直，你知道，可悲的是，就像通常情况下，我认为，今天，只是处于某种政治气候中，就像很难进行细致的讨论。我认为这是一种耻辱，因为我认为这是一个非常细致的问题。</p>
+      <p>我认为明智的监管需要成为人工智能故事的一部分，对吧？这是一种与以前建造的任何其他技术非常不同的技术。甚至上一代技术可能可以从稍微更多的监管中受益，以我个人的观点。话虽如此，我们并不是对你需要有一些机动余地作为一个公司能够尝试事情的事实视而不见，如果你想要提出人们想要使用的下一代令人难以置信的产品并被采用。</p>
+      <p>我认为这是其中一个事情，我的实际最……关键希望对于对话是它不会变得政治化，我担心它已经政治化了，对吧？它就像，哦，就像监管坏、创新好，或者创新坏、监管好。我认为这真的很复杂。我认为有些领域的监管根本没有任何意义，然后我认为有些领域的监管对于使技术以对人们有好处的方式发展、并防止坏事发生在每天依赖它的人们和更广泛的世界身上是绝对关键的。</p>
+      <p>我的希望是，在理想的世界中，那会是什么样子是科技公司和监管机构，就像，携手合作。因为我们拥有关于技术如何可能被滥用的信息，因为我们每天都看到它，对吧？我们有安全保障团队和安保团队，它们看着，就像，人们如何在这个上戳戳，实际的风险是什么？</p>
+      <p>但监管机构知道如何提供可以实际遵循和执行的框架。所以……也许这过于乐观，但我仍然抱有希望，那个未来是可能的，我认为双方能够找到共同点，说就像：「我们如何确保我们能够开发下一个，你知道，惊人的技术，那甚至还不存在，或者下一个公司将要像，不管什么，下一个 Google 或下一个 Meta？」但我们只是把一些常识性监管放在适当的位置，帮助保护人们。</p>
+      <p>Jackie Kimmell 问：AI 正在获得对越来越敏感的个人数据的访问，比如我们的健康数据。你认为个人应该实际上做什么来保护他们的隐私？</p>
+      <p>我认为这也是一个极好的问题。我要说的第一件事是，你会惊讶于询问 Claude 医疗问题是多么常见。我认为这是我们最常见的随意用例之一。人们……我一直在使用它，对吧？我就像：「这是我孩子的问题。』『这是我的问题。帮帮我。』</p>
+      <p>我认为这有两面。我认为第一是它实际上是——公司的工作是以谨慎的态度使用和保护你的数据。我认为这极其重要。我坦率地认为，人们应该要求公司谨慎地使用他们的数据，因为它非常个人化。</p>
+      <p>我认为，例如，我们不在 Claude 中投放广告的决定部分是基于这种信念，即 AI 技术与 Instagram 账号甚至任何形式社交媒体上你会放的东西相比，人们与 AI 工具进行的对话更加个人化。</p>
+      <p>所以我认为第一是，有了这种知识，科技公司就有更多责任实际保护你的数据。第二是，我认为从个人角度来看，就像，我不知道我有完美的答案。我当然可以告诉你，就像，很多人把它用于医疗问题。我会真的从「不要盲信模型关于医疗事情」的角度来思考安全。</p>
+      <p>在我自己的经验中，Claude 在复杂医疗案例上比我的医生更经常是正确的，但我不会在没有与有执照的医疗专业人员检查的情况下做任何事情，对吧？我们，我们，嗯……我们非常开放地承认，就像，模型有时会编造东西。它们会混淆。它们不了解你。它们不能检查你。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=FDjrDeIZAk4" class="footer-link">YouTube / Stanford Graduate School of Business</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

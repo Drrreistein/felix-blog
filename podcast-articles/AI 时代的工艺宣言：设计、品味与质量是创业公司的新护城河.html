@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>AI 时代的工艺宣言：设计、品味与质量是创业公司的新护城河 · Dylan Field</title>
+<meta name="author" content="Dylan Field">
+<meta name="description" content="我们不再处于「差不多就行」的时代了。差不多意味着平庸。如果你想在软件竞争中胜出，你需要通过设计来差异化。工艺很重要。
+
+这是我在 Lenny 的播客中分享的核心信念。作为 Figma 的 CEO 和联合创始人，我已经在这家公司待了 13 年。这 13 年里，我经历了从无人看好到一个成功的 IPO、经">
+<meta name="keywords" content="播客, 访谈, Dylan Field, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">AI 时代的工艺宣言：设计、品味与质量是创业公司的新护城河</div>
+    <div class="cover-sub">Figma CEO Dylan Field 谈 Adobe 收购失败后的重建、Figma Make 的愿景、产品品味的哲学，以及为什么「好不够，工艺很重要」</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Dylan Field</strong><br>Figma CEO &amp; 联合创始人<br>
+    主持：Lenny Rachitsky·2025<br>
+    时长：约87分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/WyJV6VwEGA8/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/WyJV6VwEGA8/hqdefault.jpg'"
+         alt="Figma&#39;s CEO: Why AI makes design, craft, and quality the new moat for startups | Dylan Field">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/WyJV6VwEGA8?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Figma&#39;s CEO: Why AI makes design, craft, and quality the new moat for startups | Dylan Field · <a href="https://www.youtube.com/watch?v=WyJV6VwEGA8" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>我们不再处于「差不多就行」的时代了。差不多意味着平庸。如果你想在软件竞争中胜出，你需要通过设计来差异化。工艺很重要。
+
+这是我在 Lenny 的播客中分享的核心信念。作为 Figma 的 CEO 和联合创始人，我已经在这家公司待了 13 年。这 13 年里，我经历了从无人看好到一个成功的 IPO、经历了与 Adobe 长达 16 个月的收购审查后被监管机构阻止、经历了我们首次 AI 产品发布的惨痛失败。但每一次挫折都让我们变得更强大。在这场对话中，我坦诚地分享了这些经历——不是作为成功学式的回顾，而是作为还在路上的创业者的真实反思。
+
+我想通过这篇文章，把我在领导力、产品策略、AI 时代的定位，以及对品味的理解，尽可能完整地呈现出来。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">从收购案废墟中重建：领导力的至暗时刻</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">竞争心与同理心：我的领导力进化论</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">Maker 文化与产品扩展哲学：从 Fig Jam 到完整平台</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">Time to Value 与 Blockers 团队：产品上线的残酷真相</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">Figma Make：AI 时代的工艺宣言</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">品味的哲学与实践：从观察到判断</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">五年后的产品开发：角色融合与 AI 的机遇</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>从收购案废墟中重建：领导力的至暗时刻</h1>
+    <p class="lead">当一笔巨额收购在最后一刻被监管机构阻止，我面临了作为 CEO 以来最大的领导力考验。如何让一个刚刚被告知「钱不会到账了」的团队重新振作？</p>
+    <div class="chapter-content">
+      <p>与 Adobe 的收购审查持续了 <span class="hl">16 个月</span>。整个过程中，多个监管机构反对这笔交易。虽然我不会深入讨论他们反对的具体理由，但那段日子确实非常特殊。在监管期间，我们有很多限制——无法规划路线图，Adobe 也不能给我们任何关于该做什么不该做的指导。即便在这样受限的条件下，观察 Adobe 团队如何运作整个监管过程本身就很引人入胜。Adobe 是一家令人敬佩的伟大公司。</p>
+      <p>那段日子很艰难，但我真的很高兴我们始终把脚踩在油门上，持续加速前进，而不是停下来等结果。当我们最终退出这笔没有达成的交易后，我们立刻进入了推出 Dev Mode 和大力扩展平台的阶段。从那以后，公司的步调进一步加速。我为团队在那段时期的应对方式感到非常自豪，也为他们始终保持专注而感到荣幸。</p>
+      <p>Lenny 问了我一个很直接的问题：大多数团队在这种情况下都会极其沮丧和分心——一笔巨款即将到账却没成，人们很容易陷入「到底怎么回事」「我为什么还在这里工作」的情绪中。我是如何具体地让人们保持专注、保持甚至加速动力的？</p>
+      <p>沟通显然是第一位的。在法律允许的范围内，我们一开始做季度更新，告诉人们事情进展如何。到了某个阶段，更新变得更频繁，变成每几周一次。再到后来，我能够坦诚地告诉大家，通过的可能性越来越窄。不过不是所有人都读懂了这个信号——有些人仍然觉得这只是时间问题，交易迟早会通过。</p>
+      <p>收购案结果公布的时间点恰好在我们冬假之前——周五大家开始放假，公司大部分人都有一周到两周的休息时间（当然还有支持团队和运维人员在岗）。当假期结束后的那个周一，我们立刻召集所有人，明确了方向：这件事没有发生，接下来我们要做什么。</p>
+      <p>我们做了一件我觉得非常关键的事情——一个叫做「Detach」的计划。这个名称来自 Figma 的「Detach 组件」功能。这个计划的本质是给每个人一个选择：也许你加入 Figma 时以为自己在加入 Adobe，结果发现你还在一家拼命奔跑的创业公司；也许你在 Figma 工作了很久，已经累了，没关系。如果你想要 <span class="hl">3 个月的遣散费</span>，你可以拿走。这不是永别——你可以六个月后再重新申请，我们仍然是好朋友。最终，大约 <span class="hl">4%</span> 的公司员工接受了这个方案。</p>
+      <p>回过头看这件事特别有趣的是，选择离开的人中有相当多进行了彻底的职业转型。有些人从销售转去了政治，有些人走向了完全不同的方向。这不仅仅是一次公司的重置时刻，也是一些人人生和职业的重新出发。看着他们的新旅程如何展开，一直很吸引我。</p>
+      <p>这次经历教会我一个道理：清晰的沟通、坦诚的态度和给予人们选择的权利，是重建信任和动力的基础。不是每个人都需要留下来，但留下来的每一个人都必须是真正买账的。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>竞争心与同理心：我的领导力进化论</h1>
+    <p class="lead">从从未管理过任何人的创始人到上市公司的 CEO，13 年来我在领导力上学到的最重要的事情是什么？</p>
+    <div class="chapter-content">
+      <p>我从未管理过任何团队就成为了 CEO——你只需要给自己冠上这个头衔。但在领导技能方面，我可能有一些天分；在管理方面，我确实有太多需要从零学起的东西。</p>
+      <p>我们最初的工程总监 Sho 后来转做产品负责人，他教了我大量关于管理的知识。Figma 很多我聘请的领导者都让我学到了很多。但在管理上的从零到一，是我必须认真啃的一块硬骨头。</p>
+      <p>在领导力方面，说实话，就是同样的教训反复学习、反复遗忘、然后再学一次。我觉得自己每一次都比上一次好一点点。其中最重要的几个主题是：第一，如何拆解上下文（context unpacking）？你脑子里有很多信息，如何真正把这些信息传递给一个群体，让他们理解？第二，如何确保你的展现方式让团队知道大家都在朝着同一个目标努力？</p>
+      <p>我承认，有时候我会进入一种「强攻模式」，问很多问题，但这始终是出于想要理解或者弄清某件事的动机。确保以正确的方式展现自己很重要。目前我反复回到的一个概念是清晰度（clarity）——清晰度不仅是公司整体的方向，也包括每个具体团队的清晰度。如果哪里缺乏清晰度，我的责任是帮忙扫清障碍；同时也要教其他人如何直接地沟通，自己创造清晰度。</p>
+      <p>Notion 的联合创始人 Akshay Kothari 对我有一个评价，Lenny 在访谈中分享了。他说我大概是 NPS 满分的人，极其温暖，但在温暖之下有疯狂的驱动力和能量，是个杀手。这种组合相当罕见。</p>
+      <p>我确实热爱竞争和游戏。但我有一个特点：我只会选择自己认为能赢的游戏。这就是为什么我小时候从不擅长体育运动，也一直远离团队竞技——没有什么比参加一个我赢不了的游戏更让我抓狂的了。把这个逻辑应用到 Figma 上，我当然非常在乎为我自己、也为公司做得好。</p>
+      <p>但与此同时，我在这个过程中遇到的几乎所有竞争对手都是出色的人。他们追求着和我类似的目标——赋能用户、倡导设计。这行业里的竞争者几乎都是极好的人，你越了解他们越会这么觉得。所以我觉得完全没有理由不能同时保持良好的体育精神和竞争力。</p>
+      <p>Lenny 提到了 Ben Horowitz 的一个观点：CEO 不应该聘请需要自己指导的人，而应该聘请能让自己变得更好的人。我对此深有同感，但想进一步展开。在我的经验中，很多关系开始时对方以为我是导师，但不知不觉中他们变成了我的导师。Mika 是一个很好的例子——她在纸面上只是一个初级 PM，但我们的思维方式完全不同。我们通过激烈的辩论学到了很多东西，因为我们的心智模型截然不同。我希望她也从中有所收获。</p>
+      <p>所以我从不假设自己是导师。我始终认为所有关系都是双向的。</p>
+      <p>关于保持快速节奏，Figma 成立于 2012 年 8 月，现在已经 <span class="hl">13 年</span>了。Lenny 说从外部看 Figma 仍然很像一家创业公司，每个他遇到的 Figma 人都觉得自己在创业公司。我想分享几个保持速度的方法。</p>
+      <p>首先是问题的选择——确保你要解决的问题动机充分。但当你进入一个项目后，如果事情不收敛、一直拖延，你必须愿意果断放弃，转向其他项目。</p>
+      <p>其次是识别时间线中的填充。人们有时会在预估中故意加入缓冲，你需要理解每个假设背后的真正原因，和团队一起弄清楚哪些是实际需要的时间、哪些是人为的填充。有时候确实是额外的约束让事情变难了——比如在大规模环境下发布需要的额外工作——这些我不知道。但有时候假设确实不正确，或者我们只是人员不足需要重新配置资源。</p>
+      <p>第三是保持扁平化的组织结构。第四是路径依赖——很多时候人们会假设某个需求存在而其实不存在，或者忽略了一个真正关键的需求。第五是始终关注技术债务——如果你在减速，可能是因为系统性的基础设施问题在拖慢你。你需要找到技术债务和质量推进之间的正确平衡。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>Maker 文化与产品扩展哲学：从 Fig Jam 到完整平台</h1>
+    <p class="lead">Fig Jam 的诞生是我做出的最反直觉的决策之一。团队问「我们要把有趣作为差异化因素？」但事后证明，这正是我们需要做的。</p>
+    <div class="chapter-content">
+      <p>Lenny 让我分享一个在 Figma 发展过程中做出的反直觉决策。回过头看，当时确实非常不受欢迎和充满争议，但现在我们会说「这还用说吗」——那就是 Fig Jam。</p>
+      <p>Fig Jam 是我们的数字白板工具，用于头脑风暴、图表制作和团队协作。从只有一个产品到两个产品的整个过程非常艰难。我其实多年来一直在关注 Figma Design 中的图表和白板用例，不断推动我们需要一个更简单的产品界面来满足这个需求。但人们会非常合理地质疑我：为什么是现在？Figma Design 还没做到它需要做到的一切，为什么去做另一个领域？这对公司来说为什么如此关键？</p>
+      <p>我有很多直觉，但没多少数据支撑。然后新冠来了。突然之间，将人们聚集在这个无限画布上进行头脑风暴的用例，反馈开始飙升。一切都从「也许我们应该做这个，Dylan 一直在说」变成了「显然我们需要做这个，用户现在就需要」。</p>
+      <p>但即便如此，从一个产品扩展到两个产品仍然是一个巨大的焦点转变。这是否是正确的第二个产品？我们做了一些研究，获得了足够的信心，然后全力冲刺。Fig Jam 的构建速度非常快，大约六个月。</p>
+      <p>最有趣的部分在结尾。在 Config 大会发布前大约一个月，我们已经知道什么时候发布。但那一刻的感觉是：我们造出了这个东西，但它缺少了什么——灵魂不在那里。你可以把它框定为差异化，但它就是有点无聊。</p>
+      <p>我们争论了各种差异化方向。最终我召集了团队和董事会开了一个会——回到清晰度的问题：我们如何在这个时间紧迫的情况下，创造清晰度并朝着某个方向冲刺？那次会议的结论是：<span class="hl">让 Fig Jam 有趣</span>。</p>
+      <p>团队的反应是：什么？我们要把有趣作为差异化因素？</p>
+      <p>但事后证明这绝对是正确的决定。我们做了一次设计冲刺，快速探索了各种功能想法和产品塑造方式。我想我们那天大约提出了 <span class="hl">20 个想法</span>。其中几个最终进入了 Fig Jam，我认为它们成为了非常定义性的功能。比如光标聊天（cursor chat）就是在那天诞生的。</p>
+      <p>这次经历不仅造就了一个成功的产品，更重要的是向整个团队展示了：如果定义了正确的目标，我们能移动得多快。它建立了一种肌肉记忆——我们可以构建第二个产品、第三个产品，我们可以继续扩展平台，真正覆盖从创意到产品的完整旅程。</p>
+      <p>这个故事也引出了我们产品扩展的整体策略，我称之为「遵循工作流」。想象一下这个旅程：你有了一个创意 → 用 Slides 表达，或者跳进 Fig Jam 和团队头脑风暴 → 进入 Figma Design 做设计 → 如果需要开发，Dev Mode 带你过去。</p>
+      <p>Draw 源于一个观察：曾几何时互联网是 Flash 的时代，更动态、更有表现力，也许有些混乱但不总是高质量的。然后史蒂夫·乔布斯宣告 Flash 死亡，瑞士极简主义统治了设计世界，我们就停在那里了。我认为互联网的表达方式会回归到更丰富的形式，Draw 就是为此而生的。</p>
+      <p>Buzz 的逻辑是：品牌团队和市场团队在 Figma Design 中协作，品牌想要创建一种方式让市场部不要发布完全偏离品牌的营销素材，市场部想要快速批量创建资产。把这些都塞进 Figma Design 会太复杂，所以把它抽出来成为独立的产品表面。Sites 也是同样的逻辑——用户设计了网站，然后呢？我想发布它。</p>
+      <p>Lenny 问了一个关于市场规模的经典问题：作为一个产品矩阵如此丰富的公司，如何决定下一个要做什么？是不是看哪个市场最大？</p>
+      <p>我的回答是：你不能总是用 TAM（总可达市场）来约束产品设计。我们是从 Figma Design 的经历中深刻学到这一点的。创立 Figma 时，我们查过美国劳工统计局的数据——全世界只有 <span class="hl">25 万名</span>设计师。没有任何数据表明这是一个大市场。但我们抓住了趋势——设计师数量在快速增长，越来越多的人开始关心设计，因为设计已经成为差异化竞争力的关键。</p>
+      <p>在这个软件数量增长速度前所未有、设计就是你胜败关键的世界里，关心设计过程的人只会越来越多。这就是 Figma Design 的市场如何扩大的。所以你必须做正确的事，从优势出发扩展，不能总是被「下一个最大的 TAM」所困。</p>
+      <p>当然现在回过头来描述这一切很容易。但坦白说，当时更多是直觉。我有一个直觉——价值正在向栈的上层移动。从托管服务器到 AWS 和云计算，从盒装软件到应用商店，开发工具越来越好，加上人们通过 iPhone 应用、Facebook、Gmail 等获得越来越好的消费体验——对所有软件的期望都在提升。这种博弈论上的逻辑就是：你必须让你的产品更好，真正改进你的设计。这在 AI 时代只会加速，因为价值在栈上层移动得更快了。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>Time to Value 与 Blockers 团队：产品上线的残酷真相</h1>
+    <p class="lead">我有一个执念——Time to Value。让用户在尽可能短的时间内体验到产品的核心价值。而这个理念背后，有一个关于 Figma 早期产品的痛苦教训。</p>
+    <div class="chapter-content">
+      <p>我对 Time to Value 有一种近乎偏执的关注。什么意思？就是让用户在进入产品后尽可能快地体验到一些特别的东西——感受到这个产品令人惊叹之处。如果用户进入 Figma Design 看到的是空白画布，我们如何让他们尽可能快地创造出东西？如果用户进入 Figma Make，我们如何让他们在 prompt 后立刻有一个惊艳的体验？</p>
+      <p>缩短从打开产品到拥有那种不可思议的体验之间的时间——看到产品的真正价值——极其重要。在 Figma Design 中，能不能让用户快速拥有一个协作的多人实时体验？在 Fig Jam 中也是一样。</p>
+      <p>Warp 的创始人 Zach Lloyd 对此有一个很好的表述，他投资的公司也是我们投资的。他强调的不仅是创新功能，而是持续关注修复那些阻碍用户采纳的阻塞问题。有很多基础性的「阻挡与抢断」工作并不总是团队最想做的，但从 Figma 学到的经验是：<span class="hl">移除阻碍和添加酷炫新功能一样重要</span>。</p>
+      <p>我对此深感共鸣，也经常和团队讨论。Figma Design 的旅程中，我们不得不构建大量基础功能，同时也需要推出闪亮的新功能。我们在某个阶段甚至有一个专门叫做「Blockers」的团队——他们的工作就是逐一击破那些阻碍用户的问题。每消灭一个，我们都能在留存和激活指标上看到明确的改善。这非常直观——你真的能在图表上看到每次解决一个阻塞问题后的变化。</p>
+      <p>但这里有一个平衡。如果你只做基础功能，你不会有酷的产品，不会有令人惊叹的东西。你必须至少加入一些让人兴奋的元素——这个产品为什么激动人心？它要去哪里？用户能相信什么？你需要有一个可以传达给用户的产品愿景，即使是在最早期的发布中。仅仅有 MVP 是不够的，你的产品至少需要有一点令人惊叹的地方。</p>
+      <p>这让我不得不坦率地面对 Figma 自己的历史。我们花了太长时间才发布产品。<span class="hl">2012 年 8 月</span>成立公司，<span class="hl">2013 年 6 月</span>才开始全力开发 Figma，<span class="hl">2015 年 12 月</span>封闭内测，<span class="hl">2016 年 10 月</span>才正式发布多人协作版本，直到 <span class="hl">2017 年夏天</span>才赚到第一笔钱。</p>
+      <p>不要这样做。要更快。但这不是说你要死磕每个细节、永远不发布。教训是：你需要尽快上线一些东西，让用户能看到你愿景的方向。别像我们一样，更快地上线。我希望能重来一次。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>Figma Make：AI 时代的工艺宣言</h1>
+    <p class="lead">当我决定撤回我们的第一个 AI 产品时，这是一个 QA 失败。但从这个失败中学到的东西，塑造了 Figma Make 的全部哲学。</p>
+    <div class="chapter-content">
+      <p>Figma Make 是什么？最简单的理解方式：你输入一个 prompt，就能得到一个可以分享给团队使用的原型。更进一步，你甚至可以得到一个可以发布到网上或用于内部工作流的可工作应用。</p>
+      <p>Make 正在改变产品团队的工作方式。以前，PM 会跟设计师说「能不能帮我画一下这个东西」？现在不需要了。设计师的时间被释放出来，去探索更深入的设计问题。而任何人都可以参与到「我们应该往哪个方向走」的第一轮对话中来，去更广、更宽、更深入地探索选项空间。</p>
+      <p>Lenny 在访谈中分享了他自己的体验——他用 Make 克隆了 Figma 应用，效果非常好。他甚至让 AI 更新品牌配色来让它看起来更像 Figma，而且成功了。我告诉他可以直接在代码编辑器中替换图片 URL，他开玩笑说这对他来说太麻烦了。</p>
+      <p>Make 的进化速度是我见过的 Figma 所有产品中最快的。就在访谈前，我们刚发布了一个新功能：你可以将 Make 生成的屏幕带入 Figma Design 进行精细调整——因为有时候正确的做法是迭代 prompt，有时候你需要手动调整细节来获得你想要的东西。然后你可以把上下文带回 Make。这个往返过程至关重要。Make 真的只是一个起点——通常 AI 输出不是你的最终结果。</p>
+      <p>我们还在另一个关键领域投入大量精力：让 Make 支持使用你的设计系统并保持一致性。目前这还处于早期阶段，我们有更多要做的事情。但我认为这至关重要——如果一个想法因为视觉表达与团队期望不一致而被过滤掉，那就太可惜了。如果 AI 生成的原型从一开始就是一致的，那么想法就能基于其自身价值被评估，而不是因为「看起来不太对」而被否定。</p>
+      <p>现在所有 AI 建站工具的输出看起来都很相似，人们已经开始审美疲劳了。作为设计领域的前沿公司，我们有什么不同？首先，确保高质量的视觉输出当然非常重要。但更关键的是，Make 生活在 Figma 平台内部——这意味着我们可以让它与整个平台的其余部分实现互操作。这种生态系统级的能力是独立的 AI 建站工具无法比拟的。</p>
+      <p>有人甚至发表了学术论文来评估不同 AI 设计工具的输出质量。Figma Make 在排行榜上排名第二，仅次于第一名。这对我来说很新鲜——通常我不会在学术论文中看到产品评测。他们主要采用配对比较法，虽然不完美但很有价值。</p>
+      <p>但说到 AI 产品，我有一个惨痛的教训要分享。Lenny 回忆起 Config 大会上我们首次推出 AI 功能时反应不佳的经历。我们内部叫这个功能「first draft」，但后来不知为何改名为「make design」——首先，这名字就起错了。我们从没打算暗示这是你的最终设计，它只是一个起点。</p>
+      <p>但当时我们的方法非常基础——没有什么花哨的训练，不用用户数据，就是让 LLM 根据提示组装合法的组件。它能产生一些很酷的输出，你也可以编辑颜色、字体、主题的某些部分。但行业对 AI 的讨论氛围和今天完全不同。人们把我们的产品用到了我们没有充分测试过的地步。他们发现，如果你输入「做一个天气 app」，它会给你一个看起来和 Apple 天气 app 几乎一模一样的东西。</p>
+      <p>那是我们组装逻辑的控制范围之内的问题。这不是模型训练的问题，是 QA 的失败。我觉得如果是模型训练出了问题，我可能感觉不同。但用我们这种方式构建的产品，这完全可以预防。所以我把它撤了。</p>
+      <p>那是在我们的第二次 Config（新加坡站）上。从旧金山到新加坡的时差简直 brutal。如果你觉得我们在上一次播客中我看起来很累，那次我更累。我们在撤回的沟通上可能可以做得更好，但我认为这是正确的决定。</p>
+      <p>关于 AI 产品的 QA，Lenny 问了一个很多 AI 公司都头疼的问题——产品非确定性强、自主性高，怎么做 QA？我们已经在建立 eval 方法论上做了大量工作，而且仍在持续演进。这确实需要高度关注。我觉得一个容易犯的错误是依赖「vibes」太长时间——有些人就是凭感觉走，那能带你走一段路，但不够严谨。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>品味的哲学与实践：从观察到判断</h1>
+    <p class="lead">品味是什么？它不仅仅是你觉得什么好看什么不好看。品味是你对事物的观点，以及你如何发展你的观点。而且我相信，任何人都可以培养它。</p>
+    <div class="chapter-content">
+      <p>Lenny 说我经常谈论品味的重要性，但很多人听到「品味」会觉得抽象——品味到底是什么？我有没有这个东西？</p>
+      <p>关于品味，和设计一样，有一百万种定义。但我总是会回到这个根本：你对事物的观点是什么，以及你如何发展你的观点？</p>
+      <p>我认为有些人可能天生就有更强的偏好，对一切都更有主见。有些人不太在意，不太刻意。但任何人都可以深入这个领域。这是一个循环：<span class="hl">你在体验某种东西——也许是看艺术、听音乐、或者在真正地品尝食物——然后问自己：我喜欢吗？不喜欢？为什么？</span></p>
+      <p>然后更进一步：建立你的知识库。理解更大的上下文——是什么经典脉络、什么传统历史导致了这个事物的出现？你在哪些哲学方向上同意或不同意它所带来的路径？你越多次地经历这个循环，接触越多的东西，你就越能精炼你的品味。</p>
+      <p>我不认为这会让每个人都成为品味创造者。真正的 taste maker，能够对不同的历史方向进行插值，或者扩展到全新的方向——比如创造一种新的文学流派，或者像 Kurt Cobain 那样找到一种全新的美学或艺术运动——我认为这是 <span class="hl">0.01% 到 0.01%</span> 级别的技能。不是每个人都会成为品味创造者。</p>
+      <p>但那些既能创造、又能围绕品味阐述一个框架的人，确实具有非常重要的能力。而很多人可以学会匹配一个框架——不是很多人能创造框架，但很多人可以学会在给定的框架内做出好的判断。</p>
+      <p>那如何培养品味？我认为核心是：尽可能多地接触不同领域、不同媒介的新事物，找到跨领域的关联和链接。然后反思——为什么？建立你自己的策展能力。并且愿意重新审视你过去持有的观点。这就是通向好品味的路径。</p>
+      <p>品味中还隐含着判断力。品味意味着有些东西是好的，有些东西是不好的。你需要敢于做出高判断力的决策。但最好的产品设计师可以在需要时开启和关闭自己的品味——我有自己的偏好，我知道我喜欢什么；但如果你要走的方向和我的不同，我也能匹配你的品牌风格。</p>
+      <p>Figma 内部有很多品味极好的人。我们的创意总监 Damian、产品设计团队的 Merchin、编辑 Amber。最近我们新聘了一位首席设计官 Laura Donna，她从 Meta 过来，录这期节目的时候是她第四天。她已经展现出了极其出色的品味。她小时候是音乐人，后来进入设计领域。这恰好印证了我一直在说的跨领域、跨学科连接性与品味之间的关联——我发现这个播客上有很多嘉宾都曾是认真的音乐人。</p>
+      <p>最后，关于品味我想强调的一点：它不是静态的。它需要你持续地接触、反思、修正。就像 Lenny 在播客结尾说的一样，他给这次对话打了 100 分的 NPS。我当然希望我的品味也在持续进化。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>五年后的产品开发：角色融合与 AI 的机遇</h1>
+    <p class="lead">AI 会取代设计师吗？我的回答是：不会。但角色边界会融合。我们都是产品构建者，只是某些人在特定领域更专业。</p>
+    <div class="chapter-content">
+      <p>关于未来五年产品开发的样貌，我想先分享一些 Figma 的调研数据。</p>
+      <p>我们发现 <span class="hl">72%</span> 的受访者认为 AI 驱动工具（如 Make）是角色和职责扩展的主要原因之一。<span class="hl">56%</span> 的非设计师表示他们大量参与至少一个设计相关的任务，比如原型制作或视觉品牌探索。这个数字比一年前上升了 <span class="hl">12 个百分点</span>（从 44% 到 56%）。</p>
+      <p>同时，<span class="hl">53%</span> 的受访者认为即使有 AI，你仍然需要深入知识才能做好一件事。这让我觉得非常有趣——一方面说明很多人认为 AI 可以让你做更多事（这可能是危险的假设），另一方面也反映了一种走向通才能力的动力和跨界尝试的意愿。</p>
+      <p>我的结论是：角色边界将融合。不再那么区分工程师、设计师、PM——而是所有人都在做很多事情，我们都是产品构建者（product builders），只是某些人在自己的特定领域更专业。</p>
+      <p>那哪个职能最可能被取代？这个问题我认为完全取决于事情如何发展。没有人知道我们是在 S 曲线上还是在指数曲线上，或者到了 S 曲线末端但新的架构突破即将带来指数增长。唯一确定的是模型会变得更好。会渐进式改进还是指数级提升？可能在两者之间。</p>
+      <p>但核心信念是：你的组织会随着模型的改善而改善。目前在 Figma，我们完全没有达到工程需求被满足的地步——我们确实看到了生产力的提升，但只是温和到中等程度。这并没有减少我们对工程 headcount 的需求。我们还在招人。</p>
+      <p>在产品方面，判断力和以前一样重要。把团队团结在一个愿景周围的能力和以前一样重要。而设计在这个世界中的重要性只会增长。在软件可以更容易被创造的世界里，设计如此重要，设计师如此重要。</p>
+      <p>我认为设计师将成为未来的领导者。更多的设计师需要站出来承担领导角色，更多的 PM、开发者和研究员也需要愿意参与设计。因为归根结底，这就是你胜败的关键。如果你现在不内化这一点，以后会后悔的。</p>
+      <p>Lenny 提到 OpenAI 发布了一个评估 AI 对各类工作替代程度的 eval，发现 AI 在一些工作上接近人类水平，但那些工作并没有消失。我的看法是：首先，评估本身就很难——我们之前讨论过这个问题。其次，工作不是静止的，它们会随 AI 变化。作为工程师，你的提示能力有一个范围，你如何拆分和分配任务很关键。如果你假设模型能做的比它实际能做的多，你会过得很辛苦。</p>
+      <p>在我们的调研中，大约 <span class="hl">16-17%</span> 的设计师认为 AI 工具对其角色构成威胁。我觉得这个比例其实相当鼓舞人心——说明绝大多数人直觉上理解 AI 不是来取代他们的。</p>
+      <p>这里面有一个有趣的现象——Lenny 把它叫做 Jevons paradox。你可以把 AI 看作公司成长和做更多事情的机会，也可以把它看作削减成本的工具。我觉得成长的那一面远比成本削减令人兴奋。在个人层面也一样：你可以把 AI 看作学习和探索世界的路径，也可以用它来做作业——显然我有自己的立场。</p>
+      <p>关于脑机接口（BCI），这是我长期感兴趣的领域。回看 Figma 的历史，协作是第一个让我们在浏览器中构建差异化产品的重大变化，第二个是 AI。总有一天我们会在这类播客上讨论 BCI，但现在还不是时候。</p>
+      <p>关于 AI 在我生活中的使用——除了显而易见的用途，我发现 AI 在几个领域表现特别好。一个是在咨询专家之前先用 AI 了解背景——比如法律问题。这不是替代律师，但能让我带着更充分的信息去对话。当然你得小心，跟 AI 的对话不等于跟律师的对话。</p>
+      <p>另一个我觉得被严重低估的用法是：当你面对一个多维可能性空间时。比如我在尝试写小说，想创造一个角色，这个角色可能有 100 种人格特征。我可以手动从列表中挑选，也可以让 AI 随机选六个，然后为每个属性生成正面和负面版本的全组合表格——现在我得到了一个完整的可能性空间表。这能以完全不同的方式建立你对可能性空间的直觉。</p>
+      <p>Lenny 问我是不是在写书。不是。</p>
+      <p>最后说一下招聘——我们在招聘大多数岗位。我在寻找什么？热爱难题的人。如果你是 Figma 的用户，觉得自己想「他们真的可以做得更好」——来跟我们聊聊。我想要有大胆观点的人、有愿景的人。我们当然有自己的观点，所以需要一起思考。但我寻找的是高判断力的个体、愿意卷起袖子做实事的人、追求工艺完美的人。因为我们知道，胜利之道就是拥有最好的工艺和最好的设计。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=WyJV6VwEGA8" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2025</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

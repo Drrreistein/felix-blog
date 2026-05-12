@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>设计流程已死：AI时代设计师的生存指南 · Jenny Wen</title>
+<meta name="author" content="Jenny Wen">
+<meta name="description" content="几个月前，我在柏林的一个设计大会上做了一次演讲，标题叫「不要迷信设计流程」。在那次演讲中，我说了一个让很多人不舒服的观点：设计师们长期以来遵循的那套设计流程——研究、发现、发散、收敛、发散、收敛——这套被我们视为圣经的方法，基本上已经死了。我当时以为这个观点已经够激进了。但没想到，仅仅三四个月后，连">
+<meta name="keywords" content="播客, 访谈, Jenny Wen, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">设计流程已死：AI时代设计师的生存指南</div>
+    <div class="cover-sub">Anthropic设计负责人亲述：设计工作正在发生怎样的根本性转变</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Jenny Wen</strong><br>Anthropic Claude设计负责人，现领导Claude Co-work设计团队；前Figma设计总监<br>
+    主持：Lenny·2025<br>
+    时长：约78分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/eh8bcBIAAFo/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/eh8bcBIAAFo/hqdefault.jpg'"
+         alt="The design process is dead. Here&#39;s what&#39;s replacing it. | Jenny Wen (head of design at Claude)">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/eh8bcBIAAFo?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ The design process is dead. Here&#39;s what&#39;s replacing it. | Jenny Wen (head of design at Claude) · <a href="https://www.youtube.com/watch?v=eh8bcBIAAFo" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>几个月前，我在柏林的一个设计大会上做了一次演讲，标题叫「不要迷信设计流程」。在那次演讲中，我说了一个让很多人不舒服的观点：设计师们长期以来遵循的那套设计流程——研究、发现、发散、收敛、发散、收敛——这套被我们视为圣经的方法，基本上已经死了。我当时以为这个观点已经够激进了。但没想到，仅仅三四个月后，连我自己都觉得那次演讲开始显得有些过时了。尤其是当Opus 4.6发布，大家都在度假期间疯狂使用Claude Code之后，我意识到设计流程被迫改变的力量比我们想象的还要强大。这不是我或设计行业主动选择要改变，而是工程工具的变革正在倒逼设计工作发生根本性转变。今天我想分享我在Anthropic的真实工作体验，以及我看到的这场变革的全貌。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">设计流程已死</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">设计工作的新分层</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">在Anthropic的真实工作日常</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">与工程师协作的艺术</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">IC还是管理？设计师管理者需要回归一线</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">AI时代需要什么样的设计师？三种人才原型</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">领导力的新视角：低杠杆可能是高杠杆</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>设计流程已死</h1>
+    <p class="lead">传统设计流程的死亡不是我倡导的，而是工程变革倒逼的结果。</p>
+    <div class="chapter-content">
+      <p>我想先说清楚一件事：我说设计流程已死，不是我觉得设计师们应该改变，或者说我们整个行业主动选择放弃过去的流程。而是工程工具的变革，正在强制性地推动设计工作发生变化。</p>
+      <p>过去我作为设计师，大概60%到70%的时间都在做mock和原型设计。花很长时间打磨一个精美的设计稿，然后展示给团队，反复迭代。这是我们被教导的设计方式，也是我们引以为傲的专业技能。</p>
+      <p>但现在呢？现在mock和原型设计的时间占比已经下降到30%到40%。不是我们不想做了，而是工程师们现在有了Claude Code这样的工具，他们可以自己快速实现功能。当任何人只要说出想法，工程师就能在很短的时间内做出一个可用的版本时，我们设计师真的没有时间再去做那些精美的mock了。</p>
+      <p>我记得我在柏林的演讲题目叫「不要迷信设计流程」。我当时说，我们设计师群体一直把某些设计方法论当成圣经一样供奉，觉得只要「相信流程」，就能做出好产品。但现在我觉得，连那次演讲都开始过时了。因为变化发生得太快了。</p>
+      <p>这种变化不是设计领域主动发起的。就像我在播客中说的，不是设计师群体决定「我们需要改变」。而是工程团队的工具变得太强大了，强大到设计工作必须跟着改变。这种连锁反应可能是我们都没预料到的。</p>
+      <p>但我也要说，这种变化对我们设计师来说其实是一种解放。我们不再需要花大量时间做那些终将被快速迭代掉的设计稿。我们可以更直接地参与产品构建，可以和工程师一起工作，可以用代码来实现想法。这是一个巨大的机会。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>设计工作的新分层</h1>
+    <p class="lead">设计工作正在分化为两类：支持执行和创建方向，两者都很重要但形态都在变。</p>
+    <div class="chapter-content">
+      <p>我现在的看法是，设计工作基本上分化为两类，而且这种分化在AI时代变得越来越明显。</p>
+      <p>第一类是支持实施和执行的工作。这就是现在很多设计师在做的事——当工程师用Claude Code快速实现功能时，设计师在旁边帮助他们保持正确的方向。不是告诉他们「这里放什么」，而是帮助他们连接想法，确保最终的产品体验是连贯的。这是一种「顾问式」的设计工作，需要设计师真正理解产品目标和用户需求，然后能够用语言和协作来引导工程团队。</p>
+      <p>这类工作听起来好像没那么「设计」，但实际上它要求设计师有更深的产品思维和沟通能力。我们不再是躲在Figma里独自画图，然后交出设计稿让工程师去实现。现在我们要随时在线，和工程师一起工作，及时提供反馈和指导。</p>
+      <p>第二类是创建愿景和方向的工作。这个其实我们以前也在做，但我觉得它的形态正在发生很大变化。以前我们会说「我们要做一个2年、5年、甚至10年的愿景规划」，然后做一套精美的PPT来展示我们的方向。但现在呢？现在技术变化太快了，我们根本不知道2年后会是什么样子。</p>
+      <p>所以现在的愿景变成了3到6个月的短期方向。而且它不一定是那种精美包装的PPT，有时候只是一个原型，能告诉大家「这就是我们要去的地方」。这种更短、更务实的愿景，其实更实用。因为在这个快速变化的时代，半年后的事情都很难预测，更别说2年了。</p>
+      <p>为什么这两类工作都很重要？因为当工程师可以用AI工具快速做出任何他们想要的功能时，你需要有人来告诉他们「我们应该做什么」。在大家都能够快速构建的世界里，「构建什么」变得更加重要。这就是设计师能提供核心价值的地方——帮助团队找到正确的方向，确保每个人做的东西能够形成合力，而不是各自为战。</p>
+      <p>我觉得这种设计工作的分层会越来越明显。设计师需要在这两类工作之间找到自己的位置，找到最适合自己的方式来做贡献。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>在Anthropic的真实工作日常</h1>
+    <p class="lead">在AI实验室工作意味着什么？设计师如何利用Claude全家桶提升效率。</p>
+    <div class="chapter-content">
+      <p>很多人好奇在Anthropic当设计师是什么感觉，我想分享一些真实的日常。</p>
+      <p>说实话，在Anthropic工作的一大块时间就是「跟进」——了解公司里发生了什么。我之前在Figma等其他公司工作过，这个规模的公司通常也有很多事情在同时进行。但在Anthropic，我有一种特别强烈的冲动想要跟上所有动态。因为这里发生的事情实在太有意思了。</p>
+      <p>一方面是研究团队在模型方面的进展，另一方面是有太多不同的团队在同时做原型、尝试各种想法。Slack上全是讨论新想法、新prototype的内容。有时候我会花很多时间导航和了解这些项目是什么，因为我想提前知道「前面有什么」等着我。</p>
+      <p>这种信息过载的感觉可能是AI实验室特有的。我在其他地方工作时，那些「公司动态」感觉是外面的事，我不太关心。但在Anthropic不一样——这里发生的事无论是数量还是质量，都让我觉得必须跟上。甚至我觉得最好的AI新闻来源就是公司内部Slack。</p>
+      <p>除了跟进公司动态，我每天还会做这些事：</p>
+      <p>思考未来的产品方向。这周我专门留出时间来思考Co-work接下来3个月的发展方向。考虑市场在哪里、模型能力在哪里、我们可能去哪里。这对团队很重要，因为即使是在这种快节奏的环境里，有个方向感还是能帮助大家聚焦。</p>
+      <p>和工程师一起「头脑风暴」。很多时候这就是纯粹的对话、白板讨论、或者审查他们刚做出来的东西。给他们反馈，用设计思维来指导他们——这已经变成我工作中很重要的一部分。</p>
+      <p>写代码。是的，设计师在写代码。我现在花不少时间在代码里打磨、实现细节。有时候是工程师实现了一个功能的初版，然后我进去和他一起完善细节。这是我觉得特别有趣的部分，因为以前这种工作基本不存在。</p>
+      <p>关于工具，我用Claude全家桶。Claude Chat用于简单的查询，但越来越多地用Claude Co-work来处理需要较长时间的任务，因为我发现它更适合这种场景。Claude Code主要用于IDE里调整前端代码，因为我通常在改CSS或者一些视觉细节，直接看代码说话更方便。我也尝试通过Slack和手机远程使用Claude Code——让Claude直接修个图标，然后我去review PR，这个流程特别顺畅。</p>
+      <p>Figma我还在用。作为一个前Figmate（我们内部这么叫自己），我觉得Figma仍然是不可替代的。为什么？因为它特别适合探索多种方案。最好的设计往往发生在你能「把一堆想法往墙上扔」然后筛选的时候。但现在的编码工具还很线性——你选择一个方向，投入进去，然后用AI迭代。要像在Figma里那样同时探索8到10个方向，目前的AI工具还做不到。</p>
+      <p>还有一个原因是有很多微妙的视觉和交互细节，在Figma里调整比写代码方便多了。想试试不同的字体或者风格？在画布上探索这些细节比直接改代码舒服得多。</p>
+      <p>所以我觉得，现在工程师们可能越来越不需要IDE了（因为他们用命令行和AI agent），但IDE可能对设计师越来越有价值——这个趋势挺有意思的。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>与工程师协作的艺术</h1>
+    <p class="lead">设计师不再是交付mock的门卫，而是帮助工程师成功的协作者。</p>
+    <div class="chapter-content">
+      <p>我在播客里说了一个让很多人印象深刻的观点：你们最好别挡着工程师的路，让他们自己来。这话听起来可能有点反直觉，但我想解释一下我真正的意思。</p>
+      <p>当工程师可以快速构建功能时，如果设计师非要等做完精美mock才能让他们动起来，那其实是在拖慢整个团队的进度。你作为设计师其实没有时间做那些精美的mock了——这个说法可能让很多人不舒服，但我觉得这是现实。</p>
+      <p>更好的方式是让工程师先做，然后设计师在旁边帮助他们走向正确的方向。这是一种完全不同的工作模式。以前设计师是「门卫」——我做完设计，你们按图施工。现在设计师是「向导」——你们先跑，我来指路。</p>
+      <p>那设计师具体怎么帮助工程师呢？我有一个原则：解释「为什么」而不是只给结论。当我否定一个设计方案时，我不会简单说「这里不应该放这个」。我会解释「这里应该有个按钮，因为不是所有人都知道可以这样prompt——这是从用户研究里得出的结论」。帮助工程师从具体案例中提取原则，这样他们以后遇到类似情况时能自己做判断。</p>
+      <p>我会尽可能指向设计系统和代码。因为现在Claude在写大量代码，但它不总是能正确使用我们的设计系统。所以我尽量给工程师准备好可以直接用的资源，这样他们以后可以少依赖我。</p>
+      <p>这其实对设计师提出了更高的要求。你需要真正理解设计决策背后的原因，能够清晰地解释这些原因，还要对代码和实现有足够了解，才能给出实用的反馈。不是说你以前只会画图就行，而是要对整个产品交付流程都有掌握。</p>
+      <p>关于保持工艺质量，很多人担心：产品每天发布一千次，设计师根本盯不过来，怎么保证质量？我的想法是：</p>
+      <p>关键在于区分产品处于哪个阶段。Anthropic经常发布「研究预览」产品，我们明确告诉用户这是早期的、会有各种缺陷。我们发布Co-work时就是这么做的——我们把它标注为研究预览，因为我们知道它不完美，可能有些问题，但相信它有足够价值让人们愿意尝试。</p>
+      <p>这种早期发布是可以的，但你必须向用户承诺：「我们会持续迭代，会认真对待你们的反馈，会让产品变得更好」。你必须真正做到——回应用户的反馈，展示你在持续发布和改善。如果发布早期产品然后什么都不做，那才会真正损害品牌。</p>
+      <p>但如果我们承诺了并且做到了，那早期发布其实是一个很好的策略。用户能看到你在倾听他们的声音，能看到你快速修复问题。这种「通过速度建立信任」的方式，反而可能比花很长时间打磨完美产品更能赢得用户。</p>
+      <p>事实上，当你真正发布一个产品，你会立刻得到反馈，知道用户想什么、他们遇到了什么问题、下一步该做什么。这对设计师来说其实挺有趣的——你不再是闭门造车，而是和产品一起成长。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>IC还是管理？设计师管理者需要回归一线</h1>
+    <p class="lead">Jenny分享了她从IC到管理再回到IC的经历，以及为什么管理者需要真正理解一线工作。</p>
+    <div class="chapter-content">
+      <p>我在Anthropic的职业路径有点曲折。我先是作为IC加入的，后来管理了一个团队几个月，现在又回到全职做IC。</p>
+      <p>当初我选择做IC是因为我真的想做具体的工作，而且我觉得在职业生涯中「 ascend the corporate ranks」之前，靠近一线工作是很重要的。我也一直在问自己：中层管理在AI时代还安全吗？未来还需要这种角色吗？还是说我应该换个方向，做点不一样的事情？</p>
+      <p>说实话，两种角色我都喜欢。我喜欢管理人，建立团队；但我也真心热爱IC的工作。所以当我后来回到IC时，我发现自己获得了很多以前做管理时学不到的硬技能。设计流程在这一年变化太大了——如果我一直在做管理，我可能不会有时间去真正掌握这些新工具和新方法。</p>
+      <p>这也让我对管理有了新的理解。我现在觉得，设计师管理者需要回到IC角色一段时间，才能真正理解设计流程发生了什么变化。工程领域其实有类似的做法——很多公司会让工程经理先做几个月的轮岗，真正了解技术是怎么工作的，然后再开始管理。设计领域可能也需要这样做。</p>
+      <p>过去设计领域的管理更多是「人事导向」的——排一对一会议，确保大家工作开心，关心职业发展。这些当然重要，但现在可能不够了。你还需要真正能参与到工作中，能给团队方向，能理解现在的设计流程是怎么运作的。而要做到这些，你必须自己也在用这些新工具、尝试这些新方法。</p>
+      <p>回到IC之后，我发现有一件事变得生疏了：做crit（设计评审）和接受批评。当设计师需要把你的作品展示给团队，然后接受大量的反馈和批评——这其实是一种需要练习的脆弱性。我发现自己有一段时间不这样做之后，再回到这种状态需要一点时间调整。</p>
+      <p>我觉得这提醒我们，无论是什么角色，保持开放、愿意接受反馈都是很重要的。IC也好，管理也好，我们都需要持续学习、持续适应这个快速变化的环境。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>AI时代需要什么样的设计师？三种人才原型</h1>
+    <p class="lead">强通才、深度专家、Craft新星——Jenny提出三种值得招聘的设计人才类型。</p>
+    <div class="chapter-content">
+      <p>大家最常问我的一个问题就是：AI时代需要什么样的设计师？设计师应该学编程吗？应该有什么新技能？</p>
+      <p>我在招聘时最看重三种「原型」：</p>
+      <p>第一种是强通才——我管这个叫「Block-shaped」的人。在经典的T型框架里，我们通常说一个人有一个核心技能很强，然后其他方面有一些基础。但我想说的是另一种人——他们在好几个核心技能上都很强，都达到了80百分位左右。</p>
+      <p>这听起来好像要求不高，但其实这非常罕见，也非常难招聘。因为设计角色现在正在扩展——设计师在变得更像PM，也在变得更像工程师。如果你已经在好几个领域都有扎实的能力，你就很容易灵活切换、扩展自己的角色。这在当前的环境下特别有价值。</p>
+      <p>第二种是深度专家——经典的T型中的那个深长的竖线。这种人在某个领域达到了行业前10%的水平。可能是非常懂技术的设计师，某种程度上可以当半个工程师用；也可能是视觉设计或者图标设计方面的大师，能做出真正让产品与众不同的东西。</p>
+      <p>在这个「任何人都能用AI做东西」的世界里，有一个领域你真的做到了极致，就意味着你真的能为产品带来差异化价值。这种人是很难找的，但如果你有幸能找到，而且公司也请得起，那一定要想办法招进来。</p>
+      <p>第三种我管它叫「Craft新星」——这可能是我觉得现在最被忽视的一类人。这是指那些早期职业的设计师，他们聪明、谦虚、求知若渴，有时候感觉比实际年龄更成熟。他们没有那么多固化的流程和仪式在脑子里。</p>
+      <p>为什么我觉得这类人现在特别有价值？因为大多数公司都在拼命招有经验的人才，但在这个角色快速变化的时代，有时候「一张白纸」反而是优势。这些人能快速学习新工具、新方法，没有「以前都是这么做的」的包袱。他们相信任何事情都是可能的，这种心态在当前特别重要。</p>
+      <p>如果你是初级设计师，我的建议是：多做，多练，用技术构建真实的东西。不要觉得自己经验不足就不敢动手。最好的新设计师，就是那些直接开始做、开始分享、从实践中学习的人。找到一个志同道合的社区，大家一起做东西、一起分享，这种成长方式很有效。</p>
+      <p>关于设计师要不要学编程——我觉得不需要传统意义上的「学编程」，比如去学React什么的。但设计师确实需要学会使用AI编码工具，了解这些工具能做什么、不能做什么。这可能是更务实的建议。</p>
+      <p>至于Claude能不能当设计师用——我觉得目前还不行。它能做第一版，能抛出很多想法，但还没有达到让人觉得「这真是一个可雇佣的设计师」的程度。不过它进步很快，谁知道以后会怎样呢。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>领导力的新视角：低杠杆可能是高杠杆</h1>
+    <p class="lead">资深领导亲自测试产品、写代码、给团队做贺卡——这些小事其实展示了大大的关心。</p>
+    <div class="chapter-content">
+      <p>有一个观点我听到很多人觉得很反直觉，但我真的相信它是真的：我认为manager做的很多「低杠杆」任务，其实可能是高杠杆的。</p>
+      <p>传统的管理建议会告诉你：作为manager，你需要优先排序你的工作，把那些「只有你能做」的事情做好，其他「别人也能做」的低杠杆任务就别管了。听起来很合理对吧？</p>
+      <p>但我观察到的恰恰相反。我最尊敬的那些领导者，他们最优秀的特质之一，恰恰是他们会选择亲自去做那些看起来很低杠杆的任务。而这些任务最后变成了真正高杠杆的事情，因为是他们在做。</p>
+      <p>举个例子。当资深领导者亲自测试产品、花时间在日志里翻找bug、和工程师讨论细节的时候——这看起来好像是在做很细枝末节的事情。但实际上，这创造了他们对产品的深度熟悉，这种熟悉会影响他们的决策质量。而且这也传递了一个信号：领导真的在乎产品，他们愿意卷起袖子干细活。</p>
+      <p>我还见过资深领导者自己提交代码修复的情况。这种行为让团队感觉「我们是一起的，没有什么是我不能做的」。这种文化氛围其实很有价值。</p>
+      <p>还有一个稍微不一样但相关的例子。当一个资深领导者专门为一个团队成员的周年纪念做一张精心设计的贺卡时——这看起来好像不太重要对吧？但这展示了领导者对团队成员个人的关心，而这种关心会产生巨大的影响。</p>
+      <p>所以我现在尝试做的是：选择那些看起来低杠杆、但实际上值得我花时间的事情。这可能是我领导风格中最独特的部分。</p>
+      <p>关于团队文化，我鼓励团队成员之间可以「roast」彼此——就是调侃、开玩笑那种。这听起来可能不太像好的工作环境，但我观察到的恰恰相反。当团队成员之间能这样互相调侃时，这其实是心理安全感和信任的标志。</p>
+      <p>当你想的是「这是我的朋友」时，你更愿意挑战边界、开点玩笑。你 roast 你的朋友，但你不会 roast 你的同事——因为同事之间往往隔着舒适区和安全感。当我的团队成员开始调侃我说的话、做的决定时，我知道他们不害怕我，我知道他们信任我，我觉得这是一种特别好的团队状态。</p>
+      <p>当然，这种文化和「高标准」并不矛盾。关键是两者的平衡。一旦有了心理安全感和信任，你反而更容易应用高标准——因为你知道你的反馈会被接受，不是因为恐惧，而是因为信任。</p>
+      <p>我觉得这有点像「严格的父母」——你无条件地关心他们，但你也有很高的期望。这两者不矛盾，它们其实相互增强。</p>
+      <p>最后我想分享一个我从VC那里学到、但觉得设计师也应该掌握的框架：Legibility Framework。</p>
+      <p>这个框架很简单：创始人和想法都有「legible」或「illegible」两种状态。如果创始人和想法都很legible——这意味着两人都能被理解、想法也很清晰——那很可能这个想法不够新，已经有人在做了。</p>
+      <p>有趣的是，当想法本身是「illegible」的时候——意味着它还没有被完全理解，或者还没有被用正确的方式讲述——这时候往往是最有价值的机会。</p>
+      <p>VC用这个框架来找投资机会，但我觉得设计师也可以用它来识别值得深挖的内部原型。当你在Slack上看到某个项目，虽然不太理解，但感觉有能量围绕它——这就是值得关注的信号。</p>
+      <p>Co-work的诞生就是一个例子。我们内部有一个叫Claude Studio的原型，当时我觉得不太理解它是什么。但研究团队和构建它的人都很兴奋，这股能量引起了我的注意。最终从那个原型里，我们提取出了「Skills」框架和一些其他元素，变成了Co-work的核心功能。</p>
+      <p>这让我意识到：设计师在AI实验室的角色，有时候有点像内部VC——识别 illegible 的想法，理解它们，然后帮助把它们变成现实。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=eh8bcBIAAFo" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2025</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

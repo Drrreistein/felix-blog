@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>无限机器 · 知识速查表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --parchment:  #f5f4ed;
+    --ivory:      #faf9f5;
+    --warm-sand:  #e8e6dc;
+    --brand:      #1B365D;
+    --near-black: #141413;
+    --olive:      #5e5d59;
+    --stone:      #87867f;
+    --border:     #dddbd2;
+    --serif: 'Newsreader', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', Georgia, serif;
+    --sans:  'Inter', 'Source Han Sans SC', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--parchment);
+    color: var(--near-black);
+    font-family: var(--sans);
+    font-size: 9.5pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 16mm 17mm 14mm;
+    background: var(--parchment);
+  }
+
+  /* ── 顶部标题区 ── */
+  .header {
+    border-bottom: 1.5pt solid var(--brand);
+    padding-bottom: 12pt;
+    margin-bottom: 14pt;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 16pt;
+  }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 4pt;
+  }
+  .book-title {
+    font-family: var(--serif);
+    font-size: 26pt;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--brand);
+    letter-spacing: -0.01em;
+  }
+  .book-sub {
+    font-family: var(--serif);
+    font-size: 10pt;
+    font-style: italic;
+    color: var(--olive);
+    margin-top: 3pt;
+    line-height: 1.35;
+  }
+  .header-meta {
+    text-align: right;
+  }
+  .meta-line {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  /* ── 全宽核心主旨 ── */
+  .thesis {
+    background: var(--ivory);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 5pt 5pt 0;
+    padding: 10pt 14pt;
+    margin-bottom: 14pt;
+    border: 0.5pt solid var(--border);
+    border-left: 3pt solid var(--brand);
+  }
+  .thesis p {
+    font-family: var(--serif);
+    font-size: 10pt;
+    font-style: italic;
+    color: var(--brand);
+    line-height: 1.45;
+    margin: 0;
+  }
+  .thesis .attr {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--stone);
+    margin-top: 4pt;
+    font-style: normal;
+  }
+
+  /* ── 主体网格 ── */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12pt;
+    margin-bottom: 12pt;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12pt;
+    margin-bottom: 12pt;
+  }
+
+  /* ── 卡片 ── */
+  .card {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 6pt;
+    padding: 10pt 12pt;
+  }
+
+  /* ── section 标题 ── */
+  .sec-title {
+    font-family: var(--sans);
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 7pt;
+    display: flex;
+    align-items: center;
+    gap: 5pt;
+  }
+  .sec-title::before {
+    content: '';
+    display: inline-block;
+    width: 2.5pt;
+    height: 9pt;
+    background: var(--brand);
+    border-radius: 1pt;
+    flex-shrink: 0;
+  }
+
+  /* ── 正文 ── */
+  p { font-size: 9pt; line-height: 1.50; color: var(--near-black); margin-bottom: 5pt; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; color: var(--near-black); }
+
+  /* ── bullet list ── */
+  ul.bl { list-style: none; padding: 0; margin: 0; }
+  ul.bl li {
+    font-size: 9pt; color: var(--near-black); line-height: 1.45;
+    margin-bottom: 4pt; padding-left: 9pt; position: relative;
+  }
+  ul.bl li::before { content: '·'; position: absolute; left: 0; color: var(--brand); font-size: 11pt; line-height: 1.15; font-weight: 600; }
+  ul.bl li:last-child { margin-bottom: 0; }
+
+  /* ── 时间线 ── */
+  ul.tl { list-style: none; padding: 0; }
+  ul.tl li { display: flex; gap: 7pt; margin-bottom: 4pt; font-size: 9pt; line-height: 1.40; }
+  ul.tl li:last-child { margin-bottom: 0; }
+  .tl-yr { font-family: var(--sans); font-size: 7.5pt; font-weight: 600; color: var(--brand); min-width: 30pt; padding-top: 0.5pt; flex-shrink: 0; }
+
+  /* ── 引言 ── */
+  blockquote {
+    border-left: 2pt solid var(--brand);
+    margin: 6pt 0;
+    padding: 4pt 9pt;
+    background: var(--warm-sand);
+    border-radius: 0 3pt 3pt 0;
+  }
+  blockquote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 8.5pt;
+    color: var(--olive);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* ── tag ── */
+  .tag {
+    display: inline-block;
+    background: #EEF2F7;
+    color: var(--brand);
+    font-family: var(--sans);
+    font-size: 7pt;
+    font-weight: 500;
+    padding: 1pt 5pt;
+    border-radius: 2pt;
+    margin: 1.5pt 2pt 1.5pt 0;
+  }
+
+  /* ── 数字强调 ── */
+  .num { color: var(--brand); font-weight: 500; }
+
+  /* ── 分隔线 ── */
+  .div { height: 0.5pt; background: var(--warm-sand); margin: 10pt 0; }
+
+  /* ── footer ── */
+  .footer {
+    border-top: 0.5pt solid var(--warm-sand);
+    padding-top: 7pt;
+    margin-top: 2pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer span { font-family: var(--sans); font-size: 7pt; color: var(--stone); }
+
+  @media print { .page { margin: 0; padding: 13mm 15mm 12mm; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <div>
+      <div class="eyebrow">书籍速查表 · Book Cheatsheet</div>
+      <div class="book-title">无限机器</div>
+      <div class="book-sub">Demis Hassabis、DeepMind，以及对超级智能的追求</div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-line">作者 · Sebastian Mallaby</div>
+      <div class="meta-line">出版 · Penguin Press，2026</div>
+      <div class="meta-line">定性 · 传记 × 科技史 × AI 哲学</div>
+    </div>
+  </div>
+
+  <!-- ── 核心论点 ── -->
+  <div class="thesis">
+    <p>"发现的甜蜜——the prospect of discovery is too sweet。这是一切的根源。人类会不停创造，直到走得太远。Hassabis 知道 AGI 的危险，却仍然全力以赴，因为他相信有人来做，不如由有良知的人来做。"</p>
+    <div class="attr">— 贯穿全书的核心张力：科学的冲动 vs. 文明的安全</div>
+  </div>
+
+  <!-- ── 三栏：人物 · DeepMind · 里程碑 ── -->
+  <div class="main-grid">
+
+    <!-- 人物图谱 -->
+    <div class="card">
+      <div class="sec-title">核心人物</div>
+      <ul class="bl">
+        <li><strong>Demis Hassabis</strong> — 创始人，棋类神童，神经科学博士，2024 诺贝尔化学奖。使命：通过造机器理解智能本质</li>
+        <li><strong>Shane Legg</strong> — 联合创始人，新西兰人，创造了"人工通用智能（AGI）"这个词，定义：在广泛环境中实现目标的能力</li>
+        <li><strong>Mustafa Suleyman</strong> — 联合创始人，北伦敦穆斯林，社会活动家出身，后任 Microsoft AI 负责人</li>
+        <li><strong>David Silver</strong> — AlphaGo 首席研究员，DeepMind 强化学习核心</li>
+        <li><strong>Geoffrey Hinton</strong> — 深度学习之父，2024 诺贝尔奖；曾说"the sweetness is too great"，后辞职警示 AI 风险</li>
+        <li><strong>Sam Altman</strong> — OpenAI，加速主义者；ChatGPT 震撼全球，逼迫所有人进入战时状态</li>
+      </ul>
+    </div>
+
+    <!-- DeepMind 发展脉络 -->
+    <div class="card">
+      <div class="sec-title">DeepMind 发展时间线</div>
+      <ul class="tl">
+        <li><span class="tl-yr">2010</span>Demis + Shane + Mustafa 在伦敦创立 DeepMind，定位"AI 的曼哈顿计划"</li>
+        <li><span class="tl-yr">2013</span>Atari 代理：DQN 从像素学会 49 款游戏，强化学习 × 深度学习首次结合</li>
+        <li><span class="tl-yr">2014</span>Google 以 <span class="num">~$5亿</span> 收购，附带伦理委员会保障</li>
+        <li><span class="tl-yr">2016</span>AlphaGo 击败世界围棋冠军李世乭（<span class="num">4:1</span>），全球直播 <span class="num">2亿+</span> 观众</li>
+        <li><span class="tl-yr">2017</span>AlphaZero：从零自学，60 天超越人类所有棋类顶尖水平</li>
+        <li><span class="tl-yr">2020</span>AlphaFold：预测 <span class="num">2亿+</span> 蛋白质结构，解决 50 年生化难题</li>
+        <li><span class="tl-yr">2022</span>Sparrow：结合 RLHF + 23 条行为规则，先于 ChatGPT 就绪但未发布</li>
+        <li><span class="tl-yr">2023</span>Google Brain + DeepMind 合并，Hassabis 任 Google DeepMind CEO</li>
+        <li><span class="tl-yr">2023</span>Gemini Ultra：MMLU <span class="num">90%</span>，首次超越人类专家基准</li>
+      </ul>
+    </div>
+
+    <!-- 关键技术突破 -->
+    <div class="card">
+      <div class="sec-title">五个关键技术概念</div>
+      <ul class="bl">
+        <li><strong>深度强化学习（DQN/RL）</strong> — 智能体通过试错从奖惩中学习；AlphaGo 的核心引擎，Hassabis 认为是通往 AGI 的主路</li>
+        <li><strong>蒙特卡洛树搜索（MCTS）</strong> — 不穷举所有可能，而是模拟少量深路径到底，评估胜负；让 AlphaGo 拥有"内省"能力</li>
+        <li><strong>Transformer + LLM</strong> — 2017 年 Google Brain 发明，DeepMind 最初认为不够用于 AGI，但 ChatGPT 改变了判断</li>
+        <li><strong>RLHF（人类反馈强化学习）</strong> — 用人类偏好打磨模型行为，DeepMind + OpenAI 共同发展；让 Sparrow/ChatGPT 真正"有用"</li>
+        <li><strong>链式思维提示（Chain-of-Thought）</strong> — "逐步思考"使模型从直觉跳出，进行慢思考推理；Gemini Ultra 的核心优势之一</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── 两栏：核心哲学 + AI 竞赛 ── -->
+  <div class="two-col">
+
+    <!-- 核心哲学与论点 -->
+    <div class="card">
+      <div class="sec-title">书中核心哲学论点</div>
+      <ul class="bl" style="margin-bottom: 8pt;">
+        <li><strong>发现的甜蜜</strong> — Hinton："政治系统会用它来恐吓人民。" Bostrom："那你为什么还在做？" Hinton："发现的前景太甜蜜了。" ——这是本书的第一命题</li>
+        <li><strong>技术决定论</strong> — "技术发生，因为它是可能的。"（奥本海默语）无论谁想减速，竞争逻辑都会逼迫加速。ChatGPT 不是 Altman 的个人决定，是结构性必然</li>
+        <li><strong>创新者困境</strong> — Google 拥有 Transformer，却因搜索广告的既得利益无法部署 LLM；DeepMind 如同贝尔实验室，科学卓越却迟于产品</li>
+        <li><strong>安全 vs. 竞争</strong> — "一旦有人走在前面，我就无法置身事外地在旁边看。" Hassabis 的矛盾：他理解风险，却被迫全速前进</li>
+      </ul>
+      <blockquote>
+        <p>"我坐在书桌前凌晨两点，感觉现实在对我凝视、对我尖叫——试图告诉我某些事，只要我能听清楚。"</p>
+      </blockquote>
+      <div style="margin-top: 5pt;">
+        <span class="tag">科学使命</span>
+        <span class="tag">技术决定论</span>
+        <span class="tag">创新者困境</span>
+        <span class="tag">AI 安全</span>
+        <span class="tag">伦理</span>
+      </div>
+    </div>
+
+    <!-- AI 竞赛格局 -->
+    <div class="card">
+      <div class="sec-title">AI 军备竞赛格局（2022—2024）</div>
+      <ul class="bl" style="margin-bottom: 8pt;">
+        <li><strong>ChatGPT 冲击波（2022.11）</strong> — OpenAI 以"提前打击"心态突然发布；5 天 100万用户，2 个月 1亿。DeepMind 的 Sparrow 已就绪却被迫搁置</li>
+        <li><strong>Google 的三重困境</strong> — ①幻觉损伤搜索可信度 ②广告模式与聊天不兼容 ③反垄断监管压力；发明了 Transformer，却最晚入场</li>
+        <li><strong>Altman 被解雇（2023.11）</strong> — 董事会以"不诚信"为由开除；5 天后，700 名员工联署威胁离职，Altman 复位，加速主义更不可逆</li>
+        <li><strong>Gemini vs. GPT-4（2023.12）</strong> — Gemini Ultra 在 MMLU 得 90% 首超人类，但 PR 事故（多样性图像问题）和 Sora 抢走媒体注意力</li>
+        <li><strong>下一轮：Agent + RL 回归</strong> — "AlphaGo 的方法要回来了。语言模型只有策略网，还需要价值网和搜索——那就是规划，那就是 Agent。"</li>
+      </ul>
+      <blockquote>
+        <p>"这是战时。OpenAI 和微软已经把坦克开到草坪上了。"——Hassabis，2023年4月</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- ── 底部三栏 ── -->
+  <div class="main-grid">
+
+    <!-- Hassabis 人格 -->
+    <div class="card">
+      <div class="sec-title">Hassabis 人格解码</div>
+      <ul class="bl">
+        <li>6 岁学棋，13 岁英国棋王；13 岁意识到"用顶级大脑下棋是在浪费资源"，转向更大使命</li>
+        <li><em>"没有 50% 模式，没有 99% 模式，只有 100%。"</em>（Shane Legg 语）；理解"尽力而为"为"推到住院边缘"</li>
+        <li>游戏设计师出身（Bullfrog、Elixir），《主题医院》等游戏融入 AI 直觉。游戏 = AGI 的试验场</li>
+        <li>选择留在伦敦，远离硅谷炒作；引用 Kant（心智创造现实）、Feynman（造才能懂）为信仰基础</li>
+        <li>核心驱动：解开宇宙之谜——"读上帝的思想，是我的宗教"</li>
+      </ul>
+    </div>
+
+    <!-- AlphaFold 的意义 -->
+    <div class="card">
+      <div class="sec-title">AlphaFold：科学 AI 的标志性胜利</div>
+      <ul class="bl">
+        <li>蛋白质折叠：已知氨基酸序列 → 推断 3D 结构，生物学 50 年未解难题</li>
+        <li>DeepMind 方案：<span class="num">32 个算法</span> 组合，预测精度接近实验测量值；2020 年 AlphaFold2 横扫 CASP 评测，引发震撼</li>
+        <li>2022 年发布 <span class="num">2亿+</span> 蛋白质结构数据库，向全球免费开放；Hassabis 因此获 2024 诺贝尔化学奖</li>
+        <li>意义：AI 第一次在核心科学问题上超越人类，彻底改变药物研发方式；证明 AI 不只是"聊天"</li>
+        <li>对 Hassabis 的战略意义："先证明 AI 能创造科学突破，再做产品"——这是他迟于 OpenAI 的主动选择</li>
+      </ul>
+    </div>
+
+    <!-- 安全困境 -->
+    <div class="card">
+      <div class="sec-title">AI 安全：结构性困境</div>
+      <ul class="bl">
+        <li><strong>Sparrow 的 23 条规则</strong> — Irving 团队用 RLHF + 规则集训练；红队测试违规率仅 8%；发布前被 ChatGPT 抢先</li>
+        <li><strong>可解释性研究（Mechanistic Interpretability）</strong> — 找到神经网络中具体"思维"回路；打开黑箱透光</li>
+        <li><strong>AI 辩论对齐（Debate）</strong> — 让两个 AI 互相检查，人类只评判分歧点；Irving 2023 年论文；解决"人类跟不上 AI 输出"问题</li>
+        <li><strong>核心悖论</strong> — 安全研究者发好论文 → 被 Altman 挖走；竞争本身是最大的不安全因素</li>
+        <li><strong>奥本海默时刻</strong> — "他创造了原子弹，但无法控制它的使用。这也许是所有伟大科学家的特权与命运。"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <span>Sebastian Mallaby · <em>The Infinity Machine</em> · Penguin Press 2026 · 基于原著整理</span>
+    <span>速查表 · 2026年4月</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>智能廉价时代，什么值得深入学习 · Andrej Karpathy</title>
+<meta name="author" content="Andrej Karpathy">
+<meta name="description" content="这是 Andrej Karpathy 在 Sequoia AI Ascent 2026 上的访谈记录。他分享了从去年发明「vibe coding」概念到今年感受到「从未如此落后于编程」心态转变的背后原因。他系统性地阐述了软件开发的三个时代变迁，深入分析了 AI 的「可验证性」问题，并预言了 Agen">
+<meta name="keywords" content="播客, 访谈, Andrej Karpathy, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    min-height: 200mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 35mm 0 0 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE / 原句引用 ========== */
+  .quote {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== SPEAKER（说话人信息）========== */
+  .speaker-box {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 12pt 16pt;
+    margin: 14pt 0;
+    break-inside: avoid;
+  }
+  .speaker-name {
+    font-weight: 500;
+    color: var(--brand);
+    margin-bottom: 4pt;
+  }
+  .speaker-desc {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.4;
+  }
+
+  /* ========== KEY POINT（核心观点）========== */
+  .key-point {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== CALL TO ACTION / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">智能廉价时代，什么值得深入学习</div>
+    <div class="cover-sub">Andrej Karpathy 谈 AI 编程范式的历史性转变</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Andrej Karpathy</strong><br>
+    OpenAI 联合创始人、前特斯拉 AI 总监、Eureka Labs 创始人<br>
+    主持：Stephanie Zhan · 2026-04-29<br>
+    时长：约30分钟 · 来源：Sequoia Capital AI Ascent 2026
+  </div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p></p>
+</section>
+
+<!-- ═════════════ 说话人 ═════════════ -->
+<section class="speaker-box">
+  <div class="speaker-name">Andrej Karpathy</div>
+  <div class="speaker-desc"></div>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+    
+    <div class="timeline-index-item">
+      <span class="timeline-index-time"></span>
+      <span class="timeline-index-topic"></span>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>从「从未如此落后」说起</h1>
+
+    <p class="lead">去年发明了 vibe coding 的 Karpathy，为何今年说自己「从未如此落后」？这背后是 AI 编程工具的一次质变。</p>
+
+    <div class="chapter-content">
+      <p>去年，Andrej Karpathy 在社交媒体上发明了「vibe coding」这个词，引发了广泛讨论。一年后，在 Sequoia AI Ascent 2026 大会上，他带来了一个更令人深思的论断：「我从未感觉自己如此落后于编程。」</p><p>Karpathy 回忆道，去年使用 Claude Code 等 Agentic 工具时，它们能写出不错的代码片段，但时不时需要人类介入修改。然而，到了去年12月，一切都变了。</p><p>「我注意到，最新的模型产出的代码片段直接就能用。我不断提出更多需求，代码依然完美运行。我已经想不起上次需要纠正 AI 是什么时候了。」Karpathy 描述道，「这种转变非常突然。」</p><p>他特别强调，去年大多数人体验 AI 编程的方式还是「ChatGPT 式的辅助工具」，但12月之后，基于 Agent 的连贯工作流真正开始运转了。这次认知升级让他彻底沉浸在无限多的 side project 中，「vibe coding」变成了日常。</p>
+    </div>
+
+    <blockquote class="quote">
+      <div class="quote-text">「我已经想不起上次需要纠正 AI 是什么时候了，这种转变非常突然。」</div>
+      <div class="quote-context">— Andrej Karpathy，1:22</div>
+    </blockquote>
+
+    <blockquote class="quote">
+      <div class="quote-text">「你们需要重新审视 AI 编程，因为从去年12月开始，一切都发生了根本性变化。」</div>
+      <div class="quote-context">— Andrej Karpathy，1:52</div>
+    </blockquote>
+
+    <div class="key-point">
+      <div class="key-point-label">核心观点</div>
+      <p>AI 编程在去年12月经历了质的飞跃，从「辅助工具」升级为「能独立完成任务的 Agent」。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>软件开发的三个时代</h1>
+
+    <p class="lead">Karpathy 提出了软件开发的「三段论」：从手写代码，到训练神经网络，再到现在的大语言模型。</p>
+
+    <div class="chapter-content">
+      <p>Karpathy 在访谈中系统阐述了他对软件开发范式演变的理解。</p><p><strong>软件 1.0</strong>：人类手写代码，用明确的规则告诉计算机做什么。</p><p><strong>软件 2.0</strong>：人类不再写代码，而是创建数据集和训练目标，让神经网络通过学习来确定参数。「编程变成了一种数据整理工作。」</p><p><strong>软件 3.0</strong>：当 GPT 等大语言模型在足够多的任务上训练后，它们实际上成为了一种可编程的计算机。「编程变成了写提示词，上下文窗口成了操控这个解释器的杠杆。」</p><p>Karpathy 用两个生动的例子说明这个转变：</p><p>第一个是 OpenClaw 安装。传统方式需要写复杂的跨平台 Shell 脚本。但在软件 3.0 时代，你只需要把一段文字复制给 AI Agent，它就能自动分析你的环境、执行安装、调试问题。「真正强大的不再是精确的指令，而是告诉 Agent 要做什么。」</p><p>第二个例子更震撼：MenuGenen 是 Karpathy 用传统方式开发的菜单图片生成应用。但当他看到 Gemini 的软件 3.0 版本时彻底震惊——只需把菜单照片发给 Gemini，告诉它「用 Nanobanana 把菜品图片叠加到菜单上」，它就能直接返回一张完美的渲染图。「MenuGenen 这个应用根本不应该存在。」</p>
+    </div>
+
+    <blockquote class="quote">
+      <div class="quote-text">「编程变成了写提示词，上下文窗口成了操控这个解释器的杠杆。」</div>
+      <div class="quote-context">— Andrej Karpathy，3:03</div>
+    </blockquote>
+
+    <blockquote class="quote">
+      <div class="quote-text">「MenuGenen 这个应用根本不应该存在。神经网络能做更多，我们需要重新思考什么才是真正值得构建的。」</div>
+      <div class="quote-context">— Andrej Karpathy，6:04</div>
+    </blockquote>
+
+    <div class="key-point">
+      <div class="key-point-label">核心观点</div>
+      <p>软件 3.0 不是让旧事物变得更快，而是让原本不可能的新事物变得可能。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>可验证性：AI 能力的「锯齿」之谜</h1>
+
+    <p class="lead">为何最先进的 AI 能破解代码库，却建议步行去洗车？Karpathy 用「可验证性」框架解释了这个看似矛盾的现象。</p>
+
+    <div class="chapter-content">
+      <p>访谈中，Karpathy 深入探讨了 AI 能力的「锯齿状」分布问题。</p><p>他指出，前沿实验室训练大语言模型时，本质上是在构建巨大的强化学习环境。当模型被给予「可验证奖励」时，它们会在可验证的领域（如数学、编程）突飞猛进，但在难以验证的领域则进展缓慢。</p><p>一个经典案例是「strawberry 有几个 r」的问题，以及更荒诞的新例子：「我想去洗车，车在50米外，我应该开车还是走路？」最先进的 Opus 4.7 模型会建议你走路——因为50米确实很近。但与此同时，它能重构10万行代码库、发现零日漏洞。</p><p>Karpathy 强调，这种锯齿状分布部分源于训练数据：他曾发现 GPT-3.5 到 GPT-4 的国际象棋能力大幅提升，背后的原因是有人专门向 OpenAI 建议将大量象棋数据加入预训练集。「我们某种程度上受制于实验室的选择——他们碰巧把什么放进了数据混合。」</p><p>这意味着：如果你的应用场景不在 AI 的 RL 电路中，就需要考虑微调或定制开发。</p>
+    </div>
+
+    <blockquote class="quote">
+      <div class="quote-text">「最先进的 Opus 4.7 能重构10万行代码库，却发现不了自己应该开车去洗车。这是疯狂的。」</div>
+      <div class="quote-context">— Andrej Karpathy，11:38</div>
+    </blockquote>
+
+    <blockquote class="quote">
+      <div class="quote-text">「我们某种程度上受制于实验室的选择——他们碰巧把什么放进了数据混合。」</div>
+      <div class="quote-context">— Andrej Karpathy，12:50</div>
+    </blockquote>
+
+    <div class="key-point">
+      <div class="key-point-label">核心观点</div>
+      <p>AI 能力的分布取决于「可验证性」和「实验室关注度」两个维度，选择创业方向时需要考虑这一点。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>Agentic Engineering：新学科的崛起</h1>
+
+    <p class="lead">Vibe Coding 提高了编程的下限，而 Agentic Engineering 是为了在提高上限的同时，保持专业软件的质量标准。</p>
+
+    <div class="chapter-content">
+      <p>Karpathy 在访谈中明确区分了两个概念：</p><p><strong>Vibe Coding</strong>：让每个人都能编程的工具。它提高了编程的「地板」（下限），让任何人都能「vibe」出任何东西。</p><p><strong>Agentic Engineering</strong>：保持专业软件质量标准的新学科。「你不能因为 vibe coding 就引入安全漏洞。你和以前一样对软件负责，但你能用 AI 更快地完成工作。」</p><p>他将 Agent 描述为「带刺的、有点随机的实体」，Agentic Engineering 就是如何协调这些强大但不可靠的实体，在不牺牲质量的前提下提速。</p><p>关于 AI 原生编程者的特征，Karpathy 分享了他的观察：</p><p>「就像以前工程师会深入配置 Vim 或 VS Code 一样，现在要最大化利用 Claude Code、Devin 等工具。」他建议企业重新设计招聘流程：「不再是出一道算法题，而是让候选人用 AI 构建一个完整的 Twitter 克隆，然后用 10 个 Claude Code 实例试图破解它。」</p><p>在 Karpathy 看来，AI 时代真正重要的能力是：<strong>品味、判断力、设计思维，以及对底层原理的理解</strong>。「你不需要记住 PyTorch 和 NumPy 的 API 细节，但需要理解张量的底层机制，才能避免不必要的内存复制。」</p>
+    </div>
+
+    <blockquote class="quote">
+      <div class="quote-text">「以前人们谈论 10x 工程师，现在 Agentic Engineer 的能力放大远不止 10 倍。」</div>
+      <div class="quote-context">— Andrej Karpathy，17:01</div>
+    </blockquote>
+
+    <blockquote class="quote">
+      <div class="quote-text">「你不需要记住 API 细节，但需要理解底层原理。你做设计，Agent 做填充工作。」</div>
+      <div class="quote-context">— Andrej Karpathy，21:53</div>
+    </blockquote>
+
+    <div class="key-point">
+      <div class="key-point-label">核心观点</div>
+      <p>Agentic Engineering 是将 AI 能力转化为专业生产力的新学科，需要全新的工作方式和评判标准。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>动物 vs 幽灵：理解 AI 的心智模型</h1>
+
+    <p class="lead">Karpathy 提出了一个深刻的类比：我们不是在构建「动物」，而是在召唤「幽灵」——被数据和奖励函数塑造的、参差不齐的智能体。</p>
+
+    <div class="chapter-content">
+      <p>Karpathy 在访谈中分享了他对 AI 本质的心智模型。</p><p>他将 AI 描述为「幽灵」而非「动物」：「动物有内在动机，有好奇心和自主性。而 AI 是被数据和奖励函数塑造的统计模拟电路。你对它吼叫，它不会变得更好或更差——这完全不影响它。」</p><p>这种理解带来了重要的实践意义：</p><p>首先，你需要保持「在场」。「这些 Agent 仍然会犯奇怪的错误。比如 MenuGenen 的支付系统，我的 Agent 试图用 Stripe 和 Google 的邮箱地址交叉关联用户资金——这是完全随意的对应关系。」</p><p>其次，你需要设计详细的规格说明。Karpathy 越来越不喜欢「Plan Mode」，更倾向于与 Agent 协作设计一份详尽的文档，然后让 Agent 负责执行细节。</p><p>最后，品味和判断力仍然难以被替代。当 AI 生成代码时，「有时候代码不是特别惊艳，有很多复制粘贴和尴尬的抽象，写出来能用但很粗糙。我希望未来的模型能改进这一点，但目前还没有。」</p>
+    </div>
+
+    <blockquote class="quote">
+      <div class="quote-text">「我们不是在构建动物，而是在召唤幽灵。它们是被数据和奖励函数塑造的统计模拟电路。」</div>
+      <div class="quote-context">— Andrej Karpathy，24:38</div>
+    </blockquote>
+
+    <blockquote class="quote">
+      <div class="quote-text">「你不能外包你的理解，但你可以外包你的思考。」</div>
+      <div class="quote-context">— Andrej Karpathy，28:05</div>
+    </blockquote>
+
+    <div class="key-point">
+      <div class="key-point-label">核心观点</div>
+      <p>理解 AI 是「幽灵」而非「动物」，是有效使用 AI 的前提——接受它的随机性，同时保持人类在判断力上的主导地位。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>Agent 原生世界的基础设施</h1>
+
+    <p class="lead">未来的世界需要「Agent 原生」的基础设施——不是为人类设计的，而是为 AI Agent 设计的。</p>
+
+    <div class="chapter-content">
+      <p>Karpathy 在访谈中描绘了他对 Agent 未来的愿景。</p><p>他指出，目前几乎所有基础设施都是为人类设计的——文档面向人类阅读，API 需要人类操作。但未来，这些都需要被重新设计。</p><p>「我最喜欢的槽点是：为什么人们还在告诉我该怎么做？我什么都不想做。什么是应该复制给 Agent 的东西？」Karpathy 调侃道，「每次我被告知'访问这个 URL'时，我都想叹气。」</p><p>他认为未来需要的是「传感器和执行器」架构：AI Agent 通过传感器感知世界，通过执行器作用于世界。「数据结构和 API 需要设计得让 AI 能轻松理解和使用。」</p><p>关于 Agent 的未来，Karpathy 预测：「最终，Agent 会代表个人和组织。 我的 Agent 会和你的 Agent 交流，确定我们会议的细节。」</p>
+    </div>
+
+    <blockquote class="quote">
+      <div class="quote-text">「为什么文档还在告诉我该怎么做？什么时候文档能变成&#39;把这段复制给你的 Agent&#39;？」</div>
+      <div class="quote-context">— Andrej Karpathy，25:41</div>
+    </blockquote>
+
+    <div class="key-point">
+      <div class="key-point-label">核心观点</div>
+      <p>从「Human-Native」到「Agent-Native」的转变是未来的大趋势，需要重新设计整个互联网基础设施。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>智能廉价时代，什么值得深入学习</h1>
+
+    <p class="lead">「你可以外包你的思考，但你无法外包你的理解。」在 AI 时代，学习的本质发生了根本变化。</p>
+
+    <div class="chapter-content">
+      <p>访谈以一个深刻的问题收尾：当 AI 智能变得廉价时，什么仍然值得深入学习？</p><p>Karpathy 引用了一条让他深思的推文：「你可以外包你的思考，但你无法外包你的理解。」</p><p>他解释道：「信息仍然需要进入我的大脑。我感觉自己成了瓶颈——我需要知道我们在构建什么，为什么值得做，我如何指导 AI Agents。」</p><p>这正是 Karpathy 对 LLM 知识库项目如此兴奋的原因：「这是处理信息的工具。当我看到信息的新视角时，我总能获得洞见。这本质上是对固定数据的一系列提示词，生成合成信息。」</p><p>他总结道：「这些增强理解力的工具非常有趣。未来也许 AI 能处理理解本身，但目前，人类仍然独特地负责方向性判断。」</p>
+    </div>
+
+    <blockquote class="quote">
+      <div class="quote-text">「你可以外包你的思考，但你无法外包你的理解。」</div>
+      <div class="quote-context">— Andrej Karpathy，28:05</div>
+    </blockquote>
+
+    <blockquote class="quote">
+      <div class="quote-text">「最终，是理解力在约束我们，而工具可以增强理解力。」</div>
+      <div class="quote-context">— Andrej Karpathy，29:00</div>
+    </blockquote>
+
+    <div class="key-point">
+      <div class="key-point-label">核心观点</div>
+      <p>在 AI 时代，理解力成为最稀缺的能力——知道要构建什么、为什么值得做、如何指导 AI，这仍然是人类独特的职责。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ 金句摘录 ═════════════ -->
+<section class="chapter">
+  <div class="chapter-num">精华</div>
+  <h1>金句摘录</h1>
+
+  <div class="golden-quote">
+    <div class="golden-quote-text">「」</div>
+    <div class="golden-quote-source">— ，</div>
+  </div>
+
+  <div class="golden-quote">
+    <div class="golden-quote-text">「」</div>
+    <div class="golden-quote-source">— </div>
+  </div>
+
+  <div class="golden-quote">
+    <div class="golden-quote-text">「」</div>
+    <div class="golden-quote-source">— </div>
+  </div>
+</section>
+
+<!-- ═════════════ 时间线索引 ═════════════ -->
+<section class="chapter">
+  <div class="chapter-num">索引</div>
+  <h1>时间线索引</h1>
+
+  <div class="timeline-index">
+    
+    <div class="timeline-index-item">
+      <span class="timeline-index-time"></span>
+      <span class="timeline-index-topic"></span>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=96jN2OCOfLs" class="footer-link">Sequoia Capital AI Ascent 2026</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026-05-07
+  </div>
+</section>
+
+</body>
+</html>

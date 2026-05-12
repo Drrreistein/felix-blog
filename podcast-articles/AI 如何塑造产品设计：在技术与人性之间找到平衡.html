@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>AI 如何塑造产品设计：在技术与人性之间找到平衡 · Christina &quot;CJ&quot; Jones</title>
+<meta name="author" content="Christina &quot;CJ&quot; Jones">
+<meta name="description" content="我是 Christina &quot;CJ&quot; Jones，在一家澳大利亚的科技独角兽公司领导生成式 AI 设计。这家公司的在线图形设计工具被全球数亿人使用。我曾在交通配送、AI 搜索、宠物市场等领域建立和设计团队，并在舞台和播客中分享设计以及智能的未来。在这篇文章中，我想分享我对 AI 如何改变设计、工艺与策">
+<meta name="keywords" content="播客, 访谈, Christina &quot;CJ&quot; Jones, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">AI 如何塑造产品设计：在技术与人性之间找到平衡</div>
+    <div class="cover-sub">Christina Jones 分享在 AI 时代做设计的实战经验与思考</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Christina &quot;CJ&quot; Jones</strong><br>澳大利亚科技独角兽公司生成式 AI 设计负责人<br>
+    主持：What the Tech 播客主持人·未知<br>
+    时长：约50分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/30qUaeOxkDk/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/30qUaeOxkDk/hqdefault.jpg'"
+         alt="How AI Shapes Product Design w/ Christina Jones">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/30qUaeOxkDk?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ How AI Shapes Product Design w/ Christina Jones · <a href="https://www.youtube.com/watch?v=30qUaeOxkDk" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>我是 Christina "CJ" Jones，在一家澳大利亚的科技独角兽公司领导生成式 AI 设计。这家公司的在线图形设计工具被全球数亿人使用。我曾在交通配送、AI 搜索、宠物市场等领域建立和设计团队，并在舞台和播客中分享设计以及智能的未来。在这篇文章中，我想分享我对 AI 如何改变设计、工艺与策展的平衡、全球视角的设计差异、伦理挑战，以及未来设计师需要哪些技能的思考。这不是一篇简单的访谈记录，而是我亲身经历和深度反思的分享。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">AI 时代的设计定义：从问题到解决方案</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">工艺与策展：从模仿到掌握之路</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">全球视角：文化差异如何影响设计</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">伦理挑战：版权、原创性与 AI 责任</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">实践中的 AI：六周实验周期与评估框架</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">未来设计师的技能：系统思维与持续学习</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>AI 时代的设计定义：从问题到解决方案</h1>
+    <p class="lead">我认为设计的核心没有改变——它仍然是从手头的问题到达所需解决方案的过程。但 AI 的出现让我们重新思考什么是「好」的设计，以及设计师的角色到底是什么。</p>
+    <div class="chapter-content">
+      <p>我觉得设计的核心一直都没变。设计是什么？就是如何从手头的问题到达你需要的解决方案。这可以通过构建应用或网站来实现，但也可以是专辑封面，因为那是艺术家身份和专辑主题的交流方式。所以这真的取决于那个问题。</p>
+      <p>当 AI 出现时，它可以让事情在最后看起来非常精致，这会让人觉得「那设计的意义是什么？」但经历那个过程实际上帮助你定义：我到底想要解决什么？哪些用户会受此影响？我想讲述什么故事？设计的所有方面，我仍然觉得是从那个问题出发，然后进入解决方案。</p>
+      <p>AI 对这个过程的影响是什么呢？我看到很多初级设计师担心他们角色的意义何在，因为他们可以把东西放进模型，出来的结果看起来足够好。这就是人们担心工艺设计将走向何方的地方。当我们在思考 AI 时，它的许多输出只是所有内容的平均值。AI 正在生成所有这些平均化的输出。你有点需要那种工艺和策展能力来实际判断这是好是坏。</p>
+      <p>举个例子，现在很多与我一起工作的产品经理正在使用 vibe coding 来尝试解释他们真正想要构建什么，或者他们认为什么是正确的解决方案。根据设计师的类型，你可以看着这种情况说：「我的 PM 正在试图取代我的工作。他们已经在构建线框图了。他们正在构建所有这些东西，他们觉得这是正确的解决方案。」或者你可以用另一种方式看待它：「好吧，这就是我的产品经理试图传达他们认为的正确解决方案的方式。我认为这是正确的解决方案吗？我认为这能解决问题吗？」你可以使用 AI 来推进那个原型，也可以使用你正常的典型流程来完成。我认为这是在找到在你的流程中 AI 真正帮助你的地方，以及它阻碍你的地方。</p>
+      <p>我知道我团队中的一些设计师说他们实际上不使用这些 vibe coding 工具，因为它们不能帮助他们以正常的方式思考事情。我需要仍然拥有那种——仍然想要经历那些，确切地说是那种情感。我认为它所做的也允许人们——就像你说的——有些人只是不想接触它，因为它不能真正帮助他们建立联系。</p>
+      <p>但归根结底，AI 不会是那个向人们解释你为什么做出这个改变、你为什么选择这个字体、你为什么选择那个特定配色方案的人。作为设计师，你必须拥有那个。我认为 AI 正在带走一些人的所有权，而一些人接受了这一点，但他们理解这只是冰山一角。你仍然需要更深入一点。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>工艺与策展：从模仿到掌握之路</h1>
+    <p class="lead">当 AI 可以生成看起来很好的作品时，工艺还有价值吗？我的答案是肯定的。工艺帮助你建立品味，而策展需要工艺作为基础。模仿是掌握之路的第一个层次。</p>
+    <div class="chapter-content">
+      <p>所以你认为这意味着我们从工艺转向策展吗？随着 AI 更多地融入设计过程，是的，我认为在某些方面是这样。但我认为能够策展的一部分是拥有那种工艺。那种建立你的工艺也是你建立品味的方式。</p>
+      <p>举个例子，当我使用图像生成模型时——很久以前，我像一个失败的电影专业学生——所以我可以使用术语来帮助我实际定义镜头的样子，或者当我生成图像时我想要如何构建它，我可以把它作为其中的一部分。除非我已经建立了我的工艺并尝试学习那个术语，否则我不会拥有这些。所以我认为它适用于设计的不同方面，比如能够知道这项技术的限制，以及在哪里打破它，并制造它，因为再次，如果 AI 正在生成所有那些平均化的输出，你有点需要那种工艺和策展来实际说这是好是坏。</p>
+      <p>这就是你区分的方式。我认为——快速地说——当我在看的时候，因为你知道除了你知道的 usual um Rene 每个人都知道的就像工程师编码，我喜欢音乐，有一段时间我在考虑要么成为 DJ，要么开始制作节拍，我一直着迷于——如果你谈论工艺——人们将如何使用特别是那些将使用也许就像非常老派的 80 年代音轨，然后以他们可以在他们想要创建的任何节拍中使用的方式切分它，你知道，这些天。</p>
+      <p>但对于那些，你可以看到随着时间的推移他们建立了允许他们这样做的工艺。所以掌握之路——我认为有不同的层次——我认为第一个是通过模仿。AI 允许你做的是你不必模仿，因为它是所有模仿的聚合你可以看到。是的，它就是你面前的模仿者。是的。然后你可以——你可以拥有那个——你可以拥有那个作为你的起点来建立你想要达到的掌握水平。</p>
+      <p>是的。这就是为什么一些创意人士——这是非常有效的——他们非常反 AI，因为那个原因，因为建立他们工艺的一部分是你在开始时做那个模仿，就像当我在艺术学校时我们必须绘制古典雕像，因为那是文艺复兴时期的艺术家会做的事情，那就是它看起来的样子。如果我可以从那里走捷径，我如何然后学习比例和阴影事物，就像你——它有点像感觉它在低估工艺的那部分，以及随着你知道未经许可从互联网上获取某些图像。所以我认为那是人们担心工艺设计将走向何方的地方？</p>
+      <p>插图或摄影的工艺在哪里，如果你跳过所有你通常不会做的模仿？我认为这也让解释为什么大学毕业生开始工作时感到焦虑是有意义的，因为他们没有得到模仿和实际经历那个过程的机会。他们觉得模仿 aggregator 已经给了他们需要的一切。他们没有时间去，你知道，去那个掌握。因为他们很难看到。</p>
+      <p>我不知道我们是否要讨论那个，但很难让他们看到他们可以从掌握的 standpoint 到达哪里，不得不跳过那个初始步骤。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>全球视角：文化差异如何影响设计</h1>
+    <p class="lead">我在世界各地领导过团队，我注意到文化对人们如何处理创造力和技术存在差异。美国的 hustle 文化与新加坡的风险规避形成鲜明对比。真正的设计洞察往往来自实地研究。</p>
+    <div class="chapter-content">
+      <p>仍然触及那个全球视图，你所拥有的经验，你显然在世界各地领导过团队。你有没有注意到文化对人们如何处理创造力和技术的差异？只是——我讨厌这么说，但就像设计师的刻板印象，比如想要深入的人，不想和任何人说话，还有那个人，你知道，非常协作，就像那个跨董事会，非常全球化。我会说我看到差异的地方是在那些社区中创造力是如何被看待的。</p>
+      <p>举个例子，在美国有一种 hustle 文化。如果你有梦想，你就能做到，人们真的愿意尝试事情。我认为失败也没关系。就像它有点像快速学习然后继续前进。当我在新加坡生活时，我注意到因为政府会以某些方式促进艺术，但它是特定的路径，特定类型的创造力。所以當它在那之外，或者如果你在，例如，要去创业，它会感觉非常规避风险。</p>
+      <p>所以我注意的是一些设计师会想要拥有所有数据，所有研究，所有一切排队在design出来之前。而我会说像我的美国或澳大利亚同事就像这里的我的意见就像让的让的做那个。所以我认为这真的取决于那种文化如何看待创造力。就像它是——不一定是好或坏的事，而是更多的是就像它是固有的事？它是习得的事？</p>
+      <p>失败在某些事情上是否可以？就像你会如何让人们感知失败，因为这一切都是设计，对吧？它就像很多学习也一样。当然。我猜这就是为什么一直推荐人们如果有机会旅行就应该去旅行，因为你知道就像你可以有点拓宽你对不同事物思考方式的观点，你知道，那转化为你如何设计。</p>
+      <p>是的。就像当我在新加坡工作时，我负责整个东南亚。所以我们将做这些设计研究沉浸之旅，我们将看到人们如何使用我们的应用，这真的很鲜明，因为在新加坡也是就像每个人都有最新的 iPhone 或 Android 手机，基础设施和一切都很完善。</p>
+      <p>肯定有一种倾向倾向于就像西方风格的设计，然后当我会前往其他国家时，就像人们实际上会有两部或三部手机，只是因为就像数据使用和获得更便宜的设备，所以你可以说就像这是我的工作手机，这是我的个人手机，这是我用来预订的手机，对于很多人来说，它会像我需要在屏幕上看到一切，以那种方式我可以知道如何做出明智的决定，而不是就像哦我不想要就像不得不点击就像20个不同的项目在屏幕上，或者我。</p>
+      <p>我真的不在乎液体玻璃是什么样的，它就像只是给我信息，看到你知道人们骑在摩托车的后部或其他事情上，就像他们周围的干扰，所以你需要确保一切都在那里为他们，所以那实际上真的对你的观点就像那实际上帮助我理解就像哦没有一个好的方式来设计，有就像不同的需求，所以随着 AI 越来越多地嵌入创意工作，是否有任何伦理、社会问题设计师应该询问或思考关于？</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>伦理挑战：版权、原创性与 AI 责任</h1>
+    <p class="lead">AI 带来了许多伦理问题。我们需要审问使用 AI 的任何用途——这是真实的生活体验，还是事物的混合？版权问题将成为一个重要的讨论话题。</p>
+    <div class="chapter-content">
+      <p>哦是的，太多了。最大的事情是审问你使用 AI 的任何用途。就像这是真实的生活体验，还是这是事物的 amalgamation？所以就像有很多幻觉发生在很多这些工具中。</p>
+      <p>如果你正在问 AI 关于你知道悉尼澳大利亚的人如何生活以及他们的担忧是什么，你把这当作事实和福音，那么那可能不是真正思考这个问题的最佳方式。我认为另一件事也是特别是在图像或视频方面，很多人会用「以空白的风格制作这个」来提示，当我会争论如果那个人还活着，你应该可能只是付钱给他们。</p>
+      <p>是的。你应该付钱给他们，或者你应该找到一个类似的艺术家，你知道，并且你可以说这是我想要的风格或类似的东西。特别是用户研究，那是另一件事，你仍然需要与你的客户和用户交谈，以那种方式你不会基于那里的是什么。这些 LLM 的研究方面是惊人的。获取很多来源并查看它很棒，但真的更深入地研究那个。</p>
+      <p>所以我认为它也在那个方面思考。就像在 AI 之前，对吧？我们会思考就像我是否复制别人？我是否未经许可拿走你的作品？所以它应该仍然存在。它是相关的。</p>
+      <p>你认为那意味着我们将会有一个新的行业专注于 AI 版权？我认为所以。是的，那一直出现实际上很多，特别是在美国有很多关于什么是考虑版权的法律案件，就像当它在互联网上，对吧？如果你把东西放在互联网上，它就在那里。你的数据或信息有多少是可版权的与不可版权的。但我认为那将会是人们的一个大块。</p>
+      <p>你看到那现在在比如说澳大利亚发生吗？我确实认为有很多关于那个的对话，特别是围绕土著艺术，因为那里有深刻的文化意义，所以我确实觉得那将继续在那些对话中发生。</p>
+      <p>我认为原创性来自我们拥有如此多离散的思想、记忆和想法，这是你的解释，并且把它变成一种形式，就像如果我们五个都有相同的记忆，我们会有不同的。是的。</p>
+      <p>是的。它是关于生活经验，我想当你思考你的客户或你的客户，让我们说如果你有2亿客户，他们的2亿客户不会都是相同的。因此，你必须考虑在嗯你怎么构建工具供他们设计。</p>
+      <p>是的，确切地。它有点像如果有2亿人，你知道，好吧，然后定制非常重要，因为否则嗯有人正在使用这个让我们说在巴拿马与有人正在使用这个在日本可能有非常不同的嗯也许是互联网使用或他们正在使用的设备或任何像那样的。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>实践中的 AI：六周实验周期与评估框架</h1>
+    <p class="lead">我的团队专注于 AI 功能。我们的工作方式截然不同——以六周的周期工作，快速试错，建立评估框架。失败不是终点，而是前进的方向。</p>
+    <div class="chapter-content">
+      <p>是的，当然。所以我的团队专注于 AI 功能。我们认为相当不同我会说，因为我们实际上需要考虑我们正在构建的一切的技术限制。所以项目开始的方式可能是嘿，要么设计师有一个想法，要么工程师有一个他们已经试验了某些东西，尝试了它，他们说这个模型可以做这个，我们认为值得把它放入产品中吗？不与设计师一样，就像我有一个想法带来这个，因为我看到用户正在做这个相当多嗯这是通过现有嗯工具和产品的。</p>
+      <p>是的。所以就像我看到人们正在尝试嗯例如嗯编辑他们的设计，或者他们正在说就像我如何让我这个更专业例如，所以要么设计师或工程师或甚至产品经理可以看着那并说，好吧，我们是否可以用技术做任何事情来帮助那个，所以然后设计师可能经历并说哦实际上就像我们可以有一个按钮，用户可以点击，它它做一些那些事情，或者工程师可以说嘿我现在有一个模型，嗯。</p>
+      <p>如果你给它一点文本，它可以建议设计的改进。然后从那里我们工作基本上在一个六周的周期，就像从那开始就像嘿我们有一个想法，或者我们有一个计划做某事，到那结束，基本上有一个要么大规模实验就像尝试嗯设计这个产品，或者构建它或甚至构建 MVP 或某些粗糙的东西，把它放在用户面前，说就像它工作吗？或者它正在倒下嗯特别是不同语言就像哦也许这个工作真的很好与英语，它不工作这么好在其他ones。</p>
+      <p>然后在那六周结束时，我们会说，好吧，是否值得投入生产或不？或者我们是否说就像，它太慢，它成本太多，结果不是很好，或者它与也许其他正在发生的事情冲突，所以让我们决定要做什么然后。然后我们开始那下一个六周，好吧，我们要么继续这个项目，我们要开始新的。嗯，所以那就是它嗯有点形成的。</p>
+      <p>哦，哇。那太棒了。这是很棒的，你已经有点定义了嗯我会说时间框架，你给自己实验，因为在很多对话中我们有嗯人们提到企业不能实现 AI 的好处，因为 AI 项目只是继续永远。确切地。</p>
+      <p>你不能永远实验，对吧？但然后如果你有那个胃口，你给自己那些嗯我猜 KPI 和时间块来实验，它变得值得，你有时会失败向前吗？是的，当然。我认为那是最大的变化，特别是我的团队，是看着失败实际上会告诉我们哪个方向去，所以嗯它有点像我我会说就像团队文化方面，它是你知道95% 的这个东西不会工作，或者我们特别是在设计师上，我们要设计一个东西，你知道它真的很酷，但它只是太复杂了，就像我们就是不能继续它。但从那里学习并从那里向前移动。</p>
+      <p>很多时候我们会说嘿在那六周结束时，它不值得投入更多时间嗯进入这个就像让我们 pivot 我们的资源或我们的思考到更重要的东西。所以是的，关于嗯我理解当涉及到设计时非常关乎视觉，但我们知道生成式 AI 它都是关于文本的快速问题。</p>
+      <p>所以当有一个 GI 项目是文本基础的，它几乎不像从评估 standpoint 处理嗯他们称之为多模型的那样复杂。我的问题给你是就像你看到的被各种工程团队使用的任何东西，你曾经连接关于你知道就像评估这些你。</p>
+      <p>你知道就像这些类型的模型，特别是生成图像或生成视频的模型，就像是否有任何你知道你看到的已经在行业中完成的？是的，当然。我认为嗯特别是在我们的团队，设计师，不仅产品设计师，而且图形设计师都参与建立那个评估框架。所以我说，嘿，这是让我们以设计为例子，就像你想要构图以某种方式。所以，嗯我们，我们会展示一个量表，就像这是好的，这是还可以，它不是最好的，这是坏的，有很多例子可以通过那个，并有点分解每一个那些事情。</p>
+      <p>所以即使那样说研究人员或工程师只是在非常早期的阶段，他们至少有一个评估 playbook，他们可以看着并说好吧我觉得我们在正确的轨道上，如果他们不确定，那就是他们与设计师合作的地方，然后说嘿这感觉对吗，或者你知道我试过它与许多不同风格的提示，例如，就像它在这里工作很好，但不是在这里，你觉得怎么样，所以它有点像那个也是非常开放的反馈循环。</p>
+      <p>有趣的。是的，我认为那是的，我问那个的原因是因为我看到 AI 项目继续并继续的原因是因为没有清晰的定义什么是好的看起来像。即使那是定义的，也不像真正理解如何衡量不同的不同输出大小。所以现在你发现自己试图解决问题，但然后你知道因为 AI 是随机性的本质。</p>
+      <p>所以输出你正在得到的字面上是就像你知道有时它去幻觉去完全相反的你会期望将发生，我们知道一旦它进入生产，天知道它只是它只是字面上是你知道你知道任何可以发生，你只是想确保你有嗯实施适当的 guardrails 标签。</p>
+      <p>是的，确切地。我认为那是我们的团队，我们会定义它就像什么是质量栏，就像是的它可以做这些事情，但这实际上满足我们甚至内部定义为好的，因为我们会用同样的方式对待像模板那样是人类制作的，就像我们也有同样的过程来评估那个。所以确保它可以至少满足一些那个，如果不是全部。嗯，但是的，它就像部分更大的过程的一部分，有时有非常主观的事情也是。</p>
+      <p>你知道，我&#x27;ve 我&#x27;ve 肯定在会议中，工程师就像我认为它很好。我就像这不是是的。这导致我的下一个问题我要问。所以这是一个评估框架，你已经开发，然后你排序嗯参考框架，然后使它特定为那个项目？是这样工作吗？有点。所以我会说就像我们的很多项目都在处理同样的脉络。所以就像设计或图像或视频。</p>
+      <p>所以有就像那里总是有一个基础水平，对吧？但让我们说嗯可能有更具体的ones。但例如，与演示，当然，你需要使布局和内容感觉真的很好，但也需要感觉有凝聚力。而你可能在 Instagram 帖子中没有那个，例如，因为它只是那个单一资产。嗯，所以那就是那里有一些细微差别。但我认为对于任何新模型或任何我们正在开发的，它正在评估对抗那个框架，评估对抗我们曾经拥有的过去结果。</p>
+      <p>所以，嗯，我认为也对团队来说，什么是非常重要的事情是建立那些允许你评估的内部工具。嗯，那是学习真的很早，是我们需要，嗯，建立很多这些东西，以那种方式任何人就像设计师可以访问它，工程师可以访问它，可以做出集中的调用。所以甚至就像最近我必须看着我们正在决定两个模型之间，只是能够看到所有那个 laid out 帮助我们说好吧这个模型绝对工作比另一个好得多。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>未来设计师的技能：系统思维与持续学习</h1>
+    <p class="lead">如果 AI 正在管理常规设计工作，未来十年什么新技能或心态将定义伟大的设计师？我认为系统思维是最重要的，加上实验心态、批判性思维，以及持续学习的能力。</p>
+    <div class="chapter-content">
+      <p>我一直也在思考这个很多。我喜欢这个问题。我非常渴望听到，因为我也还有一些事情要添加。是的。是的，当然。嗯我认为只是战术上在团队内，一个最大的技能组合实际上会是系统思维。</p>
+      <p>嗯我认为如果你能够理解嗯并建立技能组合，知道有一个系统有许多移动部分，增加了很多复杂性，所以你必须思考我如何设计一些适合系统或增强系统的东西。那将会走很长的路，因为那帮助你理解工程方面的东西。它帮助你理解模型方面的东西。</p>
+      <p>然后随着这些东西进步，实际上我们可能会得到更多的个人 UI 我会说， which is 我们可以都有相同的应用程序，但因为我的偏好或一切，它可能看起来非常不同，并个性化那种方式。确切地。</p>
+      <p>就像与生成式 UI 本质上。所以对于设计师，他们正在构建那个的系统，但他们可能不会必然布局每一个单独的页面嗯但而是思考什么是让我们说我们有一个联系人卡片。可能有许多不同的变体，因为嗯人们的偏好。所以我如何构建那个系统，所以它它对我们来说有意义？所以我认为我认为那是最重要的事情。我会说设计师的另一边也是就像这个辩论总是出现。</p>
+      <p>它就像是否设计师编码，就像永远不会消失。但嗯是否每个人都应该编码？嗯我认为它更多是关于再次建立那个技术素养。所以就像也许你不必编码，但知道这些系统如何工作是有好处的。知道模型如何工作是有好处的，以那种方式你可以压力测试和拉它，或者你理解为什么某事正在发生。我实际上要问你解包单词系统在上下文中，因为你相当频繁地使用那个。所以就像好吧如何在设计这个上下文中的系统？</p>
+      <p>我的意思是就像 cuz 就像我们是技术宅，对吧，所以我们理解系统，但是是的，就像更广泛的受众，是的，但即使在这个设计上下文中，那是真实的，是的，那是真实的，我认为就像对于所以为了设计，一个系统是让我们说只是在那个基本产品表面上，它本质上是一个系统，让我们说一个主页，有如此多的事情必须一起工作，在那个中，为了你。</p>
+      <p>使这个有凝聚力的设计，那只是一个主页，你正在登录，也有那些事情是不可见的在那个后面，你需要知道为什么事情工作那种方式它们正在工作，就像它是一个网站，它是由代码制成的，它是由像 HTML 和 CSS 和 JavaScript 制成的，它会 reflow 这种方式，因为在移动设备上它做这个，就像当我说系统时，它有点像它是基础水平，但然后是就像所有必须进入它的片段。</p>
+      <p>为了使这个工作，我认为以前因为我们的角色过去更加隔离，所有你必须真正思考的是那个布局和你可能不必思考任何其他事情嗯所以是的。那就是有点像在系统方面。我在想我喜欢那个答案，因为在上一集我们实际上有人谈论数据工程和 AI 的使用，迫使数据工程师不思考一点更多在系统级架构级别。</p>
+      <p>所以嗯我认为就像那是那一直是跨董事会的共同主题，你知道如果你想要有更多嗯输入到结果你想要从你知道就像项目你你正在工作上使用 AI 将允许你进入那个嗯挖掘到不同的层，那就是那个帮助现在把一起那个解决方案，那你会想要提供？我看到的唯一挑战可能是就像你说的 PMS 正在做相当一点。那意味着现在就像工程师在哪里工程师介入？设计师在哪里介入？</p>
+      <p>你知道你让确保每个人都理解他们的角色，而不踩踏没有重叠。是的。没有重叠。我的意思是有一个重叠，但不是重叠到那种程度，人们发现自己做的比他们应该做的更多。我认为那是事情也是就像嗯因为这种变化在技术中，我们的角色可能会改变，可能会有大量的重叠。所以我认为那就是在哪里，特别是设计师的技能组合就像它不是那么多就像这是一个 UX 设计师做什么或 UI 设计师做什么，和那个就像开始到结束。</p>
+      <p>它是这些就像你拥有的个人技能组合，你实际上有点构建你的系统，如果我可以成为。它有点像你拥有所有这个不同的知识，所以如何那插入到你试图解决的问题？所以我认为然后它谈论什么下一代创意需要学习。所以如果你要重新设计设计教育为这个 AI 时代，你会教未来一代什么第一课？</p>
+      <p>我认为最大的事情实际上会是为创意建立实验心态。我认为很多创意实际上已经做到这一点。有很多试错应该被内置。但我认为它需要可能更正式地纳入创意教育，在那里它是你试过这个，好吧，你学到了什么？</p>
+      <p>你下次要做什么，并从那里向前移动，因为很多很多的创造力实际上只是试错和学习，并尝试下一个事情，并尝试那个事情。嗯而也许设计教育今天，我已经离开学校很长时间了，所以也许它已经改变了，我不知道嗯它可能看起来像确定你构建这一个技能组合，然后你如何应用那个到真实世界的场景，但真实世界的场景不是那样的。</p>
+      <p>可预测的，可预测的，好的，整洁的嗯任何曾经在工作中的人，你知道就像一些方面，出来的为什么设计得到 shipped 可能没有任何关系，它就像一堆随机的 myists，它们走到了一起。所以我认为那是适应性，还有其他的吗？</p>
+      <p>是的。嗯我认为那所大学，我们都来自回在南非，开普敦大学，那里实际上有一个课程，关于它是什么，设计思维。嗯第一个证据证据为基础的管理，基本上在那个课程中，我只是试图记住什么，但它基本上是关于就像你知道嗯如何。</p>
+      <p>思考就像批判性思维，批判性思维，是的，那是 what 是的，可能会有更多的我将要看更多的那个，因为我们只有那个课程在第一年，但我觉得每年现在就像每个学生需要有一点那个，因为批判性思维，就像你仍然需要有你的技术，当我说技术时，它就像你做一个特定的主题，你知道学期，然后你做任何需要做的事，要么考试，要么项目。</p>
+      <p>提交，但批判性思维帮助你拥有就像思考的方式，不一定只是基于教科书，但也是嗯从经验，能够把事情一起，并能够关联事情，并确定那里有是一种就像你到达一个阶段，你正在开始慢慢地进入那个系统思考，你知道，而不是只是嗯坐在 siloed 在，哦，我只是我知道这个，我研究这个，因此我可以写，我认为它确切地它是那种就像当然到你的点的总是会有技术工艺方面要学习，但然后有那里的力量在学习就像人文学科，就像哲学，或就像批判性思维，或甚至事情就像分析。</p>
+      <p>一件文学作品，它帮助你有点思考就像什么是什么实际上意味着什么，和什么是细微差别，我认为那是一个非常奇怪的部分。是的，我认为那就是为什么老师不喜欢它，当学生正在使用 AI 写论文，因为部分写论文是思考通过你的思维过程，和你试图说什么？我认为我认为他们应该做的是你提交你的论文，然后你有半小时来过来并解释就像每个人现在都在做一个 PhD。</p>
+      <p>你认为你必须过来并为你必须捍卫你的你知道你的论文，因为我认为就像那将会可能是当然人们将使用 AI 为你知道的 SA 作业，但现在你需要 in front of 每个人捍卫并允许人们问问题。是的。</p>
+      <p>确切地。我还认为嗯尽可能多的你作为你已经说你学习了相当长的时间 ago。我认为现在特别是很多人在我们的行业内，我们必须持续学习新技能嗯使用新工具，即使当我使用嗯设计工具，为了真正能够从中获得全部好处，因为我就像你说的，不是每个设计师将会是惊人的或好的，有层次到它，所以这取决于你有点接受那个学习挑战，那个持续的学习挑战。</p>
+      <p>是的。当然。我认为那是 uh 我是一个通过学习的人。我不能真的通过课程和和学习那种方式。它必须相当实用，就像好吧我要尝试这个新事物。我会读它。我会得到解释它，我会与做过它的人交谈。我要如何做这个？和哪里我&#x27;ve 使用 AI，例如，如果我正在做一个项目，我正在做用户研究，我需要拉数据，我可以问一个数据科学家，但我也可以写我自己的 SQL 查询，并要求 AI 就像，你能解释给我就像为什么这不工作，所以我知道为未来？嗯，所以有很多不同的方式，我们可以推和拉它在上面。</p>
+      <p>你不会总是得到它正确，但它是关于经历那个学习经验。是的。所以展望未来，什么让你最兴奋，什么让你最担心，关于设计和空气正在前往哪里？并且是否有任何新的令人兴奋的事情，你可以告诉我们关于一些你曾经做过的工作？</p>
+      <p>是的，当然。嗯，我兴奋的地方是嗯它真的 AI 已经能够解锁很多技能，为人们，他们通常不会能够做。我认为 Levi 编码是一个大的，他们只需要起床也许一个网站，或就像迷你应用程序，或只是一些东西来帮助他们嗯要么与他们的业务或想法，他们有，和那个就像真的提高了地板为很多人。</p>
+      <p>我会说我感到担忧的是只是随着人性、政府、企业、一切，就像那实际上对培养我们未来的人才意味着什么？嗯因为你可以看着所有这些提高地板，说好吧，那么 PMS 可以 v 编码东西，所以我们不需要设计师嗯和那些是商业决策，它不一定是思考关于社区，和嗯那是什么。</p>
+      <p>对未来也一样的影响，所以我认为那是确保我们正在负责任地使用那个和思考关于如何我们可以继续提升人性通过这项技术，而不是说好吧，技术，这项新技术意味着不再有人性。不需要。我们只会自动化一切。嗯，和我认为它将会是相当大的推和拉在接下来的几年。</p>
+      <p>说实话，我以为你会提到也关于就像有太多复制猫，因为我觉得是的，因为我觉得如果你去字面上因为 AI 现在，你知道，每个人都有工具，他们可以，你知道，五个代码网站，或你知道工具。但当你现在去，你正在到达一个阶段，我正在到达一个阶段，嗯我去一个网站，我以为这个是使用 lovable 例如生成的。</p>
+      <p>但看到那是原因，我并不担心它，因为我认为人们会注意到，它实际上会是一个真正带来巨大的品牌价值，如果你有一个更真实的经验。我认为它实际上会帮助与很多创意脱颖而出，实际上就像这是一些你不能得到的。那是真实的。</p>
+      <p>我们可能会看到很多就像 AI sloth ne 就像当然，但我认为然后发生的事情是很多真实的质量将上升到顶部也一样。是的。</p>
+      <p>是的。你知道，和那我绝对同意，因为 uh 什么是什么是说什么是感兴趣的，在什么正在发生在空间中，现在我觉得如果你是领域的专家，使用 AI 只是增强那个， everyday 人们将能够做交付做工作，设计师做一个某种程度上，但微调，嗯你知道就像细节，精细的细节就像和和我认为。</p>
+      <p>什么我会喜欢看到的是更多的设计师利用 AI 的优势，而不是就像不，我不想要使用它，因为是的，所以对于你个人，什么习惯或创意仪式帮助你保持灵感并保持你的创意边缘，同时仍然利用 AI，我的一些实践实际上是已经嗯读绝对没有关于设计师技术的东西嗯和那是故意的为我的创造力，以那种方式我可以扩展什么我是我在世界中看到的。嗯，我是如何，我在学习什么？</p>
+      <p>就像，如何甚至可以只是一个 tidbit 关于，我不知道，一个随机的事实，关于，我不知道，一只鸟或东西，就像如何可以我能进来并帮助我与我的创造力？嗯，我也会说我实际上更嗯投资于就像看到艺术家和如何他们工作，和和去博物馆，和和看到人们已经生产在外面，那个。</p>
+      <p>甚至博物馆现在days 有艺术家，他们是挑战就像使用技术嗯使用 AI 在他们的作品中，所以他们可以就像展示好吧，意义，他们想要做的。嗯，然后我也会说我有相当专门的时间就像推和拉与 AI 与我的创造力。所以，一件事我真的很喜欢做是嗯甚至与图像生成模型，我认为很多人尝试得到这个就像完美的事情，那是在他们的头脑内，到屏幕上。嗯我不做那个。</p>
+      <p>相反，我用非常抽象的事情提示。嗯或引用或歌词或任何像那样的，以实际看我得到作为输出。然后从那里，我有点说，「哦，它很有趣，就像这个歌词产生了一些有就像所有这些心在它。就像它很有趣，就像为什么是那样，和你有点 ation 是的就像为什么被拉在那个线上，也有所以那一直是嗯有帮助地建立它，这是一次美妙的对话，我真的很享受它，我也从设计角度学到了很多。</p>
+      <p>嗯，是的，有任何 closing remarks 为我们的听众，是的嗯我会说它是它是一个快速变化的时代 uh 方式技术正在移动，但我认为也可以是感觉就像我要被落下，如果我如果我不知道一切，或如果我不读一切，就像一出来，或我不尝试这一个工具。</p>
+      <p>和我会说嗯最大的方面我会说是保持你的好奇心开放，和只是保持那个实验心态，因为 uh 事情将会改变，和什么我们说就像 definitive 工具使用现在可能会改变，就像6个月或一年。所以，它是建立那个适应能力到你的实践。甚至 AI 研究人员，我一起工作，那些有 PhDs 在这个，不知道一切关于 AI。</p>
+      <p>他们知道它如何工作。他们有一个非常具体的领域，他们深入潜入，但甚至他们不是专家在一切。所以，我不会不要把它放在你自己，也成为专家在一切。</p>
+      <p>那么，谢谢你。这是嗯一个伟大的插曲，我们将在你下一次抓住你。谢谢大家。谢谢你。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=30qUaeOxkDk" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：未知</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

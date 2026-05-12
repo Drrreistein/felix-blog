@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>成为 AI 产品经理：Aman Khan 的实践指南 · Aman Khan</title>
+<meta name="author" content="Aman Khan">
+<meta name="description" content="这篇文章来源于我与 Lenny 的深度对话。我分享了自己在 AI 产品管理领域的经验——从如何进入这个领域，到如何在 AI 时代脱颖而出，再到如何作为个人贡献者（IC）长期取得成功。如果你对 AI 产品管理感兴趣，或者想在这个领域建立职业生涯，希望我的经验能给你一些启发。">
+<meta name="keywords" content="播客, 访谈, Aman Khan, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">成为 AI 产品经理：Aman Khan 的实践指南</div>
+    <div class="cover-sub">如何在 AI 时代脱颖而出，并作为个人贡献者长期成功</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Aman Khan</strong><br>Arize AI 产品总监<br>
+    主持：Lenny·未知<br>
+    时长：约78分钟· 来源：Lenny's Podcast</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/E_rNotqs--I/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/E_rNotqs--I/hqdefault.jpg'"
+         alt="Becoming an AI PM | Aman Khan (Arize AI, ex-Spotify, Apple, Cruise)">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/E_rNotqs--I?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Becoming an AI PM | Aman Khan (Arize AI, ex-Spotify, Apple, Cruise) · <a href="https://www.youtube.com/watch?v=E_rNotqs--I" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>这篇文章来源于我与 Lenny 的深度对话。我分享了自己在 AI 产品管理领域的经验——从如何进入这个领域，到如何在 AI 时代脱颖而出，再到如何作为个人贡献者（IC）长期取得成功。如果你对 AI 产品管理感兴趣，或者想在这个领域建立职业生涯，希望我的经验能给你一些启发。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">AI 产品经理的三种类型</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">如何进入 AI 产品管理领域</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">顶级 AI PM 的特质：不随大流</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">Betty Crocker 效应：用户需要控制权</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">作为 IC PM 的长期成功要素</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">能量与执行力：作为 IC PM 的关键成功因素</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>AI 产品经理的三种类型</h1>
+    <p class="lead">在我职业生涯中，我一直在思考一个核心问题：AI 产品经理到底是什么？当我深入分析这个角色时，我发现可以把它分解为三种不同的类型。理解这些类型对于想要进入这个领域的人至关重要。</p>
+    <div class="chapter-content">
+      <p>我在 Arize AI 担任产品总监，专注于构建 AI 领域的产品。我的职业生涯经历了一段有趣的旅程——从 Spotify 的 ML 平台团队，到 Cruise、Zipline，再到 Apple。我非常有意识地选择长期担任个人贡献者（IC），这在 AI 工具使 PM 更高效、公司削减管理层级的趋势下，正成为一种新趋势。</p>
+      <p>在我的职业生涯中，我一直在思考一个核心问题：AI 产品经理到底是什么？当我深入分析这个角色时，我发现可以把它分解为三种不同的类型。理解这些类型对于想要进入这个领域的人至关重要。</p>
+      <p>第一种是 AI 平台 PM。这是我发现自己所处的位置。这些人正在为 AI 工程师构建工具。以我在 Arize AI 的工作为例，我们是一个 AI 可观测性和评估平台。我们已经存在几年了，最初专注于机器学习和排名、回归、分类模型——基本上是应用程序中可能找到的任何推荐系统或黑盒。我们慢慢地转向更广泛地说是任何类型的 AI。如今，这些都是大型语言模型。</p>
+      <p>随着基于 Open AI 的 API 或 Anthropic API 构建的所有这些工具的兴起，实际上这些接口是相当笨重的。我们真正只有几年时间让人们在大型语言模型之上进行构建，所以整个空间真的很新生，你用来在顶部构建并理解我的应用程序是否做了我期望它做的事情的工具，真的是非常、非常早期的。这就是我关注的空间，围绕让 AI 工程师理解影响。</p>
+      <p>如果你是我所说的另一种 AI 产品 PM 的公司客户公司，你就会明白，当你向领导层汇报时，我的应用程序实际上正在做一些事情，并且正在做我期望它对最终业务所做的事情。</p>
+      <p>我认为除此之外，还有 AI 产品 PM。AI 产品 PM 真的是 PM 的一种风格，其中核心产品围绕 AI 展开。这方面的一个例子实际上是像 ChatGPT 这样的东西。实际上，另一个很好的例子是，你让 Raiza 参加，NotebookLM 也是一个非常好的例子。我的意思是，核心体验是由底层模型实现的。那是某种秘密武器。</p>
+      <p>你有这些研究人员和工程师真正推动 AI 技术向前发展，然后你的工作真的是打包那个技术，并使其可供企业、企业或消费者以某种方式使用那个技术。所以那就是 AI 驱动的产品经理角色，其中核心竞争力、核心技术真的是你正在打包和分发的。</p>
+      <p>我认为这里的第三种 PM 类型真的是我们之前稍微谈论过的那个，也就是你是 AI 驱动的 PM 这个概念。为此，我认为你将在你作为产品经理可能已经做的角色的整个堆栈中得到 AI 技术的支持。我们也会稍微了解一下这意味着什么，并且有一些想法和想法。但真正在我的脑海中，AI 驱动的产品经理所做的就是，你并不真的负责从零开始构建核心模型。</p>
+      <p>也许你没有资源或研究团队的访问权限，你可能拥有 Google 或 Open AI，但你仍然可以利用大型语言模型，或任何类型的模型，真的，来构建一个体验，这对你的客户来说是最好的。我认为这真的是很多 PM 也将开始趋势的方向，因为 AI 从技术角度来看变得更加普遍。</p>
+      <p>这几乎感觉有点像 AI 将像数据库一样普遍到某种程度，对于 SaaS 应用程序。所以我认为如果你真的分解它，我有点看到在未来，在不久的将来，大多数 PM 可能会成为 AI 产品经理的一种风格，要么为其他 PM 或其他部署 AI 的公司构建工具。也许你站在下一个 NotebookLM 的前沿模型后面，或者你围绕某种转换器或 GPT 模型构建，该模型正在做你想要做的部分工作来解决客户的问题。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>如何进入 AI 产品管理领域</h1>
+    <p class="lead">Lenny 问我，对于想要转行成为 AI PM 的人，有什么建议。我其实觉得自己在这个领域有点像个局外人，但我相信热爱问题和持续学习是成功的关键。</p>
+    <div class="chapter-content">
+      <p>Lenny 问我，对于想要转行成为 AI PM 的人，有什么建议。我其实觉得自己在这个领域有点像个局外人。我学习的领域是机械工程，根本没有上过计算机科学课程，我必须自己学习很多东西。我也没有机器学习或 AI 的博士学位或硕士学位。</p>
+      <p>但是，回到你刚才描述的两种产品经理，一种是构建供其他 AI 工程师使用的基础设施的 AI PM，另一种是构建真正由 AI 驱动产品的 AI 产品 PM。我认为在这两种情况下，你都关心最终客户。归根结底，你真的需要热爱这个问题。我知道你说过，那是一个很棒的、很棒的引用，在我的脑海中也是，如果你热爱这个问题，你就会试图推动技术可能性的边界来解决这个问题。</p>
+      <p>对我来说，我真的变得痴迷于试图帮助真正的用户，AI 工程师、数据科学家，解决那些我原以为不会那么具有挑战性的问题，比如我如何构建一个仪表板来了解我的模型如何工作？那不可能那么难做。</p>
+      <p>然后随着你深入，复杂性开始在这个堆栈部分浮现，你不得不意识到你正在推动，你实际上负责以某种方式推动技术向前发展。你试图看看什么是可能的，并继续推动空间向前发展来解决那个客户问题。我认为同样的事情对 AI 产品经理来说也是真的，意味着你真的试图设计最好的客户体验，并真正解决你客户的问题。</p>
+      <p>我认为如果你痴迷于此，并且你花时间试图意识到，我想要解决什么样的理想体验，你将会沿途找到工具来帮助解锁那个问题。所以我认为如果我们举一个例子，让我们想象你为一家可能有客户支持问题或人们带着投诉进来的公司工作。</p>
+      <p>当你想到客户支持的表面区域时，它并不是那么好。你通常必须输入一些与聊天机器人的问题，也许它错误地路由了，[听不清 00:16:13] 一些文档去解决一个问题。或者如果你试图打电话进来，你必须描述你的问题，但你不确定你是否被正确听到。可能是超长的等待时间。</p>
+      <p>如果你是那个体验的产品经理，我认为一个理想的产品体验真的是客户带着问题找到你，而你能够真正为他们解决这个问题。这真的不重要中间是什么，你想要尽可能减少摩擦。</p>
+      <p>所以现在当你思考，好的，让我们假设我从电话开始，有大量工具开始涌现。我认为过去几周真正前沿的一个是 Open AI 发布了一个实时 API。实时 API 基本上是一个语音 API，你可以提供一些文本，并几乎拥有这种与机器人对话的实时体验，它实际上是由 AI 生成的。</p>
+      <p>如果你是一个消费者，你甚至可以自己在应用程序中尝试。你可以在 ChatGPT 中打开它，如果你是 Plus 订阅者，你可以尝试这种前沿的语音聊天机器人体验。为什么这很有趣？因为如果你是一个消费者，你正在尝试技术，你正在尝试 AI 技术，并试图推动什么是可能的边界，我认为你可以有那个灯泡时刻，我可以把这个东西带给我团队，也许说这可能是我们可以使用的东西。</p>
+      <p>所以我认为这真的是整个空间的意义所在。我想强调，你真的被自己的好奇心驱动。你的好奇心可以在你可能想要为自己拾取的工具类型或甚至在你们自己的产品中实现的工具类型方面推向许多不同的方向。所以我认为这是在今天成为一个 AI PM 的令人兴奋的时刻。</p>
+      <p>为了更实际一点，对于正在听并且想知道&quot;我如何实际进入这个领域？&quot;的人，我的建议是建立你对 AI/ML 的基础理解。有像 Andrej Karpathy 谈论 LLM 基础的视频——这是一个很棒的资源。他不久前发布了这个视频。大约一个小时长，但你可以把它放到 NotebookLM 中，也许得到一个更简洁的版本。</p>
+      <p>但想法是，你可以真正理解技术方面它是如何工作的以及边界在哪里。然后我认为另一个维度是试图使用工具来弄清楚你自己如何能够推动可能性的边界。所以我认为这两件事的结合真的是这里推动技能水平的原因。</p>
+      <p>也许为了回到一个更早的观点，没有程序，没有关于产品管理的大学学位，所以肯定没有关于 AI 产品管理的大学学位。所以我认为你脱颖而出的方式是通过展示对该领域的兴趣并建立你自己的技能集和技能堆栈，围绕什么是 AI 的基础以及我如何将它应用到我感兴趣的行业中？</p>
+      <p>这与如何作为一个申请人脱颖而出是相关的。我认为招聘过程真的是为了理解关于一个人的三件事而设计的，那就是这个人能做我雇用他们做的工作吗？他们是否对做我们这里做的工作感到兴奋，以及我喜欢和他们一起工作吗？</p>
+      <p>所以我认为通过拥有这个作品集，如果你有 AI 和 ML 的基础，至少能够描述技术能做什么，然后你有这个产品作品集，你实际上甚至在招聘经理和你交谈之前就回答了这两个问题。</p>
+      <p>所以你正在通过向他们展示你如何思考以及你喜欢如何度过时间以及你的兴趣和爱好是什么，来短路这个过程。然后你只需要真正通过这个电话面试。只要你符合公司的文化，我认为你实际上已经短路了部分一和部分二，这大多是面试过程设计的，这就是为什么它们有点，你必须和三个人交谈，看看你是否能做营销，你是否能做工程，你是否能做核心产品管理？</p>
+      <p>所以那真的是我的建议，你可以从建立你的技能堆栈开始，并从基础开始，让你的好奇心驱动你，然后将其转化为一个作品集，你可以作为申请人使用它来脱颖而出。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>顶级 AI PM 的特质：不随大流</h1>
+    <p class="lead">当 ChatGPT 发布时，每个人都试图构建另一个 ChatGPT。但顶级 AI PM 知道，正确的接口可能非常不同，重要的是解决正确的问题，而不是跟随潮流。</p>
+    <div class="chapter-content">
+      <p>我认为大约两年前，大概是这个时候，ChatGPT 发布了，我认为每个尝试过的人都对其中的几件事印象深刻。界面超级容易使用，感觉非常直观。模型能力很强，感觉几乎像人类一样。当然，那实际上是比今天可用的更早的模型，当你回头看时，它几乎就像看老 iPhone 什么的。</p>
+      <p>你有点必须有这个时刻，哇，那时候真的很令人印象深刻，但现在如果你尝试使用它，你会 like，这东西很烂。它甚至做不了一半的事情。你对技术持续改进感到习惯。</p>
+      <p>但当那个时刻发生时，它确实感觉像 AI 产品的 iPhone 时刻，看到接下来发生什么真的很有趣。我的意思是，我们坐在可以看到很多其他公司正在构建的地方。所以我们有客户是超级知名的、家喻户晓的品牌，Spotify 和 Instacart 以及人们每天喜爱和使用的这类公司。</p>
+      <p>最终结果是什么，每个人似乎构建的第一件事实际上是另一个 ChatGPT，但在他们自己的数据之上。</p>
+      <p>出于某种原因，每个人都 gravitated 到这个特定的用例。我认识的所有 AI 产品经理都像是，哦，我们正在基于我们的知识库构建内部聊天机器人，它将能够回答问题，这将很棒。</p>
+      <p>当你看构建的产品时，它们的实际使用量我真的不认为很好理解。那是企业真正需要做的事情吗？所以回到你更早的问题，如何脱颖而出，成为前 5% 的 AI PM，而不是可能不那么出色的 AI PM？我实际上认为这回到了那个更早的观点，不要做其他人都在做的事情。</p>
+      <p>仅仅因为跟随每个人似乎都在构建的东西感觉直观，复制这个界面感觉真的很棒，每个人都买账，因为他们熟悉它，你真的必须思考，这是我们企业现在需要的东西吗？这是我们需要去解决的问题吗？</p>
+      <p>如果你深入研究，你会实际上发现 AI 的界面可能看起来非常不同。它不一定看起来像聊天机器人。它可能看起来像你试图优化或加速人类今天必须做的一部分流程，你可以让他们的生活更轻松。对我们来说，那是数据分析。我们必须在我们自己的公司中查看大量数据以做出决策，所以我们决定尝试自动化这一点。我们也发布了一个小型聊天机器人只是为了解技术如何工作，但最重要的是，我们围绕 AI 的界面看起来非常、非常不同。</p>
+      <p>我认为很多围绕 AI 的前沿体验也有点像那样。它们并不总是像聊天机器人。我认为那真的是你必须问自己的问题，在设计这样的产品时，正确的界面是什么？</p>
+      <p>所以我听到的是，如果你的团队正在构建与某个其他东西非常相似的东西，与基础模型产品例如非常相似，可能是一个危险信号，可能不是巨大的机会。所以优化那些感觉不同和新鲜的东西。还有什么你想在那里添加的？因为我有问题。</p>
+      <p>是的，我认为这几乎就像是过去两年人们所做的事情，现在这一刻再次发生。这一刻围绕着 AI 代理这个术语发生。我认为如果你真的看它，我实际上再次提出 Yuriy 的观点，因为我正在听那一集，我认为那非常有见地，他每天收到这么多电子邮件，我们为这个做 AI，我们正在构建那个的 AI 代理。</p>
+      <p>但再次，你有点试图将这项技术拟合到要去解决的问题，你并不是真的在描述问题。你正在描述解决方案，一个 AI 代理来做某事。</p>
+      <p>所以如果你看它，我真的会问自己，在我们企业内部构建 AI 代理是否有意义，或者让基础模型公司在其技术中构建这个代理层是否更好？然后你的工作就是让那个体验在你现有产品中如此无缝，以至于它甚至一开始感觉不像 AI。</p>
+      <p>我认为那真的很强大。那是产品经理可以真正创新的地方。</p>
+      <p>因为让我们诚实说，你可能不会有这些前沿研究人员能够去从头设计模型或可能设计一些新技术来构建下一个代理框架。但你能做的是接受那个技术，找到一种方法在你的组织中应用它，我认为那真的是 AI PM 的角色真正脱颖而出的地方。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>Betty Crocker 效应：用户需要控制权</h1>
+    <p class="lead">通过 Betty Crocker 蛋糕粉的例子，我学到完全自动化可能适得其反。用户希望有一定控制权。这对于设计 AI 产品至关重要。</p>
+    <div class="chapter-content">
+      <p>我们以为，哦，这将是很棒的。这是 AI 的完美用例，我们将给它访问这个表格，我们将查看问题，我们将对它们进行分类，然后 ping 正确的人。事实证明，这实际上是一个真正难以解决的问题，因为有太多的上下文缺失了，好吧，这个两星期前在处理这个问题，但现在他们正在处理这个其他项目，其他团队接管了。</p>
+      <p>我认为那里的挑战真的首先在于确定要解决的正确的问题。一个好的直觉是通过黑客马拉松来围绕这个构建，通过带着问题来，然后看看哪些想法真的坚持下来了，哪些实际上并不那么好。</p>
+      <p>然后我认为这里最后一点是真的要对用户体验的细节着迷。你正在寻找问题去用 AI 解决，但我认为部分在于真的看看今天成功的 AI 产品是什么？你可能尝试几个，说出几个，但一个很好的例子可能是，如果我缩小视野，目标真的是找到 AI 实际上神奇的体验，以及它们做对了什么。</p>
+      <p>所以这方面的一个例子可能是，很多人试图用 AI 做的一件事是完全自动化工作。有一个有趣的故事，很多人在尝试用 AI 做的是完全自动化工作。有一个关于 Betty Crocker 实际上推出这种蛋糕粉的有趣轶事，你只需要做混合水，你就可以用一种成分烤蛋糕。你只需要这个蛋糕粉。</p>
+      <p>结果证明这实际上让他们的销售暴跌。所以你只需要做的就是基本上改变说明，让你只需要加鸡蛋。而这一个事情创造了这种效应，他们的销售飙升，因为他们意识到客户实际上想要对体验有一定程度的控制。</p>
+      <p>你可以看到，即使是现在，如果你已经能够乘坐 Waymo 或自动驾驶汽车，汽车是完全自动驾驶的，但你仍然可以控制空调，你仍然可以控制音乐，所以你想为你的客户留下一些旋钮和杠杆，让他们感觉他们仍然控制着体验。</p>
+      <p>这有点像 Ikea 效应应用于 AI，当人们实际上对最终体验有影响时，他们会感到更有力量，而不是一切都由他们照顾。所以这只是我们从查看成功的 AI 产品与那些试图完全自动化一切的产品中意识到的一个见解。</p>
+      <p>我认为如果你正在查看这个空间，你将会找到更多这样的例子。那是一个非常重要的观点，即使你可以构建一个完全自动化的产品，你可能不想要。Betty Crocker 的例子真的很有趣，它让我想起 Blue Apron 和所有这些食品制作。</p>
+      <p>我有一个朋友告诉我，他做饭，这些天他经常做饭，然后发现他一直在用 Blue Apron。它让你感觉像你在做饭，你可以告诉人们，嘿，我经常做饭，但不太一样。是的。但实际上如果你不介意，我可以探究一下。那是一个关于 Blue Apron 的真正有趣的观点，因为如果你看那个产品，他们试图解决的问题是什么？</p>
+      <p>他们试图让人们吃东西或吃食物吗？我实际上不这么认为。我认为如果你真的试图解决那个特定问题，你可能会构建更接近像 DoorDash 的东西，你只需按一个按钮，食物就会出现。而 Blue Apron 在另一方面，试图让人们感觉他们更接近烹饪，或感觉更接近制作东西的体验。</p>
+      <p>我认为那就是真正令人惊叹的 AI 产品也做的事情。它们让你的体验或产品，AI 让你的产品更容易使用，它降低了创造的障碍。我认为那就是它真正擅长的，不一定只是试图自动化问题。</p>
+      <p>如此重要的观点。再次，回到你的主要观点，专注于你正在解决的问题和 AI 可能帮助解决它，可能不会。好的，我们从你分享的建议中走上了 tangential，关于典型 AI PM 与顶级 5% PM 的区别，你还有什么吗？你在那个列表上得到了什么？</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>作为 IC PM 的长期成功要素</h1>
+    <p class="lead">我分享了作为长期个人贡献者（IC）PM 的成功要素：能量、等待与探索之间的平衡、放大信号以做出决策。</p>
+    <div class="chapter-content">
+      <p>事实上，我会从这个稍微窃取一点，我们的朋友 Kevin Yien，我认为他在你的播客上时给了这个建议，这实际上在个人层面上引起我的共鸣，那就是你必须能够走路和嚼口香糖。</p>
+      <p>作为 AI PM，你的工作不是去发布 AI 产品，而是去解决客户的问题。我认为我们之前已经回到这一点了。但你不断地被你的团队和公司推向去解决业务指标，以某种方式移动业务指标。</p>
+      <p>但目标是要为我们考虑的其他事情创造空间，那就是原型制作，你自己尝试工具，为你的团队创造空间来举办黑客马拉松，并自己尝试工具。</p>
+      <p>分解真正很棒的产品体验。所以作为一个例子，我们昨天刚刚对我们的公司进行了 NotebookLM 产品的拆解。所以我们直播了它，我们可能每星期或两个星期做一次，我们将采用一个前沿的 AI 产品，并围绕它举办一个网络研讨会，试图分解它的工作原理。那里的目标是真正更好地理解这个空间本身。但顺便说一句，这三件事都不会移动你的 KPI 或业务指标。</p>
+      <p>所以我认为我回到那一点，你必须能够走路和嚼口香糖。你必须持续交付客户价值，同时也要创造空间来迭代和失败，找到你试图发布并让人们真正对可能不奏效的实验感到兴奋，但在过程中，你学到了一些东西。</p>
+      <p>我认为那是真正强大的收获，要真正脱颖而出作为 AI PM，你必须接受这项技术变化非常快。你可能认为它会做一些伟大的事情，或者也许你有一个糟糕的产品体验。我认为你早些时候也有一个观点，那就是要成为一个真正伟大的厨师，偶尔你会吃到一顿糟糕的饭。</p>
+      <p>我认为在这里你的 AI 产品饮食会是一样的。你会尝试一些糟糕的体验，你会遇到一些失败，但目标是要继续迭代。那就是 AI 变得更好的方式，我认为那就是公司可以更好部署 AI 的方式。所以不要放弃北极星。只要找到方法创造空间让 AI 在你的组织内传播，我认为真正出色的 AI PM 会这样做。</p>
+      <p>我觉得作为走路和嚼口香糖的隐喻，并没有传达 Kevin 的困难，现在我想想它，他想描述什么。感觉不难走路和嚼口香糖，我想什么会是一个更好的隐喻。是的，好吧，我认为这——跳舞和泡泡。也许泡泡糖和跳舞。</p>
+      <p>是的，我不知道为什么是这样，那是表达方式，但它总是意味着描述一些困难的事情，你意识到你不能做不止一件事。无论如何，我们现在不想需要解决它。所以我想谈谈作为一个 IC，作为一个 IC 成功。在我们到达那里之前，我们是否还有其他的路线，关于如何作为一个 AI PM 特别成功，我们还没有触及？我知道我们现在谈论了很多事情。</p>
+      <p>你的组织可能想做某事，而你试图让他们做其他事，这真的是这个角色的挑战，有如此多的噪音，有如此多的关于 AI 的兴奋，知道要构建的正确事情真的是这个工作必须传达的。所以我认为当你把所有的信号都拿起来，你试图把它放在一起解决那个客户问题，那真的是在一天结束时成为一个成功的 AI PM 是什么。我认为那是这项工作的困难部分，但也可能是最重要的影响部分。</p>
+      <p>我喜欢那一点。好的，所以让我们把 AI 放在一边一会儿，但不要完全放在一边。想象我们要在下一个领域触及它，下一个领域是谈论如何成为一个真正成功的 IC。你非常有意识地决定留下来作为一个个人贡献者，而不是在梯子上的产品管理和总监和 VP 以及所有这些事情上移动。而且有一个特定的技能集，它需要作为一个 IC PM 成功和茁壮成长。</p>
+      <p>大多数人要么不能沿着链条移动并成为真正成功的 IC 长期，要么他们不想，要么他们甚至认为这是一个选项。所以我的问题是：你学到的一些最大的习惯、心态、教训关于如何作为一个 IC 长期真正成功？</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>能量与执行力：作为 IC PM 的关键成功因素</h1>
+    <p class="lead">当我回顾自己的职业生涯时，我发现成功的关键要素在于：能量管理、在等待与探索之间找到平衡、以及放大信号以做出决策。</p>
+    <div class="chapter-content">
+      <p>当我想到自己的职业生涯旅程时，很多都归结为个人驱动你什么，我只是痴迷于解决客户的问题。所以要做那件事，可能意味着我必须花更多时间试图进入细节并进入细节。</p>
+      <p>所以我认为真的有三个领域，三件事回到了我关于什么是作为 IC PM 的困难部分，以及你如何突破它。我首先想稍微设定一下基调，那就是，作为一个 IC PM 真的很难。</p>
+      <p>我早先提出了一个观点，如果你能使用这些工具，进入产品管理在某种程度上变得更容易，现在你有了所有这些工具可以使用去构建下一个原型，但我认为门槛刚刚对公司内部的产品经理变得更高，需要的影响是什么。顺便说一句，这总是要与是否能够跳上一个快速电话最后一分钟或试图解锁某人竞争，或者有一些内部利益相关者讨论弄清楚要去做什么。</p>
+      <p>所以我认为挑战是，你有一份真正艰难的工作，有不断的信号，事情在不断变化，你如何才能真正贯穿其中？所以我认为真的有三件事我在那里思考，那是能量、等待与游走，然后放大信号以做出决策。</p>
+      <p>也许只是为了启动，能量，我真的想到了这个，这可能是一年多前我与我们的 CEO 一起工作时意识到的最重要的事情之一，那就是当你不确定该去哪个方向时，能量可以算很多。如果你出现在会议上，并带来更多的能量，你会发现很多摩擦倾向于消失，相比之下，如果你出现，你有点低落，或者对一个想法没有那么多热情，人们会察觉到这一点。</p>
+      <p>我们今天仍在与人打交道，我认为即使你只是稍微改变一下心态，带来一点额外的能量，你会发现这实际上可以打破障碍，对话感觉像在流动。它感觉像餐桌对话，而不是艰难的对话，即使它可能是关于某种艰难的事情。</p>
+      <p>所以我认为对我来说，有这个概念，你可能仍然面临这个挑战，我不确定什么是正确的决定，我正在努力真正做这个分析，并真正让某事继续。我认为接受这对每个人都发生，它有点像产品阻塞，而不是作家的阻塞，如果这有意义的话。作为一个作家，你可能试图到达那个下一段，而作为产品经理，你真的试图到达那个下一个想法或那个下一个里程碑。</p>
+      <p>所以我也可以在那里给你一个例子，那是在一年多前，我们有一个时刻，我们不确定要将产品功能带向哪个方向。我们面临着这个感觉有点 existential 的决定，那就是我们有多想投资于 LLM 和新浪潮的大型语言模型技术，而不是我们现有的客户群？这并不立即清楚决定应该是什么。</p>
+      <p>所以我有能量，我只是要成为我们的对外销售人员，只是开始写 LinkedIn 消息给那些在 LinkedIn 个人资料中拥有 AI 这个标题的人。所以我只是在 LinkedIn 上，字面上只是开始找到方法让他们进行电话交谈。</p>
+      <p>所以我写了一些文案并对其进行迭代，我必须和我们的销售团队坐在一起，了解如何做到这一点？我用完了我每天的五个 LinkedIn 消息，你试图在这里做什么？</p>
+      <p>我认为那真的完成了两件事。一，我确实学到了一点关于进入这个角色的东西，就如何向我们的产品更多以实际让人们参与的方式传递问题和产品？但二，这也向团队证明，我愿意与他们一起进入细节。我愿意花时间，即使我试图推动我们的日常工作，构建产品并使其增长。</p>
+      <p>我认为当你试图推动某些事情时，应对团队成员之间起伏，有很多价值。顺便说一句，真的优秀的 IC PM 在做这件事方面真的很好。所以那就是例子，我给你的是，你有点像勒布朗·詹姆斯，你在指导人们，你在绘制剧本，但你也只是试图尽可能多地参与所有艰难的事情。</p>
+      <p>我看到了那件事发生，我认为那真的来自于我们 CEO 的领导力，他也会很累，我能看出来，但只是当他出现在会议上时，他只是不表现出来。你只是必须有点带来那种能量。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=E_rNotqs--I" class="footer-link">Lenny's Podcast</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：未知</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

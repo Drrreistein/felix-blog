@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Farza Majeed · 人物一页纸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ── kami token map ── */
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --warm-sand:   #e8e6dc;
+    --brand:       #1B365D;
+    --near-black:  #141413;
+    --olive:       #5e5d59;
+    --stone:       #87867f;
+    --border-cream:#dddbd2;
+
+    --serif: 'Newsreader', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', Georgia, serif;
+    --sans:  'Inter', 'Source Han Sans SC', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--parchment);
+    color: var(--near-black);
+    font-family: var(--sans);
+    font-size: 10pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── page shell ── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 18mm 18mm 16mm;
+    background: var(--parchment);
+    position: relative;
+  }
+
+  /* ── header ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24pt;
+    padding-bottom: 14pt;
+    border-bottom: 1.5pt solid var(--brand);
+    margin-bottom: 18pt;
+  }
+  .header-left {}
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 5pt;
+  }
+  .display-name {
+    font-family: var(--serif);
+    font-size: 36pt;
+    font-weight: 500;
+    line-height: 1.10;
+    color: var(--brand);
+    letter-spacing: -0.01em;
+  }
+  .display-tagline {
+    font-family: var(--serif);
+    font-size: 12pt;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--olive);
+    margin-top: 5pt;
+    line-height: 1.35;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .meta-line {
+    font-family: var(--sans);
+    font-size: 8pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+
+  /* ── metrics row ── */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10pt;
+    margin-bottom: 18pt;
+  }
+  .metric-card {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border-cream);
+    border-radius: 6pt;
+    padding: 10pt 12pt;
+  }
+  .metric-num {
+    font-family: var(--serif);
+    font-size: 20pt;
+    font-weight: 500;
+    color: var(--brand);
+    line-height: 1.10;
+  }
+  .metric-label {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--olive);
+    margin-top: 2pt;
+    line-height: 1.35;
+  }
+
+  /* ── body grid ── */
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14pt;
+    margin-bottom: 16pt;
+  }
+  .body-grid.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* ── section ── */
+  .section {
+    margin-bottom: 0;
+  }
+  .section-title {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 6pt;
+    display: flex;
+    align-items: center;
+    gap: 5pt;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 2.5pt;
+    height: 9pt;
+    background: var(--brand);
+    border-radius: 1pt;
+    flex-shrink: 0;
+  }
+
+  /* ── prose ── */
+  p {
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: var(--near-black);
+    margin-bottom: 6pt;
+  }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── blockquote ── */
+  blockquote {
+    border-left: 2pt solid var(--brand);
+    margin: 8pt 0;
+    padding: 5pt 10pt;
+    background: var(--ivory);
+    border-radius: 0 4pt 4pt 0;
+  }
+  blockquote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9pt;
+    color: var(--olive);
+    margin: 0;
+    line-height: 1.50;
+  }
+
+  /* ── tag ── */
+  .tag {
+    display: inline-block;
+    background: #EEF2F7;
+    color: var(--brand);
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 500;
+    padding: 1.5pt 5pt;
+    border-radius: 2pt;
+    margin: 1.5pt 2pt 1.5pt 0;
+  }
+
+  /* ── timeline ── */
+  .timeline {
+    list-style: none;
+    padding: 0;
+  }
+  .timeline li {
+    display: flex;
+    gap: 8pt;
+    margin-bottom: 6pt;
+    font-size: 9pt;
+    line-height: 1.45;
+  }
+  .timeline li:last-child { margin-bottom: 0; }
+  .tl-year {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--brand);
+    min-width: 32pt;
+    padding-top: 1pt;
+    flex-shrink: 0;
+  }
+  .tl-text {
+    color: var(--near-black);
+    font-size: 9pt;
+  }
+
+  /* ── bullet list ── */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+  }
+  .bullet-list li {
+    font-size: 9pt;
+    color: var(--near-black);
+    line-height: 1.45;
+    margin-bottom: 4pt;
+    padding-left: 10pt;
+    position: relative;
+  }
+  .bullet-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+    font-weight: 600;
+    font-size: 11pt;
+    line-height: 1.2;
+  }
+  .bullet-list li:last-child { margin-bottom: 0; }
+
+  /* ── divider ── */
+  .divider {
+    height: 0.5pt;
+    background: var(--warm-sand);
+    margin: 14pt 0;
+  }
+
+  /* ── full-width pullquote ── */
+  .pullquote {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border-cream);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 6pt 6pt 0;
+    padding: 12pt 16pt;
+    margin-bottom: 16pt;
+  }
+  .pullquote p {
+    font-family: var(--serif);
+    font-size: 11pt;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--brand);
+    margin: 0;
+  }
+  .pullquote .attr {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--stone);
+    margin-top: 5pt;
+    font-style: normal;
+  }
+
+  /* ── footer ── */
+  .footer {
+    border-top: 0.5pt solid var(--warm-sand);
+    padding-top: 8pt;
+    margin-top: 4pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--stone);
+  }
+  .footer-right {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--stone);
+  }
+
+  @media print {
+    .page { margin: 0; padding: 15mm 16mm 14mm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <div class="header-left">
+      <div class="eyebrow">人物侧写 · Founder Profile</div>
+      <div class="display-name">Farza Majeed</div>
+      <div class="display-tagline">连续创业者 · 创造者的缔造者</div>
+    </div>
+    <div class="header-right">
+      <div class="meta-line">Buildspace &amp; ZipSchool 创始人</div>
+      <div class="meta-line">Y Combinator 校友</div>
+      <div class="meta-line">来源 · Alexandria, Apr 2026</div>
+    </div>
+  </div>
+
+  <!-- ── METRICS ── -->
+  <div class="metrics">
+    <div class="metric-card">
+      <div class="metric-num">20万+</div>
+      <div class="metric-label">Nights &amp; Weekends<br>参与者总数</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">$2.5M</div>
+      <div class="metric-label">Buildspace 赞助合同<br>峰值年收入</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">15年</div>
+      <div class="metric-label">从13岁到今天<br>持续创作年限</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">5年</div>
+      <div class="metric-label">独立创始人<br>无联合创始人运营</div>
+    </div>
+  </div>
+
+  <!-- ── PULLQUOTE ── -->
+  <div class="pullquote">
+    <p>"追求卓越，而非金钱。如果你热爱你所做的事，金钱会随之而来。"</p>
+    <div class="attr">— 《三傻大闹宝莱坞》Rancho，Farza 最喜欢的电影台词，也是他创业哲学的核心</div>
+  </div>
+
+  <!-- ── BODY GRID ── -->
+  <div class="body-grid">
+
+    <!-- LEFT: 时间线 -->
+    <div class="section">
+      <div class="section-title">创业轨迹</div>
+      <ul class="timeline">
+        <li>
+          <span class="tl-year">13岁</span>
+          <span class="tl-text">在 eBay 倒卖父亲旧衣服，垄断空白 CD 细分市场，<strong>年收入突破 $10万</strong></span>
+        </li>
+        <li>
+          <span class="tl-year">大学</span>
+          <span class="tl-text">转专业至计算机科学，制作 <strong>mood.gg</strong>（英雄联盟角色歌单），首日 10,000 用户，48小时直播筹得 $10,000</span>
+        </li>
+        <li>
+          <span class="tl-year">2020</span>
+          <span class="tl-text">创办 <strong>ZipSchool</strong>（在家教育平台），从 a16z 融资 $200万；疫情期间在妈妈 Facebook 群组迅速走红</span>
+        </li>
+        <li>
+          <span class="tl-year">2021</span>
+          <span class="tl-text">转型为 <strong>Buildspace</strong>，面向 AI &amp; Web3 开发者，通过企业赞助维持课程完全免费</span>
+        </li>
+        <li>
+          <span class="tl-year">2022</span>
+          <span class="tl-text">推出 <strong>Nights &amp; Weekends</strong>，免费在线项目，教 20万人将想法变为现实</span>
+        </li>
+        <li>
+          <span class="tl-year">2023</span>
+          <span class="tl-text">与迪拜政府合作，在当地建立 Buildspace <strong>实体校园</strong>，参与者全程免费</span>
+        </li>
+        <li>
+          <span class="tl-year">2024</span>
+          <span class="tl-text">在巅峰期<strong>主动关闭</strong> Buildspace；休整4个月后回归，以无想法身份加入 <strong>Y Combinator</strong>，获得 $50万</span>
+        </li>
+        <li>
+          <span class="tl-year">2025</span>
+          <span class="tl-text">发布 <strong>Clicky</strong>（AI 鼠标跟随助手），演示在 Twitter 走红；探索 Farzapedia 后因"不够有趣"搁置</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: 核心理念 + Buildspace 成就 -->
+    <div>
+      <div class="section" style="margin-bottom: 14pt;">
+        <div class="section-title">三条核心哲学</div>
+        <ul class="bullet-list">
+          <li><strong>做你喜欢的东西</strong> — 只根据自己真正感兴趣的东西做项目，好机会自然找上门，从不主动投简历</li>
+          <li><strong>追求卓越，而非金钱</strong> — 拿到 $250万赞助收入后，主动取消合同转向免费项目；价值不从试图创造价值的人身上榨取</li>
+          <li><strong>尽快 GTFOL</strong> — Get The F*ck Off Localhost：想法必须放出去与真实用户互动，永远不要只留在架子上</li>
+        </ul>
+      </div>
+
+      <div class="section" style="margin-bottom: 14pt;">
+        <div class="section-title">Buildspace 改变了谁</div>
+        <ul class="bullet-list">
+          <li>两人带 $18,000 入场，后合伙创业，年收入达<strong>数百万美元</strong></li>
+          <li>软件工程师发现音乐热情，<strong>发行完整专辑</strong></li>
+          <li>会计师转行工业设计，销售超过 <strong>$10万</strong> 的书签</li>
+          <li>活动制作人转型为<strong>硬件制造商</strong></li>
+          <li>有人发布第一个视频，Instagram 粉丝突破 <strong>50万</strong></li>
+          <li>两位参与者在此相遇，现已<strong>订婚</strong></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">标签</div>
+        <div>
+          <span class="tag">连续创业者</span>
+          <span class="tag">教育科技</span>
+          <span class="tag">YC 校友</span>
+          <span class="tag">a16z</span>
+          <span class="tag">Solo Founder</span>
+          <span class="tag">AI</span>
+          <span class="tag">社区驱动</span>
+          <span class="tag">Buildspace</span>
+          <span class="tag">GTFOL</span>
+          <span class="tag">免费产品哲学</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── 3 COL BOTTOM ── -->
+  <div class="body-grid three-col">
+    <div class="section">
+      <div class="section-title">创作方式</div>
+      <blockquote>
+        <p>"几乎每次我们想出什么东西，都是从'如果……不是很酷吗？'开始的。"</p>
+      </blockquote>
+      <p>他走来走去，盯着窗外，然后在办公桌前连续六小时不动——把脑中游荡的想法变成演示。他不能把想法只放在架子上，必须放出去，看看如何帮助改善他人生活。</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">孤独与代价</div>
+      <p>五年独立创始人，无联合创始人。关闭 Buildspace 是单方面决定，没有事先与任何人商量。他爱团队里的每个人，但作为负责人必须保持距离。</p>
+      <blockquote>
+        <p>"从来没人关心我，或者问我怎么样。也许只有一两个人例外。"</p>
+      </blockquote>
+    </div>
+
+    <div class="section">
+      <div class="section-title">他为什么回来</div>
+      <p>休整4个月，辗转捷克山脉和巴基斯坦村庄。旅行中遇到了她——一个在 Buildspace 群聊里认识的女孩。</p>
+      <blockquote>
+        <p>"旧金山是唯一让我感到真实的地方。休息得很好，但该回来了——老样子，打造世界上最伟大的公司。"</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <div class="footer-left">作者 Aadil Pickle · 摄影 Sharif Shameem · 原载 Alexandria（sfalexandria.com）</div>
+    <div class="footer-right">整理 · 2026年4月</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn CPO Tomer Cohen：为什么传统产品管理正在被颠覆，以及「全栈构建者」模式如何重塑未来 · Tomer Cohen</title>
+<meta name="author" content="Tomer Cohen">
+<meta name="description" content="到2030年，完成你当前工作所需的技能将变化&lt;span class=&quot;hl&quot;&gt;70%&lt;/span&gt;。这不是预测，而是 LinkedIn 基于全球数亿职场数据的现实观察。当前增长最快的工作岗位中，&lt;span class=&quot;hl&quot;&gt;70%&lt;/span&gt; 在一年前甚至不在榜单上。面对如此剧烈的变革，我正在">
+<meta name="keywords" content="播客, 访谈, Tomer Cohen, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">LinkedIn CPO Tomer Cohen：为什么传统产品管理正在被颠覆，以及「全栈构建者」模式如何重塑未来</div>
+    <div class="cover-sub">LinkedIn 首席产品官详细分享他们正在试点的「全栈构建者」模式——一个利用 AI 彻底重塑产品团队结构、开发流程和组织文化的激进实验</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Tomer Cohen</strong><br>LinkedIn 首席产品官（CPO）<br>
+    主持：Lenny Rachitsky·2026<br>
+    时长：约67分钟· 来源：Lenny's Podcast / YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/R-zCfLQD_84/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/R-zCfLQD_84/hqdefault.jpg'"
+         alt="Why AI is disrupting traditional product management | Tomer Cohen (LinkedIn CPO)">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/R-zCfLQD_84?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Why AI is disrupting traditional product management | Tomer Cohen (LinkedIn CPO) · <a href="https://www.youtube.com/watch?v=R-zCfLQD_84" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>到2030年，完成你当前工作所需的技能将变化<span class="hl">70%</span>。这不是预测，而是 LinkedIn 基于全球数亿职场数据的现实观察。当前增长最快的工作岗位中，<span class="hl">70%</span> 在一年前甚至不在榜单上。面对如此剧烈的变革，我正在 LinkedIn 推行一项从根本上重新定义产品开发的实验——我们称之为「全栈构建者」（Full-Stack Builder）模式。
+
+在 Lenny 的播客中，我详细分享了这项实验的完整蓝图：从我们为什么要做这件事，到具体如何构建平台、打造 Agent、推动文化变革，再到一路上的失败教训和意外发现。这不是又一个关于 AI 的空洞讨论，而是一家拥有两万多名员工的科技巨头正在实际执行的转型计划。我们废除了传统的 APM（助理产品经理）项目，取而代之的是「副产品构建者」项目。我们设立了全新的「全栈构建者」职业头衔和完整职业阶梯。我们构建了信任 Agent、增长 Agent、研究 Agent 等多个内部 AI 工具。
+
+如果你是一位正在思考如何带领团队适应 AI 时代的产品领导者，或者一个想要理解未来工作形态的构建者，我相信这次分享会给你很多具体的启发。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">工作世界正在经历前所未有的加速变革</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">传统产品开发流程是如何变得如此臃肿的</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">全栈构建者模型：让 AI 成为你的协作伙伴</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">三大支柱：平台、工具与文化的协同投资</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">变革管理：为什么工具本身远远不够</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">坦诚面对挑战：没有银弹的转型之路</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">给领导者和个人的行动建议</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>工作世界正在经历前所未有的加速变革</h1>
+    <p class="lead">技术的本质始终是赋能——不在于技术为我们做了什么，而在于技术使我们能够做什么。而我们现在进入了一个变化速度远超我们响应能力的时代。</p>
+    <div class="chapter-content">
+      <p>Lenny 问我为什么决定从根本上重新思考产品构建方式。我的回答从最基本的原理开始。</p>
+      <p>技术的本质始终是赋能。不在于技术为我们做了什么，而在于技术使我们能够做什么。现在我们有一个惊人的机会，可以让人才竞争回归真正的精英制度。但这不仅是一个机会，更是一种必然。</p>
+      <p>我用了一个我认为非常精确的表述：我们正在进入一个「变化的时间常数远大于响应的时间常数」的阶段。简单来说，变化的发生速度已经超过了我们作为组织和个人的响应速度。</p>
+      <p>LinkedIn 拥有全球职场数据的独特视角，我们有一些令人震撼的统计数据来佐证这一点。到2030年，也就是距今仅四年，完成你当前工作所需的技能将变化<span class="hl">70%</span>。这意味着，无论你是否有意换工作，你的工作本身都在发生变化。唯一的问题是：你还能保住它吗？</p>
+      <p>从组织角度来看，当前增长最快的工作岗位，相比去年的增长最快岗位增长了<span class="hl">70%</span>以上。更令人震惊的是，70%的当前增长最快的工作岗位在一年前甚至不在榜单上，其中许多岗位在十年或二十年前根本不存在。</p>
+      <p>我回顾了自己作为工程师的职业生涯。即使在那个时代，十年间工作也发生了实质性变化。而我们现在看到的变化速度——想想看，四年之后工程的要求将发生多么巨大的变化——无论是对软件工程还是对任何形式的内容构建。这种情况几乎适用于每个职能，虽然影响程度不同。护士这样的职业受到的影响较小，但有些职业将看到<span class="hl">90%-95%</span>的影响。</p>
+      <p>当你把这些趋势应用到产品构建领域，你会意识到，要保持竞争力，你必须回到基本原则，回到画板前，重新构想构建意味着什么。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>传统产品开发流程是如何变得如此臃肿的</h1>
+    <p class="lead">工作本身并不复杂，但我们在大型公司中把流程变得非常复杂。从一个简单的创意到产品的过程，被层层叠叠的子步骤和组织结构压得喘不过气。</p>
+    <div class="chapter-content">
+      <p>让我来解释为什么我认为传统模式已经行不通了。</p>
+      <p>构建者的核心工作本质上是简单的：将一个创意变为现实。我们建立的最佳实践流程也很简单——研究问题、写出规格说明、设计、编码、上线、迭代。基本上就是这样。</p>
+      <p>但问题在于，在 LinkedIn 和许多其他大规模公司中，随着时间的推移，这个过程变得异常复杂。我们把每一个步骤都扩展成了大量子步骤。</p>
+      <p>以研究问题为例：在 LinkedIn，在正式研究一个问题之前，我们需要查看<span class="hl">10到15个信息来源</span>。不仅是与客户交谈，还要做数据拉取、查看多个来源的反馈工单、社交媒体、客户互动记录等。再以产品评审为例：有设计评审、隐私评审、安全评审，我可以一直列举下去。每一个子步骤都有存在的合理理由，它们各自都是正当的。</p>
+      <p>但当所有这些加在一起，你会感叹：天哪，这就是为什么开发一个小功能需要多个团队、多个代码库、多个冲刺周期才能上线。更不要说迭代了——而迭代恰恰是你看到成功的地方，你永远不可能在上线的那一刻就看到成功。</p>
+      <p>我的结论是：<span class="hl">工作本身并不复杂，但流程变得非常复杂。</span></p>
+      <p>而这还没有结束。因为所有这些子步骤都需要有人来做。于是你从流程复杂性进一步走向了组织复杂性。你开始微分化——所有那些子步骤都由专门的某个人来做。从单一的构建者，变成了多个职能：工程、产品、设计。至少我正在内部质疑这些分工线。</p>
+      <p>从那里进一步细分，每个职能内部又有大量子专业。以设计为例：交互设计、动画设计、内容设计、用户研究……有太多层面了。它们都是合理的，但它们都有对应的人员，整个流程基本上就是臃肿和复杂性。</p>
+      <p>我们在 LinkedIn 实际上有一个图表，展示了流程复杂性和组织复杂性的叠加效果。通常人们看到后都会感到震惊——因为每个人只关注自己做的某一件事，但当你放大视角来看，你会面对一个令人不知所措的整体图景。</p>
+      <p>Lenny 问我是不是觉得这个模式需要被打破。我的回答更直接：<span class="hl">我认为这个模式本身已经坏了。变化的节奏只是在帮助我们意识到这一点。</span></p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>全栈构建者模型：让 AI 成为你的协作伙伴</h1>
+    <p class="lead">构建者将一个创意变为生命。这不是一系列顺序步骤，而是人类和机器之间的流畅交互。我的目标是自动化其他一切，让构建者专注于真正重要的事。</p>
+    <div class="chapter-content">
+      <p>我们把这个模型叫做「全栈构建者模型」。目标始终要从目标开始：赋能优秀的构建者将他们的创意推向市场，无论他们在技术栈中的角色如何，无论他们属于哪个团队。</p>
+      <p>核心理念是让构建者端到端地开发产品体验，融合传统上截然不同的领域的技能和专业知识。我要强调的是，这不是一系列顺序步骤，而是人类和机器之间的流畅交互。这就是我看待它的方式。</p>
+      <p>当我回顾产品开发生命周期——从创意、洞察一直到上线——我认为构建者应该把时间花在五个关键特质上。这些是我希望优秀构建者能够闪耀的地方。</p>
+      <p>第一是<span class="hl">愿景</span>——提出关于未来的有力立场。第二是<span class="hl">共情</span>——对未满足需求的深刻理解。第三是<span class="hl">沟通</span>——我们现在几乎在所有角色的职位描述中都能看到这个要求，即你能够对齐和团结他人围绕一个想法的能力。第四是<span class="hl">创造力</span>——对我来说，创造力是想出显而易见之外的可能性。我认为 AI 目前在创造力方面还不够好，它更多是帮你回想起你可能不知道的东西，但那种更高层次的创造力，人类仍然做得更好。</p>
+      <p>而我认为构建者最重要的特质是<span class="hl">判断力</span>——在复杂、模糊的情况下做出高质量决策的能力。有些人称之为品味，但它本质上就是在信息不完整的条件下做出正确的判断。</p>
+      <p>我的立场很明确：<span class="hl">其他所有事情我都在努力自动化。真的非常努力。</span></p>
+      <p>当你思考结果时，不仅仅是每个人获得更多射门机会——虽然迭代速度确实会非常高——但你真正在为一个大规模组织做的事情，是让它们变得更加灵活、更加适应、更有韧性。它们能够驾驭未来，真正让响应的速度跟上变化的速度。</p>
+      <p>我用了一个类比：<span class="hl">Navy SEALs。</span>他们来训练时都在学习，在多个领域接受交叉训练，但他们专精的是任务使命。他们以小组形式运作，非常灵活，可以非常快速地组建。我认为这就是未来能够获胜的组织形态。</p>
+      <p>Lenny 想用一个句子来概括。简单来说，确实有一个构建者基本独自完成整个产品开发过程——有创意、研究、做数据、原型、设计、发布。但我要澄清，这不意味着他们必须独自工作。我仍然相信团队，只是更小的团队，更聚焦于问题和任务使命。</p>
+      <p>我们已经开始实践 Pod 模式。不再是大型团队，而是组建小组。理想情况下，全栈构建者聚集在一起，跨职能灵活工作，专注于某个问题一个季度左右，然后我们重新组合到不同的 Pod 中。我们已经在速度和团队聚焦方面都看到了显著成效。</p>
+      <p>一个重要的澄清：我不认为 AI 会取代人类的创造力。AI 带回的是你可能不知道的信息，但那种跳跃式的、真正原创的创造力，人类仍然远胜于 AI。这也是为什么我把判断力排在五个特质的首位。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>三大支柱：平台、工具与文化的协同投资</h1>
+    <p class="lead">如果你是一家新创公司，你可以直接以全栈构建者模式启动。但如果你是一家大规模公司，你需要同时投资三个层面：平台、工具和文化。缺一不可。</p>
+    <div class="chapter-content">
+      <p>如果你是一家新创公司，你实际上可以直接以这种方式启动。没有遗留代码、没有遗留组织结构。事实上，我接触的许多原生 AI 新创公司就是以全栈构建者的方式工作的，这是他们的起点。</p>
+      <p>但如果你是一家像 LinkedIn 这样大规模的公司，这是一个全新的生产函数和思维方式。我们正在三个层面开展工作。</p>
+      <p><span class="hl">第一个支柱：平台。</span>这是你必须先进行投资的层面，然后才能开始看到收益。对我们来说，平台意味着重新架构所有核心平台，让 AI 能够推理它。我们正在构建可组合的 UI 组件和服务端层，基本上是在为 AI 做好准备。你不能直接拿第三方工具来让它在你的代码库上工作。事实上，这是我们的最大教训之一：<span class="hl">从来没有成功过。从来没有。</span></p>
+      <p>你必须把它引进来并进行大量定制化，几乎以 alpha 模式与这些公司合作，才能让它在你内部工作。这本质上就是重新架构你的代码库，使其与 AI 更高效地协作。我们也在与这些公司合作，调整他们的一些东西以适应我们的环境。</p>
+      <p>无论是 Copilot、Cursor、Windsurf 还是 Figma，我们都尝试过，没有一个能开箱即用。你必须构建那个让 AI 能够推理你代码库的中间层。即使是在设计方面——Figma 需要了解如何与我们的设计系统协作，这本身就是一个需要解决的问题。</p>
+      <p><span class="hl">第二个支柱：工具和 Agent。</span>我提到我想自动化五个核心特质之外的所有事情，我们正在为这些事情构建工具。同样，我不能只是从外部拿来一个工具就让它工作。</p>
+      <p>我们构建的最大项目之一是信任 Agent。信任对 LinkedIn 来说非常重要，有大量独特的信任向量在这里发挥作用，不会出现在任何其他地方。所以我们把所有这些专有知识和上下文信息整合到这个 Agent 中。我们最终自己构建了信任 Agent。</p>
+      <p>这个信任 Agent 做什么呢？当你构建一个规格说明、一个创意时，你通过信任 Agent 走一遍，它基本上会告诉你潜在的安全漏洞、你引入或可能引入的损害向量。关键是我让我们的信任负责人来构建它。我们每个领域的工艺负责人都在构建自己的 Agent。</p>
+      <p>让我举一个具体的例子。我们有一个面向求职者的功能叫做「Open to Work」——如果你在找工作，可以设置开放求职状态。这是一个很棒的信号，社区也确实在互相帮助。但同时，它引入了一个信任向量，因为求职者可能比其他人更容易受到诈骗。我们把这个功能几年前的规格说明输入信任 Agent 进行测试。<span class="hl">它不仅找到了我们最初发现的所有问题，还找到了我们后来才捕获的所有漏洞。</span>这是一个真正效果很好的例子。</p>
+      <p>另一个例子是增长 Agent。LinkedIn 有一个独特的增长团队和增长流程。我们把所有独特的增长循环、漏斗、历史测试都整合到了增长 Agent 中。现在你可以把你的规格说明输入给它，它不仅能帮你做得更好，还能<span class="hl">批判你的创意本身的质量</span>。这是你无法从现成工具获得的东西，它是 LinkedIn 独有的。</p>
+      <p>有趣的是，我们的用户研究团队（UXR）正在使用增长 Agent 来了解所有面向会员的功能中，哪一个具有最大的增长机会。这在我们最初设想时完全没有预想到。</p>
+      <p>还有研究 Agent，它基于我们成员的用户画像进行训练——小企业主、求职者等。它不仅使用通用知识，还使用我们过去所有的调研数据、所有 incoming 的支持工单。一个团队出来一个规格说明时，他们甚至不知道我们有研究 Agent。我让研究 Agent 评估针对小企业主的营销规格说明，它批评得极其出色，直接改变了团队的方向，让他们专注于其他集成工具。</p>
+      <p>分析 Agent 则可以查询整个 LinkedIn 图谱——这是一个极其庞大的数据集。你不再需要依赖 SQL 查询或数据科学团队，直接使用分析 Agent 就行。</p>
+      <p>所有这些 Agent 我称之为仍然处于<span class="hl">MVP++</span>阶段。我们的目标是在接下来几个月内推广到全公司使用。</p>
+      <p>在构建这些工具时，我们使用了从 Copilot Enterprise 到 ChatGPT Enterprise 的各种工具。但到目前为止，最重要的部分是我们自己的定制化。即使是在构建编排器方面——我们不希望 Agent 之间只是顺序执行，而是希望信任 Agent 与增长 Agent 进行来回协作。我们为此做了大量内部工作。</p>
+      <p>还有一个有趣的发现：不同团队自然地倾向使用不同的设计工具。我们尝试了 Figma、Subframe、Magic Patterns 等，发现团队的选择取决于他们的职能、可见性水平和之前的工具经验。最终我需要收敛到少数几个工具。我认为不会有赢家通吃的局面，因为用户的起始点将决定工具的易用性。</p>
+      <p><span class="hl">一个关键教训：</span>你不能只是给 AI 访问你整个 Drive 并让它「推理你的知识库」。它实际上在理解过去信息的重要性方面表现很差。你需要仔细思考你要给它什么上下文、什么知识库。</p>
+      <p>这让我想起十多年前我在 LinkedIn 协同重建信息流的经历。我们从零开始，我必须坐下来逐一筛选什么是一条好的专业帖子、什么不是。那花了我数周时间来准备那个黄金样本。最重要的第一步是提供正确的数据，而不是所有的数据。</p>
+      <p>对于许多正在考虑这个阶段的公司，我给 CPO 和 CEO 做了很多关于这个流程的分享。你必须做这些前期工作才能获得后续的收益。无论是使用 Cursor、设计工具还是 Figma，你都应该准备好在看到速度和质量提升之前先投入那些时间。</p>
+      <p>目前我们的编码 Agent、维护 Agent（处理失败构建）和 QA Agent 都已投入使用。<span class="hl">我们接近让50%的构建修复由维护 Agent 和 QA Agent 完成。</span>工程师甚至可以安心去喝完咖啡再回来处理。编码到发布的阶段已经取得了很大进展，但我们直到启动这个项目之前，在从创意到设计的阶段几乎没有投资。而这正是大量工作发生的地方，也是质量最关键的阶段。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>变革管理：为什么工具本身远远不够</h1>
+    <p class="lead">我经常说的一句话是：如果我们构建了所有这些工具，他们会使用吗？我的答案是：不够。仅仅提供工具是不够的。你必须构建激励计划、动力机制和成功案例。</p>
+    <div class="chapter-content">
+      <p>关于 AI 到底是让不优秀的人变得更优秀，还是让优秀的人变得更优秀——我一直觉得这是个有趣的问题。我的观察是，<span class="hl">AI 让优秀的人变得更优秀。</span></p>
+      <p>这既令人惊讶，又不令人惊讶。之所以令人惊讶，是你希望所有人都能参与进来。不令人惊讶，是因为顶尖人才有一种持续追求精进的内驱力，他们总是希望站在构建方式的最前沿。在 LinkedIn，我们最顶尖的人才正在最积极地使用这些工具。</p>
+      <p>但这里有一个关键问题。我经常跟团队说：如果我们构建了所有这些工具，他们会使用吗？<span class="hl">我知道现在的答案是：不够。仅仅提供工具是不够的。</span>你必须构建激励计划、动力机制和成功案例。人们需要看到其他人也在成功。</p>
+      <p>我在 LinkedIn 从桌面公司转型为移动公司时也看到了完全相同的过程。变革管理将是关键的一部分。我看到很多公司推出他们的 Agent，然后期望员工自发采用。这种方式行不通。</p>
+      <p>大约只有<span class="hl">5%</span>的前沿人才会自动采纳——他们天生对新工具有偏好、对变化有倾向。但绝大多数人需要系统的变革管理。这是到目前为止最大、最重要的投资领域。</p>
+      <p>文化层面起初可能感觉很慢，但就像桌面转移动端一样，一旦起步就会维持很高的速度。我总结了几件具体有效的事情：</p>
+      <p>第一，<span class="hl">改变期望定义。</span>人们真的会受到你如何定义角色期望的驱动。我们从招聘到校准和评估都进行了变革。在绩效评估中，我希望早期看到的是 AI 能力影响的体现。工具在那里，但问题是你会不会用。因为工具一开始会足够好但不完美，就像所有好的 MVP 工具一样。你需要培养人们使用工具、改进工具的能动性。我们正在建立一种「我们要一起为 LinkedIn 让这个变得更好」的理念。</p>
+      <p>第二，<span class="hl">在组织内部试点成功。</span>这就是 Pod 模式，展示不仅这个可以工作，而且实际上正在取得成功。一个很好的例子是我们的合作伙伴团队——不再依赖等待工程师来帮助构建开发者门户和连接器，我们的合作伙伴负责人自己动手做了。他甚至没有委派给团队。目标就是说：我能做到，你也能。这些例子真的非常有力。</p>
+      <p>第三，<span class="hl">副产品构建者（APB）培训项目。</span>我们传统的 APM 项目今年结束了，明年1月我们将启动 APB 项目。新成员进入 LinkedIn 后，我们会教他们编码、设计和产品管理。他们将经过非常严格的培训，然后加入 Pod。我们为他们构建了出色的培训，并且打算用这些培训来推动整个组织的变革。</p>
+      <p>第四，<span class="hl">在全员大会上庆祝胜利。</span>一个最近的例子非常打动人——我们用户研究团队的一位成员，增长团队有一个 PM 职位空缺已经有一段时间了，她说：「我觉得我能做。」她使用了所有那些工具——一位用户研究员成为增长团队的 PM，这不是你通常看到的职业路径。但她对这个领域充满热情，她使用了这些工具，现在她就是那个团队的增长 PM。</p>
+      <p>在绩效评估方面，我首先对我的直接下属进行了变革——从职能领导（设计、PM、BD）转变为产品领域领导，他们跨技术栈工作。他们的360度评估包括来自不同职能的评分——如果你来自 PM 背景，设计师会给你打分。然后我们将其推广到整个组织。在即将到来的半年度评估周期中，全栈构建能力将成为评估的一部分。我们已经向所有人宣布了这一点，人们实际上很兴奋能够展示。</p>
+      <p>我非常强调一点：<span class="hl">我不关心你的头衔。我关心你的工作方式。</span>叫你全栈构建者不是我要的，改变你的思维方式成为全栈思维才是我要的。你思考你能否完成整个过程，你查看那些工具并想如何利用它们。</p>
+      <p>我的一个核心理念是：<span class="hl">如果你在等待正式的组织重组或宣布才开始以不同方式构建，那你等太久了。</span>无论你是否拥有合适的工具，直接去做就好。用一个外部工具，把它引进来，展示这些例子。用行动证明你在思维方式上是一个全栈构建者。这自然会发生的，这也是我们看到最优秀的人才主动投入的地方。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>坦诚面对挑战：没有银弹的转型之路</h1>
+    <p class="lead">我必须诚实地分享那些不如预期的部分。第三方工具从未开箱即用过，直接给 AI 全部知识库会导致严重的幻觉，而且不是每个人都想成为全栈构建者——这完全没问题。</p>
+    <div class="chapter-content">
+      <p>Lenny 问我是否有任何负面的意外。我必须诚实分享。</p>
+      <p>最大的负面意外之一是：<span class="hl">第三方工具从来没有在我们的代码库上开箱即用过。</span>我们确实尝试过很多，但从来没有成功过。部分原因是 LinkedIn 有大量的遗留信息、代码库、知识和设计。这需要持续的大量投资。我们合作的许多公司也把这视为一个重要的增长机会。</p>
+      <p>另一个严重的问题是，我们一开始给 AI 访问所有上下文信息——所有 Drive、所有文档。结果<span class="hl">一败涂地，严重幻觉。</span>我们从中吸取了教训，必须仔细清洗和筛选数据。</p>
+      <p>在工具选择方面，我们的目标是收敛到少数几个工具，但发现这相当困难。不同团队倾向使用不同的工具，这需要更多时间来解决。</p>
+      <p>还有一个我认为很重要需要声明的事情：<span class="hl">有些人不想成为全栈构建者，这完全没问题。</span>有些人把自己看作专业化人才，我认为专业化有它的位置和角色。我不希望向整个组织传达「期望每个人都成为全栈构建者」的信息。我确实不这么想。有赋能全栈构建者的系统构建者，也有专业化人才。只是我认为我们不需要过去那么多的专业化人员。</p>
+      <p>这些诚实的分享很重要，因为如果你只听到成功的部分，你可能会对转型的难度产生不切实际的期望。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>给领导者和个人的行动建议</h1>
+    <p class="lead">无论你是在组织中等待领导者推行这个，还是领导者试图推行它，我的建议都是：不要等待。这是构建的绝佳时代。</p>
+    <div class="chapter-content">
+      <p>对于那些受到启发、想要在自家公司尝试类似转型的人，我有几个具体的建议。</p>
+      <p>我会从思考这个结构开始：<span class="hl">你需要构建的平台、你想引入的工具，然后花大量时间在文化上。</span>平台和工具是先决条件，但不是充分条件。文化层面真的非常重要。</p>
+      <p>要非常思考如何带动人们一起前进。我们在推进过程中有一个可能做得不够的地方——我在很长一段时间里只跟核心团队紧密合作，而整个组织一直在问「进展如何？」「谁在做这个？」「工具是什么？」回头来看，我们本可以在推进过程中更多地让组织参与进来。</p>
+      <p>还有一个关键心态：<span class="hl">保持耐心，愿意前期投资。</span>我总是举这个例子：你看那个新创公司，他们一周就构建了这个东西。是的，如果你从零开始，确实可以一周构建出来。但当你试图转型一个大型组织时，你需要对目标有紧迫感和高远志向，但在如何实现它方面要非常深思熟虑和耐心。</p>
+      <p>如果你不投资平台改造，我真的看不到成功的可能。如果你不投资定制化工具，你只会得到千篇一律的通用 Agent。要意识到投资的必要性，确保你实际分配了资源。</p>
+      <p>这是经典的「前期投资以换取后期收益」的逻辑。不要期望一周内看到2倍的生产力提升。那不会是这种方式。</p>
+      <p>关于全栈构建者的职业路径——LinkedIn 已经正式在组织内部设立了「全栈构建者」头衔，我们正在逐步将人员放入这个职级。有一条完整的职业阶梯正在形成。人员来源是混合的——工程、产品、设计、甚至 BD 都有。我看过你的组织，想象谁能做到——你会发现已经有相当多的人可以跨职能灵活工作。</p>
+      <p>这是一个思维模式的问题。我见过设计师写代码，见过 PM 做设计并且做得很好。这让我相信，当你退后一步审视组织中的人，谁能够跨职能灵活工作时，你会发现他们出现在很多领域——他们有能动性、他们拥抱新事物、他们有流利度、他们已经在构建新体验、他们有成长心态。</p>
+      <p>这可能是我在团队中最大的建议和动力来源。我告诉他们的是——这对我也一样——<span class="hl">你个人的激励与组织的需求是完全一致的。</span>组织需要你改变，需要成为一个更敏捷、适应性更强、更有韧性的组织来应对变化的节奏。而你自己的职业也需要你站在构建方式的最前沿。所以这是一种顺风，不仅仅是组织的要求。</p>
+      <p>这是角色之间转换最简单的时代。设计转向产品、转向这个新角色都变得容易多了。</p>
+      <p>最后，我要分享我的座右铭。成长型思维在我们家几乎是第二宗教。其中有一个我很喜欢的表述：<span class="hl">「Becoming is better than being」</span>——成长比状态更重要。这与全栈构建者模式完美契合。你始终处于进步模式、迭代模式。这不是关于达到某个状态，而是关于旅程和过程。这才是你应该爱上东西。如果我从现在起一年后回头看，我成长了多少？我获得了什么技能？我在哪里变得更好了？2026版的我和2025版的我有什么不同？</p>
+      <p>无论你是在组织中等待领导者推行这个，还是领导者试图推行它——<span class="hl">不要等待。</span>我在开始时就公开宣布了我们要朝这个方向走。这不是一个终态，而是一个持续的进步过程。要非常关注你正在取得的进展，过度沟通——不仅沟通愿景，也沟通进展，几乎像是对自己负责一样。如果你是领导者，给自己设定与团队共享的 KPI 或 OKR。如果你所在的组织没有人推行这个，那就自己动手做，或者加入一个在做这个的组织。这样你就能站在未来构建方式的最前沿。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=R-zCfLQD_84" class="footer-link">Lenny's Podcast / YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

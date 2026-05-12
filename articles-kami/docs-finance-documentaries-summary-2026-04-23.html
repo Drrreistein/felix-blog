@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12部金融纪录片 · 表达主题总结</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --parchment: #f5f4ed;
+      --ivory: #faf9f5;
+      --warm-sand: #e8e6dc;
+      --brand: #1B365D;
+      --near-black: #141413;
+      --olive: #5e5d59;
+      --stone: #87867f;
+      --border-cream: #dedad0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--parchment);
+      font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+      color: var(--near-black);
+      line-height: 1.55;
+      font-size: 10pt;
+      padding: 32pt 40pt;
+      max-width: 720pt;
+      margin: 0 auto;
+    }
+
+    .header {
+      margin-bottom: 28pt;
+      padding-bottom: 16pt;
+      border-bottom: 0.5pt solid var(--border-cream);
+    }
+
+    .header-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 500;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: 1pt;
+      margin-bottom: 6pt;
+    }
+
+    .header-title {
+      font-size: 26pt;
+      font-weight: 500;
+      color: var(--near-black);
+      letter-spacing: 2pt;
+      margin-bottom: 8pt;
+    }
+
+    .header-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      color: var(--stone);
+    }
+
+    .intro {
+      background: var(--ivory);
+      border-left: 2.5pt solid var(--brand);
+      padding: 14pt 18pt;
+      margin-bottom: 24pt;
+      font-size: 10pt;
+      color: var(--olive);
+      line-height: 1.6;
+    }
+
+    .category {
+      margin-bottom: 28pt;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12pt;
+      margin-bottom: 14pt;
+    }
+
+    .category-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--brand);
+      min-width: 24pt;
+    }
+
+    .category-title {
+      font-size: 14pt;
+      font-weight: 500;
+      color: var(--near-black);
+      border-bottom: 1pt solid var(--border-cream);
+      padding-bottom: 6pt;
+      flex: 1;
+    }
+
+    .category-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: var(--stone);
+      margin-left: auto;
+    }
+
+    .doc-card {
+      background: var(--ivory);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 6pt;
+      padding: 14pt 16pt;
+      margin-bottom: 12pt;
+      margin-left: 24pt;
+    }
+
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8pt;
+      flex-wrap: wrap;
+      gap: 6pt;
+    }
+
+    .doc-title-cn {
+      font-size: 12pt;
+      font-weight: 500;
+      color: var(--near-black);
+    }
+
+    .doc-title-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      color: var(--olive);
+    }
+
+    .doc-ratings {
+      display: flex;
+      gap: 12pt;
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+    }
+
+    .rating {
+      background: #EEF2F7;
+      color: var(--brand);
+      padding: 1pt 5pt;
+      border-radius: 2pt;
+      font-weight: 500;
+    }
+
+    .doc-theme {
+      font-size: 10pt;
+      font-weight: 500;
+      color: var(--brand);
+      margin-bottom: 6pt;
+      padding-left: 8pt;
+      border-left: 2pt solid var(--brand);
+    }
+
+    .doc-analysis {
+      font-size: 9.5pt;
+      color: var(--olive);
+      line-height: 1.55;
+      margin-bottom: 8pt;
+    }
+
+    .doc-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: var(--stone);
+      background: var(--warm-sand);
+      padding: 6pt 10pt;
+      border-radius: 3pt;
+    }
+
+    .divider {
+      border: none;
+      border-top: 0.5pt dashed var(--border-cream);
+      margin: 24pt 0;
+    }
+
+    .footer {
+      margin-top: 32pt;
+      padding-top: 14pt;
+      border-top: 0.5pt solid var(--border-cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      color: var(--stone);
+      text-align: center;
+    }
+
+    .takeaway-box {
+      background: linear-gradient(135deg, var(--ivory) 0%, var(--warm-sand) 100%);
+      border: 0.5pt solid var(--border-cream);
+      border-radius: 8pt;
+      padding: 18pt 20pt;
+      margin-top: 28pt;
+    }
+
+    .takeaway-title {
+      font-size: 13pt;
+      font-weight: 500;
+      color: var(--brand);
+      margin-bottom: 10pt;
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12pt;
+    }
+
+    .takeaway-item {
+      font-size: 9.5pt;
+      color: var(--olive);
+      line-height: 1.5;
+    }
+
+    .takeaway-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--brand);
+      margin-bottom: 2pt;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-eyebrow">Finance · Economics · Wealth</div>
+    <h1 class="header-title">12部金融纪录片 · 表达主题总结</h1>
+    <div class="header-meta">2026-04-23 · 纸 · Kami</div>
+  </header>
+
+  <div class="intro">
+    这12部纪录片构成了一条完整的金融认知图谱：从个人理财实操（储蓄、债务、消费陷阱）到商业思维塑造（富豪思维、复利投资），再到宏观制度批判（贫富固化、结构性不公）。每部作品都指向一个核心命题——<strong>金钱不只是数字，它是一种思维方式的投射。</strong>
+  </div>
+
+  <!-- 01 创业与执行力 -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">01</span>
+      <h2 class="category-title">创业与极致执行力</h2>
+      <span class="category-subtitle">从绝境到突破</span>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">隐形亿万富翁</div>
+          <div class="doc-title-en">Undercover Billionaire S1 · 豆瓣 9.1 · IMDb 7.6</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">9.1</span>
+          <span class="rating">7.6</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：目标拆解 × 绝境中的创业本能</div>
+      <div class="doc-analysis">
+        富豪 Glenn Stearnes 隐姓埋名，只带 100 美元和一辆破车，在陌生城市 90 天内从零打造估值百万的企业。纪录片的核心表达不是"富人运气好"，而是<strong>目标拆解的工程学</strong>：将"90天创百万"拆解为可执行的最小行动单元，在资源极度匮乏时依然保持对机会的敏锐嗅觉。这是一堂关于创业韧性的行为观察课。
+      </div>
+      <div class="doc-note">Discovery 创业真人秀封神之作 · 第一季评分最高</div>
+    </div>
+  </div>
+
+  <!-- 02 个人理财 -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">02</span>
+      <h2 class="category-title">个人理财全攻略</h2>
+      <span class="category-subtitle">普通人也能学会</span>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">金钱与我</div>
+          <div class="doc-title-en">My Money & Me · 豆瓣 8.1</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">8.1</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：日常财务决策的系统化改造</div>
+      <div class="doc-analysis">
+        不是讲理论，而是跟踪真实家庭的财务改造：从月光的年轻情侣到背负重债的中年夫妇，理财师帮他们逐一拆解储蓄、买房、养老、债务问题。表达的核心是<strong>普通人与金钱的关系是可以被训练的</strong>——没有"有钱基因"，只有尚未优化的决策习惯。
+      </div>
+      <div class="doc-note">爱尔兰出品 · 实战案例导向 · 无高深术语</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">聪明生活经济学</div>
+          <div class="doc-title-en">Smart Finance · 豆瓣 8.3</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">8.3</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：资产与负债的认知重构</div>
+      <div class="doc-analysis">
+        重塑底层金钱观是这部作品的核心命题。它反复强调一个反直觉的区分：<strong>你以为的"资产"可能是负债</strong>（车是消耗品房贷是债务），而真正的资产是能产生现金流的东西。搭建普通人财务自由基础思维，是这系列片的认知起点。
+      </div>
+      <div class="doc-note">小众精品 · 认知框架优先</div>
+    </div>
+  </div>
+
+  <!-- 03 贫富差距与原生思维 -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">03</span>
+      <h2 class="category-title">贫富差距与原生思维</h2>
+      <span class="category-subtitle">同一家庭，不同命运</span>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">富哥哥穷弟弟</div>
+          <div class="doc-title-en">Rich Brother, Poor Brother · 豆瓣 7.2 · IMDb 6.5</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">7.2</span>
+          <span class="rating">6.5</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：同一家庭，截然不同的财富命运——根在思维模式</div>
+      <div class="doc-analysis">
+        同父同母的两兄弟，一个成为富豪，一个困于社会底层。纪录片不急于给出答案，而是让观众看到<strong>认知习惯如何悄悄决定一个人对待风险、机会和金钱的态度</strong>。哥哥敢赌敢闯，弟弟被动保守——这不是能力的差距，是面对世界方式的根本分歧。
+      </div>
+      <div class="doc-note">英国单集纪实 · 情感张力强 · 留白多</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">为什么贫穷</div>
+          <div class="doc-title-en">Why Poverty? · 豆瓣 9.1 · IMDb 7.8</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">9.1</span>
+          <span class="rating">7.8</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：贫穷不是个人失败，是系统性制度失灵</div>
+      <div class="doc-analysis">
+        BBC 全球公益纪实系列，从非洲教育不公到美国机会鸿沟，从资源垄断到代际传递，揭示一个核心论点：<strong>贫穷的根源往往不在个人努力程度，而在于社会制度是否公平地分配了机会</strong>。这是最具有批判力的一部，呼吁制度性反思而非道德说教。
+      </div>
+      <div class="doc-note">BBC 全球公益系列 · 社会批判视角 · 最有深度</div>
+    </div>
+  </div>
+
+  <!-- 04 金融陷阱与消费心理 -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">04</span>
+      <h2 class="category-title">金融陷阱与消费心理</h2>
+      <span class="category-subtitle">看清套路，守住钱包</span>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">金钱通解</div>
+          <div class="doc-title-en">Money, Explained · 豆瓣 7.8 · IMDb 7.0</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">7.8</span>
+          <span class="rating">7.0</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：识别金融体系中的结构性套路</div>
+      <div class="doc-analysis">
+        Netflix 出品，5集分别拆解信用卡、网贷、赌博、保险骗局、养老陷阱。核心表达是<strong>普通人面对的是一个设计精良的系统——而这个系统的设计者并不站在你这边</strong>。看完之后你会对"便宜"和"划算"保持本能警觉。
+      </div>
+      <div class="doc-note">Netflix 出品 · 短平快科普 · 适合入门</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">无节制消费的元凶</div>
+          <div class="doc-title-en">The Men Who Made Us Spend · 豆瓣 8.8 · IMDb 7.7</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">8.8</span>
+          <span class="rating">7.7</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：资本如何系统性地制造永不满足的消费者</div>
+      <div class="doc-analysis">
+        BBC 三部曲，是这个主题下最具深度的作品。它揭示了"计划性报废"（故意缩短产品寿命）、欲望制造逻辑、品牌溢价操控等资本营销的核心机制。核心表达：<strong>消费主义不只是个人选择，而是一种被精心设计的意识形态</strong>——破除冲动消费的关键是认清这套系统的运作逻辑。
+      </div>
+      <div class="doc-note">BBC 消费真相三部曲 · 最高分 · 最有批判力度</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">超级顾客</div>
+          <div class="doc-title-en">Supershoppers · 豆瓣 8.6 · IMDb 6.4</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">8.6</span>
+          <span class="rating">6.4</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：成为聪明的买家，而非被动的消费者</div>
+      <div class="doc-analysis">
+        英国消费科普剧，主角以专业比价师的视角拆解商超定价陷阱、品牌溢价真相、促销套路。表达的核心是：<strong>同一件商品在不同包装、不同货架位置、不同时间点的价格可以相差数倍</strong>——而这套定价系统是可以被破解的。实操性最强的消费指南。
+      </div>
+      <div class="doc-note">英剧 · 实操性最强 · 第一季评分最高</div>
+    </div>
+  </div>
+
+  <!-- 05 商业思维与财富哲学 -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">05</span>
+      <h2 class="category-title">商业思维与财富哲学</h2>
+      <span class="category-subtitle">从大师身上学什么</span>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">成为沃伦·巴菲特</div>
+          <div class="doc-title-en">Becoming Warren Buffett · 豆瓣 8.6 · IMDb 7.4</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">8.6</span>
+          <span class="rating">7.4</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：财富自由的本质是心智模式的自由</div>
+      <div class="doc-analysis">
+        HBO 人物传记，没有神化巴菲特，而是展示了一个极度自律、极简生活的老人：每天喝可乐、读年报、保持童年养成的阅读习惯。核心表达：<strong>复利思维、长期主义、极度专注——这些普通人可复制的品质，才是巴菲特神话的真正秘密</strong>，而不是某个神秘的内部消息。
+      </div>
+      <div class="doc-note">HBO 经典 · 人物温度感最强 · 适合价值观塑造</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">美国商业大亨传奇</div>
+          <div class="doc-title-en">The Men Who Built America · 豆瓣 9.3 · IMDb 8.6</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">9.3</span>
+          <span class="rating">8.6</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：国家命运由谁塑造——资本与权力的共谋</div>
+      <div class="doc-analysis">
+        讲述范德比尔特、洛克菲勒、卡内基、摩根、福特五大初代巨头的崛起史。这部作品最独特的地方在于：<strong>它展示了财富积累从来不只是个人能力的胜利，而是技术革命、制度变革和时代机遇的共振</strong>。看这部片，你会获得一种"大尺度"的历史视野，理解财富创造的时代语境。
+      </div>
+      <div class="doc-note">历史史诗级 · 双平台最高分 · 格局最大</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">致富之道</div>
+          <div class="doc-title-en">How'd You Get So Rich? (UK) · 豆瓣 8.4 · IMDb 5.5</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">8.4</span>
+          <span class="rating">5.5</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：多元赚钱路径背后的圈层认知</div>
+      <div class="doc-analysis">
+        专访全球各领域白手起家的富豪，拆解多元赚钱路径（房地产、科技、餐饮、艺术等）。核心表达：<strong>不同阶层的创富逻辑差异巨大——富豪们谈论机会的方式本身，就与普通人截然不同</strong>。圈层认知、信息差、风险定价权的差异，是看不见的财富壁垒。
+      </div>
+      <div class="doc-note">英版评分更高 · 采访形式 · 多元视角</div>
+    </div>
+  </div>
+
+  <!-- 06 经济学认知框架 -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">06</span>
+      <h2 class="category-title">经济学认知框架</h2>
+      <span class="category-subtitle">系统化理解金钱世界</span>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <div class="doc-title-cn">十分钟速成课：经济学</div>
+          <div class="doc-title-en">Crash Course: Economics · 豆瓣 9.3 · IMDb 8.2</div>
+        </div>
+        <div class="doc-ratings">
+          <span class="rating">9.3</span>
+          <span class="rating">8.2</span>
+        </div>
+      </div>
+      <div class="doc-theme">核心表达主题：用常识理解宏观与微观经济学的底层逻辑</div>
+      <div class="doc-analysis">
+        全球知名公开课系列，以趣味动画和清晰叙事，系统覆盖供需关系、机会成本、通货膨胀、货币政策、国际贸易等核心概念。<strong>它的价值不是让你成为经济学家，而是让你在听到财经新闻时能独立判断"这在说什么"</strong>——建立起经济学常识框架，是理性消费和投资决策的认知基础。
+      </div>
+      <div class="doc-note">全球公开课顶流 · 双平台最高综合分 · 入门首选</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 总结 -->
+  <div class="takeaway-box">
+    <div class="takeaway-title">12部纪录片的共同表达主轴</div>
+    <div class="takeaway-grid">
+      <div class="takeaway-item">
+        <div class="takeaway-label">金钱是一种思维</div>
+        <div>《富哥哥穷弟弟》《聪明生活经济学》共同指向：财富差异的根源是认知框架，而非运气或出身。
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-label">消费是被设计的</div>
+        <div>《无节制消费的元凶》《超级顾客》《金钱通解》揭示：你的购买决策被系统性操控，看清套路才能守住钱包。
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-label">复利需要时间</div>
+        <div>《成为沃伦·巴菲特》与《美国商业大亨传奇》：真正的财富来自长期主义的复利，而非快速致富的幻觉。
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-label">贫穷有结构性根源</div>
+        <div>《为什么贫穷》是唯一一部将矛头指向制度的作品：贫穷不只是个人问题，更是制度设计失败的体现。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    生成于 2026-04-23 · 纸 · Kami · 金融纪录片主题总结
+  </footer>
+
+</body>
+</html>

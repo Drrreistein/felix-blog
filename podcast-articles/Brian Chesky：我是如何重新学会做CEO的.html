@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Brian Chesky：我是如何重新学会做CEO的 · Brian Chesky</title>
+<meta name="author" content="Brian Chesky">
+<meta name="description" content="在Airbnb成为全球最大的住宿平台之后，我决定重新学习如何做CEO。不是学习如何管理，而是学习如何像创始人一样深入一线，像设计师一样追求完美，像艺术家一样保持热爱。这次访谈中，我第一次详细分享了疫情期间的觉醒时刻、Project Hawaii的成功秘诀，以及我如何从追求外在认可转变为追求纯粹的创造">
+<meta name="keywords" content="播客, 访谈, Brian Chesky, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .lead {
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin-bottom: 14pt;
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">Brian Chesky：我是如何重新学会做CEO的</div>
+    <div class="cover-sub">从失去控制到创始人模式，从追求认可到纯粹热爱——Airbnb CEO的深度自白</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Brian Chesky</strong><br>Airbnb联合创始人兼CEO<br>
+    主持：Lenny·2024<br>
+    时长：约83分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/eURcW5_uS60/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/eURcW5_uS60/hqdefault.jpg'"
+         alt="How Brian Chesky Is Redesigning Airbnb for the AI Era">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      src="https://www.youtube.com/embed/eURcW5_uS60?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ How Brian Chesky Is Redesigning Airbnb for the AI Era · <a href="https://www.youtube.com/watch?v=eURcW5_uS60" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>在Airbnb成为全球最大的住宿平台之后，我决定重新学习如何做CEO。不是学习如何管理，而是学习如何像创始人一样深入一线，像设计师一样追求完美，像艺术家一样保持热爱。这次访谈中，我第一次详细分享了疫情期间的觉醒时刻、Project Hawaii的成功秘诀，以及我如何从追求外在认可转变为追求纯粹的创造。
+
+很多人以为我是天生的CEO，但事实是没有人天生就是好CEO。创始人可能是天生的，但CEO需要刻意学习。我在Airbnb的成长过程中学到了这个教训——我曾经完全失去了对公司的控制，直到危机逼迫我重新思考一切。
+
+更重要的是，我曾经陷入了一种可怕的陷阱：把成功变成了记分牌，追求外在的认可和成就。直到IPO之后那个空虚的早晨，我才意识到真正的满足感来自纯粹的创造，而不是别人的赞美。
+
+这段旅程教会了我三件事：第一，深入细节不是微观管理，而是了解真相的必要步骤；第二，把问题缩小到最小才是解决复杂问题的关键；第三，真正的动机来自热爱，而不是认可。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">从设计师到CEO：工业设计如何塑造我的领导力</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">创始人模式：我是如何失去公司控制权的</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">小团队的力量：Project Hawaii的秘密</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">乔尼·艾维教我的两件事：简洁与工艺</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">AI时代的11星级体验</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">从认可追求到纯粹热爱：我的价值观转变</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">Airbnb的未来：从房屋到人</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">招聘的艺术：CEO最重要的职责</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">09</span>
+      <span class="timeline-index-topic">艺术家CEO：创造伟大的东西</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>从设计师到CEO：工业设计如何塑造我的领导力</h1>
+    <p class="lead">我从小就是艺术爱好者，17岁进入罗德岛设计学院时，第一次接触到工业设计这个神奇的世界。回想起来，工业设计教会我的核心技能——用户旅程思维、多维度利益平衡、商业成功的约束——直接塑造了我后来管理Airbnb的方式。</p>
+    <div class="chapter-content">
+      <p>我记得在RISD上第一节工业设计课时，系主任说：&#x27;工业设计就是设计从牙刷到宇宙飞船的一切。&#x27;我当时才17岁，心想这就是我一辈子想做的事。</p>
+      <p>在那之前，我从没听说过&#x27;工业设计&#x27;这个词。但听完介绍，我立刻知道这就是我想要的。原因很简单——我既想有技术性，又想有创造力，而工业设计正好介于两者之间。</p>
+      <p>学习工业设计的历史时，我发现这个领域其实非常年轻。它真正起步于工业革命时期，第一批工业设计产品是椅子和餐具。但随着技术发展，工业设计逐渐延伸到汽车、飞机、微波炉、医疗设备，最终到iPhone——成为20世纪最著名的工业设计产品。</p>
+      <p>真正让我着迷的是工业设计的核心原则：设计只有在卖出去时才成功。如果没人买你的产品，设计就是失败的。这和建筑或艺术完全不同——建筑师可以因为设计获奖，但建筑可能永远无人问津。设计师必须同时思考营销、制造、分销和解决问题。</p>
+      <p>更重要的是，工业设计教会我用户旅程的思维方式。在毕业项目中，我需要为儿童设计呼吸机。我不能只考虑呼吸机本身——我必须想象自己是一个6岁的孩子，躺在医院里，害怕地看着这个机器。</p>
+      <p>我还需要考虑父母的感受：如果呼吸机看起来很可怕，像是什么邪恶的东西，父母会崩溃。更有趣的是，护士技术人员不希望机器太简单——因为那是他们专业能力的象征。这种多维度的利益平衡，让我理解了什么是真正的设计思维。</p>
+      <p>后来我去苹果实习，亲眼见证了工业设计的黄金时代。乔尼·艾维是我的偶像。苹果真正教育了公众什么是设计——一旦人们见识了优秀的产品，就再也回不去了。从那以后，我开始明白：好的设计不仅仅是美学，它是一种思维方式，一种把用户放在中心、解决真实问题的能力。</p>
+      <p>我认为，这就是为什么我最终成为CEO的原因。在工业设计领域，没有产品经理的概念——设计师就是产品经理。你需要同时理解用户、技术、商业和制造。这种综合能力，直接决定了我后来管理Airbnb的方式。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>创始人模式：我是如何失去公司控制权的</h1>
+    <p class="lead">2010年代，Airbnb经历了一段火箭式增长期。但到了2019年，我醒来时发现公司已经完全不认识了。我有7000名员工，但不知道每个人在做什么。我感觉像一辆没有方向盘的汽车——我说&#x27;左转&#x27;，公司却往右走。</p>
+    <div class="chapter-content">
+      <p>很多人问我：你是从什么时候意识到必须改变管理方式的？答案是2019年。</p>
+      <p>那一年，我有一天突然意识到，我完全失去了对公司的控制。不是说我被架空了——而是我根本不知道公司在发生什么。我有7000名员工，每天有无数决策在远离我的地方做出，而这些决策往往与我想要的方向背道而驰。</p>
+      <p>我记得有一天晚上做了一个梦。我梦见自己离开公司10年后回来，发现公司已经变成了一个巨大的政治官僚机构——完全不是我当初创建的那个样子。然后我突然意识到：这一切都是我自己造成的。是我过度放权，是我太依赖职业经理人，是我自己让这一切发生的。</p>
+      <p>那个梦让我彻夜难眠。</p>
+      <p>疫情成了最终的转折点。我们失去了80%的业务，在8周内从和平时期进入战争状态。那一刻，我不得不采取行动。</p>
+      <p>在疫情之前，我聘请了一位曾在苹果工作的设计师，他向我详细讲述了乔布斯1997年回归苹果后是如何管理的。乔布斯的方式很简单——深入每一个细节。</p>
+      <p>所以，在危机时刻，我采取了同样的做法。我开始审查公司的每一个细节，每周工作100小时，持续了将近三年。不是因为我喜欢微观管理，而是因为我意识到：在授权之前，我需要真正了解正在发生什么。</p>
+      <p>大多数创始人的做法正好相反。他们放手、雇人、然后等出了问题才干预。但到那时已经太晚了。更糟糕的是，当你干预时，那些人已经养成了错误的习惯——就像高尔夫挥杆一样，一旦形成错误的肌肉记忆，就很难纠正。</p>
+      <p>所以我的哲学变成了：先非常亲力亲为，和团队一起做所有事情，教他们我所知道的一切，然后慢慢放手。就像高尔夫教练看学生挥杆几千次后，才让他们自己练习。</p>
+      <p>这是一个反直觉的转变。但我发现，控制和权力不是零和游戏。如果我有更多的控制和权力，我反而可以把这些权力下放给团队。关键是要先了解真相，然后才能真正授权。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>小团队的力量：Project Hawaii的秘密</h1>
+    <p class="lead">我一直想把创业初期的魔力带回来——那个和一小群人在公寓里工作的时光。所以我组建了一支10-12人的精英团队，像对待一家小型创业公司一样对待它。结果？这个团队第一年就创造了2亿美元的内部收入。</p>
+    <div class="chapter-content">
+      <p>Project Hawaii这个名字听起来很神秘，但其实它只是一个实验：我们能否用创业初期的方式来运营公司的一个部分？</p>
+      <p>我组建了一个小团队——只有10到12个人，包括设计师、工程师、产品经理和数据科学家。我们没有用公司现成的系统，而是像对待一家独立创业公司一样工作。</p>
+      <p>我们遵循&#x27;爬行、行走、跑步、飞翔&#x27;的节奏。第一阶段，修复所有bug和问题。第二阶段，开始开发新功能。第三阶段，重新思考整个流程。第四阶段，彻底重新定义一切。</p>
+      <p>结果令人震惊。第一年，这个小团队创造了相当于2亿美元内部收入的成绩。第二年，这个数字增长到4到5亿美元。现在，它已经超过了6亿基点——占Airbnb总预订量的很大比例。</p>
+      <p>而这一切，只是来自一个10-12人的团队。</p>
+      <p>这个经验让我意识到一个关键原则：把问题缩小到最小。彼得·蒂尔是我们的早期投资人，他说过一句话我永远记得：&#x27;与其在一个大市场占一小块份额，不如在一个小市场形成垄断。&#x27;</p>
+      <p>这句话是反直觉的。投资者总是说要做大市场。但大市场意味着激烈竞争。而小市场，你可以真正理解用户，把所有资源集中在解决一个问题上。</p>
+      <p>YC的第一天，保罗·格雷厄姆说了类似的话：&#x27;100个人爱你，比100万人稍微喜欢你更好。&#x27;这来自Gmail的创造者保罗·布赫海特。他花了两年时间才让Google内部100人爱上Gmail。一旦100人真正爱上某样东西，100万人最终也会。</p>
+      <p>问题是：你无法与100万人对话。你只能与一小群人深度交流，然后让口碑传播开来。所以，与其把问题铺开像加热海洋，不如把问题缩小像加热浴缸——你可以更快、更深入地改变它。</p>
+      <p>我和团队把这个模式应用到了Airbnb的多个领域：增长、定价、服务体验。每个领域都组建新的小团队，遵循同样的模式。这让我意识到：大公司需要像海军陆战队一样运作——小而精干，深入一线，而不是层层汇报。</p>
+      <p>这也和教育小孩一样——你要在问题还小的时候解决它，而不是等到问题变成青少年问题时才行动。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>乔尼·艾维教我的两件事：简洁与工艺</h1>
+    <p class="lead">在苹果工作期间，我学到两个改变我一生的原则。第一是简洁：不是删除东西，而是提炼本质直到理解它的精髓。第二是工艺：你做一切事情的方式就是你做一切事情的方式。</p>
+    <div class="chapter-content">
+      <p>乔尼·艾维是乔布斯回归苹果后的创意总监，也是我管理哲学的重要导师。虽然我从未见过乔布斯本人，但我通过乔尼学到了很多东西。</p>
+      <p>乔尼教我的第一个原则是简洁。他说：当你创业时，因为资金和人员约束，你自然变得简洁。这种约束其实是好事。但一旦你融了很多钱、雇了很多人，你就会开始失去专注力，走向很多不同的方向。</p>
+      <p>我看到过太多创业公司因为缺乏专注力而挣扎。一旦你开始成功，你就开始失去简洁的能力。</p>
+      <p>但乔尼教会我：简洁不是删除东西。简洁是提炼某样东西直到你理解它的本质。</p>
+      <p>乔布斯说过一句话：&#x27;设计是一个男人造创造的灵魂，它会通过随后的层次展现出来。&#x27;换句话说，伟大的设计就是提炼到本质。</p>
+      <p>这和埃隆·马斯克所说的&#x27;第一性原理&#x27;非常相似。你需要理解玻璃的所有属性，才能真正重新发明玻璃。你需要理解每件事的底层逻辑，才能简化它。</p>
+      <p>乔尼教我的第二个原则是工艺。</p>
+      <p>我读了一本旧金山49人队教练比尔·沃尔什写的书，叫做《得分会自己照顾自己》。约翰·伍登——加州大学洛杉矶分校传奇篮球教练，12年内赢得10次NCAA冠军——教给队员的第一件事是什么？花一个小时教他们如何穿袜子。</p>
+      <p>一个小时。穿袜子。</p>
+      <p>这是一个隐喻。一切都必须如此严谨。沃尔什相信，你 tuck球衣进裤子 的方式，是赢得比赛的1万个细节之一。不要关注赢得比赛本身，而要关注让所有输入都完美。如果你把所有事情都做对了，比赛结果自然会好。</p>
+      <p>从那以后，我不再只关注增长。我开始关注让Airbnb的每一个细节都完美。产品、服务、组织、文化——一切都要完美。</p>
+      <p>当你把所有输入都完美化了，如果你没有增长，那说明你关注的是错误的输入。但如果你的输入是正确的，你自然会快速增长。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>AI时代的11星级体验</h1>
+    <p class="lead">我在Airbnb提出了一个&#x27;11星级体验&#x27;的概念。五星级意味着没有出错，但这太低了。真正的目标是创造让用户惊喜到尖叫的体验。</p>
+    <div class="chapter-content">
+      <p>当你在Airbnb预订住宿时，如果你留下五颗星，那意味着一切按计划进行——没有出错。但如果你留下四颗星，说明有什么地方出了问题。</p>
+      <p>但我开始思考：如果房东做得非常出色，超出预期呢？你的五颗星和&#x27;没有出错&#x27;的五颗星，看起来是一样的。这就是我所说的&#x27;评价压缩&#x27;。</p>
+      <p>所以我开始想象：什么是六星级体验？</p>
+      <p>六星级体验可能是：你到达民宿，桌上有一瓶你最爱的葡萄酒、新鲜水果、零食，还有一张手写卡片欢迎你入住。</p>
+      <p>七星级呢？也许有豪华轿车在机场等你，提前了解你的喜好，准备了你最喜欢的音乐。</p>
+      <p>八星级？想象一下：你下飞机时，有一头大象在等你。你骑着大象，像贵宾一样被送到民宿。这有点疯狂，但你可以想象那种被宠爱的感觉。</p>
+      <p>九星级？我称之为&#x27;甲壳虫乐队体验&#x27;。你下飞机时，5000名年轻粉丝尖叫着你的名字，举着标语牌欢迎你。你走进民宿，门廊上正在为你举办一场新闻发布会。</p>
+      <p>十星级呢？埃隆·马斯克亲自在机场等你，带你上SpaceX的飞船，把你送到太空。</p>
+      <p>这个练习的真正目的，不是让你真的去做这些疯狂的事情。它是一个想象力的练习，让你走得太远，以至于六七星级体验看起来不再疯狂。</p>
+      <p>我意识到：要达到产品市场匹配，你需要创造六七星级的体验。但如果你没有先想象十星级，你就永远不会知道六七星级在哪里。</p>
+      <p>这和写作一样——你不能只在脑子里想，你需要写下来。你需要把自己推向极端，然后往回走。这就是为什么我要把这个概念分享给所有人：当你下次设计产品时，先问自己——什么是十星级体验？然后往回走到六七星级。</p>
+      <p>真正的问题不是&#x27;我们做得好不好&#x27;，而是&#x27;我们有没有给用户一个惊喜到他们愿意主动谈论的体验&#x27;。这个差异，才是决定你与竞争对手距离的关键。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>从认可追求到纯粹热爱：我的价值观转变</h1>
+    <p class="lead">我曾经陷入了一种可怕的陷阱：把成功变成了记分牌，追求外在的认可。直到IPO之后那个空虚的早晨，我才意识到真正的满足感来自纯粹的创造，而不是别人的赞美。</p>
+    <div class="chapter-content">
+      <p>当我创办Airbnb时，我并不完全是为了成功。我真的是为了热爱和乐趣。我们最初的办公室就是我的公寓，我们三个人挤在一起，为第一批用户准备早餐麦片。那时候，我根本不在乎别人怎么看我们。</p>
+      <p>但随着时间推移，我变得非常成功。Airbnb成为全球最大的住宿平台，我们的估值不断攀升，我开始出现在杂志封面上，被邀请去各种会议演讲。</p>
+      <p>成功变成了记分牌。我想变得更成功，想得到更多认可。我想证明自己是特别的，是成功的，是值得被爱的。</p>
+      <p>但我花了很长时间才意识到，我在追逐的是一个永远填不满的空洞。</p>
+      <p>认可是有底部漏洞的杯子。</p>
+      <p>你不断往里倒水，以为那是爱，但水不断从底部漏出。你得到了认可，但感觉还是空虚。你得到了赞美，但几个小时后就消失了。你得到了荣誉，但很快就需要更多才能感到满足。</p>
+      <p>更糟糕的是，认可就像真正的药物。你需要更大的剂量才能达到同样的高潮，最终它根本不起作用，你会到达一个顶点，然后一切变得毫无意义和空虚。</p>
+      <p>我到达了那个顶点。</p>
+      <p>疫情期间，我们上市了。那一刻，我们的估值达到了千亿美元。那应该是我人生中最美好的日子之一。</p>
+      <p>但第二天早上，我醒来——因为疫情，我们只能通过Zoom开会——我穿上运动裤，参加了一场视频会议。一切就像从未发生过一样。</p>
+      <p>那一刻成了我生命中最悲伤的日子。</p>
+      <p>我意识到：&#x27;然后呢？我得到了所有这些认可，但我感觉没有任何不同。&#x27;</p>
+      <p>那个时刻逼迫我重新思考一切。我开始问自己：我到底为什么在做这些？我开始专注于回归本质——做事情，因为热爱，不是因为想要认可。</p>
+      <p>里克·鲁本——那位传奇音乐制作人——说过一句话让我震撼：&#x27;当一个艺术家为自己做东西，不试图让它成功时，那才是真正的艺术家。&#x27;</p>
+      <p>从那一刻起，我不再试图成功。我只是回归基础，回归创作本身。我意识到：那些不认识你的人永远不会爱你——没关系。认识你和爱你的人，以及最重要的是爱你自己的人，才是最重要的。</p>
+      <p>我停止了追求认可，停止了担心别人怎么看我。我开始专注于创造真正有价值的东西——因为它们本身值得创造，而不是因为它们会给我带来什么。</p>
+      <p>这是一个解放。就像从监狱里出来一样。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>Airbnb的未来：从房屋到人</h1>
+    <p class="lead">当人们闭上眼睛想象Airbnb时，他们想到的是一栋房子。但我不想让Airbnb只和房子有关——我想让它与人有关。这是我正在思考的三个核心使命。</p>
+    <div class="chapter-content">
+      <p>Airbnb有一个我称之为&#x27;Kleenex困境&#x27;的问题。</p>
+      <p>Kleenex是世界上最有价值的纸巾品牌。但问题是：当Kleenex想卖洗发水时，人们会觉得奇怪——&#x27;等等，我不会把纸巾涂在头上。&#x27;</p>
+      <p>Airbnb也面临同样的问题。我们是名词也是动词——这既是祝福也是诅咒。当人们提到我们时，他们会想到房子。这很好，说明我们是品类领导者。但当我们想扩展到其他服务时，人们会困惑。</p>
+      <p>所以我正在思考三个核心使命。</p>
+      <p>第一个使命：把Airbnb的原子单位从&#x27;家&#x27;变成&#x27;人&#x27;。</p>
+      <p>我不想让Airbnb只和房子有关。我想让Airbnb与&#x27;你&#x27;有关。在Airbnb，你可以获得房屋、体验、服务，最终还有航班。但所有这些服务的核心应该是你这个人——你的身份、你的偏好、你的人脉。</p>
+      <p>我想建立最可信的互联网身份。在AI时代，证明&#x27;你是一个人&#x27;会变得非常重要。当AI可以模仿任何人时，真实身份将变得无比珍贵。</p>
+      <p>同时，我想建立最丰富的用户偏好数据库，了解你这个人——你喜欢什么风格的房子，你喜欢什么类型的体验，你的旅行习惯是什么。这种深度理解，可以让我们为你提供真正个性化的服务。</p>
+      <p>第二个使命：工业化我们能提供的东西——从3件事扩展到50件事。</p>
+      <p>Airbnb最初只有房屋预订，然后我们添加了体验，现在还有服务。但我希望有一天，你可以在Airbnb上获得几乎所有与旅行相关的服务——从住宿到交通，从活动到餐饮。</p>
+      <p>关键是要找到这些不同业务的共同原子单位，然后工业化这个过程。就像亚马逊从书籍扩展到所有商品一样，我们想从房屋扩展到所有旅行服务。</p>
+      <p>第三个使命：用AI颠覆自己。</p>
+      <p>作为一家上市公司，我们面临一个困境。一方面，我们需要不断创新；另一方面，我们又必须谨慎行事，因为任何重大改变都可能影响我们的业绩。</p>
+      <p>但这种环境不利于大规模创新。所以我正在探索一些沙盒——独立的实验空间——来测试全新的Airbnb可能是什么样子。</p>
+      <p>巴菲特曾经说，他想投资那些&#x27;连火腿三明治都能管理&#x27;的公司。但我认为，最好的公司是那些创始人在很长很长时间内保持控制的公司。</p>
+      <p>想想迪士尼。沃尔特·迪士尼1966年去世，但50年后，迪士尼精神仍然无处不在。他创造了如此强大的魔力储备，如此深的护城河，以至于即使没有他，公司也能持续繁荣。</p>
+      <p>这是我的目标。不是让Airbnb在我离开后迅速衰落，而是创造一个能够持续繁荣50年的魔力储备。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>招聘的艺术：CEO最重要的职责</h1>
+    <p class="lead">很多人认为CEO的工作是制定战略或管理高管。但我发现，CEO最重要的工作是招聘——找到最优秀的人，然后相信他们能够完成工作。</p>
+    <div class="chapter-content">
+      <p>在YC的时候，山姆·阿尔特曼告诉我：&#x27;你将把50%的时间花在招聘上。&#x27;但当时我没有听进去。我以为最重要的是好想法、融资和建立机器。</p>
+      <p>这是一个巨大的错误。</p>
+      <p>现在，我每天早上醒来，第一个电话打给招聘团队。我认为，公司的首要任务不是管理，而是招聘——招聘最优秀的人，然后相信他们能够完成工作。</p>
+      <p>我实际上认为，人们应该考虑让招聘人员成为他们的第一个员工，而不是工程师。因为招聘人员是帮你找到所有其他人的关键。</p>
+      <p>但我发现大多数人的招聘方式是错误的。</p>
+      <p>他们需要某个职位时，就去找猎头。猎头送来50份简历，他们选10个打电话。5个有兴趣，最终只有3个候选人。然后他们选最好的那个入职，再做背景调查。</p>
+      <p>这是最糟糕的方式。</p>
+      <p>正确的方式是管道招聘：你不断与人见面，不断积累人才。每次会议的目标都是获得下一次会议——了解这个人，然后问他们：&#x27;你认识的最优秀的人是谁？能介绍两三个给我吗？&#x27;</p>
+      <p>这样，你不是在搜索，而是在建立一个人才管道。你永远都在招聘，即使你现在不需要任何人。</p>
+      <p>另一个关键是：从结果倒推人。</p>
+      <p>不要说：&#x27;我想找一个在耐克工作过的营销人员。&#x27;相反，找到一个你喜欢的广告，然后找出是谁制作了这个广告。</p>
+      <p>我正在做的事情是：让自己成为Airbnb前200人的联合招聘经理。很多CEO认为他们只需要招聘高管，然后让高管去招聘他们自己的人。但如果你有10个高管，你最多只有两三个真正擅长招聘。</p>
+      <p>更好的方式是：让自己招聘到你所能找到的最优秀的人——无论是直接招聘还是间接招聘。我的原则是：我的高管应该招聘&#x27;没有我的帮助就永远不会来&#x27;的人。如果他们能在我的帮助下招聘到这些人，那说明我们真正在触及最优秀的人才。</p>
+      <p>真正优秀的人不需要被管理。他们自我管理。你花在招聘上的时间越多，你花在管理上的时间就越少。这是一对一的交易。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 09 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">09</div>
+    <h1>艺术家CEO：创造伟大的东西</h1>
+    <p class="lead">我的英雄们——达·芬奇、梵高、迪士尼、乔布斯——都是艺术家。他们有一个共同点：他们生命的最后一天都在工作，不是因为追求认可，而是因为纯粹热爱创造。</p>
+    <div class="chapter-content">
+      <p>我常常思考那些历史上最伟大的创造者。</p>
+      <p>列奥纳多·达·芬奇。他的蒙娜丽莎是他随身携带的，直到去世前一天才完成。他从未把蒙娜丽莎展示给任何人——他一生都在完善它，不是因为有人在等，而是因为他无法停止创作。</p>
+      <p>文森特·梵高。他一生只卖出一幅画。他死于乡间，几乎是一个默默无闻的艺术家。但如果你问他为什么画画，他的回答永远会是&#x27;因为我必须画&#x27;。</p>
+      <p>沃尔特·迪士尼。他因肺癌住院的最后一天，躺在病床上与哥哥罗伊讨论迪士尼乐园的未来——他们想象着新的景点，新的体验。他从未停止思考下一步。</p>
+      <p>史蒂夫·乔布斯。他生命的最后几周，即使已经非常虚弱，仍然在看产品设计。他还在思考如何让产品更好。</p>
+      <p>这些人有什么共同点？他们不是为了认可而工作。达·芬奇从未展示他的杰作，梵高一生几乎无人知晓。他们工作是因为他们必须创造。</p>
+      <p>我的动机是创造者的动机。我想创造伟大的东西。</p>
+      <p>我当然希望我们的股东获得回报。我希望我们的员工在一家优秀的公司工作。我希望对世界产生巨大影响。但更重要的是，我只想创造东西。</p>
+      <p>我经常说：我更像一个设计师，而不是CEO。我被赋予了也许是人类历史上最大的一块画布——一家价值数十亿美元的公司。</p>
+      <p>这感觉像是系统的一个漏洞。一个艺术家怎么可能最终拥有一家价值数十亿美元的公司？但我抓住了这个机会，我不打算放手。</p>
+      <p>真正激励我的是：我16岁时的一位艺术老师，威廉姆斯小姐。她看到我对艺术的热爱，她相信我有潜力。她告诉我父母：&#x27;他会成为一个著名艺术家。&#x27;</p>
+      <p>虽然我最终没有成为她所说的那种艺术家，但她的话给了我信心——让我相信自己擅长某件事。这个信念改变了我的人生轨迹。</p>
+      <p>从那一刻起，我开始相信：给予信念是人能给别人的最伟大的礼物。</p>
+      <p>当我管理Airbnb时，我经常对员工说：&#x27;这不够好。&#x27;但我不是在说&#x27;你不够好&#x27;。我在说：&#x27;我看到你身上有你看不到的潜力。我相信你还能做得更多。&#x27;</p>
+      <p>这就是最激励人的事情——说&#x27;我相信你&#x27;。人们会为这种信任赴汤蹈火。</p>
+      <p>最重要的是：学会相信自己。</p>
+      <p>我们很多创业者都是被不安全感激发的。我们内心有某种空洞，我们试图通过成功来填补它。即使成功了，我们仍然会有冒名顶替综合症。</p>
+      <p>通往幸福的道路，最终是学会相信你自己——不是因为别人相信你，而是因为你自己相信自己。</p>
+      <p>对我来说，这是我学到的最深刻的一课。我用了很长时间才学会自我相信——即使在很多人相信我之后。现在，我的使命是把这份信念传递给别人。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=eURcW5_uS60" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2024</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>
