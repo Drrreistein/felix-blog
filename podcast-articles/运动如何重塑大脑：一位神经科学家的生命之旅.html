@@ -398,6 +398,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -427,7 +448,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/5o-tRub-0pQ?autoplay=1"
+      data-src="https://www.youtube.com/embed/5o-tRub-0pQ?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -435,6 +456,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">健康</span>
+  <span class="tag">科学</span>
+  <span class="tag">脑科学</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>在这个盒子里，装着一个真实保存的人类大脑，名叫Betty。当你第一次看到它、触摸它的时候，你会意识到：这个不到一公斤的小小器官，承载着一个人的全部——所有的思想、记忆、恐惧、焦虑、抑郁，所有的爱与被爱，所有的教育与经历。我叫Wendy Suzuki，是纽约大学的神经科学教授。过去二十多年，我一直在研究一个看似简单的问题：运动如何改变我们的大脑？这本书，这个播客，这篇文章，都是从一个问题开始的：当我在办公室写资助申请时，为什么今天写得特别顺？这个问题引领我发现了神经可塑性的力量，也让我亲眼见证了老年痴呆症如何夺走一个人的记忆，更让我找到了帮助数百万人改善大脑健康的科学方法。让我带你走进大脑的奇迹世界。</p>

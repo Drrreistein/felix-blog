@@ -191,6 +191,23 @@
     <strong>主题</strong>：AI 模型架构、ML 基础设施、推理与训练的底层经济学
 </p>
 
+<!-- ══════════════ VIDEO ══════════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/xmkSf5IS-zw/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/xmkSf5IS-zw/hqdefault.jpg'"
+         alt="GPT、Claude、Gemini 是如何训练和服务的 —— Reiner Pope">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      data-src="https://www.youtube.com/embed/xmkSf5IS-zw?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ GPT、Claude、Gemini 是如何训练和服务的 —— Reiner Pope · <a href="https://www.youtube.com/watch?v=xmkSf5IS-zw" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
 <div class="lead">
     这是一场罕见的「黑板讲座」——Reiner Pope 用数学公式和图表，拆解了为什么 AI 是现在的样子：为什么 API 定价是那个数字？为什么 Batch Size 如此关键？为什么模型参数量Scaling 停了三年才重新启动？
 </div>
@@ -426,5 +443,16 @@
 
 <a href="#" class="back-to-top">↑</a>
 
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  var i = document.getElementById('video-iframe');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+  if (i && !i.src && i.dataset.src) i.src = i.dataset.src;
+}
+</script>
 </body>
 </html>

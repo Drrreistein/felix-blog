@@ -398,6 +398,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -427,7 +448,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/Hrbq66XqtCo?autoplay=1"
+      data-src="https://www.youtube.com/embed/Hrbq66XqtCo?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -435,6 +456,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">技术</span>
+  <span class="tag">商业</span>
+  <span class="tag">科学</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>当Nvidia的市值冲向天际，一个尖锐的问题浮出水面：Nvidia的护城河能否持续？批评者说，Nvidia不过是把GDS2文件发给TSMC，自己只做软件——如果软件被商品化，Nvidia凭什么维持70%以上的毛利率？在这场长达104分钟的深度对话中，黄仁勋从'电子到Token'的核心心智模型出发，系统性地拆解了Nvidia的护城河：供应链锁定、CUDA生态飞轮、架构与算法的协同设计，以及每年推出新架构的不可替代承诺。他坦承错失了早期投资Anthropic和OpenAI的机会，也毫不退让地反驳了对中国出口管制的支持者——认为封锁只会加速中国自主生态，让美国失去全球第二大市场。这不仅是一场关于芯片的对话，更是一场关于AI时代地缘政治、技术生态和商业哲学的交锋。</p>

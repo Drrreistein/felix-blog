@@ -420,6 +420,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -449,7 +470,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/RmnWHz8HD74?autoplay=1"
+      data-src="https://www.youtube.com/embed/RmnWHz8HD74?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -457,6 +478,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">商业</span>
+  <span class="tag">技术</span>
+  <span class="tag">产品</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>这次访谈的信息密度极高，干货满满。Jean Grosser是当前最值得关注的GTM思想领袖之一。她在Stripe从零建立了早期销售团队，亲历了这家公司如何从创始阶段成长为年营收数百亿美元的支付巨头。现在她担任Vercel COO，在AI浪潮中重新定义GTM职能的工作方式。

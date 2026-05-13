@@ -322,6 +322,103 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
+
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
 </style>
 </head>
 <body>
@@ -341,6 +438,29 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<!-- ══════════════ VIDEO ══════════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/ZNzYN2jyVTU/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZNzYN2jyVTU/hqdefault.jpg'"
+         alt="声音如何成为AI的接口">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      data-src="https://www.youtube.com/embed/ZNzYN2jyVTU?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ 声音如何成为AI的接口 · <a href="https://www.youtube.com/watch?v=ZNzYN2jyVTU" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<section class="tags">
+  <span class="tag">技术</span>
+  <span class="tag">商业</span>
+  <span class="tag">产品</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>本文是ElevenLabs联合创始人Mati Staniszewski在Sequoia AI Ascent 2026上的访谈记录。他分享了从波兰的配音问题获得灵感、在2022年加密货币和元宇宙热潮中逆向选择音频赛道、构建远程研究团队、快速变现保持独立、到如今覆盖文本转语音、语音转文本、音乐生成等完整音频模型栈的创业历程。对于正在构建AI产品或思考语音接口未来的创始人和开发者，这篇文章提供了第一手的实战经验和思考。</p>
@@ -539,5 +659,16 @@
     <strong>日期</strong>：2026</div>
 </section>
 
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  var i = document.getElementById('video-iframe');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+  if (i && !i.src && i.dataset.src) i.src = i.dataset.src;
+}
+</script>
 </body>
 </html>

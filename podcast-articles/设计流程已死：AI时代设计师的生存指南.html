@@ -398,6 +398,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -427,7 +448,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/eh8bcBIAAFo?autoplay=1"
+      data-src="https://www.youtube.com/embed/eh8bcBIAAFo?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -435,6 +456,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">设计</span>
+  <span class="tag">技术</span>
+  <span class="tag">产品</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>几个月前，我在柏林的一个设计大会上做了一次演讲，标题叫「不要迷信设计流程」。在那次演讲中，我说了一个让很多人不舒服的观点：设计师们长期以来遵循的那套设计流程——研究、发现、发散、收敛、发散、收敛——这套被我们视为圣经的方法，基本上已经死了。我当时以为这个观点已经够激进了。但没想到，仅仅三四个月后，连我自己都觉得那次演讲开始显得有些过时了。尤其是当Opus 4.6发布，大家都在度假期间疯狂使用Claude Code之后，我意识到设计流程被迫改变的力量比我们想象的还要强大。这不是我或设计行业主动选择要改变，而是工程工具的变革正在倒逼设计工作发生根本性转变。今天我想分享我在Anthropic的真实工作体验，以及我看到的这场变革的全貌。</p>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>AI时代创业的硬道理：Keith Rabois 的坦诚洞见 · Keith Rabois</title>
+<meta name="author" content="Keith Rabois">
+<meta name="description" content="在硅谷，有一个不成文的共识：如果你想找到下一个 Airbnb 或 Stripe，最简单的方法是看看 Keith Rabois 在投什么。
+
+Keith 是 PayPal mafia 的核心成员，曾帮助 Square 从初创公司成长为独角兽，如今是 Khosla Ventures 的董事总经理。他投资">
+<meta name="keywords" content="播客, 访谈, Keith Rabois, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+  /* ── 目录中的章节索引（由 build_html.py 生成）── */
+  .timeline-index-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-index-topic {
+    color: var(--olive);
+  }
+  .timeline-index-duration {
+    color: var(--stone);
+    font-size: 9pt;
+    margin-left: 6pt;
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  .chapter-time {
+    font-size: 9pt;
+    color: var(--stone);
+    margin: -4pt 0 6pt 0;
+    letter-spacing: 0.5pt;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">AI时代创业的硬道理：Keith Rabois 的坦诚洞见</div>
+    <div class="cover-sub">PayPal Mafia 传奇成员、Khosla Ventures 董事总经理 Keith Rabois 关于人才、招聘、团队管理和 AI 未来的深度对话</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Keith Rabois</strong><br>Khosla Ventures 董事总经理、PayPal 前高管、Square 前 COO<br>
+    主持：Lenny Rachitsky·2024<br>
+    时长：83分钟· 来源：Lenny's Podcast</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/xCd9ykretlg/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/xCd9ykretlg/hqdefault.jpg'"
+         alt="Hard truths about building in the AI era | Keith Rabois (Khosla Ventures)">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      data-src="https://www.youtube.com/embed/xCd9ykretlg?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Hard truths about building in the AI era | Keith Rabois (Khosla Ventures) · <a href="https://www.youtube.com/watch?v=xCd9ykretlg" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">商业</span>
+  <span class="tag">技术</span>
+  <span class="tag">健康</span>
+</section>
+
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>在硅谷，有一个不成文的共识：如果你想找到下一个 Airbnb 或 Stripe，最简单的方法是看看 Keith Rabois 在投什么。
+
+Keith 是 PayPal mafia 的核心成员，曾帮助 Square 从初创公司成长为独角兽，如今是 Khosla Ventures 的董事总经理。他投资了 Stripe、Airbnb、YouTube、DoorDash 等一系列传奇公司。更重要的是，他在识人用人方面的能力几乎无人能及。
+
+这期访谈涵盖了他最擅长的领域：如何找到顶尖人才、如何构建高效团队、以及在 AI 时代，产品经理和 CEO 角色将如何演变。他分享了「barrels and ammunition」框架、20 references 的冷酷背景调查方法、以及他对「逆向思维」的深刻理解。
+
+无论你是创业者、投资人，还是想在职场中脱颖而出的人，Keith 的这些洞见都值得反复咀嚼。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">嘉宾介绍：Keith Rabois 的传奇履历</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">识人术：如何通过冷酷背景调查找到顶尖人才</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">barrels and ammunition：初创公司的招聘困境与破解</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">吸引顶尖人才的秘诀：当所有人都在抢同一个 barrel</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">CEO 的核心角色：对抗成功带来的自满</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">AI 时代的产品经理：为什么 PM 概念将消失</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">逆向思维的力量：如何让你的想法最终被采纳</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">创始人驱动投资：寻找改变世界的可能性</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">09</span>
+      <span class="timeline-index-topic">快问快答：Keith Rabois 的人生哲学</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>嘉宾介绍：Keith Rabois 的传奇履历</h1>
+    <div class="chapter-content">
+      <p>Keith Rabois 的简历无论作为运营者还是投资人，都堪称传奇。他是最早投资 Stripe、Palantir、Airbnb、YouTube、DoorDash、Ramp 等数十家公司的早期投资人。他也是著名的 PayPal mafia 的核心成员，曾担任执行副总裁，负责业务开发和政策事务。他还担任过 Square 的首席运营官、LinkedIn 的企业开发副总裁。他联合创立了两家公司，目前是 Khosla Ventures 的董事总经理。</p>
+      <p>可以说，Keith 在识人、组建团队和运营世界级公司方面的能力处于 99.9 百分位。在开始录制前，他告诉我他用 iPad 完成这次访谈，而且他已经有好几年没用过电脑了。他告诉我，他是在 Square 工作时开始这样做的——Jack Dorsey 当时只用 iPhone 和 iPad 来运营公司。这个细节很好地展示了他不走寻常路的风格。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>识人术：如何通过冷酷背景调查找到顶尖人才</h1>
+    <div class="chapter-content">
+      <p>我认为有一件事是可以学会的，那就是做好背景调查。这对招聘刚毕业的大学生可能不太适用，因为背景调查的参照系会有偏差。但我认为，如果不进一步提高面试和评估能力，只要学会从彻底的背景调查中提取正确的信息，就能做得很好。</p>
+      <p>彻底的背景调查对我来说意味着：Tony 在 DoorDash 对每一位高级招聘都会做 20 个背景调查。20 个。</p>
+      <p>Wow，你打赌他一定很厉害。</p>
+      <p>是的。他是目前招聘最准确的一个人。我认为对于我们招聘的几乎每一个高级职位，我们都应该做 20 个背景调查。但问题是，大多数人只做三到五个，而且他们从来不问那些真正重要的问题。</p>
+      <p>他们问的都是标准问题：你觉得这个人怎么样？他们的优点是什么？他们的缺点是什么？但没有人问：你曾经因为这个人的决定而改变过自己的想法吗？有没有哪个决定是你事后觉得「天哪，我本来不会想到这样做」的时刻？</p>
+      <p>这就是我在面试中寻找的东西——候选人的决策质量，他们是否能让我改变想法，以及他们是否真的能「打赢比赛」。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>barrels and ammunition：初创公司的招聘困境与破解</h1>
+    <div class="chapter-content">
+      <p>我想谈谈你提出的「barrels and ammunition」框架，这真的拓展了人们的思维，帮助大家理解该招什么人。</p>
+      <p>大多数公司融资后都会有一些进展，然后他们再融资，不管是 A 轮还是 B 轮，然后他们大量招人。但 CEO 几乎无一例外地会感到沮丧——因为招了更多的人，似乎产出反而更少了。</p>
+      <p>问题在于，大多数公司找到的只是 ammunition，而不是 barrels。</p>
+      <p>Barrel 是指那些即使在没有资源、没有基础设施、没有人帮你写代码的情况下，也能帮你赢得比赛的人。他们是那种即使不知道自己在做什么正确的事情，也能做出正确事情的人。而 ammunition 是那些在有资源、有基础设施、有明确方向的情况下，能够高效执行的人。</p>
+      <p>关键是你需要先找到 barrel，然后给他们 ammunition。如果你反过来——先找 ammunition，然后希望他们最终成为 barrel——你通常会失望。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>吸引顶尖人才的秘诀：当所有人都在抢同一个 barrel</h1>
+    <div class="chapter-content">
+      <p>回到我们开始的第一个问题。你分享了如何识别顶尖人才的绝佳建议。但我仍然好奇，当你发现那个 barrel 时——比如所有人都在给他们投钱，有很多优秀的团队可以选择——公司怎样才能吸引并说服他们加入？</p>
+      <p>标准的东西仍然有效。销售愿景和使命是不可或缺的。大多数已经证明自己才华的人都在寻找意义。你需要让他们相信这个使命是真实的，不是营销噱头。</p>
+      <p>但还有更重要的：他们想知道他们能否「赢」。</p>
+      <p>他们会问自己：跟着这家公司，我能赢得比赛吗？所以你需要让他们相信你有能力获胜。你需要展示你的执行力、你的团队、你过去的成功记录。</p>
+      <p>这就是为什么我建议创始人在早期就要展示自己的胜率——哪怕是小规模的胜利，也能证明你有能力赢。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>CEO 的核心角色：对抗成功带来的自满</h1>
+    <div class="chapter-content">
+      <p>我问了一些了解你、和你在不同公司共事过的人该和你聊什么。有一个人说他的第一反应是你是一个 bar-raiser。不管我们拿出什么数字，你都会推动我们做得更多。事实上，往往看起来我们做得越好，你推得越狠。这有道理吗？</p>
+      <p>是的，我认为这是真的。我认为，归根结底，CEO 最重要的角色之一就是抵消这种自满情绪。</p>
+      <p>当你做得很好时，人们并不开心。当人们安于现状时，士气实际上会下降。CEO 的唯一职责就是抵消这种自满。你做得越好，CEO 应该推得越狠。</p>
+      <p>高效的机器没有心理安全这一说。它们只关心赢。</p>
+      <p>这就是为什么我不相信「表扬」文化。我更相信直接指出问题，让人们专注于变得更好，而不是沉浸在赞美中。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>AI 时代的产品经理：为什么 PM 概念将消失</h1>
+    <div class="chapter-content">
+      <p>我想听听你对产品三人组未来的看法——产品经理、工程师、设计师。每个人都在想我的职业到底会变成什么样。</p>
+      <p>我听了 Peter Thiel 的播客，他让我相信 PM 这个概念在将来没有意义。基本上，如果你分解一下逻辑——PM 通常做什么？他们从客户那里获取输入，创建一年期的有序路线图，等等。但这个世界太荒谬了。</p>
+      <p>现在基础模型的能力，或者像 Lovable 这样的公司，正在以如此快的速度改进，以至于做一年期的路线图变得毫无意义。有些事情在十一月还是不可能的，现在在三月实际上已经很容易做到了。</p>
+      <p>所以你需要建立一个能够非常敏捷地改变路线图的组织。我认为像传统 PM 这样的中间人没有太大意义。</p>
+      <p>真正重要的是 CEO 式思维——我们要构建什么，以及为什么。</p>
+      <p>当你讨论的是以前可能是 PM 或以前可能是设计师或被称为工程师的人时，技能更像是 CEO——我们要构建什么以及为什么。成为一个成功的工程师、设计师的关键特质是知道要构建什么。随着工具越来越容易使用，但艺术在于知道要构建什么。</p>
+      <p>就像一位米其林餐厅的主厨，你实际上不是在烹饪这道菜。你是在采样，你在品尝同事的工作，你在编辑他们的工作。但本质上，这是一个商业角色。成为一个著名餐厅的主厨是：我们的价值主张是什么？我们如何区分自己？我们的定价是什么？我们的位置是什么？这就是为什么一个著名的主厨不是因为他们在烹饪这道菜。</p>
+      <p>AI 正在从中间开始蚕食软件开发过程。现在任何人都可以构建。你告诉 AI「这是我想要的」。困难的部分，至少现在仍然存在的是弄清楚要构建什么，然后让每个人都认同要构建什么。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>逆向思维的力量：如何让你的想法最终被采纳</h1>
+    <div class="chapter-content">
+      <p>我想谈一些你的热门观点、反直觉的观点。你在最近的播客中分享过，他们问你为什么现在没有那么多反直觉的观点了？你说因为它们都被证明是对的。这就是问题所在——如果你有好的想法，最终你希望它们被采纳。</p>
+      <p>作为投资者，你想逆向操作。所以 Airbnb，你从一个反直觉的观点开始。但最终，你需要接受它成为主流，否则你就没有真正的影响力。</p>
+      <p>我认为「反直觉」有一个生命周期。第一阶段是你完全孤军奋战。第二阶段是你的想法开始流行，但你仍然在大多数对话中「输掉」。第三阶段是你的想法成为主流，但你的贡献被遗忘了。</p>
+      <p>关键是在第三阶段仍然坚持你的贡献，同时也要学会在适当的时候妥协——不是为了赢得辩论，而是为了推动行业变革。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>创始人驱动投资：寻找改变世界的可能性</h1>
+    <div class="chapter-content">
+      <p>当你评估初创公司时，我现在在寻找什么，有没有你特别兴奋的东西？</p>
+      <p>我是一个创始人驱动的投资者。所以我唯一关心的是：这个创始人有没有可能改变一个行业或世界？如果是种子轮或 A 轮，我就投了。不要问其他问题。</p>
+      <p>这意味着我会花大量时间评估创始人。我需要相信他们有能力、有决心、有愿景。即使他们还没有产品，或者产品还很粗糙，只要我相信他们能赢，我就会投资。</p>
+      <p>这就是为什么我经常在其他人还在犹豫的时候就做出早期投资决定——我在赌创始人，而不是想法。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 09 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">09</div>
+    <h1>快问快答：Keith Rabois 的人生哲学</h1>
+    <div class="chapter-content">
+      <p>Keith，有什么你还想分享的吗？</p>
+      <p>快问快答时间到了。</p>
+      <p>我推荐的第一本书是《压力的好处》(The Upside of Stress)，作者是斯坦福大学的 Kelly McGonigal 教授。这本书以非常令人信服的方式论证了如果你想快乐、健康或富有，你的生活中需要更多的压力，而不是更少。</p>
+      <p>关于电影，我最近看了《纽伦堡大审》(Nuremberg)，强烈推荐。即使我是历史和政治的学生，看这部电影我可能也学到了五到十件我以前不知道的事情。</p>
+      <p>关于产品，我仍然沉迷于 Eight Sleep——我的另一个信条是你必须每天睡八小时。你必须优先考虑睡眠，即使你很忙。我是一个投资者，所以我有点偏见，但它确实改变了人们的生活。</p>
+      <p>我的人生信条是「没有休息日」(No Days Off)。我不相信休息日，包括锻炼。我不相信休息日工作。我认为在过去七年里，我只漏掉了七天的锻炼。即使是那七次，我仍然很恼火，因为我本应该能够做到的。我测量它，我在每年年底公布。</p>
+      <p>这就是我的mantra。没有借口。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=xCd9ykretlg" class="footer-link">Lenny's Podcast</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2024</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

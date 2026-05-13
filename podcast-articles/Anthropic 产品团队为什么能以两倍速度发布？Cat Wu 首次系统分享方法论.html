@@ -400,6 +400,27 @@ Cat Wu是Anthropic Cloud Code和Co-work的产品负责人，与Boris（Bert Chan
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -429,7 +450,7 @@ Cat Wu是Anthropic Cloud Code和Co-work的产品负责人，与Boris（Bert Chan
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/PplmzlgE0kg?autoplay=1"
+      data-src="https://www.youtube.com/embed/PplmzlgE0kg?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -437,6 +458,12 @@ Cat Wu是Anthropic Cloud Code和Co-work的产品负责人，与Boris（Bert Chan
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">技术</span>
+  <span class="tag">产品</span>
+  <span class="tag">AI</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>Anthropic的产品发布速度让整个行业侧目。特征时间线从6个月压缩到1个月，有时甚至只需1天。这背后不是某种神秘的「基因」，而是一套可以被学习的方法论。

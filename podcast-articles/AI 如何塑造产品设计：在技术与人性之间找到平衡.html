@@ -398,6 +398,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -427,7 +448,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/30qUaeOxkDk?autoplay=1"
+      data-src="https://www.youtube.com/embed/30qUaeOxkDk?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -435,6 +456,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">产品</span>
+  <span class="tag">设计</span>
+  <span class="tag">技术</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>我是 Christina "CJ" Jones，在一家澳大利亚的科技独角兽公司领导生成式 AI 设计。这家公司的在线图形设计工具被全球数亿人使用。我曾在交通配送、AI 搜索、宠物市场等领域建立和设计团队，并在舞台和播客中分享设计以及智能的未来。在这篇文章中，我想分享我对 AI 如何改变设计、工艺与策展的平衡、全球视角的设计差异、伦理挑战，以及未来设计师需要哪些技能的思考。这不是一篇简单的访谈记录，而是我亲身经历和深度反思的分享。</p>

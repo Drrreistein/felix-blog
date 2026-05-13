@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Anthropic 增长负责人亲述：我们如何用 Claude 自动化自己的增长 · Amol Avaisary</title>
+<meta name="author" content="Amol Avaisary">
+<meta name="description" content="Anthropic 是有史以来增长最快的公司之一。在过去的 14 个月里，他们的 ARR 从 10 亿美元增长到了 190 亿美元——这个数字比 Atlassian、Palantir、Snowflake 这些有着 15-20 年历史的公司加起来还要多。而我，作为 Anthropic 的增长负责人，亲">
+<meta name="keywords" content="播客, 访谈, Amol Avaisary, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+  /* ── 目录中的章节索引（由 build_html.py 生成）── */
+  .timeline-index-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-index-topic {
+    color: var(--olive);
+  }
+  .timeline-index-duration {
+    color: var(--stone);
+    font-size: 9pt;
+    margin-left: 6pt;
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  .chapter-time {
+    font-size: 9pt;
+    color: var(--stone);
+    margin: -4pt 0 6pt 0;
+    letter-spacing: 0.5pt;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">Anthropic 增长负责人亲述：我们如何用 Claude 自动化自己的增长</div>
+    <div class="cover-sub">Amol Avaisary 亲述 Anthropic 从 1B 到 19B ARR 的增长奇迹</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Amol Avaisary</strong><br>Anthropic 增长负责人<br>
+    主持：Lenny Rachitsky·2026<br>
+    时长：约 1 小时 52 分钟· 来源：YouTube / Lenny Podcast</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/k-H4nsOTuxU/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/k-H4nsOTuxU/hqdefault.jpg'"
+         alt="Head of Growth (Anthropic): Anthropic is automating its own growth">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      data-src="https://www.youtube.com/embed/k-H4nsOTuxU?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Head of Growth (Anthropic): Anthropic is automating its own growth · <a href="https://www.youtube.com/watch?v=k-H4nsOTuxU" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">产品</span>
+  <span class="tag">商业</span>
+  <span class="tag">技术</span>
+</section>
+
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>Anthropic 是有史以来增长最快的公司之一。在过去的 14 个月里，他们的 ARR 从 10 亿美元增长到了 190 亿美元——这个数字比 Atlassian、Palantir、Snowflake 这些有着 15-20 年历史的公司加起来还要多。而我，作为 Anthropic 的增长负责人，亲眼见证了这一切。
+
+我叫 Amol Avaisary。在加入 Anthropic 之前，我在 Mercury 和 Masterclass 负责增长。更早之前，我是一名创始人和投资银行家。有趣的是，大多数人不知道的是，我曾经遭受过严重的脑损伤，花了 9 个月才重新学会走路和工作。
+
+在这篇访谈中，我想分享我在 Anthropic 这家「活在未来」的公司里做增长的经验——我们如何思考增长、哪些工作已经被自动化、以及产品与增长角色的未来。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">用一封冷邮件拿到 Anthropic 的 offer</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">在 Anthropic 做增长：最火热的工作</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">激活难题与记忆迁移策略</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">用 Claude 自动化增长实验</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">增长角色的未来与 AI 时代的能力模型</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">从脑损伤康复中学到的人生功课</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>用一封冷邮件拿到 Anthropic 的 offer</h1>
+    <div class="chapter-content">
+      <p>我获得这份工作的方式相当非传统。当我参加入职培训时，他们展示了新员工来源的统计数据：推荐占多少、网站申请占多少、猎头招聘占多少——而我，不属于其中任何一类。</p>
+      <p>我当时完全是 Claude 的重度用户。每天都在用，心里就想：「这些人的产品真的很棒，公司也很棒，但他们显然还没有增长团队。」</p>
+      <p>所以我做了一件很简单的事：我给 Mike Krieger 发了一封冷邮件。他当时是 Anthropic 的首席产品官。我在邮件里说：「嘿，我喜欢你们做的事情，喜欢你们的产品。我觉得你们非常需要一个增长团队。想聊聊吗？」</p>
+      <p>我没指望他会回复。但他居然回复了：「嘿，有兴趣，我们聊聊吧。」</p>
+      <p>回过头来看，我当时根本不知道他们根本没有在招聘增长团队。网站上没有任何相关职位。但他们恰好在那个时候开始考虑组建增长团队，所以时机非常好。后来 Mike 告诉我，我是他唯一通过冷邮件招来的产品经理。能让他决定回复我的邮件，我感到非常幸运。</p>
+      <p>后来 Lenny 问我冷邮件的技巧。我说我这些年把冷邮件练得很熟。当我创业的时候，必须擅长这个，发了很多冷邮件，不断打磨标题、消息内容和语气。</p>
+      <p>首先是打开率。我有一套经过测试的高打开率文案。其次是触达渠道。如果所有人都用 LinkedIn 或工作邮箱联系你，而你换个渠道（比如个人邮箱）去联系，回复率会高很多。所以我搞到了 Mike 的个人邮箱。然后就是邮件内容要简短：「我是谁、为什么我合适、我们应该聊聊。」最后，一定要多次跟进。我的原则是：如果我真的在乎这个职位，就一直发直到对方说「别发了」。好在他第一封就回了。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>在 Anthropic 做增长：最火热的工作</h1>
+    <div class="chapter-content">
+      <p>在 Anthropic 做增长，是我职业生涯中最火热的工作。你必须明白，来到这里，过去的 50% 到 70% 的工作方式都得扔掉。</p>
+      <p>说实话，增长团队不能把公司成功的功劳都揽在自己身上。Anthropic 首先是一家 AI 模型公司和智能公司。我们成功的最大功臣是我们的研究团队——我认为这是世界上最好的研究团队。还有推理和计算团队，以及 Claude Code、市场营销等其他团队，他们比我们增长团队更值得表扬。</p>
+      <p>回顾一下增长轨迹：2023 年从零到 1 亿，2024 年从 1 亿到 10 亿，去年从 10 亿到将近 100 亿。我 2024 年加入的时候，公司的收入是几亿美元。</p>
+      <p>我记得入职第二周，我们开始做 2025 年的收入规划。团队设定了基础情景和激进情景。Darius（CEO）推动采用激进情景，大家都惊呆了：「我们怎么可能达到那个数字？」我当时的想法是：「这帮人疯了吧，这绝对不可能。」结果呢？那个数字实现了。</p>
+      <p>到了 2025 年底，有人说：「基数都 100 亿了，增长肯定会放缓。」结果呢？根本没放缓。190 亿美元只是 2 月底的数字。</p>
+      <p>更有趣的是，在公司内部，线性图表已经「不酷了」。一切都是对数线性图——你得给我看对数尺度的图。因为产品价值在两年后可能是今天的 1000 倍。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>激活难题与记忆迁移策略</h1>
+    <div class="chapter-content">
+      <p>在 AI 领域，激活是一个很大的挑战。用户初次使用时，往往不知道怎么用好 Claude。所以 Anthropic 做了一个很聪明的增长动作：从 ChatGPT 导入记忆。</p>
+      <p>你可以把你在 ChatGPT 里的对话历史导入到 Claude。这样你之前建立的所有上下文都能直接用，大大降低了迁移成本。</p>
+      <p>我们还注意到另一个问题：用户的激活曲线很陡。很多人注册了，但不知道怎么开始。所以我们开始研究如何自动化增长工作。</p>
+      <p>我们的增长平台团队正在推进一个叫「Cache」的项目——全称是 Claude Accelerates Sustainable Hypergrowth（Claude 加速可持续超高速增长）。核心问题是：我们能不能用 Claude 来自动化增长实验？</p>
+      <p>答案是：完全可以，而且正在产出结果。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>用 Claude 自动化增长实验</h1>
+    <div class="chapter-content">
+      <p>Cache 这个项目的核心思想是：让 Claude 本身成为增长实验的引擎。</p>
+      <p>传统增长团队的做法是：提出假设、设计实验、写代码、测试、分析结果。这个流程很慢，而且依赖工程师资源。</p>
+      <p>在 Anthropic，我们让 Claude 来做这些。你可以告诉 Claude：「我想要做 XX 实验，请帮我设计并运行。」Claude 会自动生成实验代码、部署、分析结果。</p>
+      <p>这带来的变化是：增长实验的速度提高了 10 倍。以前需要一周的实验，现在几小时就能完成。以前需要工程师支持的工作，现在可以自主完成。</p>
+      <p>我经常说，在 Anthropic，50% 到 70% 的工作方式得扔掉。因为这家公司太不一样了。你在别处学到的很多方法，在这里要么不适用，要么已经被自动化了。</p>
+      <p>最有意思的是，我发现自己更像一个产品经理，而不是传统的增长营销人员。因为我们在做的很多事情，本质上是在塑造产品本身。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>增长角色的未来与 AI 时代的能力模型</h1>
+    <div class="chapter-content">
+      <p>我认为增长这个角色正在发生根本性变化。</p>
+      <p>以前增长团队需要很多人：做 SEO 的、做 SEM 的、做内容、做运营、做数据分析。但 AI 时代，很多这些工作都可以被自动化。</p>
+      <p>未来的增长团队需要什么样的人？</p>
+      <p>首先，你需要真正理解产品的人。因为增长不再只是「把更多人带进来」，而是「让产品自己说话」。你需要知道产品哪里好、哪里不好、怎么改进。</p>
+      <p>其次，你需要能够和 AI 协作的人。你得知道怎么给 AI 指令、怎么评估 AI 的输出、怎么迭代。</p>
+      <p>第三，你需要战略思维的人。战术性工作会被自动化，但战略思考——去哪里增长、瞄准什么细分市场、怎么构建护城河——这些还是需要人来判断。</p>
+      <p>最后，我认为心态很重要。在 Anthropic 这样的公司，你需要接受不确定性，因为环境变化太快。你需要能够快速学习和调整。</p>
+      <p>总的来说，AI 不会取代增长，但会用 AI 的增长团队会取代不会用的。这是我们正在见证的变革。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>从脑损伤康复中学到的人生功课</h1>
+    <div class="chapter-content">
+      <p>很多人不知道，我曾经遭受过严重的脑损伤。那是很多年前的事了。</p>
+      <p>我花了 9 个月重新学习走路、工作，以及「不总是恶心」。</p>
+      <p>那段经历给了我一个完全不同的视角来看待压力和挑战。当你在医院躺了 9 个月，重新学会最基本的日常活动，你会对「什么是真正重要的」有很不同的理解。</p>
+      <p>后来 Lenny 问我怎么在 Anthropic 这么高压的环境下工作。我说：「说实话，脑损伤的康复教会我的是，压力是可以度过的。任何困难都有结束的一天。」</p>
+      <p>另一个学到的功课是：当你失去了某些能力，你才知道它们多珍贵。比如专注力、记忆力、清晰思考的能力。这些在 AI 时代更加重要，因为 AI 正在放大那些能力。</p>
+      <p>所以我经常提醒自己和团队：我们做的事情很重要，但我们自己也很重要。不要为了工作牺牲健康和关系。</p>
+      <p>这也是为什么我相信 work-life integration（工作生活融合）而不是 work-life balance（工作生活平衡）。平衡意味着对立，而融合意味着找到让两者相互促进的方式。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=k-H4nsOTuxU" class="footer-link">YouTube / Lenny Podcast</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

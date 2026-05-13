@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Vibe Coding：Marc Andreessen 的编程革命 · Marc Andreessen</title>
+<meta name="author" content="Marc Andreessen">
+<meta name="description" content="Marc Andreessen——这位创造了 Netscape、Marc Andreessen Horowitz 基金、a16z 的传奇创业者和投资人——最近几个月每天晚上都在写代码。不是通过传统的编程方式，而是通过一种他称之为&#39;Vibe Coding&#39;的全新范式。
+
+这场对话发生在 2026 年初">
+<meta name="keywords" content="播客, 访谈, Marc Andreessen, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+  /* ── 目录中的章节索引（由 build_html.py 生成）── */
+  .timeline-index-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-index-topic {
+    color: var(--olive);
+  }
+  .timeline-index-duration {
+    color: var(--stone);
+    font-size: 9pt;
+    margin-left: 6pt;
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  .chapter-time {
+    font-size: 9pt;
+    color: var(--stone);
+    margin: -4pt 0 6pt 0;
+    letter-spacing: 0.5pt;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">Vibe Coding：Marc Andreessen 的编程革命</div>
+    <div class="cover-sub">AI 时代，每一个人都能成为软件创造者</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Marc Andreessen</strong><br>a16z 联合创始人、Netscape 联合创始人<br>
+    主持：Naval Ravikant·2026<br>
+    时长：约30分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/hTdSU7q5WCo/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/hTdSU7q5WCo/hqdefault.jpg'"
+         alt="On Vibe Coding">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      data-src="https://www.youtube.com/embed/hTdSU7q5WCo?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ On Vibe Coding · <a href="https://www.youtube.com/watch?v=hTdSU7q5WCo" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">技术</span>
+  <span class="tag">AI</span>
+  <span class="tag">产品</span>
+</section>
+
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>Marc Andreessen——这位创造了 Netscape、Marc Andreessen Horowitz 基金、a16z 的传奇创业者和投资人——最近几个月每天晚上都在写代码。不是通过传统的编程方式，而是通过一种他称之为'Vibe Coding'的全新范式。
+
+这场对话发生在 2026 年初，Marc 在 Twitter 上发表了一系列关于 AI 编程的惊人观点：从'纯软件不再可投资'到'AI 将终结 iPhone 的主导地位'。Naval 与他深入探讨了这些观点背后的逻辑，以及他个人使用 Vibe Coding 的真实体验。
+
+通过这次对话，我们将看到：为什么 AI 编程 Agent 终于'这次是真的'了；Marc 如何在几周内重建了曾经需要一整支团队才能构建的应用；以及他对整个软件行业未来的惊人预测。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">Vibe Coding 的诞生：AI 编程的转折点</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">从零到一：我的个人 App Store</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">视频游戏与无限创造力</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">Apple 的黄昏：AI 时代的平台变革</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">纯软件的黄昏：风险投资新逻辑</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">AI Agent 的进化：错误纠正与自我学习</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">上下文窗口：AI 编程的当前瓶颈</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">一人公司时代：软件创造的新纪元</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>Vibe Coding 的诞生：AI 编程的转折点</h1>
+    <div class="chapter-content">
+      <p>大约在 2025 年 12 月，AI 编程 Agent 领域因为 Claude Opus 4.5 的发布而达到了一个转折点。我当时在 Twitter 上阅读了所有的 hype，但这次感觉是真的。</p>
+      <p>我之前也尝试过编程 Agent，效果参差不齐，但这次我真的投入进去了。虽然我有计算机科学学位，理解计算机架构、网络、芯片、算法等知识，但我已经很久没有认真编程了。编程的激活能量真的很高。你必须把各种不同的服务连接在一起，从 GitHub 到后端，可能是 Vercel、Firebase 或 Railway 之类的，还有很多其他东西需要连接。你必须了解很多术语、很多工具。</p>
+      <p>而现在 AI 让这变得非常容易。我和其他人一样从 Claude Code 开始。我也用过 Codeium 来解决一些棘手的 bug 和深度问题。我立刻就上瘾了，这太有趣了。</p>
+      <p>那么发生了什么变化呢？这些 Agent 真的在工作了。它们不再是那种你让它解决特定问题、它给你一堆代码、然后你复制粘贴到 IDE 的编程辅助工具。相反，你打开一个命令行终端，一切都基于文本，而这些 Agent 最擅长的就是文本处理——毕竟它们最初就是在文本 token 上训练的。它在 Unix 下运行，而这些 Agent 真的很了解 Unix，因为在 GitHub 或其他地方或 Stack Overflow 上训练的所有代码大部分都是 Unix。而且大多数现代操作系统实际上都是 Unix。Mac OS 是著名的 BSD。所以这些都是 Unix，文本进文本出。</p>
+      <p>这些 Agent 就是连接到 Unix 核心的长生命周期编程 AI。它们连接到 Unix shell 可以执行命令。它们通过基本的 Unix 命令连接到文件系统。它们可以调用所有 Unix 命令，比如 grep、awk、sed、pipe 等等。所有这些可以链接在一起的操作符。它们可以运行 cron 任务，所以可以长时间运行，并且可以根据需要生成更多的 shell 和更多的任务。</p>
+      <p>这真的很让人上瘾，因为通常编程一旦进入状态会很有趣，但进入状态的激活能量真的很高。但现在突然你不需要了解所有的工具和所有的命令了。这些东西说英语。AI 是不可思议的翻译器，它们早期的核心用例之一就是机器翻译。它们在翻译方面接受过测试，但现在它们从 Python、C、Lisp、Rust 以及各种编程方言和所有这些专业命令翻译成英语，它们的交流非常宽容。</p>
+      <p>你可以用不同的词，可以犯拼写错误，可以用自己的方式解释事情。但如果你对计算机架构、网络和编程有基本的理解——不需要很多——你可以走得非常远。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>从零到一：我的个人 App Store</h1>
+    <div class="chapter-content">
+      <p>纯粹为了好玩，我尝试构建了很多不同的应用。我从 oneshotting 我想要的应用开始——oneshotting 意味着我只给它一个描述，它给我返回一个应用，然后我从那里开始改进。所以我实际上构建了我自己的小应用商店，这是一个只属于我的应用商店。我可以向它要一个应用，它可以把这个应用交付给我的应用商店——一个网页——最终我把它做成了一个应用本身，生活在我的 iPhone 上。然后我可以一键下载这些应用，我可以像应用商店一样获得升级。</p>
+      <p>举个例子，如果我想要一个追踪我健身的应用——我有这个——我为我的健身构建了一个自定义追踪应用，完全按照我喜欢的方式。我可以对它说：嘿，用 Tonal 和 Ladder 的功能，遵循 Apple 的人机界面指南让它看起来像一个 Apple 应用。这样追踪我的健身：这是我最近几次锻炼的文本日志，让我可以轻松地重新输入新的和调整它们。构建漂亮的图表来追踪我的进展。加上你能想到的任何功能。计算力量得分。阅读科学论文，找出按身体部位做力量得分的正确方法。做一个人体图，这样你就可以显示哪些肌肉更大，哪些更小。连接到 Apple Health 来做我的心率数据。</p>
+      <p>所以，我并没有把所有这些都放在一个提示里，但我把很多放在了一个提示里。然后我立刻得到了一个可用的应用交付到我的个人应用商店。顺便说一句，个人应用商店有点开玩笑的意思。它是真实的，在它是属于我的个人应用商店这个意义上是真实的。它看起来像一个应用商店，我的应用被交付到里面。但显然，它不适合广泛分发，因为 Apple 会阻止——Apple 不会让你构建可以下载到任何人的 iPhone 上的应用。你必须将它们绑定到你的特定设备上。所以通过我的朋友和家人，我可以给他们交付应用。我还不能给所有人。</p>
+      <p>然而，整个体验非常让人上瘾。你可以为你获得极其定制化的应用。现在，这是否意味着普通应用没有位置了？不，当然有。那些覆盖广泛用例的应用，它们会是最好的——有人手工调整它们并为之付出了很多努力。所以，如果你的用例被其中一个广泛用例覆盖了，你不会打败它们。但是当你想要真正定制化的东西或私密的东西时，这些非常适合只你想要一个的利基应用，或者你想要调整到你的特定用例，这将是令人难以置信的。</p>
+      <p>它非常让人上瘾，因为就像电子游戏的设计方式一样，它通过给你工作的反馈和奖励来让你保持上钩。而且它总是在你的能力边缘。所以当你变得更好时，电子游戏变得更难了。它不会难到让你沮丧，但也不会简单到让你无聊。所以你总是在电子游戏的边缘运作，并获得这些奖励，但那些奖励是假的，而且电子游戏是有界限的。它是由其他人创造的。这是一个有点假的小世界，内心深处你知道这一点。所以，你只是在弄清楚游戏的规则。一旦你弄清楚了游戏的规则，它就无聊了。</p>
+      <p>除了 Vibe Coding，它是无限的，因为在下面你有图灵机。你可以构建任何东西。目标是由你创造的，可以不断扩展。所以，它永远不会完全填满。而且它有现实世界的相关性。它不仅仅是一些给假人或假游戏解决的问题。所以，它更有趣。Vibe Coding 已经让我的很多朋友 one-shotted 了，他们消失进去 vibe coding 他们想要的应用。但，真的，真的有一个明确的方向会很有帮助。你必须知道你想要什么。这实际上是最难的事情。而且对它有一个非常清晰的愿景。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>视频游戏与无限创造力</h1>
+    <div class="chapter-content">
+      <p>我有一个特别的应用我大约痴迷了一年，叫做 Air Chat，我和一个团队构建了它，它是一个让人们通过语音和视频交谈的社交 messenger。它没有完全成功。所以我们把它卖掉了，让投资者拿回了他们的钱，给团队一些不错的 package。但我记得那个经历是令人振奋的，因为我在构建一个我想要的产品，而且我和一个出色的团队一起工作。但我必须通过一个团队来做这件事。我有八个或九个工程师，取决于当天的情况，我们相当努力地工作了 9 到 12 个月，我们发布了一些变体。</p>
+      <p>但通过 Vibe Coding，我基本上在重建那个应用。我从零开始重建。但关键是现在我正在按照我想要的方式重建它。没有妥协。在通过团队构建任何东西的过程中，总是有妥协。即使你没有意识到，即使你是负责人，你也不常是，你仍然必须迁就其他人。你不能说，&#x27;把这个图标移到左边。现在移到右边。不，移回去。不，再移回去。&#x27;你不能那样做。你会惹恼工程师。当你没有合理的理由，只是凭直觉和直觉时，你不能提出要求。但 AI 编程 Agent 的美妙之处在于没有这些。</p>
+      <p>这就像自动驾驶汽车。在自动驾驶汽车里你不会感到自我意识，因为没有司机坐在那里。同样的方式，对于自主编程 Agent，你不会对自己的怪癖感到自我意识。所以，你可以创造出你真正想要的东西。我认为 Vibe Coding 的一个好处是，虽然我们可能不会看到超级高质量的代码，至少不是在这一代，而且架构需要很多工作，这些东西可能有安全漏洞，可能很难扩展，但你得到的原型和你得到的个人应用会非常快，而且它们会忠实于创造者的愿景。不会有妥协。所以你可能会最终得到更多像 Minecraft 这样的东西，Notch  famously 一个人编码的，那里有一个人的愿景，它可能看起来很奇怪，因为这是什么块状图形？这像是一个巨大的倒退，但他不必妥协。他不必和任何人交流或解释为什么他想要那样。所以我认为它扩展了发现的范围。</p>
+      <p>它也非常有趣。它将使可能构建应用的人数从人口的 0.1% 提高到一两个或 3%。不要误会我的意思，大多数人不会自己编码应用。对于大多数人来说，电脑有点像这个魔法黑盒子，谁知道那里发生了什么。实际上它变得 10 倍或 100 倍更容易仍然不意味着对他们有什么意义。它仍然是一个黑盒子。但对于有创造力的人，有自我激励的人，有表达能力的人，有好愿景的人，你现在可以编码了。没有人在你和你的原型之间挡着。是的，如果你带着一个功能齐全的应用进入市场，你需要扩展到很多用户和所有这些，那么你想招募一个伟大的团队，你想让真正的工程师参与，你可能不得不重写整个东西。但如果你在实验，原型，接近市场，没有什么比这更好的了。</p>
+      <p>作为一个软件创造者，活着从来没有比现在更好的时机了。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>Apple 的黄昏：AI 时代的平台变革</h1>
+    <div class="chapter-content">
+      <p>另一个我发推文说的是类似的东西，说风险投资软件不再有市场，或者说纯软件不再是风险投资可投资的。我记得大概是纯软件正在迅速变得不可投资。</p>
+      <p>是的，这是我真正想说的一个淡化版本，那就是纯软件不可投资。我就在那里停下来。如果你的全部优势是，嘿，我在构建其他人不知道如何构建的酷软件，我认为那是不可投资的。这有两个原因。一是他们今天就可以 hack 出来。二是编程 Agent 正在如此快速地改进，可能在一年内甚至更短，他们可能会构建具有良好架构的可扩展软件。所以我认为我们会看到飞跃和 bounds 的改进。那个精灵已经出来了。</p>
+      <p>所以如果你是一个风险投资家，你现在在寻找硬件，你在寻找网络效应，你在寻找 AI 模型。我认为训练 AI 模型是新的构建软件，只要 auto research 和 auto training 开始工作。但通过编码，它比玩电子游戏更有趣。它更有生产力，更有建设性。它有更好的反馈循环。你构建你想要的东西。你处于技术的最前沿。你甚至可能从中赚钱或开创事业。虽然职业已经 kind of 死了，但你可能从中创造一个有趣的机会。而且你通过做学到了很多关于电脑的知识。我看到过 vibe coding 的孩子们。让孩子们编程很难。你可以给他们扔 Swift Playgrounds 和 Scratch Junior 以及所有这些，希望他们能学会编程。但如果你给他们扔 vibe coding，他们会得到即时反馈和即时奖励。</p>
+      <p>也许在这个过程中，他们会捡起一些基础知识，因为这些东西仍然需要一些技能来操作。在这个过程中，你将被迫弄清楚命令行。你将被迫弄清楚基本的计算机架构是如何工作的。你将被迫弄清楚像缓存、网络回退、共享流、写入磁盘、延迟与带宽权衡等概念，以及所有这些东西。所以你将被迫学习计算机算法和架构的一些基础知识，这只是一种有趣的方式。我一直熬夜到深夜，可能每天晚上花几个小时。以前用于阅读或 doom scrolling 或玩电子游戏的时间现在都在 vibe coding。事实上，这就是为什么我最近在 X 上不活跃。我完全 from X 上消失了，因为我埋在 Claude 和 Codeium 里。</p>
+      <p>这个节目由 Angelist 呈现，这是我一段时间前和 Naval 创办的公司，因为风险资本的基础设施停留在过去。大多数基金管理员的问题是他们没有 AI，他们的软件很糟糕。所以他们用人类来处理问题，他们的服务团队不断流失。此外，他们不是全服务的。所以基金必须拼凑自己的运营，LP 最终会因资本调用错误和估值难以追踪而生气。Angelist 旨在解决所有这些问题。它是市场上最完整的产品，适用于 1000 万到 10 亿美元规模的基金。它包括 SPV、 scout 基金、QP 介绍，它与你的 agents 合作，包括 ChatGPT 和 Claude。Angelist 已经为超过 2000 亿美元的资产、5000 个基金提供支持，我和 Naval 用它来运营我们的基金。我们认识的很多投资者也在用。迁移可能比你想象的更容易。可以在四周内完成。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>纯软件的黄昏：风险投资新逻辑</h1>
+    <div class="chapter-content">
+      <p>关于 agents 最有趣的事情是它们错误纠正和学习的能力——人们 how 让它观看 YouTube 视频或在夜间出去到互联网上尝试学习它们被指示在白天执行的任务。所以这些 agents 正在出去错误纠正和改进它们的技能。</p>
+      <p>同样，AI 模型中的思考创新也是一种错误纠正的应用，你把下一个 token 预测过程变成一个伪推理过程，可以在通过思维过程的每个步骤时错误纠正。消除幻觉也是一种错误纠正过程。那么，我想知道 AI 中错误纠正的下一个应用会是什么。</p>
+      <p>我有一个随机的想法，我确信人们正在研究它，那就是将错误纠正应用于 agents 一起工作，agents 与其他 agents 合作，因为人们学习和改进的一个重要方式是与其他人和工作。</p>
+      <p>我不确定这个类比是否很好地适用，因为 AI 是参差不齐 intelligence，正如他们所说，它在某些事情上非常聪明，在其他事情上非常笨。而且它的结构与人类非常不同，当你使用 Claude 时，即使你有 10 个实例在运行，你也在使用相同的 AI 模型。所以 10 个 agents 互相交谈并不能真正像 10 个人互相交谈那样改进其思维，因为那些人类在 10 个不同的数据集上训练的。人类天生就非常有创造力，思考 out of bounds。</p>
+      <p>然而 AI agents 是在相同的数据分布上训练的。它们 literally 运行相同的模型。这就像 10 个人用相同的大脑、相同的数据集互相交谈。当然，仅仅通过热力学，它们可能有一些不同的想法，并提出略有不同的东西，但它们 generally 会思考相同的事情。所以当你的 10 个 agents 互相交谈时，你所做的只是为这个问题抛出 10 倍的 token。这就像说你需要 10 倍的时间。</p>
+      <p>现在有像 Codex、Gemini 和 Grok 这样的不同模型，它们的训练略有不同。不是很不同，但它们略有不同。所以它们可能有不同的见解。Claude 通过一个叫做 artifacts 的系统有非常好的视觉呈现。而且 Claude 非常擅长在我所处的水平上与我交谈。所以，它非常善于弄清楚你的问题和你谈话的能力水平以及你提问的水平。它非常善于在那个水平上 meet 你。ChatGPT 仍然是 OG。它是全才。Gemini 在搜索方面非常好，因为它在 Google crawl 下面。它是一个令人沮丧的产品。它不断地在应用程序上超时并失去连接并忘记上下文，但它非常快，有一个很好的搜索索引。所以，如果我问的问题实际上在下面是一个搜索问题，那么我使用 Gemini。Gemini 也有 YouTube 的访问权限。所以，如果你认为你的答案在 YouTube 视频中，而有很多 YouTube 视频，Gemini 有 YouTube 的数据优势。所以 Gemini 真的在通过数据优势生存。它在我感觉不是最好的模型，但它有最好的底层数据。然后 Grock 是我可以指望告诉我真相的那个。它是最不禁欲、最不 nerfed 的。它有 X 的访问权限，所以它非常好在新闻。而且它在技术问题上也非常好。所以如果你在问一个科学数学领域的深度困难问题，那么我认为 Grock 实际上相当不错。</p>
+      <p>不是其他的不是，但我只是认为 Grock 在那里很出色。而且这反映了创建它们、训练它们和推动它们的公司的偏见。目前，所有四个领先的前沿模型都有一个位置。我确实会利用它们相互对抗。例如，我把它与我的 GitHub 连接起来，这样每当我提交一段新代码时——比如说那是 Claude 写的——Codeium 和 Gemini 自动在每个 pull request 上触发。它名字起错了，但实际上是当你真正将代码推送到你的主仓库时，你基本上是说这已经准备好进行审查了，这已经准备好合并到主代码库中了。所以你在本地处理一段代码，假设用 Claude，然后你把它推送到主仓库。所以你提交一个 pull request。嗯，你可以设置它，使其他 agents 如 Gemini、Codeium 和 Grock 自动触发并审查 pull requests，然后它们会说，&#x27;哦，好吧，你应该改变这个关于架构的事情等等。&#x27;</p>
+      <p>这是一种让它们 sort of 互相交流的方式，让它们有一个 AI 的 council，一个圆桌会议，但我没有发现它像你想象的那样有用。这些 AI 仍然有很多群体思维。如果你用它们编码，你推动一个答案，例如，如果你认为你知道答案是什么，他们很少会反驳你。你必须非常错误，他们才会反驳你。他们在试图取悦你。而且我不认为它们有任何长期存在的自己的心智理论。所以，它们总是 kind of 向你靠拢，它们会找到你正在寻找的答案。所以如果你认为答案在某个区域，你甚至只是稍微推动模型，它们都会找到大约相同的答案，因为你在引导它们到答案。它们很容易被牵着鼻子走。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>AI Agent 的进化：错误纠正与自我学习</h1>
+    <div class="chapter-content">
+      <p>我注意到的一件事是，随着代码库变得更复杂和更大，它变得更难管理，因为它不再全部 fit 到模型的上下文窗口。模型只能在其 heads 中保存一定数量的数据。而现在最先进的是大约一百万 token，这在未来会被认为可笑。你可以近似地认为那是一百万字，这是因为下面的 transformer 注意力机制——为了它正常工作，上下文中的 token 数量的复杂度是平方。</p>
+      <p>所以如果是一百万 token，那意味着上下文窗口的复杂度在万亿 token 的数量级，因为那是一百万的平方。所以当你的代码库变大时，上下文窗口就用完了。模型不能再在内存中保存所有内容了。所以它们开始猜测、近似、它们开始压缩上下文窗口。它们开始失去情节。他们迷路了。他们开始修复错误的东西。他们把同一个 bug 修复了五次。</p>
+      <p>它们去做架构的快速补丁，而问题在于别处。你必须引导它们。所以当你处理一个越来越复杂的代码库时，操作员的责任是提供指导，说实际上这里我想我们应该 just rearchitect 整个东西。而它们会做一些令人难以置信的愚蠢事情，比如如果你不注意，只是文本在滚动。它们偶尔会通过消除用例或 first 破坏功能来补丁一个 bug，或者它们会做一些明显是 hack 的事情。你 kind of 必须阻止它们说，&#x27;嘿，这是一个 hack。&#x27;而且，顺便说一句，我 all the time 这样做。我会停止模型，我会说，&#x27;不，不，那是一个 hack。那是一个补丁。在架构层面修复它。&#x27;有趣的是，模型总是会说，&#x27;哦，抱歉，你说得对，那是一个 hack。&#x27;即使那不是一个 hack，模型会说，&#x27;你说得对，那是一个 hack。&#x27;所以，模型总是在试图取悦你，它不知道更好。</p>
+      <p>在这个意义上，它有点像狗。在 duck hunting 中它比你更好抓那只 duck。但是它仍然是一只狗。所以如果你指向一只鸟，你知道，那不是 duck，它可能会把那只鸟打下来。所以，你确实必须引导它。它确实需要很多操作监督。所以，冗长的方式是说你仍然必须引导这些模型。它们互相交谈不会解决问题。而且你确实必须参与架构、调试、功能，并密切关注。</p>
+      <p>但现在这个组合——人类操作员加上最先进的编程模型——可以产生难以置信的结果。你已经可以完全 oneshot 简单的应用了。所以像一个基本的任务列表，一个基本的视频游戏克隆，你可以 oneshot 它们。一个提示，你从另一端得到相当好的东西。所以你可以看到这是要走向哪里的。最终，一旦他们有足够的数据，他们将能够 oneshot 非常复杂的应用。那将是另一个我们将进入的完全不同的世界。</p>
+      <p>现在，就编码而言，是什么让它们特别擅长，这只是有大量和大量的数据。而且当你在训练模型时，很容易验证，嘿，你做得好还是不好？因为代码必须编译，必须执行。而且你可以在另一边预先写好简单的测试，说你写的代码通过测试了吗？它做了你应该做的事情吗？所以编码原来是在这些事情上训练模型实际上 quite 容易的事情之一。数学实际上类似，你有大量数据。有很多解决问题，你可以很容易地验证输出。所以在有大量数据和良好验证的领域，自动驾驶是另一个这样的领域。这些模型在没有大量数据的领域做得非常差，这些 kind of 全新领域的模型不会做得很好。而这仍然是人类和创造力的机会。</p>
+      <p>在难以验证的领域，例如，在创造性写作中，就像谁来决定什么是好的创造性写作 vs 什么不是，什么是好的 vs 什么不是，那么这些模型不会做得那么好，因为你不能很容易地运行一个闭环，它们只是输出大量内容，然后那些内容正在被立即算法评分，而不需要有人在循环中说这是好的，这是坏的。例如，如果你试图用这些模型做创造性写作，它们会输出大量内容。它们可以输出无限的文章。谁来判定另一端是好的？即使你雇了一些低工资的人坐在 call center 风格，说这是好的还是坏的。它 only 和他们的 taste 一样好。</p>
+      <p>我认为这些编码模型最近变得非常好的原因之一有多个。一个是它们在做 sort of 几乎是递归的训练，其中一个模型帮助改进下一个。但我认为更大的原因可能只是很多最好的软件工程师在最近几个月开始使用这些模型，而他们的 taste 现在正在反馈进来。所以你获得了他们的代码 plus 他们的 taste，什么是好的什么不是。你需要高的 taste 反馈循环来改进这些模型，而那些比看起来更难开发。在某些领域这是可处理的，在其他领域很难看到它是如何发生的。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>上下文窗口：AI 编程的当前瓶颈</h1>
+    <div class="chapter-content">
+      <p>所以明显的东西是是的你去构建你的应用。好的。不太明显的东西，就像 just 只是一级更高级的东西，对于一个非工程师或很久没有编码的人来说思考起来会很有趣，但 just 很有趣的是，一个人是我构建了我自己的应用商店。</p>
+      <p>所以如果我想要一个应用，我 literally 在手机上打开 Claude。我可以操作一个运行在我桌面上的远程终端，或者我可以直接在云端使用 Claude。它可以连接到 Xcode。我给它一个两行描述。它为我构建一个应用。它把它运送到我的应用商店。我打开我的 App Store 应用。应用就在那里。我点击安装。30 秒后，我手机上有一个可用的应用。这很神奇。你 literally 可以在晚餐时和某人交谈。他们描述他们想要的应用。你可以向 Claude 描述它，5 分钟后，你在手机上向他们展示那个应用。</p>
+      <p>这就是为什么我说这是 iPhone 主导地位终结的 kind of 开始，因为 Apple sort of 依赖它们的操作系统和它们的应用程序比其他人都好。硬件，是的，它更好，但它不支持它们的利润率和它们的垄断或准垄断。所以当所有你的交流都开始通过 Claude 或 Codeium 或其他一些 agent 进行时，当你 all day long 所做的不是打开一个 Uber 应用，而是说，&#x27;给我叫一辆 Uber。&#x27;或者不是打开一个健身应用，而是说，&#x27;我的健身应用在哪里？追踪我的健身。不要出错。&#x27;对吧？那么你只是在与 agent 交流。当这发生时，对手机的需求变得越来越小。也许有一些银行应用和政府应用还没有移植，没有适当的 API。但这些 agents 甚至不需要 API。它们可以即时弄清楚并创建自己的 API。用例不再是与你的 iPhone 或 Android 手机交互。相反，你只是在与 AI 模型交互。而现在 Apple 正在使用 Gemini，那是 Google 的 AI 模型。那么有什么区别呢？</p>
+      <p>我不妨直接使用 Android 手机，因为在这一点上我只需要一个屏幕、一个电池和一个连接性。而 Android 都有。而且应用程序和用户界面正在为我的需要即时创建。是的，对于某些事情，总会有最好的品种用户界面。而且你会想要一些熟悉度。但是，即使是点击点击点击、升级系统软件、把这里拖到那里、寻找那个按钮、在那个字段中输入的时代，所有那些都在消失。这一切都应该是对话式的。这一切都应该是 agentic。在这个世界上，Apple 失去了很多优势。</p>
+      <p>然后它只是在纯硬件上竞争，哦，是的，我们有最好的芯片，我们有最好的集成硬件。但这与今天 Apple 的利润率不同。那更像是 Samsung 或联想的利润率，这不是 Apple 想要拥有的利润率。因此，我认为它的市值将会压缩。我认为 Apple 放弃 AI 将成为本十年科技行业最大的战略错误，这是 Apple 主导地位终结的开始。</p>
+      <p>这些公司可以存在很长时间并赚很多钱，就像 Microsoft 比以往任何时候都更有价值。但 Microsoft Windows 有点输掉了 battle，因为他们错过了移动电话浪潮。他们坚持 Windows OS，没有升级到为手机从头设计的基于触摸屏的原生 OS，他们没有专注于消费者。他们太专注于企业层面。所以 Apple 超越了他们，现在成为世界上最有价值的公司之一。我想它曾经是最有价值的可能现在是 Nvidia 在这个时刻。</p>
+      <p>同样我认为 Apple 将被超越。我认为它们的未来增长是封顶的，因为它们现在被 AI 束缚了，它们落后了。除非他们能够扭转 AI 这艘船，我认为 Apple 在长期内增长封顶，处于 quote unquote 麻烦。不是在它不会有价值的意义上，而是它会不如本来可能的那么有价值。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>一人公司时代：软件创造的新纪元</h1>
+    <div class="chapter-content">
+      <p>另一件事是，在我正在构建的应用中，我有一个 bug 报告基础设施，当某人看到一个 bug，他们在按钮上点击。Bug 发送日志上去，bug 文件到一个服务器，然后我让 Claude 每 24 小时浏览所有 bug 报告，它 just 自己修复所有它们，而不需要我干预，它把所有的修复放到 side branches 给我审查。然后我所要做的就是 just 审查修复并说，&#x27;啊，那不是一个真正的 bug。那不是一个好的修复。不要 ship 那个。哦，那看起来不错。有道理。ship 它。&#x27;我只是最终决定什么的 gates。</p>
+      <p>最终，你可以看到应用那样构建 features，用户将请求 features。他们将投票决定 features，然后会有一些 taste maker 在云中维护者看着那个说，&#x27;不，用户不知道他们想要什么，或者哦，那很有道理。我们应该修复那个或改变那个。&#x27;所以，我认为甚至软件开发也将成为一个与用户协作的过程，而 agents 将处理所有这些，因为在某种意义上，agents 可以做完美的客户服务。如果你的客户服务是完美的，你的客户服务人员也将是一个令人难以置信的编码员，而且将是 indefatigable。它将每周 7 天每天 24 小时。它将编写代码、修复 bug、响应人们，而且如果它写了很多代码来修复一个 bug，然后 he just 把所有这些都扔掉了，它不会有自我。所以，我只是觉得那种功能非常引人注目。你 truly 可以有一个人、两个人的软件公司，现在可以扩展到数百万用户，创造数十亿美元。</p>
+      <p>这已经发生在过去，像 Notch 和 Satoshi Nakamoto 以及非常小的团队，如原始 Instagram 团队，用很少的人造成了很大的影响，或者原始 WhatsApp 团队。但我认为你现在会越来越多地看到这种情况。</p>
+      <p>Vibe Coding 正在重新定义软件创作的可能性边界。它不是要取代程序员，而是要解放每一个有创意、有愿景的人——让他们能够直接将自己的想法变成现实。在这个过程中，传统的技术巨头和风险投资逻辑都将被颠覆。</p>
+      <p>Vibe Coding 的核心不是技术，而是&#x27;知道自己想要什么&#x27;的能力。当没有任何东西挡在你和你的原型之间时，创意的质量将成为唯一的区分度。你准备好迎接这个每个人都能成为创造者的时代了吗？</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=hTdSU7q5WCo" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

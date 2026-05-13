@@ -398,6 +398,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -427,7 +448,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/E_rNotqs--I?autoplay=1"
+      data-src="https://www.youtube.com/embed/E_rNotqs--I?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -435,6 +456,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">产品</span>
+  <span class="tag">技术</span>
+  <span class="tag">AI</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>这篇文章来源于我与 Lenny 的深度对话。我分享了自己在 AI 产品管理领域的经验——从如何进入这个领域，到如何在 AI 时代脱颖而出，再到如何作为个人贡献者（IC）长期取得成功。如果你对 AI 产品管理感兴趣，或者想在这个领域建立职业生涯，希望我的经验能给你一些启发。</p>

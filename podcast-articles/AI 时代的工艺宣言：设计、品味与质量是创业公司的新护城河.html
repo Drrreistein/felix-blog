@@ -400,6 +400,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -429,7 +450,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/WyJV6VwEGA8?autoplay=1"
+      data-src="https://www.youtube.com/embed/WyJV6VwEGA8?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -437,6 +458,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">产品</span>
+  <span class="tag">设计</span>
+  <span class="tag">技术</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>我们不再处于「差不多就行」的时代了。差不多意味着平庸。如果你想在软件竞争中胜出，你需要通过设计来差异化。工艺很重要。

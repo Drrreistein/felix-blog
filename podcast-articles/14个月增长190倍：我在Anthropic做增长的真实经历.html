@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>14个月增长190倍：我在Anthropic做增长的真实经历 · Amol Avaisary</title>
+<meta name="author" content="Amol Avaisary">
+<meta name="description" content="很多人说自己的公司是历史上增长最快的，但Anthropic实际上真的是。在14个月里，我们把年度经常性收入从10亿美元做到了190亿美元——这是商业史上前所未有的数字。作为这家公司的增长负责人，我想分享这段疯狂的旅程：我们的增长引擎是如何运转的，AI如何正在自动化我们自己的增长工作，以及为什么我认为">
+<meta name="keywords" content="播客, 访谈, Amol Avaisary, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+  /* ── 目录中的章节索引（由 build_html.py 生成）── */
+  .timeline-index-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-index-topic {
+    color: var(--olive);
+  }
+  .timeline-index-duration {
+    color: var(--stone);
+    font-size: 9pt;
+    margin-left: 6pt;
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  .chapter-time {
+    font-size: 9pt;
+    color: var(--stone);
+    margin: -4pt 0 6pt 0;
+    letter-spacing: 0.5pt;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">14个月增长190倍：我在Anthropic做增长的真实经历</div>
+    <div class="cover-sub">从成功灾难到AI自动化增长实验，一个增长负责人在商业史上最快公司中的生存笔记</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Amol Avaisary</strong><br>Anthropic 增长负责人<br>
+    主持：Lenny Rachitsky·2026<br>
+    时长：约112分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/k-H4nsOTuxU/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/k-H4nsOTuxU/hqdefault.jpg'"
+         alt="Head of Growth (Anthropic): Anthropic is automating its own growth">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      data-src="https://www.youtube.com/embed/k-H4nsOTuxU?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ Head of Growth (Anthropic): Anthropic is automating its own growth · <a href="https://www.youtube.com/watch?v=k-H4nsOTuxU" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">产品</span>
+  <span class="tag">商业</span>
+  <span class="tag">AI</span>
+</section>
+
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>很多人说自己的公司是历史上增长最快的，但Anthropic实际上真的是。在14个月里，我们把年度经常性收入从10亿美元做到了190亿美元——这是商业史上前所未有的数字。作为这家公司的增长负责人，我想分享这段疯狂的旅程：我们的增长引擎是如何运转的，AI如何正在自动化我们自己的增长工作，以及为什么我认为约束中的自由是理解Anthropic成功的关键。但我的故事并非一条光鲜的上升曲线——在来到Anthropic之前，我曾创业失败，也曾遭受严重脑损伤，花了9个月重新学习走路。正是这些经历塑造了我在这个疯狂行业中保持稳定的内核。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">14个月增长190倍：Anthropic 正在改写商业史</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">增长负责人在做什么：比创始人还难的工作</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">用 AI 工作：在 Anthropic 的日常</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">约束中的自由：Anthropic 的战略专注哲学</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">安全与增长：Anthropic 从不妥协的那条线</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">给 PM 和增长人员的职业建议</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">创业失败、脑损伤与冥想：一个非常规天才的养成</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>14个月增长190倍：Anthropic 正在改写商业史</h1>
+    <div class="chapter-content">
+      <p>很多公司宣称自己是历史上增长最快的，但Anthropic实际上真的是。</p>
+      <p>让我用数据说话。在2025年初，我们的ARR达到了10亿美元。而到我做这个访谈的时候，这个数字已经飙升到了190亿美元。14个月，从10亿到190亿。在过去的几个月里，我们的收入直接翻了一番，实现了同比10倍的增长。</p>
+      <p>这个规模是什么概念？Atlassian、Palantir、Snowflake，这些公司存在了15到20年，每家的ARR大约在45亿到60亿美元之间。而我们每隔几个月就能增加这么多ARR。等到这期节目播出的时候，这个数字还会更高。</p>
+      <p>从历史上看，我们曾是这个领域里规模最小，资金最不充裕的玩家。我们没有Meta或Google那样的自由现金流和分发渠道，也没有OpenAI的先发优势。能走到今天这个阶段，简直是一个奇迹。</p>
+      <p>我经常说，在Anthropic领导增长工作是我职业生涯中最炙手可热的职位。但你来到这里，需要做好一个心理准备：过去50%到70%的工作方式需要彻底抛弃，它们不再适用。</p>
+      <p>我们做过一个我认为非常聪明的增长举措——从ChatGPT导入记忆的功能。在AI领域，激活是一个巨大的挑战，这个功能帮助了大量用户顺利过渡到Claude。另一个让我兴奋的方向是我们正在思考如何自动化增长本身。我们的增长平台团队正在推进一个名为Cache的项目。</p>
+      <p>说实话，我们基本上是在生活在未来。我们团队经常谈论指数级增长——我相信两年后我们将交付的产品价值可能是今天的数千倍。在内部有一个有趣的细节：线性图表已经不再酷炫了，一切都要用对数线性尺度来展示。</p>
+      <p>顺便说一下我是怎么来到Anthropic的。当时我是Claude的重度用户，觉得这家公司的产品非常出色，但明显缺乏一个增长团队。于是我做了一件大胆的事——给Mike Krieger发了一封冷邮件。令我意外的是，他居然回复了，表示有兴趣聊聊。后来我才知道，我是Mike唯一一次通过冷邮件招聘的PM。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>增长负责人在做什么：比创始人还难的工作</h1>
+    <div class="chapter-content">
+      <p>很多人可能会觉得奇怪：Anthropic拥有世界上最强大的模型和产品，Claude几乎无所不能——那为什么还需要增长人员？</p>
+      <p>我得承认，这种质疑并非完全没有道理。我们非常幸运地拥有世界上最好的模型，也非常幸运地拥有Claude Code和Co-work这样的产品，这些确实让很多事情变得更容易了。</p>
+      <p>但我要告诉你一个事实：这是我职业生涯中最艰难的工作，比做创始人还难，比做投资银行家还难。</p>
+      <p>从本质上讲，我们做的事情和你能在任何一家公司看到的增长工作是一样的类别。我们关心获取——如何让更多人走进来。我们关心激活——注册流程、引导用户到正确的产品、让他们取得成功。我们关心货币化——免费到付费的转化、定价和包装。</p>
+      <p>但这里最大的区别在于，我在Anthropic大约70%的时间花在我们内部称之为成功灾难的事情上。所谓成功灾难，就是业务发展得太好了，以至于其他东西开始崩溃。任何在经历过快速增长的公司工作过的人都懂这种感觉——当你增长得这么快时，你之前建立的很多东西都在某种程度上被打破了。</p>
+      <p>除了处理成功灾难，我们还在大力推进增长的自动化。AI现在越来越擅长告诉我们该做什么，而不仅仅是接受我们的指令。Cache项目就是这一趋势的具体体现——我们用Claude来运行增长实验，分析结果，甚至提出新的假设。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>用 AI 工作：在 Anthropic 的日常</h1>
+    <div class="chapter-content">
+      <p>让我给你描绘一下我每天的工作是什么样子的。</p>
+      <p>我们在Anthropic相当广泛地在各个方面使用AI。从标准的产品管理工作开始——写文档、头脑风暴，分析数据，这些Claude都能帮上大忙。但让我最兴奋的是在数据监控方面的应用。</p>
+      <p>我个人的工作流是这样的：我设了一个Claude Cowork的定时任务，每天早上它都会自动去看大约20到25个不同的数据图表。当我早上到办公室的时候，Cowork已经完成了它的分析，它会告诉我：这些是你应该注意的事情，这些是值得关注的异常，这些是一些有趣的洞察。</p>
+      <p>我得承认，我仍然会去看一些我最喜欢的图表。我就是那种人——我热爱看图表，而且我们的图表都往右上角增长，看着特别爽。所以我每天还是会亲自看几张核心图表。</p>
+      <p>但关键是那些长尾的指标。有些指标你每天根本没有时间去查看，甚至中等重要程度的那些你也来不及每天盯。这就是Claude真正发挥价值的地方——如果它能主动地每天查看这些长尾指标，随着时间的推移，你会对整体业务状况感到越来越安心。</p>
+      <p>工作的本质正在从自己做所有事情转变为指导AI做事，然后在关键节点上做出人类独有的判断。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>约束中的自由：Anthropic 的战略专注哲学</h1>
+    <div class="chapter-content">
+      <p>如果说有什么是我认为Anthropic成功最关键的因素，不是我们的技术领先，不是我们的资金实力，甚至不是我们的团队——而是极度专注。</p>
+      <p>Anthropic一直非常擅长做很少的事情，但每一件都做得极深。你看我们在B2B领域的深耕，你看我们在AI编码用例上的极致投入——Claude Code就是最好的例子。</p>
+      <p>这种专注背后的逻辑有两层。第一层是商业利益——专注于编码和B2B，确实在商业上回报丰厚。但第二层更重要——加速研究。编码是一个你可以用AI来构建东西、同时又用那些东西来改进模型的领域。这是一个良性循环。</p>
+      <p>这种专注从何而来？很大程度上源于约束。从历史上看，我们一直是这个领域最小，资金最少的玩家。我们没有选择。当资源有限时，你必须选择极其狭窄的焦点，才能最大化达到逃逸速度的概率。</p>
+      <p>这引出了一个我认为可以迁移到任何领域的原则——约束中的自由。当约束施加于你时，无论是个人生活还是工作，它反而能带来很大的自由，因为它消除了多余的选择。</p>
+      <p>Anthropic采用公共利益公司（PBC）结构，而不是标准的C-corp。这个法律结构允许公司在法律上声明：最大化股东价值并非公司的最高目标。我们可以——也应该——在决策中优化公共利益。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>安全与增长：Anthropic 从不妥协的那条线</h1>
+    <div class="chapter-content">
+      <p>在Anthropic，我们对AI的未来持非常乐观的态度，但同时我们对风险有着清醒的认知。公司的最高目标用一句话概括就是——这对人类来说必须顺利。这意味着我们愿意为此承受重大的商业损失，而且我们已经一次又一次地这样做了。</p>
+      <p>从增长团队的具体操作层面来说，我建立了一个框架来处理有争议的增长实验。我把这类测试分为两类。</p>
+      <p>第一类是红线类。这个测试争议太大，根本就不应该运行。对于Anthropic来说，AI安全绝对是第一类——这是公司存在的理由，在这个问题上没有讨论的余地。</p>
+      <p>第二类是敏感但可测类。这个测试让你觉得不太舒服，但它不是红线。这时候如果有人带着强烈的假设和信心来找我，我会说：好吧，你可以跑这个测试，看看效果。</p>
+      <p>对于增长团队来说，最常犯的大错误就是试图榨干每一分钱。我们的核心原则恰好相反：我们非常愿意为了安全、为了品牌、为了高标准的用户体验而放弃指标上的收益。</p>
+      <p>有人批评Anthropic在制造恐慌——夸大AI风险来获取关注。Ben经常谈论推动行业向上竞争。这个概念的意思是：如果你不在比赛中、在场边喊叫，没人在意你的声音。但如果你是领先的玩家、商业上表现出色，你就能影响其他参与者采取正确行动。留在场上，才有影响力。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>给 PM 和增长人员的职业建议</h1>
+    <div class="chapter-content">
+      <p>对于在AI时代想要蓬勃发展的产品经理和增长人员，我有三条建议。</p>
+      <p>第一，跟上工具。你需要使用Claude Code、Cohere这些工具，你需要理解每一次模型发布带来的新能力。AI能力的发展速度太快了，如果你不持续跟进，很快就会被甩在后面。</p>
+      <p>第二，找到你的不公平竞争优势并加倍投入。每个人都有自己擅长的领域。不要试图变成一个全能选手，而是要在你最强的那个尖峰能力上深入加倍。在AI时代，通才的价值在下降，专家的价值在上升。</p>
+      <p>第三，保持极强的适应力。进入Anthropic之后我发现，过去50%到70%的运作方式直接扔掉就行，不再适用。这不是夸张，而是现实。</p>
+      <p>说到Anthropic为什么特别，我想谈谈文化和人才——这是我认定的公司秘密武器。Anthropic是一家真正的使命驱动型公司。公司文化极其开放——领导层非常透明，Slack上有大量的公开讨论。每个人在Slack上都有自己的notebook channel。这种文化不是偶然形成的。它是刻意设计的——鼓励大家去挑战领导层、公开表达不同意见。这建立了一种深层次的信任感。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>创业失败、脑损伤与冥想：一个非常规天才的养成</h1>
+    <div class="chapter-content">
+      <p>我说过Anthropic的故事不是一个线性的成功叙事。现在让我分享我自己的故事，因为它深刻地塑造了我是谁，以及我如何在这个疯狂的行业中保持稳定。</p>
+      <p>先说创业失败。我曾经花了三年时间创办一家心理健康领域的公司。最终，因为团队经验不足，我们不得不关闭了它。那段经历是痛苦的，但我做出了一个后来被证明非常有价值的决定——即使在公司关闭后，我仍然坚持给投资者发送月度更新。</p>
+      <p>我现在甚至很感激那次失败，因为它直接导向了现在的道路。在那三年里，我被迫学习了后来职业生涯中需要的几乎所有技能。失败不是终点，而是一座学校。</p>
+      <p>然后是脑损伤。2022年初，我在练习泰拳时被踢中了头部。生活彻底改变了。我休了9个月的病假。前两三个月，除了洗澡和上厕所之外，一切都依赖我的妻子。我完全无法看屏幕——盯着电脑超过几秒钟就会恶心。</p>
+      <p>但我认为这可能是发生在我身上最好的事情之一。不是因为它本身有多好——它当然不好。而是因为它教会了我一些在Anthropic这种疯狂环境中至关重要的东西。</p>
+      <p>冥想在这个过程中扮演了关键角色。冥想教给我一个核心概念：在意识和现实之间创造空间。冥想还教给我一个更深层的人生哲学——真正的自由是学会在你得不到想要的东西时依然感到满足。</p>
+      <p>回顾这段旅程——每一步看起来都不太相关，但它们共同塑造了我现在面对这个世界的方式。在一个快速变化的行业中，最大的竞争优势不是知道更多，而是专注更少、适应更快——以及在一切失控时，依然能找到内心的稳定。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=k-H4nsOTuxU" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

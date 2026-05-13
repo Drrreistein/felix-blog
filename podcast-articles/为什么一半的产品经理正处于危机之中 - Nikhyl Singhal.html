@@ -398,6 +398,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -427,7 +448,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/yUohoaC8_Hs?autoplay=1"
+      data-src="https://www.youtube.com/embed/yUohoaC8_Hs?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -435,6 +456,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">商业</span>
+  <span class="tag">产品</span>
+  <span class="tag">技术</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>产品管理行业正在经历一场前所未有的变革。这不是温和的调整，不是渐进式的优化，而是彻底的范式转移。在这场变革中，有一群人正在经历前所未有的快乐——那些真正热爱建造的产品人；而另一群人却发现自己正处于职业生涯的十字路口。Nikhyl Singhal在与Lenny Rachitsky的深度对话中，毫不留情地揭示了这个行业的真相：为什么一半的产品经理正处于危机之中，而另一半正在迎来属于他们的黄金时代。如果你正在产品领域工作，无论是刚入行的新人、中级产品经理还是资深产品负责人，这期节目都是你必须认真聆听的。因为这不仅仅是关于行业趋势的分析，更是一份关于如何在AI时代生存并繁荣发展的实战指南。Nikhyl用他30年打造消费级产品的经验，以及他运营的拥有125位顶级产品负责人组成的Skip社区的第一手观察，为我们呈现了一幅既令人警醒又充满希望的行业图景。</p>

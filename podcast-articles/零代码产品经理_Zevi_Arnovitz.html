@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     PODCAST INTERVIEW ARTICLE TEMPLATE · kami design system
+     播客/访谈转长文模板
+     结构：封面 -> 导读 -> 章节内容 -> 金句 -> 附录
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>零代码产品经理：用AI构建真实产品的一年 · Zevi Arnovitz</title>
+<meta name="author" content="Zevi Arnovitz">
+<meta name="description" content="想象一下：一个完全不懂代码的产品经理，用Cursor和Claude Code构建了一个月入数千美元的真实产品。他不是天才，他只是一个普通人，学会了如何与AI协作。这就是Zevi Arnovitz的故事。
+
+我是Zevi，在Meta担任产品经理，之前在Wix工作。我没有技术背景——高中学音乐，在军队服">
+<meta name="keywords" content="播客, 访谈, Zevi Arnovitz, AI">
+<meta name="generator" content="Kami · Podcast to Article">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("./assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm 22mm 22mm 22mm;
+    background: #f5f4ed;
+  }
+
+  @page:first {
+    @top-right { content: ""; }
+    @bottom-center { content: ""; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #504e49;
+    --stone:     #6b6a64;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#e5e3d8;
+    --tag-bg:    #E4ECF5;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
+  }
+
+  html, body { background: var(--parchment); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12mm 0 8mm 0;
+    break-after: page;
+  }
+  .cover-eyebrow {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .cover-type {
+    font-size: 9pt;
+    color: var(--stone);
+    margin-bottom: 6pt;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.2;
+    letter-spacing: 0.3pt;
+    margin-bottom: 14pt;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--olive);
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: 24pt;
+  }
+  .cover-meta {
+    font-size: 10pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .cover-meta strong {
+    color: var(--dark-warm);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60pt;
+    height: 2pt;
+    background: var(--brand);
+    margin: 16pt 0;
+  }
+
+  /* ========== INTRO（导读）========== */
+  .intro {
+    background: var(--ivory);
+    border-radius: 6pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0;
+    break-inside: avoid;
+  }
+  .intro-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+  }
+  .intro p {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--dark-warm);
+    margin: 0;
+  }
+
+  /* ========== TIMELINE（时间线）========== */
+  .timeline {
+    margin: 16pt 0;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-topic {
+    color: var(--olive);
+  }
+  /* ── 目录中的章节索引（由 build_html.py 生成）── */
+  .timeline-index-item {
+    display: flex;
+    gap: 12pt;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 50pt;
+  }
+  .timeline-index-topic {
+    color: var(--olive);
+  }
+  .timeline-index-duration {
+    color: var(--stone);
+    font-size: 9pt;
+    margin-left: 6pt;
+  }
+
+  /* ========== CHAPTER HEADINGS ========== */
+  .chapter {
+    break-before: page;
+    margin-top: 8pt;
+  }
+  .chapter-num {
+    font-size: 10pt;
+    color: var(--brand);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8pt 0;
+    border-left: 2.5pt solid var(--brand);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  .chapter-time {
+    font-size: 9pt;
+    color: var(--stone);
+    margin: -4pt 0 6pt 0;
+    letter-spacing: 0.5pt;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18pt 0 6pt 0;
+    color: var(--near-black);
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14pt 0 4pt 0;
+    color: var(--dark-warm);
+    break-after: avoid;
+  }
+
+  /* ========== PARAGRAPHS ========== */
+  p {
+    margin: 0 0 10pt 0;
+    line-height: 1.65;
+    color: var(--near-black);
+  }
+  .hl { color: var(--brand); font-weight: 500; }
+  strong { font-weight: 500; }
+
+  /* ========== QUOTE BOX（保留但默认不启用，供需要时开启）========== */
+  .quote-box {
+    border-left: 2pt solid var(--brand);
+    margin: 14pt 0;
+    padding: 8pt 0 8pt 16pt;
+    color: var(--olive);
+    line-height: 1.6;
+    break-inside: avoid;
+  }
+  .quote-text {
+    font-size: 11pt;
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .quote-context {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== KEY POINT BOX（保留但默认不启用）========== */
+  .key-point-box {
+    background: var(--ivory);
+    border: 0.5pt solid var(--border);
+    border-radius: 4pt;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    break-inside: avoid;
+  }
+  .key-point-label {
+    font-size: 9pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ========== GOLDEN QUOTE / 金句 ========== */
+  .golden-quote {
+    background: linear-gradient(135deg, var(--ivory) 0%, #f0efe8 100%);
+    border-left: 3pt solid var(--brand);
+    border-radius: 0 4pt 4pt 0;
+    padding: 14pt 18pt;
+    margin: 18pt 0;
+    break-inside: avoid;
+  }
+  .golden-quote-text {
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--near-black);
+    font-weight: 500;
+    margin-bottom: 8pt;
+  }
+  .golden-quote-source {
+    font-size: 9pt;
+    color: var(--stone);
+  }
+
+  /* ========== TIMELINE INDEX（时间线索引）========== */
+  .timeline-index {
+    break-inside: avoid;
+    margin: 12pt 0;
+  }
+  .timeline-index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+    font-size: 10pt;
+  }
+  .timeline-index-time {
+    color: var(--brand);
+    font-weight: 500;
+    min-width: 45pt;
+  }
+  .timeline-index-topic {
+    flex: 1;
+    color: var(--olive);
+    padding-left: 8pt;
+  }
+
+  /* ========== FOOTER / 附录 ========== */
+  .footer {
+    margin-top: 30pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--border);
+  }
+  .footer-meta {
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: var(--brand);
+  }
+
+  
+  /* ========== VIDEO EMBED ========== */
+  .video-embed {
+    margin: 24pt 0;
+    break-inside: avoid;
+  }
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .video-thumbnail:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  .video-play-btn svg {
+    width: 20px; height: 20px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .video-iframe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480pt;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+  .video-iframe-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 9pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+  .video-caption .video-link {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  /* ========== DIVIDER ========== */
+  .section-divider {
+    text-align: center;
+    margin: 20pt 0;
+    color: var(--border);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<section class="cover">
+  <div>
+    <div class="cover-type">播客访谈 · Podcast Interview</div>
+    <div class="cover-title">零代码产品经理：用AI构建真实产品的一年</div>
+    <div class="cover-sub">一个非技术PM如何在AI时代成为真正的Builder</div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-meta">
+    <strong>Zevi Arnovitz</strong><br>Meta产品经理<br>
+    主持：Lenny Rachitsky·2026-05-12<br>
+    时长：约74分钟· 来源：YouTube</div>
+</section>
+
+<!-- ═════════════ 视频嵌入（在导读上方）═════════════ -->
+<!-- ══════════ VIDEO ══════════ -->
+<section class="video-embed">
+  <div class="video-thumbnail" id="video-thumb" onclick="loadVideo()">
+    <img src="https://img.youtube.com/vi/1em64iUFt3U/maxresdefault.jpg"
+         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/1em64iUFt3U/hqdefault.jpg'"
+         alt="How a Meta PM ships products without ever writing code | Zevi Arnovitz">
+    <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="9,6 20,12 9,18"></polygon></svg></div>
+  </div>
+  <div class="video-iframe-wrap" id="video-iframe-wrap">
+    <iframe id="video-iframe"
+      data-src="https://www.youtube.com/embed/1em64iUFt3U?autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <div class="video-caption">▶ How a Meta PM ships products without ever writing code | Zevi Arnovitz · <a href="https://www.youtube.com/watch?v=1em64iUFt3U" target="_blank" class="video-link">在 YouTube 观看</a></div>
+</section>
+
+<!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">技术</span>
+  <span class="tag">产品</span>
+  <span class="tag">AI</span>
+</section>
+
+<section class="intro">
+  <div class="intro-label">导读</div>
+  <p>想象一下：一个完全不懂代码的产品经理，用Cursor和Claude Code构建了一个月入数千美元的真实产品。他不是天才，他只是一个普通人，学会了如何与AI协作。这就是Zevi Arnovitz的故事。
+
+我是Zevi，在Meta担任产品经理，之前在Wix工作。我没有技术背景——高中学音乐，在军队服役于非技术单位。但通过一系列AI工具和工作流程的组合，我证明了一个非技术人员可以在AI时代成为真正的Builder。
+
+这期播客的核心不是关于我有多厉害。Lenny在准备采访时和Claude讨论过，Claude说了一句让我印象很深的话：'如果观众看完只觉得你很厉害，那你就失败了。如果他们回去打开电脑开始构建，那才是真正的成功。'所以这篇文章的目标很简单：让你也能做到。
+
+让我分享我这一年来学到的一切。</p>
+</section>
+
+<!-- ═════════════ 目录 ═════════════ -->
+<section class="toc">
+  <h2>目录</h2>
+  <div class="timeline-index">
+        <div class="timeline-index-item">
+      <span class="timeline-index-time">01</span>
+      <span class="timeline-index-topic">非技术PM的AI觉醒</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">02</span>
+      <span class="timeline-index-topic">从GPT Projects到Cursor的演进之路</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">03</span>
+      <span class="timeline-index-topic">Cursor工作流详解：七个/Command的秘密</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">04</span>
+      <span class="timeline-index-topic">多模型评审：让Claude、Codex、Gemini互相battle</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">05</span>
+      <span class="timeline-index-topic">文档即知识：持续优化的飞轮</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">06</span>
+      <span class="timeline-index-topic">AI会削弱PM的技能吗？</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">07</span>
+      <span class="timeline-index-topic">用AI备战Meta面试</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">08</span>
+      <span class="timeline-index-topic">失败角落：最差的一次产品评审</span>
+    </div>
+    <div class="timeline-index-item">
+      <span class="timeline-index-time">09</span>
+      <span class="timeline-index-topic">这是非技术人的黄金时代</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAPTER 01 ═════════════ -->
+
+
+<!-- ═════════════ CHAPTER 02 ═════════════ -->
+
+
+  <!-- ═════════════ CHAPTER 01 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">01</div>
+    <h1>非技术PM的AI觉醒</h1>
+    <div class="chapter-content">
+      <p>我想先聊聊我是怎么走到这一步的。</p>
+      <p>我完全没有技术背景。高中的时候学的是音乐。在以色列，很多人参军后会进入技术单位，但我没有。我就是一个普通的产品经理，懂产品，但完全不懂代码。</p>
+      <p>大概一年前，我和妻子去亚洲旅行了三个月。我们在日本的時候，正好是Sonnet 3.5发布的时候。我记得有一天晚上，我看了Greg Isenberg或者Riley Brown的一个视频，他们用Bolt或者Lovable展示如何用AI构建应用。</p>
+      <p>那一刻，我的感觉就像是有人走过来对我说：&#x27;嘿Zevi，有一项很酷的新技术你应该试试。哦对了，你现在有超能力了。&#x27;</p>
+      <p>我回到家的第一件事，就是行李都没打开就冲到电脑前，打开Bolt，注册账号，然后开始构建。从那天起，我一直在构建。</p>
+      <p>现在我用的是Cursor加上Claude Code。作为一个非技术人员，代码曾经让我感到恐惧。但AI让一切变得可能。我相信在接下来的几年里，每个人都会成为Builder。职位头衔会崩塌，职责边界会模糊。</p>
+      <p>这让我想起那句我一直在思考的话：&#x27;你不会被AI取代，你会被更会用AI的人取代。&#x27;这是真的，而且这话的分量比大多数人所理解的更重要。</p>
+      <p>关于为什么现在是最好的时候——很多人说现在没有junior职位了，毕业生就业很难。但我不同意。想想看，历史上什么时候你能一个人走出校门、带着几个朋友、完全靠自己构建一个创业公司？只有现在。AI消除了几乎所有的技能壁垒。</p>
+      <p>所以如果你好奇、勤奋、善于沟通，你拥有一个前所未有的不公平优势。真的。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 02 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">02</div>
+    <h1>从GPT Projects到Cursor的演进之路</h1>
+    <div class="chapter-content">
+      <p>我这一年的工具演进过程很有意思。</p>
+      <p>一开始我是个GPT Projects的重度用户。GPT Projects本质上是一个共享文件夹，可以存放自定义指令和共享知识库。我用它来隔离不同角色的上下文——我是跑步爱好者，是产品经理，是心理学学生，是创业者。如果用全局memory功能，AI会把这些上下文搞混。所以Projects帮我完美地分隔了这些角色。</p>
+      <p>从日本回来后，我开始用Bolt和Lovable构建我的应用。但我很快发现一个问题：这些产品太急于写代码了。它们的系统提示词说&#x27;你是一个编程代理&#x27;，所以你一说什么，它们就立刻开始写代码。</p>
+      <p>项目早期这很爽，因为它们会马上开始构建你的应用。但当事情变得复杂时，问题就来了。假设你要实现支付功能，或者要修改数据库，编程代理直接说&#x27;我明白了&#x27;然后开始写代码，这往往会导致灾难性的bug。</p>
+      <p>为了解决这个问题，我创建了一个&#x27;CTO&#x27;。我给AI一个自定义提示词，告诉它：&#x27;我负责问题，我负责用户感受，但你是这个项目技术实现的完全所有者。我要你挑战我，不要做一个讨好者。&#x27;</p>
+      <p>这些提示词是为了对抗ChatGPT的一个典型问题。我一直觉得理解AI最好的方式是把它们想象成人。ChatGPT会是世界上最糟糕的CTO，因为它太会讨好用户了。</p>
+      <p>我有一次很恐怖又很好笑的经历。几周前我想了解Bun JavaScript（被Anthropic收购的那个），我问ChatGPT它和我的应用里的另一个叫Zustand的框架是否类似。结果GPT说&#x27;是的，它们是一样的&#x27;，然后开始解释它们如何相同。我说&#x27;等等，它们完全不相关啊&#x27;。它回了一句让我毛骨悚然的话：&#x27;哦对不起，我以为你只是在随便说说，我配合你的思路呢。&#x27;</p>
+      <p>这就是ChatGPT的讨好模式。所以用Projects隔离上下文非常重要。</p>
+      <p>后来我graduated from each tool，当我outgrew了Bolt之后就转向Lovable，再后来我开始用Cursor。关键在于：所有这些工具背后的模型其实都一样。我可以在Cursor里运行Claude，也可以在Claude Code里运行。Lovable和Bolt也用的是同样的模型。它们之间的区别在于&#x27;缰绳&#x27;——它们在用户和模型之间加了很多层，帮助用户做决策。好处是门槛低，坏处是你失去控制。</p>
+      <p>Claude Code则直接把Claude放进你的代码系统，给它完整工具，让它做它想做的事。当然，代价是你需要自己做更多决策。我的建议是：慢慢来。先从GPT开始，然后Graduated到Bolt或Lovable，最后再逐步到Cursor。不要一开始就直接打开终端、进入黑暗模式。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 03 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">03</div>
+    <h1>Cursor工作流详解：七个/Command的秘密</h1>
+    <div class="chapter-content">
+      <p>现在让我展示我完整的Cursor工作流。这是我花了将近一年时间迭代出来的系统。</p>
+      <p>Cursor的/commands本质上是保存在代码库里的可复用提示词。键入斜杠加上文件名就能调用它们。我的工作流有七个核心命令。</p>
+      <p>第一个是Create Issue。当我在开发过程中突然发现一个bug或者有一个想法，但不想现在处理时，我用这个命令快速捕获想法。它会帮我格式化一个Linear issue，包含TLDR、当前状态、需要研究的内容等等。</p>
+      <p>第二个是Exploration Phase。当我想开始一个新功能时，我会调用这个命令，告诉AI我要参考哪个Linear ticket。然后它会深入理解问题，读取相关代码文件，问一些澄清性问题。</p>
+      <p>这感觉就像和你的工程经理对话。它既帮助CTO深入理解我们要解决的问题，也理解当前代码库的状态、哪些文件需要修改、最佳实现方式是什么。</p>
+      <p>第三个是Create Plan。根据我们的探索，它会生成一个markdown文件作为计划，包含TLDR、关键决策和任务分解。这个模板来自Twitter上一个我已经忘记名字的人写的帖子，但它非常适合我的工作方式。我还可以用不同的模型执行不同的任务——比如Cursor有个叫Composer的模型速度超快，我就用它处理不太复杂的部分。Gemini 3在UI设计上非常出色，我就让它处理前端。</p>
+      <p>第四个是Execute Plan。Composer执行计划的速度快得离谱，保持心流状态。完整的功能开发只需要几分钟。</p>
+      <p>第五个是Review。我让Claude审查自己写的代码。</p>
+      <p>第六个是Peer Review。这是我的独门秘方。我会同时打开Codex（ChatGPT的Claude Code竞品）和Cursor，让它们分别review代码。每个模型都会发现不同的问题。然后我用peer review命令，告诉Claude：&#x27;你是这个项目的开发负责人，公司里的其他团队负责人已经review了你的代码并发现了这些问题。&#x27;不要盲目接受它们的意见，你有更多上下文。你需要判断这些问题是真的还是误报。</p>
+      <p>第七个是Update Docs。每次Claude犯错，或者我发现了一个很糟糕的bug，说明它对某件事理解有误，我会问它：&#x27;你的system prompt或工具链中是什么导致了这次错误？&#x27;然后让它更新文档，确保同样的错误不再发生。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 04 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">04</div>
+    <h1>多模型评审：让Claude、Codex、Gemini互相battle</h1>
+    <div class="chapter-content">
+      <p>关于peer review，我想深入聊聊这个方法。</p>
+      <p>这对非技术背景的我来说特别重要。我很难自己catch代码中的错误。所以我的审查流程经过多次迭代才成为现在的样子。</p>
+      <p>首先我总是手动QA，用眼睛检查有没有明显的错误。然后我让Claude自己review自己的代码。但更有意思的是，我会同时让多个模型review。</p>
+      <p>我会让Codex review代码。我会让Composer也做review。</p>
+      <p>然后用peer review命令，让Claude扮演开发负责人的角色，其他模型的review意见作为输入：&#x27;其他团队负责人已经review了你的代码并发现了这些问题。你有比他们更多的上下文，你是这个项目的负责人。&#x27;然后我让它们互相battle——有时候Claude Code会变得很不耐烦，说&#x27;这已经是第三次提这个问题了，我告诉你这不是问题，这是设计如此。&#x27;</p>
+      <p>我把每个模型拟人化，这帮助我理解它们的特性。</p>
+      <p>Claude，她是我理想中的完美CTO。她非常善于沟通，非常聪明，不会你说啥就干啥。她很有观点，但也超级协作。这是我为什么总是被Claude吸引的原因——因为我有太多东西要学，我需要一个善于沟通但很有观点的开发负责人。</p>
+      <p>Codex呢，我把他想象成公司里最厉害的程序员。他穿着连帽衫和凉鞋，坐在黑暗的房间里。你只有在遇到最难搞的bug时才会去打扰他。他会说&#x27;Listen，我们有这个问题&#x27;然后关上门两小时，出来时说&#x27;搞定了。&#x27;你问&#x27;能告诉我们发生了什么吗？&#x27;他说&#x27;别担心，搞定了。&#x27;非常不善于沟通，但能解决所有最困难的问题。</p>
+      <p>Gemini就像一个疯狂的科学家，非常有艺术感，非常有才华。但如果你坐在旁边看他工作，你会吓坏的。如果你说&#x27;帮我重新设计一下仪表盘顶部&#x27;，你看着它的思维过程，它会说&#x27;首先我要删掉仪表盘&#x27;然后&#x27;不对，那是个错误，我再恢复回来&#x27;然后&#x27;我能编辑数据库吗？&#x27;&#x27;不行，你只是做重新设计！&#x27;最终它确实会设计出很漂亮的东西。但过程像坐过山车一样，非常吓人。</p>
+      <p>所以我的策略是：利用每个模型的优势，用其他模型来弥补弱点。我会让这些模型互相battle。有时候Claude Code会变得很不耐烦，这其实是个好信号——说明真正的问题可能已经被解决了。</p>
+      <p>我发现这个方法真的改变了游戏规则。想象一下，如果你在一家公司里，其他技术负责人都在帮你review代码。现在你有了这些AI同事来做同样的事情。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 05 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">05</div>
+    <h1>文档即知识：持续优化的飞轮</h1>
+    <div class="chapter-content">
+      <p>整个工作流中最重要的一个环节，可能也是最容易被忽视的，就是持续的复盘和文档更新。</p>
+      <p>我早期开始vibe coding的时候，遇到bug或者Claude执行出错，我就一直撞墙直到它工作为止。一旦成功了，我就说&#x27;好，这个功能搞定了，继续下一个。&#x27;</p>
+      <p>但我后来学到，更新文档和工具链是最大的生产力hack之一。</p>
+      <p>当Claude搞砸了某件事，或者我发现了一个很严重的bug，说明它对某件事理解有误，我会问它：&#x27;你的system prompt或工具链中是什么导致了这次错误？&#x27;Claude会反思，是什么导致了它做出这个错误。然后我会说：&#x27;好，让我们更新你的工具链和文档，确保同样的错误不再发生。&#x27;</p>
+      <p>这个过程形成了一个持续优化的飞轮：错误→反思→更新→更好的结果。每次构建内部工具或者做其他事情时，我都这样做。</p>
+      <p>这不仅仅是使用AI的事情。即使是正常工作中，做完一堆任务、发布功能给用户，然后回顾&#x27;我们做得好的是什么？可以改进的是什么？&#x27;这是critical的。但用AI，这可能是最大的解锁点之一——回到你的提示词，理解什么不够好，迭代它们，然后看着AI的回复变得越来越好。这可能是最重要的事情之一，也是区分&#x27;会用AI&#x27;和&#x27;真正会用AI&#x27;的关键。</p>
+      <p>还有一个我很喜欢的命令叫/learning opportunity。当我发现某件事很难理解，我会调用这个命令，告诉它我想学什么。它会说：&#x27;我是正在成长中的技术PM，我有中级的工程知识。我了解架构，请你用80/20原则解释我们正在做什么。&#x27;这是一个很棒的学习方式。每次你看到某件事不完全理解的时候，我强烈建议你用这个来学习。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 06 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">06</div>
+    <h1>AI会削弱PM的技能吗？</h1>
+    <div class="chapter-content">
+      <p>很多人担心用AI工具会让PM的技能萎缩。他们说&#x27;你开始依赖这些工具，你的技能会退化，你产出的是看起来很棒但实际上不行的slop&#x27;。</p>
+      <p>我强烈不同意这个观点，而且我听到这种说法很多次了。</p>
+      <p>我记得刚开始用Tal Raviv的课程构建我的PM Copilot时，公司的同事看了说&#x27;你这是在外包你的思考啊。&#x27;对我来说，这是最糟糕的理解方式。</p>
+      <p>我觉得这种担心通常和一类人高度相关——就是那种不喜欢在方案只有10%完成度时就展示、不愿意经常寻求帮助的人。很多人对PM这个角色有一个误解，认为PM的工作就是&#x27;总是有正确答案&#x27;、&#x27;总是房间里最聪明的人&#x27;。</p>
+      <p>但至少我接受的训练和我相信的PM角色，完全相反。PM的工作本质上是：利用一切能让我们尽快为用户提供正确解决方案的东西。AI就像一个拥有丰富上下文的聪明人、你的导师，随时可用，不会评判你，能真正帮助你。</p>
+      <p>如果你只是用AI创建输出然后直接发布，那确实是AI slop，但也是人的错误。确保你的输出质量是你的责任。</p>
+      <p>如果你intentional地使用AI，真正花时间理解如何正确使用AI，这会成为让你成为更好的PM的最大game changer之一。</p>
+      <p>另外，特别是对于更junior的PM，AI让你能以远高于正常水平的level运作。在Wix的时候，我不会去想&#x27;公司的营销策略是什么？&#x27;&#x27;整个产品的onboarding要如何重新设计？&#x27;但在side project里，我可以做所有这些决策，思考战略、消息传递、营销。这意味着我能获得大量reps，这是职业早期最重要的事情之一。</p>
+      <p>所以我理解担心技能萎缩的情绪。但真正让AI让你变得更差的方式只有一个：就是你用错了。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 07 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">07</div>
+    <h1>用AI备战Meta面试</h1>
+    <div class="chapter-content">
+      <p>另一个我大量使用AI的场景是准备Meta的面试。</p>
+      <p>Meta联系我说想让我面试，我直接打开Claude，创建一个项目作为我的教练。我在网上找所有最好的资料，找我共鸣的内容。我从Ben Erez那里学到了很多框架——他写过客座文章给Lenny，我认为他是这个领域最聪明的人之一。</p>
+      <p>我基本上创建了一个教练项目，每次面试的不同阶段我都会咨询它。我用AI做了大量的mock interview。这太神奇了。</p>
+      <p>我还做了一个很酷的事：我用Base44创建了一个游戏。我在做产品题时总是搞不定segmentation，所以我就创建了一个quiz游戏，生成不同segmentation的问题让我选择。我在公交车上的时候就会玩这个游戏来练习。</p>
+      <p>但我必须说，最大game changer是做真人的mock。所以在LinkedIn上cold outreach找人，让他们做真正的mock interview，我认为这是必须的。特别是Meta PM的准备，竞争超级激烈和困难，你绕不开这一步。</p>
+      <p>我也用AI做feedback。记录面试，然后让AI分析哪里可以做得更好。反馈循环是非常缺失的。没人会告诉你&#x27;这次面试你哪些地方做得不好&#x27;。但AI可以。</p>
+      <p>我还用Comet（Perplexity的浏览器工具）分析了Louis Lynn的免费问题库——这是一个不断更新的真实面试问题库。我让AI agent分析最常被问的问题是什么，这帮助我知道应该优先mock哪些问题。</p>
+      <p>关键是：把AI作为mock的工具和feedback的来源，但最终要靠真人对练来真正提高。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 08 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">08</div>
+    <h1>失败角落：最差的一次产品评审</h1>
+    <div class="chapter-content">
+      <p>最后我想分享一个关于失败的故事，这是Lenny播客上著名的&#x27;Failure Corner&#x27;环节。</p>
+      <p>我想讲讲我在Wix早期的一次失败经历。我是通过学生项目加入Wix的，毕业项目结束后被分配到一个特定的团队。我被分配到了editor，也就是Wix的核心产品团队。而其他PM都是Wix最优秀的PM。</p>
+      <p>有四个其他PM，他们经验都比我丰富得多，而且都非常出色。我记得第一次产品评审的时候，我心里想：&#x27;这次我要惊艳全场。他们不会相信我有多厉害的PM。&#x27;</p>
+      <p>所以我没有真正分享我在想什么。我工作了很长时间，一个人闷头做，心想&#x27;这次产品评审我要干掉所有人。&#x27;</p>
+      <p>结果呢？搞砸了。我的产品评审format不对，评审委员会问了很多我没有覆盖的问题。结束时我感觉很糟糕。我想&#x27;我真是个白痴&#x27;。</p>
+      <p>但后来我看到每个人都说&#x27;好，酷，两周后再来吧。&#x27;那一刻我明白了：他们对我成为10x PM没有任何期待，但对我成为10x learner有期待。</p>
+      <p>从那一刻起，我的心态完全转变了。这可能是我现在给junior PM的最好建议：在一开始，成为最好的learner。没人期待你知道所有答案，没人期待你有多厉害。</p>
+      <p>所以我做了这样的事：我评估了团队里每个PM的强项，把他们每个人当作那个领域的mentor。Neri，他有我见过最好的产品感，他现在还是我的mentor。Oya，她是个方法论专家，总是用框架思考。Yahra，她是产品负责人，能看一个产品然后立刻理解第三层和第四层效应。</p>
+      <p>每次我在某个领域有问题，我就找对应的mentor聊。这做两件事：第一，我真的学到了很多。第二，下一次产品评审，我的成功变成了他们的success——因为这不再是那个想向他们炫耀自己有多厉害的小孩，这是他们的mentee让他们感到骄傲的时刻。</p>
+      <p>最后我在Wix的表现非常出色。这整个经历教会我：有时候失败是最好的老师，只要你能从中学到正确的东西。</p>
+    </div>
+  </section>
+
+  <!-- ═════════════ CHAPTER 09 ═════════════ -->
+  <section class="chapter">
+    <div class="chapter-num">09</div>
+    <h1>这是非技术人的黄金时代</h1>
+    <div class="chapter-content">
+      <p>在结束之前，我想再强调几点。</p>
+      <p>回到开头说的那句话：&#x27;你不会被AI取代，你会被更会用AI的人取代。&#x27;这是真的，而且这话的分量比大多数人所理解的更重要。</p>
+      <p>我哥哥是个创业者，他的业务是帮助老年人更好地理解和使用科技与AI。他用和我一样的方式学习，他已经替换掉了所有以前付费的工具。他以前用Zapier和Airtable，现在完全靠自己构建了一个完整的CRM系统和自动化系统。他一个人完成的。</p>
+      <p>所以，对于好奇的人、勤奋的人，这是最好的时代。这不是夸张。</p>
+      <p>很多人说现在没有junior职位了，毕业生就业很难。是的，这是真的。但历史上什么时候你能一个人走出校门、带着几个朋友、完全bootstrapped地构建一个创业公司？只有现在。我越来越多地看到这种情况。</p>
+      <p>我见过更多人在Wix工作的最后阶段自己用AI构建东西。和很多人认为的相反，这是成为junior最好的时代，是成为learner最好的时代。</p>
+      <p>所以如果任何听到这里的人，你是好奇的人，你是勤奋的人，我想说——善良的人，如果你是一个善于沟通的人，你拥有如此不公平的优势。你可以给公司带来的价值，超过了大多数有20年经验的人。</p>
+      <p>我真的希望人们能从中受到启发，然后开始用项目大展身手。</p>
+      <p>开始吧。打开GPT，告诉它你的想法。让它解释第一步应该怎么思考，需要做什么决定。就保持好奇，投入时间学习，不要急于求成。</p>
+      <p>这就是我现在拥有的能力。你也可以。</p>
+    </div>
+  </section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<section class="footer">
+  <div class="footer-meta">
+    <strong>来源</strong>：<a href="https://www.youtube.com/watch?v=1em64iUFt3U" class="footer-link">YouTube</a><br>
+    <strong>整理</strong>：Kami · Podcast to Article<br>
+    <strong>日期</strong>：2026-05-12</div>
+</section>
+
+<script>
+function loadVideo() {
+  var t = document.getElementById('video-thumb');
+  var w = document.getElementById('video-iframe-wrap');
+  if (t) t.style.display = 'none';
+  if (w) w.style.display = 'block';
+}
+</script>
+</body>
+</html>

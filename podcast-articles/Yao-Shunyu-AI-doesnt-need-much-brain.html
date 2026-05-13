@@ -443,6 +443,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -472,7 +493,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/ttkd0t5qTD4?autoplay=1"
+      data-src="https://www.youtube.com/embed/ttkd0t5qTD4?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -480,6 +501,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">技术</span>
+  <span class="tag">科学</span>
+  <span class="tag">AI</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>这是一次让我彻底重新思考AI行业的访谈。姚顺宇说了一句让我印象很深的话：「AI不需要太多脑子，但最需要的品质是靠谱。」这听起来像是在贬低这个行业，但恰恰相反——他是在说，这个行业的成功因素不是智商，而是态度。

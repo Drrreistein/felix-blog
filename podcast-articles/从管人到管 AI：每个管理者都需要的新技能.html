@@ -398,6 +398,27 @@
     font-size: 14pt;
     letter-spacing: 8pt;
   }
+
+  /* ========== TAGS（分类标签 pill chip）========== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt;
+    margin: 12pt 0 4pt 0;
+    break-inside: avoid;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3pt 10pt;
+    background: var(--tag-bg);
+    color: var(--brand);
+    border-radius: 999pt;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    line-height: 1.4;
+  }
+
 </style>
 </head>
 <body>
@@ -427,7 +448,7 @@
   </div>
   <div class="video-iframe-wrap" id="video-iframe-wrap">
     <iframe id="video-iframe"
-      src="https://www.youtube.com/embed/c_w0LaFahxk?autoplay=1"
+      data-src="https://www.youtube.com/embed/c_w0LaFahxk?autoplay=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
@@ -435,6 +456,12 @@
 </section>
 
 <!-- ═════════════ 导读 ═════════════ -->
+<section class="tags">
+  <span class="tag">技术</span>
+  <span class="tag">产品</span>
+  <span class="tag">成长</span>
+</section>
+
 <section class="intro">
   <div class="intro-label">导读</div>
   <p>三年前，当 Lenny Rachitsky 启动他的播客时，我是他的第一位嘉宾。三年后，再次坐在他的镜头前，播客已经从零成长到接近 <span class="hl">3000 万次</span>下载——从 2000 万到接近 3000 万，这个数字本身就说明了 Lenny 对产品构建的热情和好奇心。他说这是我的 newsletter The Looking Glass 启发了他创办自己的 newsletter 和播客，但说实话，我觉得他的成长完全是他自己的功劳。这次回归，我们谈了很多——从管理的本质如何与使用 AI 工具的能力相通，到为什么我的公司不雇佣产品经理，从「用数据诊断、用设计治疗」的理念，到如何在变化中保持坚固而灵活。我还分享了对管理者的内在修炼的理解——维度性、反馈和双赢思维。如果你是一个管理者、一个产品人、或者任何一个正在思考如何在这个 AI 驱动的世界中找到自己位置的人，我希望这些内容能给你带来一些启发。</p>
