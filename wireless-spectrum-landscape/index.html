@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script>window.appId="app_17hufnzddba";window.userId="";window.tenantId="5603792674";window.csrfToken="";window.appEnv="runtime";window.__teaChannelDomain__="https://mcs-bd.feishu.cn";globalThis.CLIENT_BASE_PATH="/app/app_17hufnzddba";globalThis.ENVIRONMENT="online"</script><script>"use strict";var MiaodaRuntime=(()=>{var Pe=Object.create;var R=Object.defineProperty;var Be=Object.getOwnPropertyDescriptor;var Re=Object.getOwnPropertyNames;var De=Object.getPrototypeOf,Fe=Object.prototype.hasOwnProperty;var i=(t,e)=>R(t,"name",{value:e,configurable:!0});var V=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),He=(t,e)=>{for(var o in e)R(t,o,{get:e[o],enumerable:!0})},q=(t,e,o,u)=>{if(e&&typeof e=="object"||typeof e=="function")for(let f of Re(e))!Fe.call(t,f)&&f!==o&&R(t,f,{get:()=>e[f],enumerable:!(u=Be(e,f))||u.enumerable});return t};var Q=(t,e,o)=>(o=t!=null?Pe(De(t)):{},q(e||!t||!t.__esModule?R(o,"default",{value:t,enumerable:!0}):o,t)),Ne=t=>q(R({},"__esModule",{value:!0}),t);var te=V((ee,D)=>{"use strict";(function(t){"use strict";function e(n,h){var r=(n&65535)+(h&65535),w=(n>>16)+(h>>16)+(r>>16);return w<<16|r&65535}i(e,"safeAdd");function o(n,h){return n<<h|n>>>32-h}i(o,"bitRotateLeft");function u(n,h,r,w,C,S){return e(o(e(e(h,n),e(w,S)),C),r)}i(u,"md5cmn");function f(n,h,r,w,C,S,A){return u(h&r|~h&w,n,h,C,S,A)}i(f,"md5ff");function m(n,h,r,w,C,S,A){return u(h&w|r&~w,n,h,C,S,A)}i(m,"md5gg");function g(n,h,r,w,C,S,A){return u(h^r^w,n,h,C,S,A)}i(g,"md5hh");function b(n,h,r,w,C,S,A){return u(r^(h|~w),n,h,C,S,A)}i(b,"md5ii");function v(n,h){n[h>>5]|=128<<h%32,n[(h+64>>>9<<4)+14]=h;var r,w,C,S,A,a=1732584193,s=-271733879,c=-1732584194,l=271733878;for(r=0;r<n.length;r+=16)w=a,C=s,S=c,A=l,a=f(a,s,c,l,n[r],7,-680876936),l=f(l,a,s,c,n[r+1],12,-389564586),c=f(c,l,a,s,n[r+2],17,606105819),s=f(s,c,l,a,n[r+3],22,-1044525330),a=f(a,s,c,l,n[r+4],7,-176418897),l=f(l,a,s,c,n[r+5],12,1200080426),c=f(c,l,a,s,n[r+6],17,-1473231341),s=f(s,c,l,a,n[r+7],22,-45705983),a=f(a,s,c,l,n[r+8],7,1770035416),l=f(l,a,s,c,n[r+9],12,-1958414417),c=f(c,l,a,s,n[r+10],17,-42063),s=f(s,c,l,a,n[r+11],22,-1990404162),a=f(a,s,c,l,n[r+12],7,1804603682),l=f(l,a,s,c,n[r+13],12,-40341101),c=f(c,l,a,s,n[r+14],17,-1502002290),s=f(s,c,l,a,n[r+15],22,1236535329),a=m(a,s,c,l,n[r+1],5,-165796510),l=m(l,a,s,c,n[r+6],9,-1069501632),c=m(c,l,a,s,n[r+11],14,643717713),s=m(s,c,l,a,n[r],20,-373897302),a=m(a,s,c,l,n[r+5],5,-701558691),l=m(l,a,s,c,n[r+10],9,38016083),c=m(c,l,a,s,n[r+15],14,-660478335),s=m(s,c,l,a,n[r+4],20,-405537848),a=m(a,s,c,l,n[r+9],5,568446438),l=m(l,a,s,c,n[r+14],9,-1019803690),c=m(c,l,a,s,n[r+3],14,-187363961),s=m(s,c,l,a,n[r+8],20,1163531501),a=m(a,s,c,l,n[r+13],5,-1444681467),l=m(l,a,s,c,n[r+2],9,-51403784),c=m(c,l,a,s,n[r+7],14,1735328473),s=m(s,c,l,a,n[r+12],20,-1926607734),a=g(a,s,c,l,n[r+5],4,-378558),l=g(l,a,s,c,n[r+8],11,-2022574463),c=g(c,l,a,s,n[r+11],16,1839030562),s=g(s,c,l,a,n[r+14],23,-35309556),a=g(a,s,c,l,n[r+1],4,-1530992060),l=g(l,a,s,c,n[r+4],11,1272893353),c=g(c,l,a,s,n[r+7],16,-155497632),s=g(s,c,l,a,n[r+10],23,-1094730640),a=g(a,s,c,l,n[r+13],4,681279174),l=g(l,a,s,c,n[r],11,-358537222),c=g(c,l,a,s,n[r+3],16,-722521979),s=g(s,c,l,a,n[r+6],23,76029189),a=g(a,s,c,l,n[r+9],4,-640364487),l=g(l,a,s,c,n[r+12],11,-421815835),c=g(c,l,a,s,n[r+15],16,530742520),s=g(s,c,l,a,n[r+2],23,-995338651),a=b(a,s,c,l,n[r],6,-198630844),l=b(l,a,s,c,n[r+7],10,1126891415),c=b(c,l,a,s,n[r+14],15,-1416354905),s=b(s,c,l,a,n[r+5],21,-57434055),a=b(a,s,c,l,n[r+12],6,1700485571),l=b(l,a,s,c,n[r+3],10,-1894986606),c=b(c,l,a,s,n[r+10],15,-1051523),s=b(s,c,l,a,n[r+1],21,-2054922799),a=b(a,s,c,l,n[r+8],6,1873313359),l=b(l,a,s,c,n[r+15],10,-30611744),c=b(c,l,a,s,n[r+6],15,-1560198380),s=b(s,c,l,a,n[r+13],21,1309151649),a=b(a,s,c,l,n[r+4],6,-145523070),l=b(l,a,s,c,n[r+11],10,-1120210379),c=b(c,l,a,s,n[r+2],15,718787259),s=b(s,c,l,a,n[r+9],21,-343485551),a=e(a,w),s=e(s,C),c=e(c,S),l=e(l,A);return[a,s,c,l]}i(v,"binlMD5");function L(n){var h,r="",w=n.length*32;for(h=0;h<w;h+=8)r+=String.fromCharCode(n[h>>5]>>>h%32&255);return r}i(L,"binl2rstr");function x(n){var h,r=[];for(r[(n.length>>2)-1]=void 0,h=0;h<r.length;h+=1)r[h]=0;var w=n.length*8;for(h=0;h<w;h+=8)r[h>>5]|=(n.charCodeAt(h/8)&255)<<h%32;return r}i(x,"rstr2binl");function I(n){return L(v(x(n),n.length*8))}i(I,"rstrMD5");function E(n,h){var r,w=x(n),C=[],S=[],A;for(C[15]=S[15]=void 0,w.length>16&&(w=v(w,n.length*8)),r=0;r<16;r+=1)C[r]=w[r]^909522486,S[r]=w[r]^1549556828;return A=v(C.concat(x(h)),512+h.length*8),L(v(S.concat(A),640))}i(E,"rstrHMACMD5");function O(n){var h="0123456789abcdef",r="",w,C;for(C=0;C<n.length;C+=1)w=n.charCodeAt(C),r+=h.charAt(w>>>4&15)+h.charAt(w&15);return r}i(O,"rstr2hex");function T(n){return unescape(encodeURIComponent(n))}i(T,"str2rstrUTF8");function d(n){return I(T(n))}i(d,"rawMD5");function p(n){return O(d(n))}i(p,"hexMD5");function y(n,h){return E(T(n),T(h))}i(y,"rawHMACMD5");function _(n,h){return O(y(n,h))}i(_,"hexHMACMD5");function k(n,h,r){return h?r?y(h,n):_(h,n):r?d(n):p(n)}i(k,"md5"),typeof define=="function"&&define.amd?define(function(){return k}):typeof D=="object"&&D.exports?D.exports=k:t.md5=k})(ee)});var re=V((F,ne)=>{"use strict";(function(t,e){typeof F=="object"?ne.exports=F=e():typeof define=="function"&&define.amd?define([],e):t.CryptoJS=e()})(F,function(){var t=t||(function(e,o){var u=Object.create||(function(){function d(){}return i(d,"F"),function(p){var y;return d.prototype=p,y=new d,d.prototype=null,y}})(),f={},m=f.lib={},g=m.Base=(function(){return{extend:i(function(d){var p=u(this);return d&&p.mixIn(d),(!p.hasOwnProperty("init")||this.init===p.init)&&(p.init=function(){p.$super.init.apply(this,arguments)}),p.init.prototype=p,p.$super=this,p},"extend"),create:i(function(){var d=this.extend();return d.init.apply(d,arguments),d},"create"),init:i(function(){},"init"),mixIn:i(function(d){for(var p in d)d.hasOwnProperty(p)&&(this[p]=d[p]);d.hasOwnProperty("toString")&&(this.toString=d.toString)},"mixIn"),clone:i(function(){return this.init.prototype.extend(this)},"clone")}})(),b=m.WordArray=g.extend({init:i(function(d,p){d=this.words=d||[],p!=o?this.sigBytes=p:this.sigBytes=d.length*4},"init"),toString:i(function(d){return(d||L).stringify(this)},"toString"),concat:i(function(d){var p=this.words,y=d.words,_=this.sigBytes,k=d.sigBytes;if(this.clamp(),_%4)for(var n=0;n<k;n++){var h=y[n>>>2]>>>24-n%4*8&255;p[_+n>>>2]|=h<<24-(_+n)%4*8}else for(var n=0;n<k;n+=4)p[_+n>>>2]=y[n>>>2];return this.sigBytes+=k,this},"concat"),clamp:i(function(){var d=this.words,p=this.sigBytes;d[p>>>2]&=4294967295<<32-p%4*8,d.length=e.ceil(p/4)},"clamp"),clone:i(function(){var d=g.clone.call(this);return d.words=this.words.slice(0),d},"clone"),random:i(function(d){for(var p=[],y=i(function(r){var r=r,w=987654321,C=4294967295;return function(){w=36969*(w&65535)+(w>>16)&C,r=18e3*(r&65535)+(r>>16)&C;var S=(w<<16)+r&C;return S/=4294967296,S+=.5,S*(e.random()>.5?1:-1)}},"r"),_=0,k;_<d;_+=4){var n=y((k||e.random())*4294967296);k=n()*987654071,p.push(n()*4294967296|0)}return new b.init(p,d)},"random")}),v=f.enc={},L=v.Hex={stringify:i(function(d){for(var p=d.words,y=d.sigBytes,_=[],k=0;k<y;k++){var n=p[k>>>2]>>>24-k%4*8&255;_.push((n>>>4).toString(16)),_.push((n&15).toString(16))}return _.join("")},"stringify"),parse:i(function(d){for(var p=d.length,y=[],_=0;_<p;_+=2)y[_>>>3]|=parseInt(d.substr(_,2),16)<<24-_%8*4;return new b.init(y,p/2)},"parse")},x=v.Latin1={stringify:i(function(d){for(var p=d.words,y=d.sigBytes,_=[],k=0;k<y;k++){var n=p[k>>>2]>>>24-k%4*8&255;_.push(String.fromCharCode(n))}return _.join("")},"stringify"),parse:i(function(d){for(var p=d.length,y=[],_=0;_<p;_++)y[_>>>2]|=(d.charCodeAt(_)&255)<<24-_%4*8;return new b.init(y,p)},"parse")},I=v.Utf8={stringify:i(function(d){try{return decodeURIComponent(escape(x.stringify(d)))}catch{throw new Error("Malformed UTF-8 data")}},"stringify"),parse:i(function(d){return x.parse(unescape(encodeURIComponent(d)))},"parse")},E=m.BufferedBlockAlgorithm=g.extend({reset:i(function(){this._data=new b.init,this._nDataBytes=0},"reset"),_append:i(function(d){typeof d=="string"&&(d=I.parse(d)),this._data.concat(d),this._nDataBytes+=d.sigBytes},"_append"),_process:i(function(d){var p=this._data,y=p.words,_=p.sigBytes,k=this.blockSize,n=k*4,h=_/n;d?h=e.ceil(h):h=e.max((h|0)-this._minBufferSize,0);var r=h*k,w=e.min(r*4,_);if(r){for(var C=0;C<r;C+=k)this._doProcessBlock(y,C);var S=y.splice(0,r);p.sigBytes-=w}return new b.init(S,w)},"_process"),clone:i(function(){var d=g.clone.call(this);return d._data=this._data.clone(),d},"clone"),_minBufferSize:0}),O=m.Hasher=E.extend({cfg:g.extend(),init:i(function(d){this.cfg=this.cfg.extend(d),this.reset()},"init"),reset:i(function(){E.reset.call(this),this._doReset()},"reset"),update:i(function(d){return this._append(d),this._process(),this},"update"),finalize:i(function(d){d&&this._append(d);var p=this._doFinalize();return p},"finalize"),blockSize:512/32,_createHelper:i(function(d){return function(p,y){return new d.init(y).finalize(p)}},"_createHelper"),_createHmacHelper:i(function(d){return function(p,y){return new T.HMAC.init(d,y).finalize(p)}},"_createHmacHelper")}),T=f.algo={};return f})(Math);return t})});var oe=V((H,ie)=>{"use strict";(function(t,e){typeof H=="object"?ie.exports=H=e(re()):typeof define=="function"&&define.amd?define(["./core"],e):e(t.CryptoJS)})(H,function(t){return(function(){var e=t,o=e.lib,u=o.WordArray,f=o.Hasher,m=e.algo,g=[],b=m.SHA1=f.extend({_doReset:i(function(){this._hash=new u.init([1732584193,4023233417,2562383102,271733878,3285377520])},"_doReset"),_doProcessBlock:i(function(v,L){for(var x=this._hash.words,I=x[0],E=x[1],O=x[2],T=x[3],d=x[4],p=0;p<80;p++){if(p<16)g[p]=v[L+p]|0;else{var y=g[p-3]^g[p-8]^g[p-14]^g[p-16];g[p]=y<<1|y>>>31}var _=(I<<5|I>>>27)+d+g[p];p<20?_+=(E&O|~E&T)+1518500249:p<40?_+=(E^O^T)+1859775393:p<60?_+=(E&O|E&T|O&T)-1894007588:_+=(E^O^T)-899497514,d=T,T=O,O=E<<30|E>>>2,E=I,I=_}x[0]=x[0]+I|0,x[1]=x[1]+E|0,x[2]=x[2]+O|0,x[3]=x[3]+T|0,x[4]=x[4]+d|0},"_doProcessBlock"),_doFinalize:i(function(){var v=this._data,L=v.words,x=this._nDataBytes*8,I=v.sigBytes*8;return L[I>>>5]|=128<<24-I%32,L[(I+64>>>9<<4)+14]=Math.floor(x/4294967296),L[(I+64>>>9<<4)+15]=x,v.sigBytes=L.length*4,this._process(),this._hash},"_doFinalize"),clone:i(function(){var v=f.clone.call(this);return v._hash=this._hash.clone(),v},"clone")});e.SHA1=f._createHelper(b),e.HmacSHA1=f._createHmacHelper(b)})(),t.SHA1})});var St={};He(St,{TrackKey:()=>G,name:()=>kt,reportTeaEvent:()=>Z,version:()=>xt});var de=Q(te(),1),ue=Q(oe(),1);function M(){return window.appId||null}i(M,"getAppId");function N(){var o;let t="suda-csrf-token",e=document.cookie.split("; ");for(let u of e){let[f,m]=u.split("=");if(f===t)return decodeURIComponent(m)}return(o=window.csrfToken)!=null?o:null}i(N,"getCsrfToken");function $(){let t=globalThis.CLIENT_BASE_PATH||"/";return/^\/app\/[^/]/.test(t)}i($,"isNewPathEnabled");function j(){switch(globalThis.ENVIRONMENT){case"gray":return"PRE";case"online":return"ONLINE";default:return"BOE"}}i(j,"getEnv");function ae(){return window.appEnv!=null?window.appEnv==="runtime":!0}i(ae,"isOnlineEnv");function U(){let t=navigator.userAgent,e=/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i.test(t),o=/iPad|Tab|Tablet/i.test(t)&&navigator.maxTouchPoints>1;return e||o}i(U,"isMobile");async function se(){var t,e,o;try{let u=M();if(!u)return!0;let f=$()?`/app/${u}/__runtime__/api/v1/studio/get_published`:`/spark/b/${u}/get_published`,g=await(await fetch(f,{headers:{"X-Suda-Csrf-Token":(t=N())!=null?t:""}})).json();if(g.code===0||g.status_code==="0")return((o=(e=g.data)==null?void 0:e.app_info)==null?void 0:o.show_badge)!==!1}catch{}return!0}i(se,"fetchShowBadge");async function ce(){var u;let t=M();if(!t)return{code:1,msg:"appId is required",data:{}};let e=$()?`/app/${t}/__runtime__/api/v1/studio/lark/user_info`:`/spark/b/${t}/lark/user_info`;return await(await fetch(e,{headers:{"X-Suda-Csrf-Token":(u=N())!=null?u:""}})).json()}i(ce,"getLarkUserInfo");var G={VIEW:"aily_agent_artifact_page_view"},$e="08a441",je="42b91e";function le(t){let e=String(t);return(0,ue.default)($e+(0,de.default)(e+je)).toString()}i(le,"encryptTea");var z=!1;async function Ue(){var m,g,b,v;let{data:t}=await ce(),{tenantID:e,userID:o}=t||{},u=o&&o!=="0"?le(o):void 0,f=e&&e!=="0"?le(e):void 0;(m=window.collectEvent)==null||m.call(window,"init",{app_id:788827,channel:"cn",disable_auto_pv:!1,enable_ab_test:!1,enable_debug:!1,enable_stay_duration:!0,reportTime:1e3}),(b=window.collectEvent)==null||b.call(window,"config",{user_unique_id:u,device_type:U()?"mobile":"pc",evtParams:{open_from:(g=new URLSearchParams(window.location.search).get("open-from"))!=null?g:void 0,env:j(),user_id:u,tenant_id:f}}),z=!0,(v=window.collectEvent)==null||v.call(window,"start")}i(Ue,"createTracker");async function Z({trackKey:t,trackParams:e={}}){var o;try{z||(z=!0,await Ue()),(o=window.collectEvent)==null||o.call(window,t,e)}catch(u){console.error(u)}}i(Z,"reportTeaEvent");function fe(){return Z({trackKey:G.VIEW,trackParams:{artifact_uid:M(),agent_id:"agent_miaoda",url:window.location.href}})}i(fe,"reportPageView");function pe(){if(typeof crypto!="undefined"&&crypto.getRandomValues){let e=new Uint8Array(8);return crypto.getRandomValues(e),Array.from(e).map(o=>o.toString(16).padStart(2,"0")).join("")}let t="";for(let e=0;e<16;e++)t+=Math.floor(Math.random()*16).toString(16);return t}i(pe,"generateUUID");var he="x_sdk_device_id";function We(){try{let t=localStorage.getItem(he);return t||(t=pe(),localStorage.setItem(he,t)),t}catch{return pe()}}i(We,"getDeviceId");function Ve(){let t=typeof navigator!="undefined"?navigator.userAgent:"";return t&&(/Android/i.test(t)&&/Mobile/i.test(t)||/iPhone|iPod/i.test(t)||/BlackBerry|IEMobile|Opera Mini/i.test(t))?"mobile":"desktop"}i(Ve,"getDeviceType");var ze="pageSessionID";function Ge(){try{return new URLSearchParams(window.location.search).get(ze)||""}catch{return""}}i(Ge,"getPvId");function Ze(t={}){let e=t.pvId||Ge();return{app_id:window.appId||"",tenant_id:window.tenantId||"",user_id:window.userId||"",did:We(),module:"app_web",app_env:"runtime",source_type:"user",device_type:Ve(),release_commit_id:window.__RELEASE_COMMIT_ID__||"",...e?{pv_id:e}:{}}}i(Ze,"getDefaultAttributes");function ge(t){let e=Math.round(t);if(!Number.isFinite(e))throw new RangeError(`toNanoString: \u975E\u6CD5\u65F6\u95F4\u6233 ${t}`);return typeof BigInt!="function"?e===0?"0":`${e}000000`:String(BigInt(e)*BigInt(1e6))}i(ge,"toNanoString");var Ke="1.0.2";function Xe(t,e){let o=Ze(e),u=ge(Date.now());return{metricsData:{resource:{attributes:{sdk_version:Ke,sdk_lang:"javascript",sdk_type:"client-frontend"}},metrics:[{name:"apaas_internal_metrics_pv_uv",description:"Count of page views",unit:"",scopeName:"apaas_internal_metrics_pv_uv",sum:{aggregationTemporality:1,isMonotonic:!0,dataPoints:t.map(f=>({attributes:{...o,url:f.url,path:f.path,referrer:f.referrer},startTimeUnixNano:ge(f.timestampMs),timeUnixNano:u,asDouble:1}))}}]}}}i(Xe,"buildPayload");function Je(t,e,o={},u){if(e.length===0)return;let f;try{f=JSON.stringify(Xe(e,u))}catch{return}try{fetch(t,{method:"POST",headers:{"Content-Type":"application/json","X-Suda-Csrf-Token":window.csrfToken||"",...o},body:f,keepalive:!0}).catch(()=>{})}catch{}}i(Je,"sendPvData");var K="__APAAS_PV_TRACKER_STARTED__";function Ye(){try{let t=window;return t[K]?!1:(t[K]=!0,!0)}catch{return!0}}i(Ye,"claimPvReporting");function me(){try{window[K]=!1}catch{}}i(me,"releasePvReporting");var P,qe=(P=class{constructor(){this.started=!1,this.disposers=[],this.holdsPvReporting=!1,this.buffer=[]}static get instance(){return this._instance||(this._instance=new P),this._instance}start(e){var o;if(!this.started&&Ye()){this.holdsPvReporting=!0,this.config=e,this.started=!0;try{this.listenRouteChanges(),this.registerLifecycleListeners();let u=(o=e.flushIntervalMs)!=null?o:1e4;this.flushTimer=setInterval(()=>this.flush(),u)}catch(u){throw this.started=!1,this.flushTimer&&(clearInterval(this.flushTimer),this.flushTimer=void 0),this.holdsPvReporting=!1,me(),u}}}shutdown(){this.flush(),this.flushTimer&&(clearInterval(this.flushTimer),this.flushTimer=void 0),this.firstFlushTimer&&(clearTimeout(this.firstFlushTimer),this.firstFlushTimer=void 0),this.started=!1;for(let e of this.disposers.splice(0))try{e()}catch{}this.holdsPvReporting&&(this.holdsPvReporting=!1,me())}pageKey(){let{origin:e,pathname:o,search:u}=window.location;return`${e}${o}${u}`}scheduleFirstFlush(){var e;let o=(e=this.config)==null?void 0:e.firstFlushDelayMs;o==null||this.firstFlushTimer||(this.firstFlushTimer=setTimeout(()=>this.flush(),o))}recordPv(){let e=this.pageKey();this.lastKey!==e&&(this.lastKey=e,this.buffer.push({url:window.location.href,path:window.location.pathname,referrer:document.referrer,timestampMs:Date.now()}),this.scheduleFirstFlush())}flush(){if(!this.config||this.buffer.length===0)return;let e=this.buffer.splice(0);Je(this.config.collectorUrl,e,this.config.headers,{pvId:this.config.pvId})}listenRouteChanges(){this.recordPv();let e=i(()=>this.recordPv(),"onPopState");window.addEventListener("popstate",e),this.disposers.push(()=>window.removeEventListener("popstate",e)),this.patchHistory("pushState"),this.patchHistory("replaceState")}patchHistory(e){let o=history[e],u=i(()=>this.recordPv(),"recordPv");history[e]=function(...f){let m=o.apply(this,f);return u(),m},this.disposers.push(()=>{history[e]=o})}registerLifecycleListeners(){let e=i(()=>{document.visibilityState==="hidden"&&this.flush()},"onVisibilityChange");document.addEventListener("visibilitychange",e),this.disposers.push(()=>document.removeEventListener("visibilitychange",e));let o=i(()=>this.flush(),"onPageHide");window.addEventListener("pagehide",o),this.disposers.push(()=>window.removeEventListener("pagehide",o))}},i(P,"_PvTracker"),P),ve=qe.instance;function be(){var o;let t=(o=M())!=null?o:"",e=$()?`/app/${t}/__runtime__/api/v1/observability/metrics/collect`:`/spark/app/${t}/runtime/api/v1/observability/metrics/collect`;ve.start({collectorUrl:e})}i(be,"initPvTracking");var Qe=/\bLark\//i;function _e(){var e,o,u,f;let t=window;return typeof((u=(o=(e=t.webkit)==null?void 0:e.messageHandlers)==null?void 0:o.invokeNative)==null?void 0:u.postMessage)=="function"||typeof((f=t.Lark_Bridge)==null?void 0:f.invokeNative)=="function"?!0:Qe.test(navigator.userAgent)}i(_e,"isFeishuClient");function we({messageIds:t,token:e,docType:o=113}){var b,v;if(t.length===0||!e)return!1;let u={apiName:"markMiaodaFeedMessagesRead",data:{__v2__:!0,messageIds:t.map(String),token:e,docType:o}},f=window,m=(v=(b=f.webkit)==null?void 0:b.messageHandlers)==null?void 0:v.invokeNative;if(m!=null&&m.postMessage)return m.postMessage(u),!0;let g=f.Lark_Bridge;return g!=null&&g.invokeNative?(g.invokeNative(JSON.stringify(u)),!0):!1}i(we,"markMiaodaFeedMessagesRead");var et=113,tt="/app/",nt="/__runtime__/api/v1/devops/read_lark_messages";function rt(t){if(!t||typeof t!="object")return[];let{data:e}=t;return Array.isArray(e)?e.map(String):e&&Array.isArray(e.message_ids)?e.message_ids.map(String):[]}i(rt,"extractMessageIds");var ye=!1;async function it(t){var u;let e=await fetch(`${tt}${t}${nt}`,{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json","X-Suda-Csrf-Token":(u=N())!=null?u:""}});if(!e.ok)return[];let o=await e.json();return rt(o)}i(it,"fetchFeedMessageIds");async function Ce(){if(ye||!_e())return;ye=!0;let t=M();if(t)try{let e=await it(t);if(!e.length)return;we({messageIds:e,token:t,docType:et})}catch{}}i(Ce,"markFeedReadOnce");var J="https://lf3-static.bytednsdoc.com/obj/eden-cn/LMfspH/ljhwZthlaukjlkulzlp",ot=`${J}/miaoda-ui/doubao.svg`,at=`${J}/miaoda-ui/Doubao_watermark_aigc.svg`,st=`${J}/logo/miaodalogo.svg`,ke='<svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.08312 8.08298C8.2384 7.92769 8.23953 7.67705 8.08424 7.52176L5.3625 4.80002L8.08422 2.07829C8.23951 1.92301 8.23839 1.67236 8.0831 1.51708C7.92781 1.36179 7.67717 1.36066 7.52188 1.51595C7.36659 1.67124 4.80016 4.23767 4.80016 4.23767L2.07841 1.51593C1.92313 1.36064 1.67248 1.36177 1.5172 1.51705C1.36191 1.67234 1.36078 1.92298 1.51607 2.07827L4.23782 4.80002L1.51605 7.52178C1.36076 7.67707 1.36189 7.92771 1.51718 8.083C1.67246 8.23829 1.92311 8.23941 2.07839 8.08412L4.80016 5.36236L7.5219 8.0841C7.67719 8.23939 7.92783 8.23826 8.08312 8.08298Z" fill="currentColor"/></svg>',ct='<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.6667 2H3.33333V14H6.66667V15.3334H3.33333C2.59695 15.3334 2 14.7364 2 14V2C2 1.26364 2.59695 0.666687 3.33333 0.666687H12.6667C13.403 0.666687 14 1.26364 14 2V7.33335H12.6667V2Z" fill="currentColor"/><path d="M5.33333 4.66669C4.96514 4.66669 4.66667 4.96516 4.66667 5.33335C4.66667 5.70154 4.96514 6 5.33333 6H10.6667C11.0349 6 11.3333 5.70154 11.3333 5.33335C11.3333 4.96516 11.0349 4.66669 10.6667 4.66669H5.33333Z" fill="currentColor"/><path d="M4.66667 8.33335C4.66667 7.96516 4.96514 7.66669 5.33333 7.66669H8C8.36819 7.66669 8.66667 7.96516 8.66667 8.33335C8.66667 8.70154 8.36819 9 8 9H5.33333C4.96514 9 4.66667 8.70154 4.66667 8.33335Z" fill="currentColor"/><path d="M13.5523 8.70017C13.9428 8.30964 14.576 8.30964 14.9665 8.70017C15.357 9.09069 15.357 9.72386 14.9665 10.1144L14.2594 10.8215L12.8452 9.40728L13.5523 8.70017Z" fill="currentColor"/><path d="M12.1381 10.1144L13.5523 11.5286L10.2309 14.85C10.0916 14.9892 9.91229 15.0815 9.71798 15.1138L8.45737 15.3234C8.42136 15.3294 8.38467 15.3177 8.35885 15.2918C8.33271 15.2657 8.32099 15.2284 8.32749 15.192L8.55128 13.9374C8.58465 13.7502 8.6746 13.5779 8.80901 13.4435L12.1381 10.1144Z" fill="currentColor"/></svg>',lt='<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.13397 2.5C7.51887 1.83333 8.48113 1.83333 8.86603 2.5L14.0622 11.5C14.4471 12.1667 13.966 13 13.1962 13H2.80385C2.03405 13 1.55292 12.1667 1.93782 11.5L7.13397 2.5Z" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M8 6.16667V8.83333" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="10.6667" r="0.6667" fill="currentColor"/></svg>',dt='<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.91685 2.08234C10.2097 2.37519 10.2096 2.8501 9.91685 3.143L7.06253 5.99732L9.91858 8.85337C10.2114 9.14627 10.2115 9.62115 9.91858 9.91403C9.62568 10.2068 9.15076 10.2068 8.85792 9.91403L6.00187 7.05798L3.14444 9.91541C2.85155 10.2083 2.37667 10.2083 2.08378 9.91541C1.791 9.62251 1.79093 9.14761 2.08378 8.85475L4.94121 5.99732L2.08551 3.14162C1.79267 2.84878 1.79278 2.37387 2.08551 2.08096C2.3784 1.78807 2.85327 1.78807 3.14617 2.08096L6.00187 4.93666L8.85619 2.08234C9.14906 1.78961 9.62399 1.7896 9.91685 2.08234Z" fill="white" fill-opacity="0.3"/></svg>',ut='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9922 1.99221C12.5445 1.98895 12.9958 2.43407 12.999 2.98634L13.0762 16.1943L14.6387 14.6328L17.8926 11.3789C18.2831 10.9884 18.9171 10.9885 19.3076 11.3789C19.6977 11.7695 19.6979 12.4026 19.3076 12.793L16.0527 16.0479L12.7979 19.3018C12.7111 19.3884 12.6098 19.4566 12.5 19.5059H20.375C20.9271 19.5059 21.3748 19.9538 21.375 20.5059C21.375 21.0581 20.9273 21.5059 20.375 21.5059H3.625C3.07272 21.5059 2.625 21.0581 2.625 20.5059C2.62523 19.9538 3.07286 19.5059 3.625 19.5059H11.6816C11.572 19.4566 11.4704 19.3884 11.3838 19.3018L4.87402 12.793C4.48372 12.4026 4.4839 11.7694 4.87402 11.3789C5.26452 10.9884 5.89756 10.9885 6.28809 11.3789L11.0762 16.166L10.999 2.99806C10.9958 2.44603 11.4402 1.99582 11.9922 1.99221Z" fill="currentColor"/></svg>',ft='<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.0754 7.57153C2.23188 9.44922 3.49231 11.053 5.27982 11.6488C5.31351 11.6601 5.33994 11.6865 5.35117 11.7202L5.72076 12.8289C5.88752 13.3292 6.3557 13.6667 6.88304 13.6667H9.11696C9.6443 13.6667 10.1125 13.3292 10.2792 12.8289L10.6488 11.7202C10.6601 11.6865 10.6865 11.6601 10.7202 11.6488C12.5077 11.053 13.7681 9.44922 13.9246 7.57153L14 6.66667C14 3.35296 11.3137 0.666668 8 0.666668C4.68629 0.666668 2 3.35296 2 6.66667L2.0754 7.57153ZM9.38392 11.2985L9.03899 12.3333H6.96101L6.61608 11.2985C6.47214 10.8667 6.13328 10.5279 5.70146 10.3839C4.41995 9.95675 3.51631 8.80696 3.40413 7.4608L3.33362 6.61462C3.36152 4.06127 5.44004 2 8 2C10.56 2 12.6385 4.06127 12.6664 6.61462L12.5959 7.4608C12.4837 8.80696 11.5801 9.95675 10.2985 10.3839C9.86672 10.5279 9.52786 10.8667 9.38392 11.2985Z" fill="currentColor"/><path d="M6.66667 14.3333C6.29848 14.3333 6 14.6318 6 15C6 15.3682 6.29848 15.6667 6.66667 15.6667H9.33333C9.70152 15.6667 10 15.3682 10 15C10 14.6318 9.70152 14.3333 9.33333 14.3333H6.66667Z" fill="currentColor"/><path d="M8.00864 4.13208L5.44578 6.94049C5.20258 7.18228 5.37835 7.56531 5.74361 7.58951L7.2181 7.6872L7.21814 9.60852C7.21814 9.96788 7.72139 10.1366 7.99168 9.86792C8.26197 9.59921 10.5545 7.05951 10.5545 7.05951C10.7977 6.81772 10.622 6.43469 10.2567 6.41049L8.78222 6.3128L8.78219 4.39148C8.78218 4.03212 8.27893 3.86336 8.00864 4.13208Z" fill="currentColor"/></svg>',Se=!0,pt="0px 8px 32px rgba(0,0,0,0.08), 0px 4px 16px rgba(0,0,0,0.04), 0px 2px 4px rgba(0,0,0,0.02)",ht="0px 4px 16px rgba(0,0,0,0.03), 0px 4px 10px rgba(0,0,0,0.03), 0px 2px 4px rgba(0,0,0,0.02)",Y="'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif",gt="'Doubao Sans', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif",W={doubao:{brandText:"\u8C46\u5305\u5DE5\u4F5C AI \u751F\u6210",logoSrc:ot,downloadUrl:"https://ugapk.com/FCtLH"},miaoda:{brandText:"\u5999\u642D\u751F\u6210",logoSrc:st,landingUrl:"https://miaoda.feishu.cn/landing"}},mt={BOE:"tns.feishu-boe.cn",PRE:"tns.feishu-pre.cn",ONLINE:"tns.feishu.cn"};function Le(){var o;let t=JSON.stringify({scene:"miaoda_app_report",entity_id:(o=M())!=null?o:"",entity_type:"miaoda_app",extra:""}),e=`https://${mt[j()]}/cust/lark_report/?type=common&params=${encodeURIComponent(t)}&lang=zh-CN`;window.open(e,"_blank","noopener,noreferrer")}i(Le,"openReport");var vt={feedback:ct,report:lt,close:ke,download:ut,efficiency:ft};function Ee(t){let e=document.createElement("span");Object.assign(e.style,{display:"inline-flex",width:`${t}px`,height:`${t}px`,flexShrink:"0"}),e.innerHTML=ke;let o=e.firstElementChild;return o&&(o.setAttribute("width",String(t)),o.setAttribute("height",String(t)),o.style.display="block"),e}i(Ee,"makeCloseIcon");function bt(t,e=16){if(t==="close")return Ee(e);let o=document.createElement("span");Object.assign(o.style,{display:"inline-flex",width:`${e}px`,height:`${e}px`,flexShrink:"0"}),o.innerHTML=vt[t];let u=o.firstElementChild;return u&&(u.style.display="block"),o}i(bt,"makeIcon");function _t(t,e){let o=document.createElement("img");return o.src=t,o.width=e,o.height=e,o.alt="",Object.assign(o.style,{width:`${e}px`,height:`${e}px`,maxWidth:"none",maxHeight:"none",borderRadius:"100px",flexShrink:"0",display:"block"}),o}i(_t,"makeLogo");function Ie(t,e,o){let u=e==="desktop",f=t==="doubao",m=W[t],g=document.createElement("div");f?Object.assign(g.style,{boxSizing:"border-box",display:"inline-flex",alignItems:"center",gap:"6px",padding:"6px 8px",background:"rgba(77,77,77,0.7)",borderRadius:"6px",cursor:"pointer"}):Object.assign(g.style,{boxSizing:"border-box",display:"inline-flex",alignItems:"center",gap:"4px",padding:u?"6px 12px 6px 8px":"5px 12px 5px 8px",background:"#363636",border:"0.5px solid rgba(255,255,255,0.1)",borderRadius:"100px",boxShadow:pt,cursor:"pointer"});let b;if(f){let v=document.createElement("img");v.src=at,v.alt=m.brandText,v.draggable=!1,Object.assign(v.style,{height:u?"12px":"14px",width:"auto",display:"block",flexShrink:"0"}),b=v}else{let v=_t(m.logoSrc,16),L=document.createElement("span");L.textContent=m.brandText,Object.assign(L.style,{fontFamily:Y,fontSize:u?"12px":"14px",lineHeight:u?"18px":"22px",color:"rgba(255,255,255,0.85)",whiteSpace:"nowrap"}),b=L,g.append(v)}if(g.append(b),u&&o){let v=document.createElement("span");v.setAttribute("role","button"),v.setAttribute("aria-label","\u5173\u95ED"),v.setAttribute("data-watermark-close",""),Object.assign(v.style,{display:"none",alignItems:"center",cursor:"pointer",flexShrink:"0"}),f?v.innerHTML=dt:(v.style.color="rgba(255,255,255,0.5)",v.appendChild(Ee(10))),v.addEventListener("click",L=>{L.stopPropagation(),o()}),g.appendChild(v)}return g}i(Ie,"buildPill");function B(t){let e=document.createElement("div");e.setAttribute("role","menuitem"),e.setAttribute("data-label",t.label),Object.assign(e.style,{boxSizing:"border-box",display:"flex",alignItems:"center",gap:"8px",minHeight:"38px",padding:"4px 10px",borderRadius:"6px",cursor:"pointer",color:"#000000"});let o=document.createElement("span");Object.assign(o.style,{display:"inline-flex",width:"16px",height:"16px",flexShrink:"0",color:"#000000"}),o.appendChild(bt(t.icon));let u=document.createElement("span");return u.textContent=t.label,Object.assign(u.style,{fontFamily:Y,fontSize:`${t.fontSize}px`,lineHeight:`${t.fontSize+8}px`,color:"#000000",whiteSpace:"nowrap"}),e.append(o,u),e.addEventListener("mouseenter",()=>{e.style.background="rgba(0,0,0,0.04)"}),e.addEventListener("mouseleave",()=>{e.style.background="transparent"}),e.addEventListener("click",t.onClick),e}i(B,"buildMenuRow");function wt(){let t=document.createElement("div");return Object.assign(t.style,{height:"1px",background:"rgba(0,0,0,0.08)",margin:"0 10px"}),t}i(wt,"buildDivider");function Te(t){var o;let e=document.createElement("div");if(Object.assign(e.style,{boxSizing:"border-box",display:"flex",flexDirection:"column",minWidth:`${t.minWidth}px`,background:"#ffffff",border:"0.5px solid rgba(0,0,0,0.1)",borderRadius:"10px",boxShadow:ht,overflow:"hidden",outline:"none"}),t.items.length){let u=document.createElement("div");Object.assign(u.style,{boxSizing:"border-box",padding:"4px",display:"flex",flexDirection:"column",gap:`${(o=t.itemGap)!=null?o:0}px`}),t.items.forEach(f=>u.appendChild(f)),e.appendChild(u)}if(t.extraItems&&t.extraItems.length){e.appendChild(wt());let u=document.createElement("div");Object.assign(u.style,{boxSizing:"border-box",padding:"4px"}),t.extraItems.forEach(f=>u.appendChild(f)),e.appendChild(u)}return e}i(Te,"buildMenuCard");function Ae(t,e=!1){let o=document.createElement("div");o.setAttribute("data-custom-element",`${t}-watermark${e?"-mobile":""}`);let u=o.attachShadow({mode:"open"}),f=t==="doubao"?gt:Y,m=document.createElement("style");m.textContent=`
+    :host {
+      all: initial !important;
+      display: block !important;
+      position: fixed !important;
+      right: 12px !important;
+      bottom: 12px !important;
+      z-index: 9999 !important;
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+    }
+    :host::before, :host::after { content: none !important; }
+    .watermark-root {
+      all: initial;
+      direction: ltr;
+      unicode-bidi: isolate;
+      font-family: ${f};
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+  `;let g=document.createElement("div");return g.className="watermark-root",u.append(m,g),{host:o,container:g}}i(Ae,"createWatermarkRoot");function yt(t){let{host:e,container:o}=Ae(t),u=[];t==="doubao"?u.push(B({icon:"download",label:"\u4E0B\u8F7D\u8C46\u5305\u5DE5\u4F5C",fontSize:14,onClick:i(()=>window.open(W.doubao.downloadUrl,"_blank","noopener,noreferrer"),"onClick")})):u.push(B({icon:"efficiency",label:"\u4E86\u89E3\u5999\u642D",fontSize:14,onClick:i(()=>window.open(W.miaoda.landingUrl,"_blank","noopener,noreferrer"),"onClick")})),Se&&u.push(B({icon:t==="doubao"?"report":"feedback",label:"\u6295\u8BC9\u4E0E\u4E3E\u62A5",fontSize:14,onClick:Le}));let f=Te({items:u,minWidth:160,itemGap:8});f.style.display="none";let m=Ie(t,"desktop",()=>e.remove()),g=m.querySelector("[data-watermark-close]");o.append(f,m);let b=null;return o.addEventListener("mouseenter",()=>{b&&clearTimeout(b),f.style.display="flex",g&&(g.style.display="inline-flex")}),o.addEventListener("mouseleave",()=>{b=setTimeout(()=>{f.style.display="none",g&&(g.style.display="none")},100)}),e}i(yt,"buildDesktopWatermark");function Ct(t){let{host:e,container:o}=Ae(t,!0);o.style.cursor="pointer";let u=[];t==="miaoda"&&u.push(B({icon:"efficiency",label:"\u4E86\u89E3\u5999\u642D",fontSize:16,onClick:i(()=>window.open(W.miaoda.landingUrl,"_blank","noopener,noreferrer"),"onClick")})),Se&&u.push(B({icon:t==="doubao"?"report":"feedback",label:"\u6295\u8BC9\u4E0E\u4E3E\u62A5",fontSize:16,onClick:Le}));let f=[B({icon:"close",label:"\u4E0D\u518D\u5C55\u793A",fontSize:16,onClick:i(v=>{v.stopPropagation(),document.removeEventListener("click",b),e.remove()},"onClick")})],m=Te({items:u,extraItems:f,minWidth:160});m.style.display="none";let g=Ie(t,"mobile");o.append(m,g),o.addEventListener("click",v=>{v.stopPropagation(),m.style.display=m.style.display==="none"?"flex":"none"});let b=i(()=>{m.style.display="none"},"onOutsideClick");return document.addEventListener("click",b),e}i(Ct,"buildMobileWatermark");var xe=!1,X=!1;async function Oe(t){if(xe||X||typeof document=="undefined")return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",()=>Oe(t),{once:!0});return}X=!0;let e=await se();if(xe=!0,X=!1,!e)return;let o=U()?Ct(t):yt(t);document.body.appendChild(o)}i(Oe,"mountWatermark");function Me(){return Oe("doubao")}i(Me,"mountDoubaoWatermark");var xt="0.0.1",kt="@lark-apaas/miaoda-coding-sdk";ae()&&(fe(),be());Me();Ce();return Ne(St);})();
+</script><meta property="og:title" content="无线通信频谱资源图谱 · 从 700 MHz 到 300 GHz"><meta property="og:image" content="https://lf3-static.bytednsdoc.com/obj/eden-cn/LMfspH/ljhwZthlaukjlkulzlp/favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无线通信频谱资源图谱 · 从 700 MHz 到 300 GHz</title>
+<meta name="description" content="无线通信频谱资源的分配全景：蜂窝、WLAN、卫星、雷达、广播专网与频谱治理规则，含中国 5G 频谱归属与信道划分。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230C241F'/%3E%3Cpath d='M3 24 L9 24 L9 20 L15 20 L15 15 L21 15 L21 9 L29 9' stroke='%23D8A648' stroke-width='2.5' fill='none'/%3E%3Crect x='20' y='5' width='4' height='4' fill='%2348B3A6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="preconnect" href="https://miaoda.feishu.cn" crossorigin>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;family=Noto+Serif+SC:wght@500;700&amp;display=swap">
+<style>
+:root{
+  --board:#0C241F;
+  --board-2:#0A1E1A;
+  --panel:#133329;
+  --panel-2:#123027;
+  --rule:#2A4B3F;
+  --rule-soft:#1D3A31;
+  --silk:#EDEFE7;
+  --silk-dim:#A2B6AD;
+  --silk-faint:#7A9089;
+  --gold:#D8A648;
+  --gold-soft:#8A6B2C;
+  --teal:#48B3A6;
+  --indigo:#8E96E0;
+  --copper:#CE7A52;
+  --slate:#8C9C95;
+  --cat-cell:var(--gold);
+  --cat-short:var(--teal);
+  --cat-sat:var(--indigo);
+  --cat-radar:var(--copper);
+  --cat-bcast:var(--slate);
+  --maxw:1180px;
+  --pad:clamp(18px,4.2vw,44px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--board);
+  color:var(--silk);
+  font-family:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 1px,transparent 1px 96px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 96px);
+  opacity:.9;
+}
+h1,h2,h3,.num,.serif{font-family:"Noto Serif SC","Songti SC","Noto Serif CJK SC",Georgia,serif}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:.01em}
+p{margin:0}
+a{color:var(--gold);text-decoration:none}
+img{max-width:100%;display:block}
+
+.wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+/* ============ 顶部信息条 ============ */
+.topline{
+  position:relative;z-index:1;
+  border-bottom:1px solid var(--rule-soft);
+  background:rgba(10,30,26,.55);
+}
+.topline-in{
+  max-width:var(--maxw);margin:0 auto;padding:11px var(--pad);
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  font-size:11.5px;letter-spacing:.16em;color:var(--silk-faint);text-transform:uppercase;
+}
+.topline-in .l{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.topline-in .dot{width:6px;height:6px;background:var(--gold);display:inline-block;transform:translateY(-1px)}
+.topline-in .r{font-variant-numeric:tabular-nums;white-space:nowrap}
+.topline-in .l{white-space:nowrap}
+@media(max-width:600px){
+  .topline-in .en{display:none}
+  .topline-in{letter-spacing:.1em;font-size:11px}
+}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;z-index:1;
+  padding:clamp(44px,7vw,86px) 0 clamp(28px,4vw,44px);
+  border-bottom:1px solid var(--rule-soft);
+}
+.kicker{
+  font-size:11.5px;letter-spacing:.24em;color:var(--gold);
+  margin-bottom:20px;display:flex;align-items:center;gap:12px;
+}
+.kicker span.line{height:1px;width:44px;background:var(--gold-soft);display:inline-block}
+.hero h1{
+  font-size:clamp(34px,6.4vw,66px);
+  line-height:1.1;
+  letter-spacing:-.01em;
+  max-width:16ch;
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--gold);
+  border-bottom:1px solid rgba(216,166,72,.35);
+}
+.hero-sub{
+  margin-top:22px;
+  max-width:52ch;
+  color:var(--silk-dim);
+  font-size:clamp(14px,1.6vw,16px);
+  line-height:1.85;
+}
+.hero-stats{
+  margin-top:clamp(30px,5vw,52px);
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--rule-soft);
+  border:1px solid var(--rule-soft);
+}
+.stat{background:var(--board);padding:18px 16px}
+.stat .v{
+  font-family:"Noto Serif SC",serif;font-weight:700;
+  font-size:clamp(22px,3.4vw,30px);line-height:1.1;color:var(--silk);
+  font-variant-numeric:tabular-nums;
+}
+.stat .v small{font-size:.52em;font-weight:500;color:var(--gold);margin-left:4px;letter-spacing:.02em}
+.stat .k{margin-top:8px;font-size:11.5px;letter-spacing:.08em;color:var(--silk-faint)}
+
+/* ============ 通用章节 ============ */
+section{
+  position:relative;z-index:1;
+  padding:clamp(38px,5.4vw,64px) 0;
+  border-bottom:1px solid var(--rule-soft);
+}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.sec-no{
+  font-family:"Noto Serif SC",serif;font-weight:700;font-size:13px;
+  color:var(--gold);letter-spacing:.1em;font-variant-numeric:tabular-nums;
+  border:1px solid var(--gold-soft);padding:2px 8px;line-height:1.5;
+}
+.sec-head h2{font-size:clamp(20px,3vw,27px);letter-spacing:.005em}
+.sec-dek{
+  max-width:66ch;color:var(--silk-dim);font-size:14.5px;line-height:1.9;
+  margin:14px 0 0;
+}
+.note{
+  margin-top:16px;padding-left:12px;border-left:2px solid var(--gold-soft);
+  font-size:13px;line-height:1.8;color:var(--silk-dim);max-width:74ch;
+}
+.note b{color:var(--silk);font-weight:500}
+
+/* ============ 频谱图 ============ */
+.atlas-shell{
+  margin-top:26px;
+  border:1px solid var(--rule);
+  background:linear-gradient(180deg,#0E2A23,#0A231E);
+  padding:clamp(12px,2.2vw,20px);
+  position:relative;
+}
+.atlas-shell::after{
+  content:"";
+  position:absolute;inset:6px;pointer-events:none;
+  border:1px solid rgba(255,255,255,.04);
+}
+.atlas-bar{
+  display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;
+  margin-bottom:10px;
+}
+.legend{display:flex;flex-wrap:wrap;gap:6px}
+.legend button{
+  font-family:inherit;font-size:11.5px;letter-spacing:.04em;
+  color:var(--silk-dim);background:transparent;
+  border:1px solid var(--rule);padding:5px 10px;cursor:pointer;
+  display:flex;align-items:center;gap:7px;transition:border-color .18s,color .18s,opacity .18s;
+  min-height:32px;
+}
+.legend button .sw{width:9px;height:9px;display:block;flex:0 0 9px}
+.legend button[aria-pressed="true"]{color:var(--silk);border-color:var(--silk-faint)}
+.legend button[aria-pressed="false"]{opacity:.45}
+.legend button:hover{border-color:var(--gold-soft)}
+.zoomers{display:flex;gap:6px}
+.zoomers button{
+  font-family:inherit;font-size:11.5px;color:var(--silk-dim);background:transparent;
+  border:1px solid var(--rule);padding:5px 10px;cursor:pointer;min-height:32px;
+  font-variant-numeric:tabular-nums;transition:.18s;
+}
+.zoomers button[data-on="1"]{color:var(--gold);border-color:var(--gold-soft);background:rgba(216,166,72,.07)}
+.zoomers button:hover{border-color:var(--silk-faint)}
+
+#spectrum{width:100%;height:clamp(270px,33vw,330px);display:block;touch-action:manipulation}
+.atlas-readout{
+  display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule-soft);
+  border-top:1px solid var(--rule);margin-top:10px;
+}
+.ro-cell{background:#0C2620;padding:11px 12px;min-height:62px}
+.ro-cell .k{font-size:10.5px;letter-spacing:.14em;color:var(--silk-faint)}
+.ro-cell .v{
+  font-family:"Noto Serif SC",serif;font-size:15px;font-weight:500;color:var(--silk);
+  margin-top:4px;font-variant-numeric:tabular-nums;line-height:1.5;
+}
+.ro-cell .v.empty{color:var(--silk-faint);font-family:inherit;font-size:13px;font-weight:400}
+.atlas-foot{
+  margin-top:10px;font-size:11.5px;color:var(--silk-faint);line-height:1.7;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* ============ 图：FSPL ============ */
+.figure{
+  margin-top:26px;border:1px solid var(--rule);background:#0C2620;
+}
+.figure-head{padding:14px 16px 0}
+.figure-head .t{font-size:13px;color:var(--silk);letter-spacing:.02em}
+.figure-head .s{font-size:11.5px;color:var(--silk-faint);margin-top:4px;line-height:1.6}
+#fspl{width:100%;height:clamp(230px,32vw,300px);display:block}
+.figure-foot{
+  padding:11px 16px 14px;border-top:1px solid var(--rule-soft);
+  font-size:11.5px;color:var(--silk-faint);line-height:1.75;
+}
+
+/* ============ 表格 ============ */
+.table-wrap{margin-top:24px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule)}
+table{
+  width:100%;border-collapse:collapse;table-layout:fixed;
+  font-size:13px;min-width:620px;
+}
+thead th{
+  background:#0E2A23;color:var(--silk-dim);
+  font-weight:500;font-size:11.5px;letter-spacing:.06em;
+  text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);
+  white-space:nowrap;
+}
+tbody td{
+  padding:11px 12px;border-bottom:1px solid var(--rule-soft);
+  vertical-align:top;color:var(--silk);line-height:1.6;
+  word-break:break-word;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:rgba(216,166,72,.045)}
+td.mono,.mono{font-variant-numeric:tabular-nums;font-family:"Noto Sans SC",monospace,ui-monospace;font-size:12.5px}
+td.gold{color:var(--gold)}
+td.dim{color:var(--silk-dim)}
+.band-tag{
+  display:inline-block;font-size:11px;padding:1px 6px;border:1px solid var(--rule);
+  color:var(--silk-dim);margin:2px 4px 2px 0;white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+
+/* ============ 页脚 ============ */
+footer{position:relative;z-index:1;padding:34px 0 44px;background:var(--board-2)}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.foot-col .k{font-size:10.5px;letter-spacing:.16em;color:var(--gold-soft);text-transform:uppercase}
+.foot-col .t{margin-top:7px;font-size:12px;line-height:1.85;color:var(--silk-faint)}
+.foot-col .t b{color:var(--silk-dim);font-weight:500}
+.foot-end{margin-top:26px;padding-top:14px;border-top:1px solid var(--rule-soft);
+  font-size:11px;color:#5C6F68;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(min-width:760px){.foot-grid{grid-template-columns:repeat(3,1fr);gap:28px}}
+
+/* ============ 运营商占位图 ============ */
+#carrier{width:100%;height:clamp(230px,30vw,280px);display:block}
+#wifi24,#wifi56{width:100%;height:clamp(180px,26vw,240px);display:block}
+
+/* ============ 卡片 / 要点 ============ */
+.cards{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule-soft);border:1px solid var(--rule);margin-top:24px}
+.card{background:#0C2620;padding:16px 16px 18px}
+.card .h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.card .n{font-family:"Noto Serif SC",serif;font-size:14px;font-weight:700;color:var(--silk)}
+.card .f{font-size:11.5px;color:var(--gold);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.card .d{margin-top:9px;font-size:13px;color:var(--silk-dim);line-height:1.8}
+.card .d b{color:var(--silk);font-weight:500}
+.card .metric{margin-top:10px;font-size:11.5px;color:var(--silk-faint);border-top:1px dashed var(--rule);padding-top:9px;line-height:1.7}
+
+.kv{margin-top:24px;border:1px solid var(--rule);background:#0C2620}
+.kv-row{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 15px;border-bottom:1px solid var(--rule-soft)}
+.kv-row:last-child{border-bottom:0}
+.kv-row .k{font-size:12px;color:var(--silk-faint);letter-spacing:.02em}
+.kv-row .v{font-size:13.5px;color:var(--silk);font-variant-numeric:tabular-nums}
+.kv-row .v span.u{color:var(--gold);font-size:12px;margin-left:3px}
+
+@media(min-width:720px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .kv-row{grid-template-columns:200px 1fr;align-items:baseline;gap:14px}
+  .atlas-readout{grid-template-columns:1.35fr 1fr 1fr}
+  .hero-stats{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:719px){
+  .cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topline">
+  <div class="topline-in">
+    <div class="l"><span class="dot"></span>频谱资源图谱<span class="en"> · SPECTRUM ATLAS</span></div>
+    <div class="r">50 MHz – 110 GHz · 2026</div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker"><span class="line"></span>无线通信 · 频率划分</div>
+    <h1>看不见的<em>土地</em>，<br>是怎么被切分的</h1>
+    <p class="hero-sub">从 700 MHz 到 110 GHz，每一段频率都由物理规律、产业需求和国家规则共同定价；再往上进入太赫兹，剩下的只有实验室和待定规则。频率越高，越容易拿到大带宽，也越难穿透一堵墙。这张图谱把蜂窝、Wi‑Fi、卫星、雷达与专网的占用位置放在同一把对数标尺上，看清它们的边界与冲突。</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="v">110 <small>GHz</small></div><div class="k">本图覆盖的民用主力区间</div></div>
+      <div class="stat"><div class="v">200 <small>MHz</small></div><div class="k">中国 5G 单运营商最大连续带宽（3.5 GHz 共享）</div></div>
+      <div class="stat"><div class="v">2.4 <small>– 7.1 GHz</small></div><div class="k">全球最拥挤、也是争夺最激烈的六段</div></div>
+      <div class="stat"><div class="v">≈ 6 <small>dB</small></div><div class="k">频率每翻一倍，自由空间损耗增加的理论值</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 全景 ============ -->
+<section id="s1">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">01</span><h2>同一把标尺上的所有使用者</h2></div>
+    <p class="sec-dek">横轴是对数频率，每一条色块是一段被分配给某种业务的频率。按业务分行排列，同一段频率线上不重叠。点击任意色块查看它的边界、带宽与用途；也可以切到 2.4–7.2 GHz，看清最拥挤的那一段。</p>
+
+    <div class="atlas-shell">
+      <div class="atlas-bar">
+        <div class="legend" id="legend"></div>
+        <div class="zoomers">
+          <button type="button" data-range="full" data-on="1">全览 50 MHz – 110 GHz</button>
+          <button type="button" data-range="busy" data-on="0">放大 2.4 – 7.2 GHz</button>
+        </div>
+      </div>
+      <svg id="spectrum" role="img" aria-label="无线通信频谱分配图"></svg>
+      <div class="atlas-readout">
+        <div class="ro-cell"><div class="k">当前读数</div><div class="v empty" id="ro-main">悬停或点击任意色块</div></div>
+        <div class="ro-cell"><div class="k">频率范围</div><div class="v empty" id="ro-range">—</div></div>
+        <div class="ro-cell"><div class="k">带宽 / 用途</div><div class="v empty" id="ro-use">—</div></div>
+      </div>
+      <div class="atlas-foot">
+        <span>对数刻度 · 色块宽度为频率范围，不代表带宽利用率</span>
+        <span>数据：中国《无线电频率划分规定》与公开商用频段</span>
+      </div>
+    </div>
+
+    <div class="note"><b>怎么读这张图：</b>色块越靠左，波长越长、绕射和穿透越好，单站覆盖越远；越靠右，可用的绝对带宽越大，但直射传播、易被墙体与雨衰阻挡。所谓“频谱紧张”，紧的从来不是总频率，而是 700 MHz–6 GHz 这一段既好覆盖又能给大带宽的黄金区间。</div>
+  </div>
+</section>
+
+<!-- ============ 02 物理 ============ -->
+<section id="s2">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">02</span><h2>为什么低频珍贵、高频便宜</h2></div>
+    <p class="sec-dek">频谱的价值不是线性的。同样 100 MHz 带宽，放在 700 MHz 要占用整个产业的黄金地段，放在 28 GHz 只是一段几乎没人用的空地。决定这一切的是自由空间路径损耗：频率每翻一倍，损耗增加 6 dB。</p>
+
+    <div class="figure">
+      <div class="figure-head">
+        <div class="t">10 米距离上的自由空间路径损耗</div>
+        <div class="s">FSPL(dB) = 32.44 + 20lg f(MHz) + 20lg d(km)，取 d = 0.01 km</div>
+      </div>
+      <svg id="fspl" role="img" aria-label="自由空间损耗随频率变化曲线"></svg>
+      <div class="figure-foot">700 MHz 到 28 GHz，同一距离上损耗从 49 dB 升到 81 dB，相当于链路预算被吃掉 32 dB——约等于把基站密度提高 15 倍才能补齐覆盖。这就是毫米波必须靠密集型小站与波束赋形的原因。</div>
+    </div>
+
+    <div class="note"><b>三个可以直接拿去用的换算：</b>频率翻倍 = +6 dB 损耗；带宽翻倍 = +3 dB 底噪（热噪声 −174 dBm/Hz）；两者叠加，才决定了一个频段能承载多少比特。<b>低频买覆盖，高频买带宽</b>，中间的 3.5 GHz 之所以是全球 5G 主战场，正是因为它是这两者的最大公约数。</div>
+  </div>
+</section>
+
+<!-- ============ 03 蜂窝 ============ -->
+<section id="s3">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">03</span><h2>蜂窝：从 200 kHz 到 400 MHz</h2></div>
+    <p class="sec-dek">移动通信的每一代升级，本质上都是把单载波带宽往上抬一个数量级，同时把频段往高处搬。中国没有走频谱拍卖，而是行政审批 + 频率占用费的分配方式，这让三大运营商的频谱格局带有明显的路径依赖。</p>
+
+    <div class="figure">
+      <div class="figure-head">
+        <div class="t">中国 5G 频谱归属</div>
+        <div class="s">色块长度按带宽等比（位置不按频率排列）；700 MHz 由广电持有、与移动共建共享</div>
+      </div>
+      <svg id="carrier" role="img" aria-label="中国三大运营商与广电的 5G 频谱归属"></svg>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <colgroup><col style="width:11%"><col style="width:13%"><col style="width:30%"><col style="width:16%"><col style="width:30%"></colgroup>
+        <thead><tr><th>代际</th><th>中国商用</th><th>主用频段</th><th>单载波带宽</th><th>关键变化</th></tr></thead>
+        <tbody>
+          <tr><td class="gold">2G GSM</td><td class="mono">1994</td><td>900 MHz / 1800 MHz</td><td class="mono">200 kHz</td><td class="dim">只够语音与短信，频谱按信道切碎</td></tr>
+          <tr><td class="gold">3G</td><td class="mono">2009</td><td>1.9 / 2.1 / 2.3 GHz</td><td class="mono">1.6 / 5 MHz</td><td class="dim">出现“带宽”概念，数据业务起步</td></tr>
+          <tr><td class="gold">4G LTE</td><td class="mono">2013</td><td>1.8 / 1.9 / 2.3 / 2.6 GHz</td><td class="mono">20 MHz</td><td class="dim">载波聚合把碎片拼成 40–60 MHz</td></tr>
+          <tr><td class="gold">5G NR</td><td class="mono">2019</td><td>700M / 2.6 / 3.5 / 4.9 GHz</td><td class="mono">100–200 MHz</td><td class="dim">首次出现连续 200 MHz 与大规模天线阵列</td></tr>
+          <tr><td class="gold">5G‑A</td><td class="mono">2024</td><td>同上 + 毫米波试验段</td><td class="mono">聚合后 &gt; 400 MHz</td><td class="dim">通感一体、上行增强、RedCap</td></tr>
+          <tr><td class="gold">6G</td><td class="mono">≈ 2030</td><td>6 GHz / 毫米波 / 太赫兹</td><td class="mono">400–1000 MHz</td><td class="dim">6425–7125 MHz 已被标识为 IMT 候选</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note"><b>一个容易被忽略的事实：</b>中国移动在 3.5 GHz 上没有任何频谱，这是它坚持 2.6 GHz + 4.9 GHz 双频组网的根本原因；而电信与联通各持 3.4–3.5 与 3.5–3.6，通过共享合成 200 MHz 连续带宽，才做出对标移动的峰值速率。<b>频谱位置决定了组网策略，而不是反过来。</b></div>
+  </div>
+</section>
+
+<!-- ============ 04 WLAN / 短距 ============ -->
+<section id="s4">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">04</span><h2>WLAN 与短距：免许可的三块地</h2></div>
+    <p class="sec-dek">Wi‑Fi、蓝牙、Zigbee、UWB、RFID 都挤在免许可（ISM）频段上，不需要牌照，但要遵守发射功率与占空比的硬约束。代价是：没有人为你协调干扰，只能靠协议自己避让。中国开放的 2.4 GHz 与 5 GHz 合计约 409 MHz，比美国同区间少约 255 MHz。</p>
+
+    <div class="figure">
+      <div class="figure-head">
+        <div class="t">2.4 GHz 的 13 个信道：只有 3 个能真正不重叠</div>
+        <div class="s">信道中心间隔仅 5 MHz，而每个信道占用 20 MHz，任何相邻信道都存在重叠</div>
+      </div>
+      <svg id="wifi24" role="img" aria-label="2.4 GHz 的十三个 20 MHz 信道重叠关系"></svg>
+      <div class="figure-foot">这就是为什么路由器默认推荐 1 / 6 / 11：只有这组组合彼此完全错开。这也是 2.4 GHz 在密集住宅区体验极差的原因——不是信号弱，是空口上十几台设备在同时说话。</div>
+    </div>
+
+    <div class="figure">
+      <div class="figure-head">
+        <div class="t">5 GHz 与 6 GHz：中国的开放范围与全球差异</div>
+        <div class="s">上排为中国可用的 WLAN 频段，下排为美国 FCC 开放范围，用于对照</div>
+      </div>
+      <svg id="wifi56" role="img" aria-label="5 GHz 与 6 GHz 频段开放范围对比"></svg>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="h"><span class="n">Wi‑Fi 7</span><span class="f">2.4 / 5 / 6 GHz</span></div>
+        <div class="d">把 6 GHz 的 320 MHz 单信道、4096‑QAM 与多链路聚合（MLO）叠在一起，理论峰值约 <b>46 Gbps</b>。真正的价值不是峰值，而是 MLO 让终端同时占用两个频段，把时延抖动压下来。</div>
+        <div class="metric">中国 6 GHz（5925–7125 MHz）已于 2023 年规划用于 IMT，<b>未开放给 WLAN</b></div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">蓝牙 BLE</span><span class="f">2400 – 2483.5 MHz</span></div>
+        <div class="d">40 个信道、每信道 2 MHz，其中 37/38/39 三个为广播信道；采用跳频每秒 1600 次，靠持续换频躲避 Wi‑Fi 的固定占位。BLE 5 起支持 2 Mbps 与 Coded PHY（把灵敏度换到 4 倍距离）。</div>
+        <div class="metric">BLE 6.0（2024）新增信道探测，用相位测距把定位精度做到厘米级</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">UWB</span><span class="f">6 – 9 GHz（中国）</span></div>
+        <div class="d">用 500 MHz 以上的超宽带宽换时间分辨率，靠飞行时间（ToF）测距，抗多径能力极强。数字车钥匙、儿童存在检测（CPD）、室内高精度定位都建立在它上面。</div>
+        <div class="metric">发射功率被压到 −41 dBm/MHz 量级，与同频系统共存靠“低功率密度 + 极短脉冲”</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <colgroup><col style="width:15%"><col style="width:24%"><col style="width:15%"><col style="width:16%"><col style="width:30%"></colgroup>
+        <thead><tr><th>技术</th><th>工作频段</th><th>信道 / 带宽</th><th>典型速率</th><th>定位与边界</th></tr></thead>
+        <tbody>
+          <tr><td class="gold">Wi‑Fi 6</td><td class="mono">2.4 GHz / 5 GHz</td><td class="mono">20–160 MHz</td><td class="mono">理论 9.6 Gbps</td><td class="dim">OFDMA 让多终端共享同一信道</td></tr>
+          <tr><td class="gold">Wi‑Fi 7</td><td class="mono">+ 6 GHz</td><td class="mono">最高 320 MHz</td><td class="mono">理论 46 Gbps</td><td class="dim">中国缺 6 GHz，320 MHz 落地受限</td></tr>
+          <tr><td class="gold">蓝牙 BLE</td><td class="mono">2.4 GHz ISM</td><td class="mono">40 × 2 MHz</td><td class="mono">1–2 Mbps</td><td class="dim">低功耗短包，Mesh 覆盖有限</td></tr>
+          <tr><td class="gold">Zigbee</td><td class="mono">2.4 GHz</td><td class="mono">16 × 5 MHz</td><td class="mono">250 kbps</td><td class="dim">自组网，适合照明与传感</td></tr>
+          <tr><td class="gold">UWB</td><td class="mono">6–9 GHz</td><td class="mono">≥ 500 MHz</td><td class="mono">百 Mbps 级</td><td class="dim">厘米级测距，功耗偏高</td></tr>
+          <tr><td class="gold">UHF RFID</td><td class="mono">840–845 / 920–925 MHz</td><td class="mono">200 kHz</td><td class="mono">数十 kbps</td><td class="dim">无源标签，读距 1–10 m</td></tr>
+          <tr><td class="gold">LoRa</td><td class="mono">470–510 MHz（中国）</td><td class="mono">125–500 kHz</td><td class="mono">0.3–37.5 kbps</td><td class="dim">扩频换灵敏度，郊区可达 10 km</td></tr>
+          <tr><td class="gold">NB‑IoT</td><td class="mono">800 / 900 / 1800 MHz</td><td class="mono">180 kHz</td><td class="mono">上行约 250 kbps</td><td class="dim">授权频段，靠运营商覆盖，穿透强</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 卫星 ============ -->
+<section id="s5">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">05</span><h2>卫星与导航：跨越 40 个 dB 的链路预算</h2></div>
+    <p class="sec-dek">卫星通信是唯一必须在同一套系统里同时使用极低频与极高频的业务：低频段用于移动卫星与导航（穿透、抗雨衰），高频段用于高通量卫星的点波束（要带宽）。这也是为什么一颗现代 HTS 卫星会同时工作在 Ku、Ka 甚至 V 波段。</p>
+
+    <div class="table-wrap">
+      <table>
+        <colgroup><col style="width:12%"><col style="width:16%"><col style="width:32%"><col style="width:40%"></colgroup>
+        <thead><tr><th>波段</th><th>频率范围</th><th>典型用途</th><th>工程特性</th></tr></thead>
+        <tbody>
+          <tr><td class="gold">L</td><td class="mono">1 – 2 GHz</td><td>导航、移动卫星、北斗短报文</td><td class="dim">雨衰几乎为零，天线尺寸大，带宽极窄</td></tr>
+          <tr><td class="gold">S</td><td class="mono">2 – 4 GHz</td><td>天通一号、移动卫星业务</td><td class="dim">可用小口径终端，手机直连卫星的落点</td></tr>
+          <tr><td class="gold">C</td><td class="mono">4 – 8 GHz</td><td>卫星固定业务（广电传输、干线）</td><td class="dim">抗雨衰优秀，但天线口径大、易与地面 5G 邻频冲突</td></tr>
+          <tr><td class="gold">X</td><td class="mono">8 – 12 GHz</td><td>军用、遥感、星载雷达</td><td class="dim">军用专属，民用极少</td></tr>
+          <tr><td class="gold">Ku</td><td class="mono">12 – 18 GHz</td><td>直播星、VSAT、Starlink 用户链路</td><td class="dim">雨衰明显，靠上行功率控制与自适应编码补偿</td></tr>
+          <tr><td class="gold">Ka</td><td class="mono">26.5 – 40 GHz</td><td>高通量卫星（HTS）、网关链路</td><td class="dim">点波束可复用频率，容量密度提升一个量级</td></tr>
+          <tr><td class="gold">V / E</td><td class="mono">40 – 110 GHz</td><td>星间链路、实验载荷</td><td class="dim">带宽极大，雨衰与氧气吸收严重，仅适合星间或短时窗口</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kv">
+      <div class="kv-row"><div class="k">GPS L1 / L5</div><div class="v">1575.42 MHz / 1176.45 MHz</div></div>
+      <div class="kv-row"><div class="k">北斗 B1I / B3I</div><div class="v">1561.098 MHz / 1268.52 MHz</div></div>
+      <div class="kv-row"><div class="k">北斗 B1C</div><div class="v">1575.42 MHz —— 与 GPS L1 同频，用于互操作</div></div>
+      <div class="kv-row"><div class="k">Galileo E1 / E5a</div><div class="v">1575.42 MHz / 1176.45 MHz</div></div>
+      <div class="kv-row"><div class="k">天通一号（手机直连）</div><div class="v">上行 1980–2010 MHz，下行 2170–2200 MHz<span class="u">S 波段</span></div></div>
+      <div class="kv-row"><div class="k">Starlink 用户链路</div><div class="v">Ku 下行 10.7–12.7 GHz，上行 14.0–14.5 GHz</div></div>
+      <div class="kv-row"><div class="k">Starlink 网关</div><div class="v">Ka 17.8–19.3 GHz / 27.5–30 GHz</div></div>
+    </div>
+
+    <div class="note"><b>手机直连卫星的本质妥协：</b>手机天线增益只有约 0–2 dBi，卫星到地面距离 500 km 以上，链路预算比地面基站差 40 dB 量级。可行的路径只有三条——把卫星天线做大（天通的 15 米级反射面）、把频率压到 S/L 波段减少雨衰、把速率降到语音与短报文级别。<b>“卫星上网替代 5G”在物理上不成立，能替代的是覆盖盲区里的语音与短信。</b></div>
+  </div>
+</section>
+
+<!-- ============ 06 雷达 ============ -->
+<section id="s6">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">06</span><h2>雷达与感知：带宽就是分辨率</h2></div>
+    <p class="sec-dek">雷达不传输信息，它测量距离与速度。测距分辨率只由一个量决定：带宽。距离分辨率 = c / (2 × 带宽)，所以 4 GHz 带宽对应 3.75 cm，而 500 MHz 只能做到 30 cm。这是车载雷达从 24 GHz 迁移到 77 GHz 的根本动因。</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="h"><span class="n">24 GHz</span><span class="f">24.05 – 24.25 GHz</span></div>
+        <div class="d">ISM 频段，带宽只有 200 MHz，分辨率约 <b>75 cm</b>。现在主要用于测速仪、液位计、存在感知与智能家居，已不再是车载主雷达。</div>
+        <div class="metric">优点是模组便宜、天线小；缺点是分辨率不够分辨行人与立柱</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">60 GHz</span><span class="f">57 – 64 GHz</span></div>
+        <div class="d">正处氧气吸收峰（约 15 dB/km 额外衰减），传播被天然限制在室内，因此被划给短距高速（802.11ad）和近距离雷达。</div>
+        <div class="metric">物理隔离带来的天然频谱复用，是它最聪明的地方</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">76 – 81 GHz</span><span class="f">车载主雷达</span></div>
+        <div class="d">4 GHz 连续扫宽给出 <b>3.75 cm</b> 距离分辨率，配合 MIMO 阵列还能测角。中国开放 76–79 GHz，欧美到 81 GHz，这个边界差异直接限制了出口车型的射频配置。</div>
+        <div class="metric">79 GHz 后进入大气衰减上升区，是划分上界的关键理由</div>
+      </div>
+    </div>
+
+    <div class="note"><b>通感一体为什么先落在 3.5 GHz 与毫米波：</b>通信要带宽，感知也要带宽，两者对频谱的诉求第一次重合。5G‑A 把一部分上行资源改造成类似雷达的波形，用同一段 3.5 GHz 同时做数据传输与目标探测——<b>频谱利用率翻倍，代价是波形设计复杂度与自干扰</b>。</div>
+  </div>
+</section>
+
+<!-- ============ 07 广播与专网 ============ -->
+<section id="s7">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">07</span><h2>广播、航空与专网：不追求带宽的频谱</h2></div>
+    <p class="sec-dek">还有大量频谱服务于“可靠性优先、带宽次要”的场景：一点对多点的广播、性命攸关的航空通话、以及不依赖公网的行业专网。它们占据了频谱版图上很大一块面积，却几乎不被普通用户感知。</p>
+
+    <div class="table-wrap">
+      <table>
+        <colgroup><col style="width:16%"><col style="width:24%"><col style="width:22%"><col style="width:38%"></colgroup>
+        <thead><tr><th>业务</th><th>频段</th><th>制式 / 带宽</th><th>为什么放在这里</th></tr></thead>
+        <tbody>
+          <tr><td class="gold">调频广播</td><td class="mono">87 – 108 MHz</td><td class="mono">FM，200 kHz 间隔</td><td class="dim">长波长绕射好，一个发射塔覆盖数十公里</td></tr>
+          <tr><td class="gold">地面数字电视</td><td class="mono">470 – 566 / 606 – 798 MHz</td><td class="mono">DTMB，8 MHz</td><td class="dim">原模拟电视遗产，700 MHz 部分已重耕给 5G</td></tr>
+          <tr><td class="gold">航空 VHF</td><td class="mono">118 – 136.975 MHz</td><td class="mono">AM，25 / 8.33 kHz</td><td class="dim">视距传播、必须无遮挡，8.33 kHz 是为缓解频道耗尽</td></tr>
+          <tr><td class="gold">二次雷达 / TCAS</td><td class="mono">1030 / 1090 MHz</td><td class="mono">脉冲</td><td class="dim">全球统一的两个频点，几乎无法迁移</td></tr>
+          <tr><td class="gold">800 MHz 集群</td><td class="mono">806–821 / 851–866 MHz</td><td class="mono">25 kHz</td><td class="dim">公安、应急、政务专网，强调组呼与优先级</td></tr>
+          <tr><td class="gold">1.4 GHz 宽带集群</td><td class="mono">1447 – 1467 MHz</td><td class="mono">按需分配</td><td class="dim">政务专网宽带化，可传视频</td></tr>
+          <tr><td class="gold">铁路 GSM‑R</td><td class="mono">885–889 / 930–934 MHz</td><td class="mono">200 kHz</td><td class="dim">要求极高可靠性，沿铁路线专项覆盖</td></tr>
+          <tr><td class="gold">ETC</td><td class="mono">5795 – 5815 MHz</td><td class="mono">5.8 GHz DSRC</td><td class="dim">短距、高速移动下的极短交互</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 治理 ============ -->
+<section id="s8">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">08</span><h2>频谱是怎么被分出去的</h2></div>
+    <p class="sec-dek">频谱不是商品，是主权资源。ITU 的《无线电规则》划定全球业务优先级，各国再在框架内落成自己的划分规定。分配机制决定了产业格局：拍卖把频谱变成资产，行政审批把频谱变成政策工具，免许可则把它变成公共品。</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="h"><span class="n">行政审批</span><span class="f">中国主路径</span></div>
+        <div class="d">工信部按《无线电频率划分规定》直接指配给运营商，收取频率占用费。优点是能快速把频谱导向国家战略（如 700 MHz 给广电、3.5 GHz 给电信联通），代价是缺少价格信号，容易造成闲置与错配。</div>
+        <div class="metric">中国 5G 频谱未采用拍卖，三大运营商零溢价获得核心频段</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">拍卖</span><span class="f">欧美主路径</span></div>
+        <div class="d">把频谱按地理区块与带宽打包竞拍，价高者得。它把稀缺性显性化，政府获得财政收入，但也推高了运营商成本——欧洲 3G 拍卖曾让多家运营商背上巨额债务。</div>
+        <div class="metric">德国、英国 3.5 GHz 拍卖单价可达每 MHz 每人口数欧分</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">免许可</span><span class="f">ISM 与短距</span></div>
+        <div class="d">不需要牌照，但必须满足等效全向辐射功率（EIRP）、带外发射与占空比限制。它用“低功率 + 技术约束”换“零门槛”，Wi‑Fi 与蓝牙的全部生态都建立在这一点上。</div>
+        <div class="metric">2.4 GHz 室内限值通常为 100 mW EIRP 量级（因地区而异）</div>
+      </div>
+    </div>
+
+    <div class="note"><b>三种共享机制，正在改写“专用频段”的概念：</b>一是<b>运营商间共享</b>——700 MHz 由广电持有、与移动共建，3.5 GHz 由电信联通合建 200 MHz；二是<b>动态频谱接入</b>——美国的 CBRS 用三层架构让海军雷达、优先用户、一般用户按时空复用同一段 3.5 GHz；三是<b>免许可与授权共存</b>——Wi‑Fi 6E 在 6 GHz 上必须先用 AFC 系统查询 incumbent 保护。频谱治理的方向，已经从“切分”转向“调度”。</div>
+
+    <div class="note"><b>验证视角（给做射频的读者）：</b>频段划分最终落在测试指标上——带外要看<span class="band-tag">SEM 频谱模板</span><span class="band-tag">ACLR 邻道泄漏比</span>，带内要看<span class="band-tag">EVM</span><span class="band-tag">平坦度</span>，共存要看<span class="band-tag">阻塞</span><span class="band-tag">杂散</span><span class="band-tag">互调</span>。一个频段的边界写得再漂亮，能不能用，取决于芯片在边界处的滚降有多陡。</div>
+  </div>
+</section>
+
+<!-- ============ 09 速查 ============ -->
+<section id="s9">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">09</span><h2>一页速查</h2></div>
+    <p class="sec-dek">把最常被问到、也最容易记错的数字集中在一处。</p>
+
+    <div class="kv">
+      <div class="kv-row"><div class="k">5G FR1 频率范围</div><div class="v">410 – 7125 MHz</div></div>
+      <div class="kv-row"><div class="k">5G FR2 频率范围</div><div class="v">24.25 – 52.6 GHz</div></div>
+      <div class="kv-row"><div class="k">中国移动 5G 主力</div><div class="v">n41：2515–2675 MHz（160 MHz）＋ n79：4800–4900 MHz（100 MHz）</div></div>
+      <div class="kv-row"><div class="k">电信 / 联通 5G</div><div class="v">n78：3300–3600 MHz，各 100 MHz，共建共享合成 200 MHz</div></div>
+      <div class="kv-row"><div class="k">广电 700 MHz</div><div class="v">n28：703–733 / 758–788 MHz（2 × 30 MHz），与移动共享</div></div>
+      <div class="kv-row"><div class="k">6 GHz 归属</div><div class="v">5925–7125 MHz：中国规划给 IMT（6G 候选），未开放 Wi‑Fi</div></div>
+      <div class="kv-row"><div class="k">2.4 GHz 可用信道</div><div class="v">13 个，仅 1 / 6 / 11 互不重叠</div></div>
+      <div class="kv-row"><div class="k">中国 5 GHz 开放区</div><div class="v">5150–5350 MHz（室内）＋ 5725–5850 MHz</div></div>
+      <div class="kv-row"><div class="k">车载雷达</div><div class="v">76–79 GHz（中国），4 GHz 扫宽 → 3.75 cm 分辨率</div></div>
+      <div class="kv-row"><div class="k">自由空间损耗斜率</div><div class="v">频率翻倍 +6 dB；距离翻倍 +6 dB</div></div>
+      <div class="kv-row"><div class="k">热噪声底</div><div class="v">−174 dBm/Hz（290 K），带宽翻倍 +3 dB</div></div>
+    </div>
+
+    <div class="note">本图谱中频段边界按公开的商用与规划信息整理；部分毫米波与 6 GHz 频段仍属试验或规划性质，实际可用性以工信部最新划分规定与运营商公告为准。不同国家在 5 GHz、6 GHz、79 GHz 上界等位置存在明确差异，涉外产品需逐项核对当地法规。</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="k">划分依据</div>
+        <div class="t"><b>中国《无线电频率划分规定》</b>（工信部）、《中华人民共和国无线电管理条例》；运营商频段以工信部公开分配公告为准。</div>
+      </div>
+      <div class="foot-col">
+        <div class="k">国际参照</div>
+        <div class="t"><b>ITU《无线电规则》</b>与国际频率划分表；WRC-23 将 6 GHz 标识为 IMT 的决议；3GPP TS 38.101 的 NR 频段定义；FCC 6 GHz 开放命令。</div>
+      </div>
+      <div class="foot-col">
+        <div class="k">阅读边界</div>
+        <div class="t">色块表示<b>业务可用范围</b>，不等于实际在用带宽；毫米波与 6 GHz 部分仍属试验或规划。本页为技术梳理，不作为合规依据。</div>
+      </div>
+    </div>
+    <div class="foot-end">
+      <span>频谱资源图谱 · 无线通信频谱全景</span>
+      <span>整理于 2026 年 11 月</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+var SANS='"Noto Sans SC","PingFang SC",sans-serif';
+var SERIF='"Noto Serif SC",serif';
+var INK="#0C241F", SILK="#EDEFE7", DIM="#A2B6AD", FAINT="#7A9089", RULE="#2A4B3F", RULE2="#1D3A31";
+
+function el(t,a){var n=document.createElementNS(NS,t);if(a){for(var k in a){n.setAttribute(k,a[k]);}}return n;}
+function tx(p,x,y,s,size,fill,anchor,weight,family){
+  var n=el("text",{x:x,y:y,"font-size":size||11,fill:fill||DIM,"text-anchor":anchor||"start",
+    "font-family":family||SANS,"font-weight":weight||400});
+  n.setAttribute("dominant-baseline","alphabetic");
+  n.textContent=s;p.appendChild(n);return n;
+}
+function fmtF(m){
+  if(m>=1000){var g=m/1000;return (g>=10?g.toFixed(g%1?1:0):g.toFixed(g%1?2:0))+" GHz";}
+  return (m%1?m.toFixed(1):m)+" MHz";
+}
+function fmtBW(bw){
+  if(bw>=1000){return (bw/1000).toFixed(bw/1000%1?2:0)+" GHz";}
+  return (bw%1?bw.toFixed(1):bw)+" MHz";
+}
+function tick(v){return v%1?v.toFixed(1):String(v);}
+
+/* ======================= 数据 ======================= */
+var CATS=[
+ {id:"cell",n:"蜂窝移动",sn:"蜂窝",c:"#D8A648"},
+ {id:"short",n:"WLAN / 短距",sn:"短距",c:"#48B3A6"},
+ {id:"sat",n:"卫星 / 导航",sn:"卫星",c:"#8E96E0"},
+ {id:"radar",n:"雷达 / 感知",sn:"雷达",c:"#CE7A52"},
+ {id:"bcast",n:"广播 / 专网",sn:"广播",c:"#8C9C95"}
+];
+
+var BANDS=[
+ {c:"cell",l:"n28",n:"700 MHz（n28）",s:703,e:788,u:"广电持有，与移动共建共享，农村与深度覆盖主力"},
+ {c:"cell",l:"900",n:"900 MHz",s:890,e:960,u:"2G 语音主力，现网重耕为 NB-IoT 与 4G"},
+ {c:"cell",l:"1800",n:"1800 MHz",s:1710,e:1880,u:"2G 容量层，后重耕为 LTE Band 3"},
+ {c:"cell",l:"1.9G",n:"1.9 GHz",s:1880,e:1920,u:"TD-SCDMA 核心频段，后转 LTE Band 39"},
+ {c:"cell",l:"2.1G",n:"2.1 GHz",s:1920,e:2170,u:"3G FDD 主力（WCDMA / CDMA2000），现重耕 4G / 5G n1"},
+ {c:"cell",l:"2.3G",n:"2.3 GHz",s:2300,e:2400,u:"TD-LTE Band 40，三家运营商各取一段"},
+ {c:"cell",l:"n41",n:"2.6 GHz（n41）",s:2515,e:2675,u:"中国移动 5G 主力，160 MHz 连续带宽"},
+ {c:"cell",l:"n78",n:"3.5 GHz（n78）",s:3300,e:3600,u:"电信与联通共建共享，各 100 MHz 合成 200 MHz"},
+ {c:"cell",l:"n79",n:"4.9 GHz（n79）",s:4800,e:4900,u:"中国移动 5G 容量层，100 MHz"},
+ {c:"cell",l:"6G",n:"6 GHz（IMT）",s:6425,e:7125,u:"WRC-23 标识为 IMT，6G 的核心候选频段"},
+ {c:"cell",l:"26G",n:"26 GHz（n258）",s:24250,e:27500,u:"毫米波试验频段，用于 5G-A 与固定无线接入"},
+ {c:"cell",l:"39G",n:"39 GHz（n260）",s:37000,e:43500,u:"毫米波试验频段，带宽大但覆盖极短"},
+ {c:"short",l:"2.4G",n:"2.4 GHz ISM",s:2400,e:2483.5,u:"Wi-Fi、蓝牙、Zigbee 共用，13 个信道"},
+ {c:"short",l:"5G W",n:"5 GHz WLAN",s:5150,e:5350,u:"中国开放 5150–5350，室内与低功率为主"},
+ {c:"short",l:"5.8G",n:"5.8 GHz WLAN",s:5725,e:5850,u:"中国 5 GHz 的另一段，信道 149–165"},
+ {c:"short",l:"UWB",n:"UWB",s:6000,e:9000,u:"超宽带，测距与存在检测，功率密度极低"},
+ {c:"short",l:"RFID",n:"UHF RFID",s:920,e:925,u:"无源标签，仓储与零售盘点"},
+ {c:"sat",l:"导航",n:"导航 L 波段",s:1150,e:1620,u:"GPS / 北斗 / Galileo 共用，B1C 与 GPS L1 同频"},
+ {c:"sat",l:"天通",n:"天通 S 波段",s:1980,e:2200,u:"手机直连卫星，上行 1980–2010，下行 2170–2200"},
+ {c:"sat",l:"C",n:"卫星 C 波段",s:3700,e:4200,u:"卫星固定业务下行，广电传输与干线回传"},
+ {c:"sat",l:"C up",n:"C 波段上行",s:5925,e:6425,u:"与 6 GHz IMT 相邻，是最典型的邻频共存难题"},
+ {c:"sat",l:"X",n:"X 波段",s:8000,e:12000,u:"军用与遥感，民用极少"},
+ {c:"sat",l:"Ku",n:"Ku 波段",s:10700,e:12700,u:"直播星与 Starlink 用户下行"},
+ {c:"sat",l:"Ku up",n:"Ku 上行",s:13750,e:14500,u:"VSAT 与用户上行，雨衰补偿重点"},
+ {c:"sat",l:"Ka",n:"Ka 波段",s:17800,e:20200,u:"高通量卫星点波束，容量密度最高"},
+ {c:"sat",l:"Ka gw",n:"Ka 网关",s:27500,e:30000,u:"关口站馈电链路，与 26 GHz 5G 邻接"},
+ {c:"radar",l:"24G",n:"24 GHz 雷达",s:24050,e:24250,u:"测速、液位、存在感知，分辨率约 75 cm"},
+ {c:"radar",l:"60G",n:"60 GHz",s:57000,e:64000,u:"氧气吸收峰，天然室内隔离，短距高速与雷达"},
+ {c:"radar",l:"77G",n:"76–81 GHz",s:76000,e:81000,u:"车载主雷达，4 GHz 扫宽给出 3.75 cm 分辨率"},
+ {c:"bcast",l:"FM",n:"调频广播",s:87,e:108,u:"87–108 MHz，一个发射塔覆盖数十公里"},
+ {c:"bcast",l:"VHF",n:"航空 VHF",s:118,e:137,u:"118–136.975，AM 调制，8.33 kHz 频道间隔"},
+ {c:"bcast",l:"DTMB",n:"地面数字电视",s:470,e:566,u:"原模拟电视遗产，700 MHz 部分已重耕给 5G"},
+ {c:"bcast",l:"DTMB2",n:"数字电视（高段）",s:606,e:798,u:"606–798 MHz，与 700 MHz 5G 直接相邻"},
+ {c:"bcast",l:"集群",n:"800 MHz 集群",s:806,e:866,u:"公安、应急、政务专网，强调组呼与优先级"},
+ {c:"bcast",l:"GSM-R",n:"铁路 GSM-R",s:885,e:934,u:"沿铁路线专项覆盖，可靠性要求极高"},
+ {c:"bcast",l:"二次雷达",n:"二次雷达",s:1030,e:1090,u:"1030 / 1090 MHz 两个全球统一频点"},
+ {c:"bcast",l:"1.4G",n:"1.4 GHz 集群",s:1447,e:1467,u:"政务宽带集群，可传视频"},
+ {c:"bcast",l:"ETC",n:"ETC 5.8 GHz",s:5795,e:5815,u:"DSRC 短距交互，高速移动下的极短通信"}
+];
+
+var RANGES={
+ full:{min:50,max:110000,ticks:[[50,"50M"],[100,"100M"],[200,"200M"],[500,"500M"],[1000,"1G"],[2000,"2G"],[3000,"3G"],[5000,"5G"],[6000,"6G"],[8000,"8G"],[10000,"10G"],[20000,"20G"],[30000,"30G"],[50000,"50G"],[80000,"80G"],[110000,"110G"]]},
+ busy:{min:2400,max:7200,ticks:[[2400,"2.4G"],[2600,"2.6G"],[2800,"2.8G"],[3000,"3G"],[3300,"3.3G"],[3600,"3.6G"],[4000,"4G"],[4900,"4.9G"],[5150,"5.15G"],[5400,"5.4G"],[5850,"5.85G"],[6000,"6G"],[6500,"6.5G"],[7200,"7.2G"]]}
+};
+
+var state={range:"full",hidden:{},pinned:null,hover:null};
+
+/* ======================= 频谱分配图 ======================= */
+var specNode=document.getElementById("spectrum");
+var specRects=[];
+
+function drawSpectrum(){
+  var w=specNode.clientWidth, h=specNode.clientHeight;
+  if(w<40||h<40) return;
+  specNode.setAttribute("width",w); specNode.setAttribute("height",h);
+  while(specNode.firstChild) specNode.removeChild(specNode.firstChild);
+  specRects=[];
+
+  var R=RANGES[state.range];
+  var padL = w<520?54:62, padR=10, padT=6, axisH=32;
+  var lo0=R.min, hi0=R.max;
+  var vis=BANDS.filter(function(b){
+    return !state.hidden[b.c] && !(b.e<=lo0 || b.s>=hi0);
+  });
+  var laneCats=CATS.filter(function(c){
+    return vis.some(function(b){return b.c===c.id;});
+  });
+  var lanes=Math.max(1,laneCats.length);
+  var laneH=(h-padT-axisH)/lanes;
+  var lo=Math.log10(R.min), hi=Math.log10(R.max);
+  function X(f){
+    var v=(Math.log10(Math.max(f,R.min))-lo)/(hi-lo);
+    return padL+v*(w-padL-padR);
+  }
+
+  var g=el("g",{});specNode.appendChild(g);
+
+  /* 网格 */
+  R.ticks.forEach(function(t){
+    var x=X(t[0]);
+    g.appendChild(el("line",{x1:x,y1:padT,x2:x,y2:h-axisH,stroke:"rgba(255,255,255,0.04)","stroke-width":1}));
+  });
+
+  /* 行与标签 */
+  laneCats.forEach(function(c,i){
+    var top=padT+i*laneH;
+    g.appendChild(el("line",{x1:padL,y1:top,x2:w-padR,y2:top,stroke:RULE2,"stroke-width":1}));
+    tx(g,padL-7,top+laneH/2+4,w<540?c.sn:c.n,w<540?10:10.5,c.c,"end",500);
+  });
+  g.appendChild(el("line",{x1:padL,y1:h-axisH,x2:w-padR,y2:h-axisH,stroke:RULE,"stroke-width":1}));
+
+  /* 色块 */
+  BANDS.forEach(function(b){
+    if(state.hidden[b.c] || b.e<=lo0 || b.s>=hi0) return;
+    var laneIdx=laneCats.findIndex(function(c){return c.id===b.c;});
+    if(laneIdx<0) return;
+    var top=padT+laneIdx*laneH;
+    var barH=Math.min(28,Math.max(12,laneH-24));
+    var x0=X(b.s), x1=X(b.e);
+    var bw=Math.max(3,x1-x0);
+    var color=CATS[laneIdx].c;
+    var r=el("rect",{x:x0,y:top+(laneH-barH)/2,width:bw,height:barH,rx:1.5,
+      fill:color,"fill-opacity":0.9,stroke:"transparent","stroke-width":1,cursor:"pointer"});
+    g.appendChild(r);
+    var showLabel = bw>30 && barH>=16;
+    if(showLabel){
+      var t=tx(g,x0+5,top+laneH/2+3.5,b.l,9,"rgba(10,30,26,0.82)","start",600);
+      t.setAttribute("pointer-events","none");
+      if(t.getComputedTextLength && t.getComputedTextLength()>bw-8) t.remove();
+    }
+    r.addEventListener("pointerenter",function(){showRead(b,r);});
+    r.addEventListener("pointerleave",function(){showRead(state.pinned,null);});
+    r.addEventListener("click",function(ev){
+      ev.stopPropagation();
+      state.pinned = (state.pinned===b)?null:b;
+      showRead(state.pinned,null);
+      specRects.forEach(function(o){o.node.setAttribute("stroke","transparent");});
+      if(state.pinned) r.setAttribute("stroke",SILK);
+    });
+    specRects.push({node:r,band:b});
+  });
+
+  /* 坐标轴标签 */
+  var lastX=-999;
+  R.ticks.forEach(function(t){
+    var x=X(t[0]);
+    if(x-lastX < (w<520?44:34)) return;
+    lastX=x;
+    var anc="middle", lx=x;
+    if(x>w-24){anc="end";lx=w-6;}
+    else if(x<padL+16){anc="start";lx=padL-2;}
+    tx(g,lx,h-axisH+16,t[1],w<520?9:10,FAINT,anc,400);
+  });
+
+}
+
+function showRead(b,node){
+  var m=document.getElementById("ro-main"),
+      rg=document.getElementById("ro-range"),
+      us=document.getElementById("ro-use");
+  if(!b){
+    if(state.pinned) return showRead(state.pinned,null);
+    m.textContent="悬停或点击任意色块"; m.classList.add("empty");
+    rg.textContent="—"; rg.classList.add("empty");
+    us.textContent="—"; us.classList.add("empty");
+    return;
+  }
+  m.textContent=b.n; m.classList.remove("empty");
+  rg.textContent=fmtF(b.s)+" – "+fmtF(b.e)+"　（"+fmtBW(b.e-b.s)+"）"; rg.classList.remove("empty");
+  us.textContent=b.u; us.classList.remove("empty");
+}
+
+/* ======================= 图例 / 缩放 ======================= */
+var legend=document.getElementById("legend");
+CATS.forEach(function(c){
+  var btn=document.createElement("button");
+  btn.type="button"; btn.setAttribute("aria-pressed","true");
+  btn.innerHTML='<span class="sw" style="background:'+c.c+'"></span>'+c.n;
+  btn.addEventListener("click",function(){
+    state.hidden[c.id]=!state.hidden[c.id];
+    btn.setAttribute("aria-pressed",state.hidden[c.id]?"false":"true");
+    drawSpectrum();
+  });
+  legend.appendChild(btn);
+});
+Array.prototype.forEach.call(document.querySelectorAll(".zoomers button"),function(btn){
+  btn.addEventListener("click",function(){
+    state.range=btn.dataset.range;
+    Array.prototype.forEach.call(document.querySelectorAll(".zoomers button"),function(b){
+      b.dataset.on = b===btn?"1":"0";
+    });
+    drawSpectrum();
+  });
+});
+specNode.addEventListener("click",function(){
+  state.pinned=null;
+  specRects.forEach(function(o){o.node.setAttribute("stroke","transparent");});
+  showRead(null);
+});
+
+/* ======================= 自由空间损耗 ======================= */
+function drawFspl(node,w,h){
+  node.setAttribute("width",w); node.setAttribute("height",h);
+  while(node.firstChild) node.removeChild(node.firstChild);
+  var p={l:44,r:52,t:18,b:30};
+  var f0=700,f1=32000,y0=44,y1=86;
+  var lo=Math.log10(f0),hi=Math.log10(f1);
+  function X(f){return p.l+(Math.log10(f)-lo)/(hi-lo)*(w-p.l-p.r);}
+  function Y(d){return p.t+(y1-d)/(y1-y0)*(h-p.t-p.b);}
+  var g=el("g",{});node.appendChild(g);
+
+  [45,50,55,60,65,70,75,80,85].forEach(function(d){
+    var y=Y(d);
+    g.appendChild(el("line",{x1:p.l,y1:y,x2:w-p.r,y2:y,stroke:"rgba(255,255,255,0.055)","stroke-width":1}));
+    tx(g,p.l-8,y+3.5,d+" dB",9.5,FAINT,"end");
+  });
+
+  var pts=[];
+  for(var i=0;i<=48;i++){
+    var f=Math.pow(10,lo+i/48*(hi-lo));
+    pts.push([X(f),Y(-7.56+20*Math.log10(f))]);
+  }
+  var dpath=pts.map(function(pt,i){return (i?"L":"M")+pt[0].toFixed(1)+" "+pt[1].toFixed(1);}).join("");
+  g.appendChild(el("path",{d:dpath,stroke:"#D8A648","stroke-width":2,fill:"none"}));
+
+  var marks=[[700,"700 MHz\n49.3 dB"],[3500,"3.5 GHz\n63.3 dB"],[28000,"28 GHz\n81.4 dB"]];
+  marks.forEach(function(m,idx){
+    var f=m[0], d=-7.56+20*Math.log10(f);
+    var x=X(f),y=Y(d);
+    g.appendChild(el("circle",{cx:x,cy:y,r:4,fill:"#D8A648"}));
+    g.appendChild(el("circle",{cx:x,cy:y,r:7.5,fill:"none",stroke:"#D8A648","stroke-opacity":0.35}));
+    var lines=m[1].split("\n");
+    var off = idx===2? -9 : 9;
+    var anchor = idx===2? "end":"start";
+    lines.forEach(function(s,i){
+      tx(g,x+off,y-30+i*13,s,10,i===0?SILK:DIM,anchor,i===0?600:400);
+    });
+  });
+
+  [700,1000,2000,3500,5000,10000,20000,32000].forEach(function(f){
+    tx(g,X(f),h-p.b+16,f>=1000?(f/1000)+"G":f+"M",9.5,FAINT,"middle");
+  });
+  var fA=9000,xA=X(fA),yA=Y(-7.56+20*Math.log10(fA));
+  tx(g,xA+8,yA+22,"斜率 6 dB / 倍频程",9.5,"#B9924E","start",600);
+}
+
+/* ======================= 中国 5G 频谱归属 ======================= */
+function drawCarrier(node,w,h){
+  node.setAttribute("width",w); node.setAttribute("height",h);
+  while(node.firstChild) node.removeChild(node.firstChild);
+  var rows=[
+    {n:"中国移动",tot:"300 MHz",seg:[[160,"n41 · 2.6G · 160M","#D8A648"],[100,"n79 · 4.9G · 100M","#CE7A52"],[40,"700M 共享 40M","#48B3A6"]]},
+    {n:"中国广电",tot:"60 MHz",seg:[[60,"n28 · 703–733 / 758–788","#48B3A6"]]},
+    {n:"中国电信",tot:"100 MHz",seg:[[100,"n78 · 3.4–3.5G","#D8A648"]]},
+    {n:"中国联通",tot:"100 MHz",seg:[[100,"n78 · 3.5–3.6G","#D8A648"]]}
+  ];
+  var padL=w<520?62:76, padR=w<520?54:86, padT=16, padB=14;
+  var rowH=(h-padT-padB)/rows.length;
+  var scale=(w-padL-padR)/320;
+  var g=el("g",{});node.appendChild(g);
+
+  rows.forEach(function(row,i){
+    var y=padT+i*rowH;
+    var barH=Math.min(26,rowH-18);
+    var by=y+(rowH-barH)/2;
+    tx(g,padL-10,y+rowH/2+4,row.n,w<520?10:11.5,SILK,"end",600,SERIF);
+    tx(g,w-4,y+rowH/2+4,row.tot,10,FAINT,"end");
+    var x=padL;
+    row.seg.forEach(function(s){
+      var bw=s[0]*scale;
+      g.appendChild(el("rect",{x:x,y:by,width:bw,height:barH,rx:1.5,fill:s[2],"fill-opacity":0.9}));
+      if(bw>64) tx(g,x+8,by+barH/2+3.5,s[1],9.5,"rgba(10,30,26,0.85)","start",600);
+      else if(bw>30) tx(g,x+5,by-6,s[1].split("·")[0],9,DIM,"start",500);
+      x+=bw+2;
+    });
+  });
+
+  var noteY=h-3;
+  tx(g,padL,noteY,"色块长度按带宽等比；毫米波试验频段未计入",9,FAINT,"start");
+}
+
+/* ======================= 2.4 GHz 信道 ======================= */
+function drawWifi24(node,w,h){
+  node.setAttribute("width",w); node.setAttribute("height",h);
+  while(node.firstChild) node.removeChild(node.firstChild);
+  var p={l:34,r:12,t:26,b:30};
+  var f0=2392,f1=2490;
+  function X(f){return p.l+(f-f0)/(f1-f0)*(w-p.l-p.r);}
+  var g=el("g",{});node.appendChild(g);
+  var rows=3;
+  var rowH=(h-p.t-p.b)/rows;
+  var barH=Math.min(20,rowH-10);
+
+  g.appendChild(el("line",{x1:p.l,y1:h-p.b,x2:w-p.r,y2:h-p.b,stroke:RULE,"stroke-width":1}));
+
+  for(var i=0;i<13;i++){
+    var center=2412+5*i;
+    var hi=(i===0||i===5||i===10);
+    var y=p.t+(i%rows)*rowH+(rowH-barH)/2;
+    var x0=X(center-10), x1=X(center+10);
+    g.appendChild(el("rect",{x:x0,y:y,width:x1-x0,height:barH,rx:2,
+      fill:hi?"#D8A648":"#48B3A6","fill-opacity":hi?0.95:0.22,
+      stroke:hi?"#D8A648":"#48B3A6","stroke-opacity":hi?1:0.35,"stroke-width":1}));
+    if(hi){
+      tx(g,(x0+x1)/2,y-6,"CH"+(i+1),10,SILK,"middle",700);
+      tx(g,(x0+x1)/2,y+barH+11,center+" MHz",9,DIM,"middle");
+    }
+  }
+
+  [2400,2412,2437,2462,2483.5].forEach(function(f){
+    var x=X(f);
+    tx(g,x,h-p.b+15,f===2400||f===2483.5?f+"":f+"",9,FAINT,"middle");
+    g.appendChild(el("line",{x1:x,y1:p.t-2,x2:x,y2:h-p.b,stroke:"rgba(255,255,255,0.05)","stroke-width":1}));
+  });
+}
+
+/* ======================= 5 GHz / 6 GHz ======================= */
+function drawWifi56(node,w,h){
+  node.setAttribute("width",w); node.setAttribute("height",h);
+  while(node.firstChild) node.removeChild(node.firstChild);
+  var p={l:46,r:12,t:30,b:28};
+  var f0=5100,f1=7160;
+  function X(f){return p.l+(f-f0)/(f1-f0)*(w-p.l-p.r);}
+  var g=el("g",{});node.appendChild(g);
+
+  var openC="#48B3A6", closeC="#1B3D34", closeS="#33564A";
+  var rows=[
+    {n:"中国",blocks:[[5150,5350,1,"5150–5350 室内"],[5350,5470,0,""],[5470,5725,0,""],[5725,5850,1,"5725–5850"],[5850,5925,0,""],[5925,7125,0,"6 GHz 规划为 IMT"]]},
+    {n:"美国",blocks:[[5150,5350,1,"5150–5350"],[5470,5725,1,"DFS"],[5725,5850,1,"U-NII-3"],[5925,7125,1,"6 GHz 开放 Wi-Fi 6E / 7"]]}
+  ];
+  var rowH=(h-p.t-p.b)/rows.length;
+  var barH=Math.min(34,rowH-22);
+
+  rows.forEach(function(row,i){
+    var y=p.t+i*rowH+(rowH-barH)/2;
+    tx(g,p.l-8,y+barH/2+4,row.n,11,SILK,"end",600,SERIF);
+    row.blocks.forEach(function(b){
+      var x0=X(b[0]),x1=X(b[1]),bw=Math.max(1,x1-x0);
+      g.appendChild(el("rect",{x:x0,y:y,width:bw,height:barH,rx:1.5,
+        fill:b[2]?openC:closeC,"fill-opacity":b[2]?0.82:1,
+        stroke:b[2]?openC:closeS,"stroke-width":1}));
+      if(b[3]&&bw>60){
+        tx(g,x0+7,y+barH/2+3.5,b[3],9,b[2]?"rgba(8,26,22,0.85)":"#9FB3AA","start",600);
+      }
+    });
+  });
+
+  g.appendChild(el("line",{x1:p.l,y1:h-p.b,x2:w-p.r,y2:h-p.b,stroke:RULE,"stroke-width":1}));
+  [5150,5350,5470,5725,5850,5925,6425,7125].forEach(function(f,idx){
+    if(idx%2===1&&w<560&&f!==5850&&f!==5925) return;
+    tx(g,X(f),h-p.b+15,String(f),9,FAINT,"middle");
+  });
+
+  /* 图例 */
+  g.appendChild(el("rect",{x:p.l,y:8,width:9,height:9,fill:openC,"fill-opacity":0.82}));
+  tx(g,p.l+14,16,"已开放给 WLAN",9.5,DIM,"start");
+  g.appendChild(el("rect",{x:p.l+120,y:8,width:9,height:9,fill:closeC,stroke:closeS}));
+  tx(g,p.l+134,16,"未开放 / 他用",9.5,DIM,"start");
+}
+
+/* ======================= 启动 ======================= */
+function fit(node,draw){
+  function run(){
+    var w=node.clientWidth;
+    if(w<40) return;
+    var h=node.clientHeight||240;
+    draw(node,w,h);
+  }
+  run();
+  var t;
+  window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(function(){
+    drawSpectrum();
+    run2();
+  },180);});
+  function run2(){
+    if(node===specNode) return;
+    var w=node.clientWidth,h=node.clientHeight;
+    if(w<40) return;
+    draw(node,w,h);
+  }
+  node.__redraw=run2;
+}
+
+drawSpectrum();
+fit(document.getElementById("fspl"),drawFspl);
+fit(document.getElementById("carrier"),drawCarrier);
+fit(document.getElementById("wifi24"),drawWifi24);
+fit(document.getElementById("wifi56"),drawWifi56);
+
+showRead(null);
+})();
+</script>
+</body>
+</html>
