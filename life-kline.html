@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人生 K 线 · 1994–2026</title>
+<style>
+  body { margin:0; background:#f7f6f3; color:#1f2937;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:1240px; margin:0 auto; padding:34px 24px 46px; }
+  h1 { font-family:Georgia,"Songti SC",serif; font-size:30px; margin:0 0 6px; letter-spacing:.5px; }
+  .sub { color:#6b7280; font-size:14px; margin-bottom:6px; }
+  .rule { color:#6b7280; font-size:12px; margin-bottom:18px; }
+  .rule b { color:#b91c1c; font-weight:600; }
+  .rule i { color:#2e7d5b; font-style:normal; font-weight:600; }
+  #chart { width:100%; height:640px; background:#fff; border:1px solid #e5e3da; border-radius:10px; }
+  .note { margin-top:18px; font-size:13px; color:#6b7280; line-height:1.9; }
+  .note b { color:#1f2937; }
+  @media (max-width:760px){ #chart{height:520px} h1{font-size:24px} }
+  .back { display:inline-block; margin-bottom:14px; font-size:12px; color:#a3a39b;
+    text-decoration:none; letter-spacing:.5px; }
+  .back:hover { color:#6b6a64; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="about.html">← 返回</a>
+  <h1>人生 K 线 · 1994–2026</h1>
+  <div class="sub">把 32 年看成一支股票：一根蜡烛＝一年，开盘是年初，收盘是年末，影线是高光与低谷。</div>
+  <div class="rule"><b>红 = 上行</b>　<i>绿 = 回落</i>　黄/灰虚线为 MA5 / MA10 长期趋势　鼠标悬停看当年发生了什么</div>
+  <div id="chart"></div>
+  <div class="note">
+    <b>读法</b>：2006 年长阳＝数学 110 分，此前的见山是山，此后的见山不是山；2023 年长上影＝骑行；
+    2025 年短上影大阴线＝裸辞；2026 年下影回升＝探底后重新出发。
+  </div>
+</div>
+<script src="assets/echarts.min.js"></script>
+<script>
+// 年份, 开, 高, 低, 收, 当年事件
+var RAW = [
+[1994,10,14,8,12,"出生于安徽六安固镇镇鱼塘村，父母务农，家境清贫"],
+[1995,12,15,10,13,"幼年，父亲跑车，母亲顾家种田，后来开了水泥店"],
+[1996,13,16,11,14,"村里童年"],
+[1997,14,17,12,15,"村里童年"],
+[1998,15,18,13,15,"上学前"],
+[1999,15,18,13,16,"4 岁上一年级，成绩常年 80 分左右"],
+[2000,16,19,14,17,"成绩平平"],
+[2001,17,20,15,18,"60 人里大概前 10 的水平"],
+[2002,18,19,13,15,"三年级留级：成绩一般，年纪也小"],
+[2003,15,18,12,16,"遇上严厉的语文老师，常被打得满头是包"],
+[2004,16,19,13,17,"成绩偶尔能到 90 分"],
+[2005,17,21,15,20,"缓慢爬升"],
+[2006,20,38,19,32,"数学 100+10 考了 110 分，全班唯二。此前见山是山，此后见山不是山——人生第一个转折点，父母开始考虑送我去市里读书"],
+[2007,32,42,30,40,"初二新增物理，理科逻辑成了强项；英语数一数二，信心倍增"],
+[2008,40,52,38,48,"初三托人借读到市里最好的皋城中学，借读班前五，开始在市里求学"],
+[2009,48,60,46,58,"中考直接过六安一中投档线，不必再走定向名额"],
+[2010,58,68,54,64,"压线进六安一中；文理分科后理科与英语优势明显"],
+[2011,64,76,60,72,"数理化生英稳定在 85–90 分水平，语文拖后腿"],
+[2012,72,88,66,78,"高三月考一度全校前 10（约 3000 人），高考全校前 80，压线被同济大学机械学院录取"],
+[2013,78,86,74,82,"大学保持高强度学习，成绩名列前茅；参加武术社训练与表演"],
+[2014,82,90,78,86,"大三用一整年学德语，纸面成绩班级前五，但学成「哑巴德语」"],
+[2015,86,92,82,88,"持续积累"],
+[2016,88,96,84,92,"学院前三（200 人）毕业，获上海市优秀毕业生；大学最后一年任武术社社长"],
+[2017,92,98,86,94,"与现在的妻子确认关系；赴多特蒙德学德语，逼自己社交，通过 C1，被达姆施塔特工业大学录取"],
+[2018,94,96,76,82,"4 月入学达姆机械读研；女友来德交换，一起做饭旅行，也争吵到关系几近破灭；学习风格变成考前突击"],
+[2019,82,86,74,80,"住在离学校很远的 Riedstadt，跑步骑车、视频、练武术、刷 YouTube"],
+[2020,80,84,64,76,"家里经济拮据，硬着头皮找兼职，搬到 Arheilgen；开始从传统机械转向编程算法；年底退掉所有房子回国"],
+[2021,76,80,64,72,"上半年在深圳机械臂初创实习，双向不满意未留下；下半年全职写硕士论文，顺利毕业，绩点前 10%"],
+[2022,72,90,70,86,"入职华为车 BU 规控部门做算法研发，开局积极、业绩不错；疫情缓和时领证结婚"],
+[2023,86,93,64,70,"工作失意。转而在骑行上突破：按专业队方式练，FTP 200W→320W；Garmin 虚拟赛 200+ 人第 6；单日 300km、两天 650km 回六安"],
+[2024,70,84,60,80,"下半年出走 5G 芯片验证部做软件开发；辛苦一年，尝试经营关系，大半年后升职加薪"],
+[2025,80,84,56,60,"4 月儿子出生，与工作冲突；10 月裸辞，30 岁。离职后压力卸去、人放松下来；做 AI 评测自媒体，起步艰难、收效甚微"],
+[2026,60,78,44,74,"放弃自媒体，股票遇逆风，一度怀疑离职；对母亲吹毛求疵，辅导外甥常发火。大量阅读写作；厦门失眠夜想通：要大胆入世。见山还是山，但这次不一样"]
+];
+var YEARS = RAW.map(function(r){return String(r[0]);});
+var OHLC = RAW.map(function(r){return [r[1],r[4],r[3],r[2]];}); // echarts: [open, close, low, high]
+var EVENT = {}; RAW.forEach(function(r){EVENT[r[0]] = r[5];});
+function ma(n){return RAW.map(function(_,i){
+  if(i<n-1) return "-";
+  var s=0; for(var k=i-n+1;k<=i;k++) s+=RAW[k][4];
+  return +(s/n).toFixed(1);
+});}
+
+// 关键年份标注：[年份, 文字, 标注位置]
+var MARKS = [
+[1994,"出生·农村","bottom"],[1999,"4 岁入学","bottom"],[2002,"留级","bottom"],
+[2006,"110 分·转折点","top"],[2008,"皋城借读","top"],[2012,"压线进同济","top"],
+[2017,"毕业前三·赴德过 C1","top"],[2018,"感情危机","bottom"],
+[2020,"转型编程·回国","bottom"],[2022,"华为·结婚","top"],[2023,"FTP 320W","bottom"],
+[2025,"裸辞","top"],[2026,"见山还是山","top"]
+];
+var markData = MARKS.map(function(m){
+  var idx = YEARS.indexOf(String(m[0]));
+  var r = RAW[idx];
+  return {
+    coord:[idx, m[2]==="top" ? r[2] : r[3]],
+    value:m[1],
+    symbol:"circle", symbolSize:5,
+    itemStyle:{color: m[2]==="top" ? "#b91c1c" : "#2e7d5b"},
+    label:{show:true, formatter:m[1], position:m[2], distance:9,
+      fontSize:11, color:"#3f3f46", fontWeight:500}
+  };
+});
+
+var option = {
+  animationDuration: 900,
+  grid:{left:52,right:26,top:76,bottom:78},
+  legend:{data:["人生指数","MA5","MA10"],top:14,textStyle:{color:"#4b5563"}},
+  tooltip:{
+    trigger:"axis", axisPointer:{type:"cross"},
+    backgroundColor:"rgba(255,255,255,.97)", borderColor:"#e5e3da",
+    textStyle:{color:"#1f2937",fontSize:12},
+    formatter:function(ps){
+      var i = ps[0].dataIndex, r = RAW[i];
+      var dir = r[4]>=r[1] ? "上行" : "回落";
+      return "<b>"+r[0]+" 年 · "+dir+"</b><br/>"
+        +"开 "+r[1]+"　高 "+r[2]+"　低 "+r[3]+"　收 "+r[4]+"<br/>"
+        +"<div style='max-width:330px;white-space:normal;line-height:1.7;margin-top:6px;color:#4b5563'>"
+        +r[5]+"</div>";
+    }
+  },
+  xAxis:{
+    type:"category", data:YEARS, boundaryGap:true,
+    axisLine:{lineStyle:{color:"#9ca3af"}},
+    axisLabel:{color:"#4b5563",fontSize:11,interval:1,rotate:40},
+    axisTick:{alignWithLabel:true}
+  },
+  yAxis:{
+    scale:true, name:"人生指数（示意）", nameTextStyle:{color:"#9ca3af",fontSize:11},
+    axisLabel:{color:"#9ca3af"}, splitLine:{lineStyle:{color:"#f0eee7"}}
+  },
+  dataZoom:[{type:"inside",start:0,end:100}],
+  series:[
+    {
+      name:"人生指数", type:"candlestick", data:OHLC, barWidth:"58%",
+      itemStyle:{color:"#e8b6b6",color0:"#a9d3bf",
+        borderColor:"#b91c1c",borderColor0:"#2e7d5b",borderWidth:1.4},
+      markPoint:{data:markData},
+      markArea:{
+        silent:true,
+        itemStyle:{color:"rgba(180,150,60,0.05)"},
+        label:{color:"#8a8a7a",fontSize:11,position:"insideTop"},
+        data:[
+          [{name:"第一个十年 · 起点不高",xAxis:"1994"},{xAxis:"2004"}],
+          [{name:"第二个十年 · 每阶段一根大阳线",xAxis:"2005"},{xAxis:"2014"}],
+          [{name:"第三个十年 · 摸爬滚打",xAxis:"2015"},{xAxis:"2024"}],
+          [{name:"第四个十年 · 起点",xAxis:"2025"},{xAxis:"2026"}]
+        ]
+      }
+    },
+    {name:"MA5",type:"line",data:ma(5),smooth:true,symbol:"none",color:"#c8960c",
+      lineStyle:{color:"#c8960c",width:1.6},z:3},
+    {name:"MA10",type:"line",data:ma(10),smooth:true,symbol:"none",color:"#9ca3af",
+      lineStyle:{color:"#9ca3af",width:1.4,type:"dashed"},z:3}
+  ]
+};
+
+var chart = echarts.init(document.getElementById("chart"));
+chart.setOption(option);
+window.addEventListener("resize", function(){chart.resize();});
+</script>
+</body>
+</html>
